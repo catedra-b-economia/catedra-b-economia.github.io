@@ -1,0 +1,10 @@
+# Sitio estático: no hay que compilar nada, se publica la carpeta tal cual.
+[build]
+  publish = "."
+  command = ""
+
+# El contenido se edita seguido: que el navegador siempre consulte si hay versión nueva.
+[[headers]]
+  for = "/contenido/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

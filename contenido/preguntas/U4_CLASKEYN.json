@@ -1,0 +1,69 @@
+{
+  "actividad": "Unidad IV · Clásicos vs. keynesianos",
+  "opciones_comunes": [
+    "Un clásico",
+    "Un keynesiano"
+  ],
+  "preguntas": [
+    {
+      "texto": "\"Todo lo que se produce genera el ingreso suficiente para comprarlo: no puede haber una sobreproducción general.\"",
+      "correcta": 1,
+      "explicacion": "Es la ley de Say, el corazón de la visión clásica: la oferta crea su propia demanda."
+    },
+    {
+      "texto": "\"Si los empresarios esperan vender poco, invierten poco, y la economía puede quedar estancada con desempleo durante años.\"",
+      "correcta": 2,
+      "explicacion": "Demanda efectiva y expectativas: la economía puede quedar en un equilibrio con desempleo. Keynesiano."
+    },
+    {
+      "texto": "\"Si hay desempleo es porque los salarios no bajan lo suficiente; que bajen, y se va a contratar a todos.\"",
+      "correcta": 1,
+      "explicacion": "Salarios flexibles que vacían el mercado de trabajo: clásico."
+    },
+    {
+      "texto": "\"Bajar los salarios en una recesión puede empeorarla, porque los trabajadores también son los que compran.\"",
+      "correcta": 2,
+      "explicacion": "El salario no es solo un costo: también es demanda. Es el argumento de Keynes contra la receta clásica."
+    },
+    {
+      "texto": "\"Si el Estado se endeuda para gastar más, le saca fondos al sector privado y la inversión privada cae casi lo mismo.\"",
+      "correcta": 1,
+      "explicacion": "Es el efecto desplazamiento (crowding out): la política fiscal no agrega demanda, la cambia de manos. Visión clásica."
+    },
+    {
+      "texto": "\"Si bajan los impuestos financiándose con deuda, la gente ahorra la diferencia porque sabe que más adelante los van a subir.\"",
+      "correcta": 1,
+      "explicacion": "Es la equivalencia ricardiana, formulada por Robert Barro (1974) desde la nueva escuela clásica: la baja de impuestos con deuda no cambia el consumo. Curiosamente, el propio Ricardo dudaba de que se cumpliera en la práctica."
+    },
+    {
+      "texto": "\"Un peso más de gasto público puede generar más de un peso de producto.\"",
+      "correcta": 2,
+      "explicacion": "Es el multiplicador: keynesiano."
+    },
+    {
+      "texto": "\"Emitir más dinero solo sube los precios; lo que se produce depende del trabajo, el capital y la tecnología.\"",
+      "correcta": 1,
+      "explicacion": "Neutralidad del dinero y teoría cuantitativa: clásico."
+    },
+    {
+      "texto": "\"Con mucho desempleo, más gasto puede aumentar la producción sin que los precios suban demasiado.\"",
+      "correcta": 2,
+      "explicacion": "Con capacidad ociosa, la oferta responde a la demanda: keynesiano."
+    },
+    {
+      "texto": "\"En una recesión, si todos intentan ahorrar más, el ingreso cae y se termina ahorrando lo mismo o menos.\"",
+      "correcta": 2,
+      "explicacion": "La paradoja del ahorro: keynesiano (la probaste en la cruz keynesiana)."
+    },
+    {
+      "texto": "\"La tasa de interés es el precio que iguala lo que se quiere ahorrar con lo que se quiere invertir.\"",
+      "correcta": 1,
+      "explicacion": "En la visión clásica la tasa de interés equilibra el mercado de fondos prestables."
+    },
+    {
+      "texto": "\"El ahorro y la inversión se igualan porque se mueve el nivel de ingreso, no la tasa de interés.\"",
+      "correcta": 2,
+      "explicacion": "Es el mecanismo de la cruz keynesiana: el ingreso se ajusta hasta que S = I."
+    }
+  ]
+}

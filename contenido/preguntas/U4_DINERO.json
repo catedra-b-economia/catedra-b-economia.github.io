@@ -1,0 +1,45 @@
+{
+  "actividad": "Unidad IV · El rol del dinero",
+  "opciones_comunes": [
+    "Medio de cambio",
+    "Unidad de cuenta",
+    "Reserva de valor"
+  ],
+  "preguntas": [
+    {
+      "texto": "Pagás el colectivo con la SUBE cargada con pesos.",
+      "correcta": 1,
+      "explicacion": "Usás el dinero para pagar: medio de cambio."
+    },
+    {
+      "texto": "Comparás el precio de dos celulares en la vidriera, los dos marcados en pesos.",
+      "correcta": 2,
+      "explicacion": "Lo usás para medir y comparar: unidad de cuenta."
+    },
+    {
+      "texto": "Guardás plata para las vacaciones del año que viene.",
+      "correcta": 3,
+      "explicacion": "Querés trasladar poder de compra al futuro: reserva de valor."
+    },
+    {
+      "texto": "Un restaurante pone los precios del menú en pesos.",
+      "correcta": 2,
+      "explicacion": "Unidad de cuenta."
+    },
+    {
+      "texto": "Un kiosquero le paga al proveedor con los billetes que juntó en el día.",
+      "correcta": 1,
+      "explicacion": "Medio de cambio."
+    },
+    {
+      "texto": "Un jubilado compra dólares con parte de su haber para cuidar sus ahorros.",
+      "correcta": 3,
+      "explicacion": "Busca una reserva de valor, y la busca afuera del peso. Fijate en esto para la última pregunta."
+    },
+    {
+      "texto": "Una inmobiliaria publica los departamentos en venta en dólares.",
+      "correcta": 2,
+      "explicacion": "Unidad de cuenta… pero en dólares. Que los bienes caros se coticen en otra moneda muestra que el peso también flaquea como unidad de cuenta."
+    }
+  ]
+}

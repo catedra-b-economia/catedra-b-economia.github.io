@@ -1,0 +1,50 @@
+{
+  "actividad": "Unidad III · Riesgo moral, selección adversa o azar",
+  "opciones_comunes": [
+    "Selección adversa",
+    "Riesgo moral",
+    "Azar (riesgo puro)"
+  ],
+  "preguntas": [
+    {
+      "texto": "Los que más se anotan en un seguro de salud caro son justamente los que ya saben que tienen problemas de salud.",
+      "correcta": 1,
+      "explicacion": "Información oculta antes del contrato: cada uno sabe su riesgo y la aseguradora no. Selección adversa."
+    },
+    {
+      "texto": "Desde que aseguró la bici contra robo, la deja sin candado en la puerta del bar.",
+      "correcta": 2,
+      "explicacion": "El seguro cambió su comportamiento después del contrato: se cuida menos porque la pérdida ya no es suya. Riesgo moral."
+    },
+    {
+      "texto": "Una granizada destroza 300 autos estacionados en la calle en diez minutos.",
+      "correcta": 3,
+      "explicacion": "Nadie lo provocó ni lo ocultó: es el riesgo puro que el seguro existe para cubrir. Juntando a muchos, cada uno paga un poco y se cubre a los que les toca."
+    },
+    {
+      "texto": "Con el seguro de desempleo, algunas personas buscan trabajo con menos apuro.",
+      "correcta": 2,
+      "explicacion": "El seguro cambia el comportamiento de quien ya lo cobra: riesgo moral. No quiere decir que el seguro sea malo, sino que su diseño tiene que tenerlo en cuenta (plazos, requisitos)."
+    },
+    {
+      "texto": "En un mercado de autos usados, los que más apuro tienen por vender son los dueños de los autos que andan peor.",
+      "correcta": 1,
+      "explicacion": "El vendedor conoce la calidad y el comprador no: selección adversa (es el mercado de \"limones\" de Akerlof)."
+    },
+    {
+      "texto": "Un rayo quema el transformador del barrio y se echan a perder las heladeras de todas las casas.",
+      "correcta": 3,
+      "explicacion": "Evento que nadie controla: riesgo puro, lo que el seguro cubre."
+    },
+    {
+      "texto": "Un banco presta sin pedir garantías y quien recibió el crédito se juega la plata en una inversión arriesgadísima.",
+      "correcta": 2,
+      "explicacion": "Después del contrato el deudor toma más riesgo porque, si sale mal, gran parte de la pérdida la carga el banco. Riesgo moral."
+    },
+    {
+      "texto": "Una aseguradora de vida sube la prima y los primeros en darse de baja son los jóvenes sanos.",
+      "correcta": 1,
+      "explicacion": "Se van los de menor riesgo y queda un grupo cada vez más riesgoso: selección adversa (es lo que viste en \"Armá tu aseguradora\")."
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "misiones": [
+    {
+      "titulo": "Shock de demanda: cae el consumo mundial",
+      "brief": "Una crisis internacional hace caer fuerte la demanda de las exportaciones de tu país. El desempleo empieza a subir y la actividad económica se enfría.",
+      "objetivo": "Objetivo declarado: elegir la respuesta de política monetaria que mejor sostenga el nivel de actividad y el empleo frente a una caída de la demanda agregada.",
+      "opciones": [
+        {
+          "label": "Subir la tasa de interés para enfriar aún más la economía",
+          "mejor": false,
+          "resultado": "Subir la tasa encarece el crédito y el consumo/inversión, lo que profundiza la caída de la actividad en vez de sostenerla — es la respuesta opuesta a lo que necesita este escenario."
+        },
+        {
+          "label": "Bajar la tasa de interés para incentivar el consumo y la inversión",
+          "mejor": true,
+          "resultado": "Bajar la tasa abarata el crédito, lo que puede sostener el consumo y la inversión y así compensar parte de la caída en la demanda agregada — es la respuesta clásica frente a un shock de demanda negativo."
+        },
+        {
+          "label": "No hacer nada y esperar a que la economía se ajuste sola",
+          "mejor": false,
+          "resultado": "Puede eventualmente ajustarse sola, pero a costa de un período más largo y más doloroso de desempleo alto."
+        }
+      ],
+      "nota": "Cuánto puede bajar la tasa un Banco Central depende también de otras restricciones (como la inflación existente o el tipo de cambio) — este ejercicio aísla solo el efecto sobre la demanda agregada."
+    },
+    {
+      "titulo": "Shock de oferta: sube fuerte el precio del petróleo",
+      "brief": "Un conflicto internacional dispara el precio del petróleo. Suben los costos de producción en toda la economía y la inflación empieza a acelerar, mientras la actividad se resiente.",
+      "objetivo": "Objetivo declarado: elegir la respuesta de política monetaria frente a un shock de oferta negativo, que combina más inflación con menos actividad al mismo tiempo.",
+      "opciones": [
+        {
+          "label": "Bajar la tasa de interés para sostener la actividad",
+          "mejor": false,
+          "resultado": "Sostiene la actividad, pero alimenta todavía más la inflación que ya venía en aumento por el shock — ataca solo una de las dos caras del problema y empeora la otra."
+        },
+        {
+          "label": "Subir la tasa de interés para contener la inflación, aceptando el costo en actividad",
+          "mejor": true,
+          "resultado": "Frena la inflación, que es el problema que un Banco Central suele priorizar cuando ambos objetivos entran en conflicto, aunque a costa de resignar algo de actividad — este es el dilema clásico que genera un shock de oferta."
+        },
+        {
+          "label": "No mover la tasa de interés",
+          "mejor": false,
+          "resultado": "Evita el costo inmediato en actividad de subir la tasa, pero deja que la inflación se acelere sin ninguna respuesta."
+        }
+      ],
+      "nota": "Este es el dilema que distingue un shock de oferta de uno de demanda: frente a un shock de demanda, mover la tasa ayuda con inflación y actividad a la vez; frente a un shock de oferta, mejorar una empeora la otra."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "actividad": "Unidad I · Números índice: Laspeyres y Paasche",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "El contrato de alquiler se ajusta por un <strong>índice de Paasche</strong>. ¿En cuánto varía el alquiler a pagar?",
+      "opciones": [
+        "Aumenta 40%",
+        "Aumenta 60%",
+        "Aumenta 20%",
+        "Aumenta 30%"
+      ],
+      "correcta": 4,
+      "explicacion": "Paasche pondera con las cantidades del <strong>año actual</strong>: P = Σ(p₁·q₁) / Σ(p₀·q₁).<br>• Numerador: es el dato de ventas actuales = <strong>$5.200</strong>.<br>• Denominador: las cantidades de hoy valuadas a precios del año base = 5 × 600 + 10 × 100 = <strong>$4.000</strong>.<br>P = 5.200 / 4.000 = <strong>1,30</strong> → el alquiler sube <strong>30%</strong>."
+    },
+    {
+      "texto": "El dueño del secadero hace otra cuenta: con las <strong>cantidades del año base</strong> y los precios nuevos, el valor de esa producción habría sido $5.600, más que los $5.200. ¿Qué fórmula le conviene proponer a él para ajustar el contrato?",
+      "opciones": [
+        "Le da exactamente igual",
+        "Ninguna: le conviene un monto fijo",
+        "Laspeyres",
+        "Paasche"
+      ],
+      "correcta": 3,
+      "explicacion": "Laspeyres pondera con las cantidades del <strong>año base</strong>: L = Σ(p₁·q₀) / Σ(p₀·q₀) = 5.600 / 4.000 = <strong>1,40</strong> → <strong>+40%</strong>.<br>Como 40% > 30%, al dueño del secadero le conviene Laspeyres: cobra más alquiler con la misma evolución de precios."
+    },
+    {
+      "texto": "¿Por qué los dos índices dan resultados distintos (40% contra 30%) si los precios que subieron son exactamente los mismos?",
+      "opciones": [
+        "Porque cambió qué se produce y cada uno pondera con otra canasta",
+        "Porque Laspeyres exagera siempre la inflación por un error de cálculo",
+        "Porque Paasche no mira los precios, solo las cantidades vendidas",
+        "Porque el año base que se eligió para comparar está mal elegido"
+      ],
+      "correcta": 1,
+      "explicacion": "Con los dos datos se pueden despejar los precios nuevos (400·p + 200·q = 5.600 y 600·p + 100·q = 5.200): la yerba pasó de $5 a <strong>$6</strong> (+20%) y el té de $10 a <strong>$16</strong> (+60%).<br>La producción se movió <em>hacia</em> la yerba (el bien que menos aumentó) y se alejó del té (el que más aumentó). Paasche usa las cantidades nuevas, así que le da más peso a la yerba y marca menos inflación. Laspeyres usa las viejas, le da más peso al té y marca más. Ninguno está mal: miden canastas distintas."
+    },
+    {
+      "texto": "Para el año próximo se prevé <strong>triplicar</strong> las cantidades del año base, y que los precios vuelvan a ser los mismos que en aquel año. Si sos el asesor del dueño del secadero, ¿qué fórmula le recomendás?",
+      "opciones": [
+        "Laspeyres, porque el alquiler subiría",
+        "Paasche, porque el alquiler caería 23,1%",
+        "Laspeyres, porque el alquiler caería 28,6%",
+        "Paasche, porque el alquiler quedaría igual"
+      ],
+      "correcta": 2,
+      "explicacion": "Si los precios vuelven a los del año base, los dos índices vuelven a 1,00 (o 100), sin importar las cantidades. Pero lo que se ajusta es el alquiler <em>respecto del año anterior</em>, y ahí cada uno venía de un nivel distinto:<br>• Con Laspeyres: 1,00 / 1,40 − 1 = <strong>−28,6%</strong><br>• Con Paasche: 1,00 / 1,30 − 1 = <strong>−23,1%</strong><br>Al dueño le conviene Paasche, porque le hace caer menos el ingreso por alquiler. Moraleja: qué fórmula conviene depende de en qué dirección se mueven precios y cantidades; no hay una que sea siempre mejor para una de las partes."
+    },
+    {
+      "texto": "En términos conceptuales, ¿cuál es la diferencia entre los dos índices?",
+      "opciones": [
+        "Laspeyres fija la canasta del año base y Paasche usa la del año actual",
+        "Laspeyres se calcula con sumas y Paasche con promedios de precios",
+        "Laspeyres sirve para el agro y Paasche para la industria y el comercio",
+        "Laspeyres mide precios y Paasche mide solo las cantidades producidas"
+      ],
+      "correcta": 1,
+      "explicacion": "Es la única diferencia de fondo, y de ahí sale todo lo demás. Por eso los IPC del mundo, incluido el de Argentina, se calculan en general con estructura tipo <strong>Laspeyres</strong>: mantener la canasta fija es mucho más barato y rápido que salir a medir las cantidades consumidas en cada período. El costo de esa practicidad es el <em>sesgo de sustitución</em>: como la gente compra menos de lo que más aumenta, una canasta fija tiende a sobreestimar un poco la inflación."
+    }
+  ]
+}

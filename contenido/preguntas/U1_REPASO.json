@@ -1,0 +1,116 @@
+{
+  "actividad": "Unidad I · Preguntas de repaso",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "Tenés una entrada de regalo para un recital de esta noche. Si no vas, trabajarías 4 horas cobrando $5.000 la hora. ¿Cuál es el costo de oportunidad de ir?",
+      "opciones": [
+        "Cero: la entrada fue un regalo",
+        "El precio de mercado de la entrada",
+        "El salario que no gano por las 4 horas",
+        "No se puede calcular"
+      ],
+      "correcta": 3,
+      "explicacion": "El costo de oportunidad es el valor de la mejor alternativa resignada, no lo que pagaste. Que la entrada sea gratis no hace que ir sea gratis: te cuesta las 4 horas de trabajo que no vas a hacer."
+    },
+    {
+      "texto": "Un país produce en un punto ubicado <em>dentro</em> de su Frontera de Posibilidades de Producción. ¿Qué se puede afirmar?",
+      "opciones": [
+        "Que está produciendo de forma eficiente",
+        "Que puede producir más de ambos bienes",
+        "Que mejoró su tecnología",
+        "Que ese punto es inalcanzable"
+      ],
+      "correcta": 2,
+      "explicacion": "Un punto interior significa recursos ociosos o mal asignados: hay margen para producir más de los dos bienes a la vez. Recién sobre la frontera aparece el trade-off."
+    },
+    {
+      "texto": "¿Por qué la Frontera de Posibilidades de Producción suele dibujarse cóncava y no como una recta?",
+      "opciones": [
+        "Por una convención de dibujo",
+        "Porque siempre hay inflación",
+        "Porque el país puede importar",
+        "Porque el costo de oportunidad es creciente"
+      ],
+      "correcta": 4,
+      "explicacion": "Al especializarse cada vez más en un bien hay que usar recursos cada vez menos aptos para producirlo, así que cada unidad extra cuesta más unidades del otro bien."
+    },
+    {
+      "texto": "El costo de oportunidad, ¿es un concepto más relacionado con la eficiencia o con la equidad?",
+      "opciones": [
+        "Con la eficiencia",
+        "Con la equidad",
+        "Con la estabilidad de precios",
+        "Con el crecimiento de largo plazo"
+      ],
+      "correcta": 1,
+      "explicacion": "Con la eficiencia: pregunta qué se resigna al usar los recursos de una manera y no de otra, y por eso sirve para decidir el mejor uso de recursos escasos. La equidad, en cambio, mira cómo se reparte lo que se produce."
+    },
+    {
+      "texto": "En un modelo económico, ¿para qué sirve el supuesto \"ceteris paribus\"?",
+      "opciones": [
+        "Para garantizar conclusiones verdaderas",
+        "Para no tener que usar datos",
+        "Para aislar el efecto de una variable",
+        "Para probar que la economía es exacta"
+      ],
+      "correcta": 3,
+      "explicacion": "Es una herramienta para pensar de a un efecto por vez. Su límite es evidente: en la realidad nunca se cumple, y por eso los resultados hay que llevarlos a los datos con cuidado."
+    },
+    {
+      "texto": "Dos países tienen exactamente el mismo PBI per cápita. ¿Qué es lo que ese dato NO te permite saber?",
+      "opciones": [
+        "Cuánto se produjo por habitante",
+        "Cómo se reparte ese ingreso",
+        "El tamaño de la población",
+        "El valor total producido"
+      ],
+      "correcta": 2,
+      "explicacion": "El PBI per cápita es un promedio, y los promedios esconden la dispersión. Por eso siempre se lo mira junto a algún indicador de desigualdad."
+    },
+    {
+      "texto": "Los salarios nominales crecieron 100% en el año y los precios crecieron 150%. ¿Qué pasó con el salario real?",
+      "opciones": [
+        "Creció",
+        "Cayó",
+        "Quedó igual",
+        "Falta el tipo de cambio"
+      ],
+      "correcta": 2,
+      "explicacion": "El salario real es el poder de compra del salario: si los precios corren más rápido que el sueldo, con un sueldo nominal más alto se compran menos cosas."
+    },
+    {
+      "texto": "En el flujo circular del ingreso, ¿qué ofrecen las familias en el mercado de factores?",
+      "opciones": [
+        "Bienes y servicios finales",
+        "Impuestos",
+        "Trabajo, tierra y capital",
+        "Subsidios"
+      ],
+      "correcta": 3,
+      "explicacion": "El modelo tiene dos circuitos que giran en sentido opuesto: uno real (factores y bienes) y otro monetario (ingresos y gastos). Lo que para un actor es gasto, para el otro es ingreso."
+    },
+    {
+      "texto": "Un índice de precios pasa de 100 en el año base a 250. ¿Qué significa?",
+      "opciones": [
+        "Que subieron 250%",
+        "Que subieron 150%",
+        "Que se multiplicaron por 250",
+        "Que la inflación fue del 100%"
+      ],
+      "correcta": 2,
+      "explicacion": "El índice indica el nivel, no la variación: pasar de 100 a 250 es multiplicar por 2,5, o sea un aumento del 150%. Confundir nivel con variación es uno de los errores más frecuentes."
+    },
+    {
+      "texto": "Al cerrar la unidad con la disyuntiva \"Estado y Mercado\", ¿por qué se sostiene que las instituciones importan?",
+      "opciones": [
+        "Porque hacen innecesarios los mercados",
+        "Porque son un tema del derecho",
+        "Porque solo influyen en países pobres",
+        "Porque definen los incentivos de cada decisión"
+      ],
+      "correcta": 4,
+      "explicacion": "Las reglas de juego (derechos de propiedad, cumplimiento de contratos, calidad de la burocracia) cambian lo que conviene hacer. Por eso instituciones distintas dan resultados distintos con los mismos recursos."
+    }
+  ]
+}

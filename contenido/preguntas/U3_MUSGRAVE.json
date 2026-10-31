@@ -1,0 +1,45 @@
+{
+  "actividad": "Unidad III · ¿Para qué interviene el Estado?",
+  "opciones_comunes": [
+    "Asignación",
+    "Distribución",
+    "Estabilización"
+  ],
+  "preguntas": [
+    {
+      "texto": "El Estado pone alumbrado público y se ocupa de la defensa nacional.",
+      "correcta": 1,
+      "explicacion": "Son bienes públicos: el mercado solo no los provee (no se puede cobrarle solo al que los aprovecha). Proveerlos es la función de <strong>asignación</strong>."
+    },
+    {
+      "texto": "Cobra más impuestos, proporcionalmente, a quien más gana y transfiere a los hogares de menores ingresos.",
+      "correcta": 2,
+      "explicacion": "Cambiar el reparto del ingreso que deja el mercado es la función de <strong>distribución</strong>."
+    },
+    {
+      "texto": "En plena recesión, adelanta obras públicas para sostener la actividad y el empleo.",
+      "correcta": 3,
+      "explicacion": "Suavizar el ciclo —sostener la demanda cuando cae, enfriarla cuando se recalienta— es la función de <strong>estabilización</strong>."
+    },
+    {
+      "texto": "Pone un impuesto a los combustibles para que se contamine menos.",
+      "correcta": 1,
+      "explicacion": "Corrige una externalidad negativa: hace que el precio refleje un costo que el mercado no estaba cobrando. Es <strong>asignación</strong>, aunque también recaude."
+    },
+    {
+      "texto": "El Banco Central sube la tasa de interés porque la inflación se está acelerando.",
+      "correcta": 3,
+      "explicacion": "Es política monetaria para enfriar la economía: función de <strong>estabilización</strong>."
+    },
+    {
+      "texto": "Da becas a estudiantes de hogares de bajos ingresos.",
+      "correcta": 2,
+      "explicacion": "Busca que el origen económico pese menos en las oportunidades: función de <strong>distribución</strong>."
+    },
+    {
+      "texto": "Regula las tarifas de la única empresa que distribuye gas en una región.",
+      "correcta": 1,
+      "explicacion": "Es un monopolio natural: sin regulación cobraría muy por encima de su costo y se produciría menos de lo eficiente. Corregirlo es <strong>asignación</strong>."
+    }
+  ]
+}

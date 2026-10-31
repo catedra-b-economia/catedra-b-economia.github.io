@@ -1,0 +1,55 @@
+{
+  "misiones": [
+    {
+      "titulo": "Racioná el agua en una sequía",
+      "brief": "Una sequía histórica dejó muy poca agua potable disponible en la ciudad. Como responsable del servicio, tenés que elegir el mecanismo para repartir lo que hay entre los hogares.",
+      "objetivo": "Objetivo declarado: elegir el mecanismo que reparta el agua de forma más pareja para todos los hogares, dado que es un bien de primera necesidad.",
+      "opciones": [
+        {
+          "label": "Dejar que el precio suba libremente hasta que la cantidad demandada baje sola",
+          "mejor": false,
+          "resultado": "Vacía el mercado sin necesidad de organizar nada, pero para un bien de primera necesidad como el agua, dejar que el precio suba libremente puede dejar afuera a quienes menos tienen — justo lo que se busca evitar en una emergencia."
+        },
+        {
+          "label": "Cartilla de racionamiento: una cantidad fija por hogar",
+          "mejor": true,
+          "resultado": "Garantiza un mínimo parejo para todos los hogares sin importar cuánto pueden pagar, que es lo más relevante en una emergencia con un bien esencial. El costo es administrativo: hay que armar y controlar el sistema de cartillas, y no se ajusta bien si algunos hogares necesitan más que otros."
+        },
+        {
+          "label": "Orden de llegada (el que hace la cola primero, se lleva lo que necesita)",
+          "mejor": false,
+          "resultado": "No hace falta organizarlo de antemano, pero premia a quien puede hacer la fila más temprano o más tiempo — no necesariamente a quien más lo necesita — y en una emergencia real termina generando colas larguísimas."
+        },
+        {
+          "label": "Sorteo entre todos los hogares",
+          "mejor": false,
+          "resultado": "Es igualitario en el sentido de que todos tienen la misma chance, pero no relaciona el reparto con la necesidad real de cada hogar."
+        }
+      ],
+      "nota": "En la práctica los gobiernos suelen combinar mecanismos (por ejemplo, cartillas con algo de mercado para lo que sobra) — la pregunta no tiene una única respuesta correcta en la vida real, pero sí ayuda a ver el costo y el beneficio de cada mecanismo de asignación cuando el precio no es la única opción."
+    },
+    {
+      "titulo": "Te proponen un precio máximo al alquiler",
+      "brief": "En tu ciudad los alquileres subieron mucho y te proponen fijar un precio máximo por ley para que sean más accesibles.",
+      "objetivo": "Objetivo declarado: evaluar si un precio máximo por decreto resuelve el problema de acceso a la vivienda en alquiler, sin generar otros problemas nuevos.",
+      "opciones": [
+        {
+          "label": "Aprobar el precio máximo tal como lo proponen",
+          "mejor": false,
+          "resultado": "Baja el precio que pagan quienes consiguen alquilar, pero un precio máximo por debajo del equilibrio típicamente genera un faltante: menos propietarios están dispuestos a ofrecer en alquiler a ese precio, así que la oferta disponible se reduce."
+        },
+        {
+          "label": "Rechazarlo y no hacer nada",
+          "mejor": false,
+          "resultado": "Evita el faltante que generaría el precio máximo, pero no atiende el problema de fondo que motivó el reclamo: el costo de alquilar sigue siendo alto para gran parte de la población."
+        },
+        {
+          "label": "Atacar las causas de la escasez de oferta (por ejemplo, incentivos para construir más unidades en alquiler) en vez de fijar un precio máximo",
+          "mejor": true,
+          "resultado": "En vez de fijar un precio por decreto, apunta a mover la curva de oferta hacia la derecha (más departamentos disponibles), lo que baja el precio de equilibrio sin generar el faltante típico de un precio máximo. Es una solución de plazos más largos, no inmediata como un decreto."
+        }
+      ],
+      "nota": "Fijar precios máximos es una herramienta real y usada en muchos países ante crisis de acceso a la vivienda — sus efectos de mediano plazo son un tema debatido entre economistas, no una conclusión cerrada."
+    }
+  ]
+}

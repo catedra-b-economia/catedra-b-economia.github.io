@@ -1,0 +1,469 @@
+{
+  "curso": {
+    "nombre": "Comisión 7",
+    "docente": "Lodola"
+  },
+  "unidades": [
+    {
+      "id": "I",
+      "nombre": "La Economía",
+      "habilitada": true,
+      "actividades": [
+        {
+          "id": "aprender",
+          "titulo": "Experimentar",
+          "descripcion": "Frontera de posibilidades, costo de oportunidad y el balde de Okun",
+          "visible": true
+        },
+        {
+          "id": "flujo",
+          "titulo": "Armá el flujo circular",
+          "descripcion": "Arrastrá cada tarjeta hacia el actor correcto",
+          "visible": true
+        },
+        {
+          "id": "costop",
+          "titulo": "Costo de oportunidad y comercio",
+          "descripcion": "Invernalia y Desembarco del Rey: ventaja absoluta y ventaja comparativa",
+          "visible": true
+        },
+        {
+          "id": "indices",
+          "titulo": "Números índice: Laspeyres y Paasche",
+          "descripcion": "El alquiler de un secadero que se ajusta por un índice de precios",
+          "visible": true
+        },
+        {
+          "id": "tradeoff",
+          "titulo": "Trade-off",
+          "descripcion": "Las disyuntivas centrales de la economía y por qué aparecen",
+          "visible": true
+        },
+        {
+          "id": "igualdad",
+          "titulo": "¿Igualdad de qué?",
+          "descripcion": "Igualdad de resultados o de oportunidades: no es lo mismo",
+          "visible": true
+        },
+        {
+          "id": "posnorm",
+          "titulo": "¿Positiva o normativa?",
+          "descripcion": "Clasificá afirmaciones a toda velocidad",
+          "visible": true
+        },
+        {
+          "id": "vf",
+          "titulo": "Verdadero o falso",
+          "descripcion": "Definiciones, conceptos y alguna trampa de la unidad",
+          "visible": true
+        },
+        {
+          "id": "repaso",
+          "titulo": "Preguntas de repaso",
+          "descripcion": "Aplicá los conceptos de la unidad a casos concretos",
+          "visible": true
+        },
+        {
+          "id": "efeq",
+          "titulo": "¿Eficiencia o equidad?",
+          "descripcion": "Frente a cada argumento, reconocé de cuál de las dos se está hablando",
+          "visible": true
+        },
+        {
+          "id": "lectura",
+          "titulo": "Test de lectura: Buchanan (1964)",
+          "descripcion": "\"¿Qué deberían hacer los economistas?\"",
+          "visible": true
+        },
+        {
+          "id": "gasparini",
+          "titulo": "Test de lectura: Gasparini",
+          "descripcion": "Desigualdad, inequidad y igualdad de oportunidades",
+          "visible": true
+        },
+        {
+          "id": "fanelli",
+          "titulo": "Test de lectura: Fanelli",
+          "descripcion": "La anatomía del sistema económico: hardware, software y coordinación",
+          "visible": true
+        },
+        {
+          "id": "mision",
+          "titulo": "Misiones: tomá la decisión",
+          "descripcion": "Sos quien decide",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "II",
+      "nombre": "Sistemas Económicos",
+      "habilitada": true,
+      "actividades": [
+        {
+          "id": "sistemas",
+          "titulo": "Identificá el sistema económico",
+          "descripcion": "Solo país y año: reconocé el sistema con la clasificación de Lajugie",
+          "visible": true
+        },
+        {
+          "id": "viaje",
+          "titulo": "Un viaje a través de la historia",
+          "descripcion": "De Aristóteles a la CEPAL, parada por parada",
+          "visible": true
+        },
+        {
+          "id": "zalduendo",
+          "titulo": "Zalduendo: breve historia del pensamiento",
+          "descripcion": "Preguntas sobre los capítulos I a V del texto",
+          "visible": true
+        },
+        {
+          "id": "escuelas",
+          "titulo": "¿Quién lo pensó?",
+          "descripcion": "Hechos, políticas e ideas: ¿qué escuela hay detrás?",
+          "visible": true
+        },
+        {
+          "id": "frases",
+          "titulo": "Frases y teorías del valor",
+          "descripcion": "Qué teoría del valor hay detrás de cada cita famosa",
+          "visible": true
+        },
+        {
+          "id": "valor",
+          "titulo": "¿Esto tiene valor?",
+          "descripcion": "Jugate una respuesta y compará con la mirada de la cátedra",
+          "visible": true
+        },
+        {
+          "id": "malthus",
+          "titulo": "El pesimismo malthusiano",
+          "descripcion": "Población geométrica contra alimentos aritméticos",
+          "visible": true
+        },
+        {
+          "id": "hierro",
+          "titulo": "La ley de hierro de los salarios",
+          "descripcion": "Mejorá el salario y dejá pasar las generaciones",
+          "visible": true
+        },
+        {
+          "id": "renta",
+          "titulo": "La renta diferencial de la tierra",
+          "descripcion": "Ricardo: por qué los terratenientes ganan cuando crece la población",
+          "visible": true
+        },
+        {
+          "id": "crisis30",
+          "titulo": "Vivir la crisis del 30",
+          "descripcion": "Estados Unidos, del crac de 1929 al fin del patrón oro",
+          "visible": true
+        },
+        {
+          "id": "vf",
+          "titulo": "Verdadero o falso",
+          "descripcion": "Sistemas económicos y escuelas de pensamiento",
+          "visible": true
+        },
+        {
+          "id": "mision",
+          "titulo": "Misiones: tomá la decisión",
+          "descripcion": "Sos quien decide",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "III",
+      "nombre": "Mercados Individuales",
+      "habilitada": true,
+      "actividades": [
+        {
+          "id": "demanda",
+          "titulo": "Experimentá: la demanda",
+          "descripcion": "Precio, ingreso, sustitutos y gustos",
+          "visible": true
+        },
+        {
+          "id": "oferta",
+          "titulo": "Experimentá: la oferta",
+          "descripcion": "Precio, costos, tecnología y cantidad de productores",
+          "visible": true
+        },
+        {
+          "id": "movdesp",
+          "titulo": "¿Movimiento o desplazamiento?",
+          "descripcion": "Moverse sobre la curva no es lo mismo que mover la curva",
+          "visible": true
+        },
+        {
+          "id": "equilibrio",
+          "titulo": "Calculá el equilibrio",
+          "descripcion": "Una demanda, una oferta: encontrá Pe y Qe",
+          "visible": true
+        },
+        {
+          "id": "rfactor",
+          "titulo": "Rendimientos del factor: la pizzería",
+          "descripcion": "Un solo horno y cada vez más cocineros",
+          "visible": true
+        },
+        {
+          "id": "rescala",
+          "titulo": "Rendimientos a escala",
+          "descripcion": "Qué pasa si agrandás todo a la vez",
+          "visible": true
+        },
+        {
+          "id": "rquiz",
+          "titulo": "¿Qué rendimiento es?",
+          "descripcion": "Del factor o a escala; crecientes, constantes o decrecientes",
+          "visible": true
+        },
+        {
+          "id": "bif",
+          "titulo": "¿Bien, insumo o factor?",
+          "descripcion": "La misma cosa puede ser las tres: depende del contexto",
+          "visible": true
+        },
+        {
+          "id": "pmax",
+          "titulo": "Experimentá: precio máximo",
+          "descripcion": "Qué pasa cuando se pone un techo al precio",
+          "visible": true
+        },
+        {
+          "id": "pmin",
+          "titulo": "Experimentá: precio mínimo",
+          "descripcion": "Qué pasa cuando se pone un piso al precio",
+          "visible": true
+        },
+        {
+          "id": "impuesto",
+          "titulo": "Un impuesto: ¿quién lo paga?",
+          "descripcion": "Recaudación, pérdida de eficiencia y a quién le cae",
+          "visible": true
+        },
+        {
+          "id": "musgrave",
+          "titulo": "¿Para qué interviene el Estado?",
+          "descripcion": "Asignación, distribución y estabilización",
+          "visible": true
+        },
+        {
+          "id": "unir",
+          "titulo": "Fallas de mercado: uní con flechas",
+          "descripcion": "Cada caso con la falla que lo explica",
+          "visible": true
+        },
+        {
+          "id": "fallaono",
+          "titulo": "¿Falla de mercado o no?",
+          "descripcion": "No todo lo que duele es una falla",
+          "visible": true
+        },
+        {
+          "id": "dilema",
+          "titulo": "Dilema del prisionero",
+          "descripcion": "Jugá varias rondas contra la cátedra y descubrí el equilibrio de Nash",
+          "visible": true
+        },
+        {
+          "id": "ultimatum",
+          "titulo": "El juego del ultimátum",
+          "descripcion": "Repartí una torta y descubrí que la gente no siempre actúa 100% racional",
+          "visible": true
+        },
+        {
+          "id": "elasticidad",
+          "titulo": "¿Sube o baja el gasto total?",
+          "descripcion": "Casos de elasticidad-precio de la demanda",
+          "visible": true
+        },
+        {
+          "id": "aseguradora",
+          "titulo": "Armá tu aseguradora",
+          "descripcion": "Seguros y selección adversa, jugando",
+          "visible": true
+        },
+        {
+          "id": "riesgo",
+          "titulo": "Riesgo moral, selección adversa o azar",
+          "descripcion": "Qué problema hay detrás de cada caso",
+          "visible": true
+        },
+        {
+          "id": "limones",
+          "titulo": "El mercado de autos usados",
+          "descripcion": "Akerlof y cómo la desconfianza puede vaciar un mercado",
+          "visible": true
+        },
+        {
+          "id": "vf",
+          "titulo": "Verdadero o falso",
+          "descripcion": "Oferta, demanda, precios máximos y mínimos, elasticidad",
+          "visible": true
+        },
+        {
+          "id": "mision",
+          "titulo": "Misiones: tomá la decisión",
+          "descripcion": "Sos quien decide",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "IV",
+      "nombre": "Mercados Agregados",
+      "habilitada": true,
+      "actividades": [
+        {
+          "id": "ciclo",
+          "titulo": "Experimentá: ciclo y tendencia",
+          "descripcion": "Crecer no es lo mismo que fluctuar",
+          "visible": true
+        },
+        {
+          "id": "ciclotend",
+          "titulo": "¿Tendencia o ciclo?",
+          "descripcion": "Qué mueve el largo plazo y qué el corto",
+          "visible": true
+        },
+        {
+          "id": "flujopib",
+          "titulo": "El flujo circular y el PIB",
+          "descripcion": "Por qué el gasto, el ingreso y el producto dan lo mismo",
+          "visible": true
+        },
+        {
+          "id": "cruz",
+          "titulo": "Cruz keynesiana y ahorro",
+          "descripcion": "El equilibrio visto desde el gasto y desde el ahorro",
+          "visible": true
+        },
+        {
+          "id": "multi",
+          "titulo": "El multiplicador, persona por persona",
+          "descripcion": "Diez personas, economía cerrada o abierta, gasto o impuestos",
+          "visible": true
+        },
+        {
+          "id": "brechas",
+          "titulo": "Las tres brechas",
+          "descripcion": "Ahorro neto privado, público y externo",
+          "visible": true
+        },
+        {
+          "id": "brechasreal",
+          "titulo": "Las tres brechas en la vida real",
+          "descripcion": "Alemania, Grecia, China, Japón y Argentina",
+          "visible": true
+        },
+        {
+          "id": "brechas3",
+          "titulo": "Experimentá: mové las tres brechas",
+          "descripcion": "Ahorro, inversión, impuestos y gasto",
+          "visible": true
+        },
+        {
+          "id": "claskeyn",
+          "titulo": "Clásicos vs. keynesianos",
+          "descripcion": "El cuadro, y después ¿quién diría cada frase?",
+          "visible": true
+        },
+        {
+          "id": "trabajo",
+          "titulo": "El mercado de trabajo",
+          "descripcion": "Salario flexible o rígido: qué pasa con el desempleo",
+          "visible": true
+        },
+        {
+          "id": "inflacion",
+          "titulo": "La inflación según cada escuela",
+          "descripcion": "Más dinero: ¿más precios o más producción?",
+          "visible": true
+        },
+        {
+          "id": "finanzas",
+          "titulo": "Finanzas sanas vs. funcionales",
+          "descripcion": "Presupuesto equilibrado o presupuesto al servicio del empleo",
+          "visible": true
+        },
+        {
+          "id": "dinero",
+          "titulo": "El rol del dinero",
+          "descripcion": "Sus tres funciones, y cuál cumple peor el peso",
+          "visible": true
+        },
+        {
+          "id": "shocks",
+          "titulo": "Experimentá: shocks de oferta y demanda",
+          "descripcion": "Qué pasa con la producción y los precios",
+          "visible": true
+        },
+        {
+          "id": "vf",
+          "titulo": "Verdadero o falso",
+          "descripcion": "Identidades macro, multiplicador y tipo de cambio",
+          "visible": true
+        },
+        {
+          "id": "mision",
+          "titulo": "Sos el Banco Central",
+          "descripcion": "Shocks de oferta y de demanda: elegí la respuesta de política",
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": "V",
+      "nombre": "Economía Argentina",
+      "habilitada": true,
+      "actividades": [
+        {
+          "id": "viajear",
+          "titulo": "Un viaje por la economía argentina",
+          "descripcion": "De Potosí a 2002, etapa por etapa (Ferrer)",
+          "visible": true
+        },
+        {
+          "id": "etapas",
+          "titulo": "Las etapas según Ferrer",
+          "descripcion": "Reconocé cada etapa por sus rasgos",
+          "visible": true
+        },
+        {
+          "id": "ministro",
+          "titulo": "Ministro por un día: las crisis",
+          "descripcion": "De la Baring (1890) al fin de la convertibilidad (2001)",
+          "visible": true
+        },
+        {
+          "id": "stopgo",
+          "titulo": "La restricción externa: jugá el stop-and-go",
+          "descripcion": "Crecer, quedarse sin dólares, devaluar… y otra vez",
+          "visible": true
+        },
+        {
+          "id": "sectores",
+          "titulo": "Agro, industria y energía",
+          "descripcion": "Aspectos sectoriales de la estructura productiva",
+          "visible": true
+        },
+        {
+          "id": "regiones",
+          "titulo": "¿Dónde se produce?",
+          "descripcion": "Las economías regionales y el desequilibrio territorial",
+          "visible": true
+        },
+        {
+          "id": "vf",
+          "titulo": "Verdadero o falso",
+          "descripcion": "Etapas, crisis y estructura de la economía argentina",
+          "visible": true
+        }
+      ]
+    }
+  ]
+}

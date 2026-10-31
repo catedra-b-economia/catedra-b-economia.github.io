@@ -1,0 +1,94 @@
+{
+  "actividad": "Unidad I · Test de lectura: Gasparini",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "¿Qué enseñanza busca transmitir el autor mediante el \"ejemplo del fútbol\" en América Latina?",
+      "opciones": [
+        "Que los deportes profesionales son la única actividad donde no existen brechas salariales entre participantes.",
+        "Que la falta de redes masivas de detección de talento en otras áreas provoca un desperdicio del potencial humano.",
+        "Que las diferencias de ingresos en el deporte responden exclusivamente a las circunstancias socioeconómicas de origen.",
+        "Que la inversión estatal en clubes de barrio ha erradicado la desigualdad de oportunidades educativas."
+      ],
+      "correcta": 2,
+      "explicacion": "El fútbol tiene una red enorme de captación que llega hasta el último pueblo: un chico con talento es detectado aunque nazca pobre. En casi ninguna otra actividad existe algo así, y por eso muchísimo talento potencial nunca se descubre. Es una forma muy gráfica de mostrar qué se pierde una sociedad con desigualdad de oportunidades."
+    },
+    {
+      "texto": "Según el texto, ¿cuál es la distinción conceptual clave entre \"desigualdad\" e \"inequidad\"?",
+      "opciones": [
+        "La desigualdad alude a una medición objetiva de diferencias; la inequidad implica un juicio normativo de injusticia.",
+        "La desigualdad se refiere solo a factores heredados; la inequidad analiza únicamente las decisiones individuales de esfuerzo.",
+        "La desigualdad es un concepto de la sociología; la inequidad es una categoría estrictamente macroeconómica.",
+        "La desigualdad exige siempre intervención estatal; la inequidad describe situaciones de equilibrio de mercado."
+      ],
+      "correcta": 1,
+      "explicacion": "La desigualdad se mide (con datos, con un Gini); la inequidad se argumenta. Dos personas pueden estar de acuerdo en cuánta desigualdad hay y discrepar por completo en si es injusta."
+    },
+    {
+      "texto": "¿Por qué sostiene Gasparini que la igualdad de oportunidades no es suficiente para garantizar una sociedad justa?",
+      "opciones": [
+        "Porque ignora la necesidad de medir la riqueza acumulada mediante impuestos a la herencia.",
+        "Porque requiere además que las opciones disponibles para elegir sean moralmente aceptables y el \"juego\" sea justo.",
+        "Porque presupone que todas las personas poseen las mismas capacidades cognitivas al nacer.",
+        "Porque invalida el uso de indicadores monetarios sencillos en las encuestas de hogares."
+      ],
+      "correcta": 2,
+      "explicacion": "No alcanza con que todos puedan jugar: hace falta que el juego que se juega sea aceptable. Si el conjunto de opciones disponibles es malo para todos, la igualdad de acceso a ese conjunto no vuelve justa la situación."
+    },
+    {
+      "texto": "Al analizar el caso de deportistas o empresarios de ingresos extraordinarios (como Messi o Bill Gates), ¿cuál es la objeción que resalta el texto (retomando a Piketty)?",
+      "opciones": [
+        "Que los ingresos elevados destruyen de forma inmediata el talento de quienes los reciben.",
+        "Que la magnitud de tales recompensas suele ser desmedida para el fin de mantener los incentivos al esfuerzo.",
+        "Que la sociedad no debería otorgar ningún tipo de reconocimiento económico al mérito personal.",
+        "Que estos ingresos provienen necesariamente de conductas delictivas o corrupción institucional."
+      ],
+      "correcta": 2,
+      "explicacion": "El argumento no es que no haya que premiar el talento, sino que el premio necesario para sostener el incentivo es muchísimo menor al que efectivamente se paga: nadie dejaría de esforzarse por ganar \"solo\" una fracción de esas cifras."
+    },
+    {
+      "texto": "¿Qué ocurre con los incentivos individuales según el autor cuando se intenta forzar una igualdad económica absoluta?",
+      "opciones": [
+        "Se fortalecen al eliminar la competencia desleal entre los distintos sectores productivos.",
+        "Se debilitan, desincentivando el esfuerzo, la innovación y la inversión en capacitación.",
+        "Se reorientan automáticamente hacia actividades de alta productividad sin mediación monetaria.",
+        "Se mantienen inalterados ya que el ser humano coopera de manera idéntica en cualquier sistema."
+      ],
+      "correcta": 2,
+      "explicacion": "Es el otro lado del argumento: así como las recompensas desmedidas son difíciles de justificar, eliminar por completo la diferencia entre esforzarse y no hacerlo también tiene costos. La discusión está en el punto intermedio."
+    },
+    {
+      "texto": "De acuerdo con Acemoglu y Robinson (citados por Gasparini), las desigualdades generadas por \"instituciones extractivas\":",
+      "opciones": [
+        "Estimulan el crecimiento económico sostenido al concentrar el capital en pocas manos.",
+        "Son socialmente aceptables porque premian la innovación tecnológica de las élites.",
+        "Generan un progreso efímero o atraso, al estar diseñadas para extraer rentas sin promover el desarrollo.",
+        "Eliminan de forma progresiva la necesidad de aplicar políticas redistributivas compensatorias."
+      ],
+      "correcta": 3,
+      "explicacion": "Las instituciones extractivas pueden dar crecimiento un tiempo, pero no lo sostienen: como están hechas para que unos pocos extraigan rentas, no generan incentivos generalizados a innovar ni a invertir."
+    },
+    {
+      "texto": "¿Qué descubrieron Cruces, Pérez Truglia y Tetaz al brindar información objetiva a personas que subestimaban su pobreza relativa?",
+      "opciones": [
+        "Que redujeron su demanda de políticas redistributivas al sentirse más satisfechas con su entorno.",
+        "Que modificaron sus percepciones y pasaron a demandar mayores niveles de redistribución estatal.",
+        "Que mantuvieron inalteradas sus opiniones ideológicas debido a sesgos genéticos e inmutables.",
+        "Que rechazaron la veracidad de los datos estadísticos sobre el ranking de ingresos nacional."
+      ],
+      "correcta": 2,
+      "explicacion": "La gente suele creer que está más arriba en la escala de ingresos de lo que realmente está. Cuando se le muestra su posición real, sus preferencias por redistribución cambian — o sea, la demanda de políticas depende en parte de percepciones equivocadas."
+    },
+    {
+      "texto": "¿Cuál es la razón principal por la que la mayoría de los estudios empíricos sobre equidad utilizan la desigualdad de ingresos en lugar de la igualdad de oportunidades?",
+      "opciones": [
+        "Porque el ingreso es el único factor determinante del bienestar subjetivo individual.",
+        "Por la enorme dificultad operativa de construir estadísticas prácticas sobre oportunidades y circunstancias.",
+        "Porque los economistas consideran que la igualdad de oportunidades es un concepto sin relevancia teórica.",
+        "Debido a que las encuestas de hogares tienen prohibido consultar sobre variables monetarias."
+      ],
+      "correcta": 2,
+      "explicacion": "Conceptualmente casi todos preferirían medir oportunidades, pero para eso habría que observar las circunstancias de origen de cada persona y separarlas de sus decisiones — algo que las encuestas rara vez permiten. El ingreso, en cambio, se mide relativamente fácil."
+    }
+  ]
+}

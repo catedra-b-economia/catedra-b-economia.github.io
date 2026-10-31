@@ -1,0 +1,126 @@
+{
+  "actividad": "Unidad V · Agro, industria y energía",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "¿Qué significa que la estructura productiva argentina es \"desequilibrada\" (Diamand)?",
+      "opciones": [
+        "El agro produce a precios internacionales y la industria no",
+        "La industria exporta más que el agro y trae las divisas",
+        "El agro y la industria tienen la misma productividad"
+      ],
+      "correcta": 1,
+      "explicacion": "Conviven un agro muy productivo, que genera divisas, y una industria con costos más altos que vende en el mercado interno y consume divisas. Por eso el crecimiento choca con la falta de dólares."
+    },
+    {
+      "texto": "¿Qué es la restricción externa al crecimiento?",
+      "opciones": [
+        "Que al crecer faltan dólares para importar lo necesario",
+        "Que otros países ponen barreras a lo que exportamos",
+        "Que la ley prohíbe endeudarse en moneda extranjera"
+      ],
+      "correcta": 1,
+      "explicacion": "Cuando la economía crece, las importaciones (insumos, máquinas, energía) crecen más que las exportaciones. Cuando se acaban las reservas, hay que devaluar y la economía se frena."
+    },
+    {
+      "texto": "¿A qué se llama heterogeneidad estructural (CEPAL)?",
+      "opciones": [
+        "A grandes brechas de productividad entre y dentro de sectores",
+        "A la diversidad de climas y de suelos del territorio",
+        "A la convivencia de empresas públicas y privadas"
+      ],
+      "correcta": 1,
+      "explicacion": "Conviven empresas de productividad cercana a la frontera internacional con otras, muchas veces informales, de productividad muy baja. Eso se traslada a salarios y a desigualdad (Cimoli y Porcile)."
+    },
+    {
+      "texto": "¿Qué cambió en el agro pampeano desde los años 90?",
+      "opciones": [
+        "Subió la productividad y la soja avanzó sobre otros usos",
+        "La ganadería volvió a ocupar la mayor parte de la pampa",
+        "Bajó la producción de granos por el agotamiento del suelo"
+      ],
+      "correcta": 1,
+      "explicacion": "La siembra directa, la soja transgénica (aprobada en 1996), los fertilizantes y el silobolsa multiplicaron la producción. La soja desplazó ganadería y tambos y avanzó hacia el norte (\"agriculturización\"), con debates sobre monocultivo, suelos y desmontes."
+    },
+    {
+      "texto": "¿Quiénes son los contratistas y los pools de siembra?",
+      "opciones": [
+        "Quienes siembran campos ajenos con máquinas o capital propio",
+        "Organismos del Estado que compran la cosecha a precio sostén",
+        "Cooperativas de pequeños propietarios que venden en común"
+      ],
+      "correcta": 1,
+      "explicacion": "Se separa la propiedad de la tierra de la producción: el dueño arrienda y otros (contratistas con maquinaria, fondos que juntan capital) siembran grandes superficies. La producción se concentra aunque la propiedad no cambie."
+    },
+    {
+      "texto": "Entre mediados de los 70 y 2001, ¿qué le pasó a la industria?",
+      "opciones": [
+        "Perdió peso en el producto y en el empleo",
+        "Pasó a ser el principal sector exportador",
+        "Siguió tan protegida como en la sustitución"
+      ],
+      "correcta": 1,
+      "explicacion": "Con la apertura y el atraso cambiario hubo desindustrialización: cerraron muchas firmas, sobre todo pymes, y crecieron pocas ramas de insumos básicos (acero, aluminio, petroquímica, aceites) en manos de grandes empresas."
+    },
+    {
+      "texto": "¿Qué rama es la más grande de la industria argentina?",
+      "opciones": [
+        "Alimentos y bebidas",
+        "Electrónica y software",
+        "Textiles y calzado"
+      ],
+      "correcta": 1,
+      "explicacion": "Alimentos y bebidas, muy ligada al agro (aceites, harinas, carnes, lácteos). Le siguen, entre otras, química y petroquímica, metalmecánica y automotores."
+    },
+    {
+      "texto": "¿Por qué la industria automotriz tiene un saldo comercial negativo?",
+      "opciones": [
+        "Importa gran parte de las autopartes que usa",
+        "Solo exporta a países de fuera del Mercosur",
+        "Produce solo para el mercado interno"
+      ],
+      "correcta": 1,
+      "explicacion": "Arma autos con muchas piezas importadas: cuanto más produce, más dólares gasta. Es un buen ejemplo de la restricción externa dentro de un solo sector."
+    },
+    {
+      "texto": "¿Qué fuente pesa más en la matriz energética argentina?",
+      "opciones": [
+        "El gas natural",
+        "La hidroelectricidad",
+        "El carbón mineral"
+      ],
+      "correcta": 1,
+      "explicacion": "El gas natural es alrededor de la mitad de la energía primaria (con el petróleo, más del 80% entre ambos). Cuando falta, hay que importarlo, y eso suma a la restricción externa."
+    },
+    {
+      "texto": "¿Qué fue YPF cuando se creó, en 1922?",
+      "opciones": [
+        "Una de las primeras petroleras estatales del mundo",
+        "La filial local de una petrolera estadounidense",
+        "Una cooperativa de productores patagónicos"
+      ],
+      "correcta": 1,
+      "explicacion": "El petróleo aparece en Comodoro Rivadavia en 1907 y en 1922 se crea Yacimientos Petrolíferos Fiscales, con Enrique Mosconi al frente. Se privatizó entre 1992 y 1999."
+    },
+    {
+      "texto": "¿Qué caracteriza al sector informal?",
+      "opciones": [
+        "Trabajo sin registro ni protección, de baja productividad",
+        "Empresas grandes que eligen no pagar impuestos",
+        "Empleo público contratado por tiempo determinado"
+      ],
+      "correcta": 1,
+      "explicacion": "Trabajo no registrado (sin aportes, obra social ni indemnización) y cuentapropismo de subsistencia. En las últimas décadas, alrededor de un tercio de los asalariados no está registrado (llegó a casi la mitad en 2003)."
+    },
+    {
+      "texto": "¿Qué describe el desequilibrio territorial argentino?",
+      "opciones": [
+        "Población y producción concentradas en la región pampeana",
+        "Una distribución pareja de la industria entre regiones",
+        "Un Norte más rico que el Centro gracias a la minería"
+      ],
+      "correcta": 1,
+      "explicacion": "La región pampeana concentra alrededor de dos tercios de la población y una parte mayor de la producción; el Gran Buenos Aires reúne cerca de un tercio de la población en una porción mínima del territorio. Es herencia de la etapa agroexportadora."
+    }
+  ]
+}

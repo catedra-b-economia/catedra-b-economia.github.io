@@ -1,0 +1,59 @@
+{
+  "actividad": "Unidad IV · Verdadero o falso",
+  "opciones_comunes": [
+    "Verdadero",
+    "Falso"
+  ],
+  "preguntas": [
+    {
+      "texto": "El Producto Bruto Interno (PBI) puede medirse tanto por el lado del gasto como por el lado del ingreso, y en teoría ambos deberían coincidir.",
+      "correcta": 1,
+      "explicacion": "Son dos formas distintas de llegar al mismo total: lo que se gasta en la economía termina siendo ingreso de alguien."
+    },
+    {
+      "texto": "El multiplicador keynesiano indica que un aumento inicial del gasto autónomo genera, en total, un aumento del producto menor a ese gasto inicial.",
+      "correcta": 2,
+      "explicacion": "Es al revés: el aumento total del producto es mayor al gasto inicial, porque ese gasto se convierte en ingreso que a su vez se vuelve a gastar en rondas sucesivas."
+    },
+    {
+      "texto": "Cuanto mayor es la propensión marginal a consumir, mayor es el valor del multiplicador keynesiano.",
+      "correcta": 1,
+      "explicacion": "Multiplicador = 1 / (1 − c): cuanto más alto es c, más se acerca (1 − c) a cero y más grande se vuelve el multiplicador."
+    },
+    {
+      "texto": "La identidad ahorro-inversión indica que, en una economía cerrada y sin Estado, el ahorro total de la economía es igual a la inversión total.",
+      "correcta": 1,
+      "explicacion": "Es una identidad contable básica de las cuentas nacionales en ese caso simplificado."
+    },
+    {
+      "texto": "La \"brecha externa\" se refiere a la diferencia entre el ahorro público y el gasto público.",
+      "correcta": 2,
+      "explicacion": "Esa es la brecha fiscal (pública). La brecha externa refiere a la diferencia entre exportaciones e importaciones."
+    },
+    {
+      "texto": "En la Cruz Keynesiana, el equilibrio se da en el punto donde el gasto planeado (agregado) es igual al producto (ingreso).",
+      "correcta": 1,
+      "explicacion": "Es justamente la lectura del punto donde la curva de gasto planeado cruza la línea de 45°."
+    },
+    {
+      "texto": "Un tipo de cambio fijo significa que el Banco Central se compromete a comprar y vender divisas a un precio determinado, sin dejarlo fluctuar libremente.",
+      "correcta": 1,
+      "explicacion": "Es la definición de régimen de tipo de cambio fijo."
+    },
+    {
+      "texto": "Bajo un régimen de tipo de cambio flexible, el Banco Central interviene todos los días para mantener el dólar en un valor exacto.",
+      "correcta": 2,
+      "explicacion": "Eso describe un régimen fijo (o administrado). En un régimen flexible, el tipo de cambio se mueve según oferta y demanda de divisas."
+    },
+    {
+      "texto": "Las \"tres brechas\" de la macroeconomía suelen referirse a la brecha de ahorro privado, la brecha fiscal (pública) y la brecha externa.",
+      "correcta": 1,
+      "explicacion": "Es la forma habitual de descomponer los desequilibrios macroeconómicos básicos."
+    },
+    {
+      "texto": "Un déficit fiscal significa que el gasto público es menor a los ingresos públicos en un período determinado.",
+      "correcta": 2,
+      "explicacion": "Es al revés: déficit fiscal significa que el gasto público supera a los ingresos públicos."
+    }
+  ]
+}

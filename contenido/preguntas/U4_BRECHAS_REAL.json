@@ -1,0 +1,72 @@
+{
+  "actividad": "Unidad IV · Las tres brechas en la vida real",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "<strong>Alemania, 2015 (Unión Europea).</strong> El Estado tiene un pequeño superávit fiscal (menos de 1% del PIB) y el país tiene un superávit de cuenta corriente de más de 8% del PIB: exporta mucho más de lo que importa. ¿Qué tiene que estar pasando con el sector privado?",
+      "opciones": [
+        "Ahorra mucho más de lo que invierte",
+        "Invierte mucho más de lo que ahorra",
+        "Ahorra casi exactamente lo que invierte",
+        "No se puede saber con estos datos"
+      ],
+      "correcta": 1,
+      "explicacion": "Ahorro neto externo ≈ −8 (el país le presta al mundo) y ahorro neto público ≈ +1. Para que sumen cero con el privado, el ahorro neto privado tiene que ser ≈ +7: las familias y empresas alemanas ahorran mucho más de lo que invierten, y ese excedente termina prestado al resto del mundo."
+    },
+    {
+      "texto": "<strong>Grecia, 2008 (Unión Europea).</strong> El déficit fiscal llega a 10% del PIB y el déficit de cuenta corriente supera el 15% del PIB. ¿Quién estaba financiando la economía griega?",
+      "opciones": [
+        "El resto del mundo, con su ahorro",
+        "El sector privado griego, con su ahorro",
+        "El propio Estado, con su superávit",
+        "Nadie: las brechas no se compensan"
+      ],
+      "correcta": 1,
+      "explicacion": "Ahorro neto externo ≈ +15, ahorro neto público ≈ −10. Entonces el privado da ≈ −5: tampoco ahorraba lo que invertía. Estado y privados gastaban más de lo que ahorraban, y todo se financiaba con ahorro del resto del mundo. Cuando ese financiamiento se cortó, llegó la crisis de deuda."
+    },
+    {
+      "texto": "<strong>China, 2007 (Asia).</strong> Las cuentas públicas están casi equilibradas y el superávit de cuenta corriente ronda el 10% del PIB, aunque la inversión es altísima. ¿Cómo encaja?",
+      "opciones": [
+        "El ahorro privado supera incluso a esa inversión",
+        "La inversión la financia el resto del mundo",
+        "El Estado ahorra lo que el privado no ahorra",
+        "El superávit externo financia al Estado"
+      ],
+      "correcta": 1,
+      "explicacion": "Con ahorro neto público ≈ 0 y ahorro neto externo ≈ −10, el ahorro neto privado es ≈ +10. La inversión china era enorme, pero el ahorro de familias y empresas era todavía mayor, y la diferencia se prestaba al mundo."
+    },
+    {
+      "texto": "<strong>Japón, década de 2010 (Asia).</strong> El Estado tiene déficits fiscales grandes y persistentes, y aun así el país tiene superávit de cuenta corriente. ¿Cómo es posible?",
+      "opciones": [
+        "El sector privado ahorra muchísimo más de lo que invierte",
+        "El resto del mundo le financia el déficit al Estado",
+        "El superávit externo compensa el déficit por sí solo",
+        "El sector privado invierte más de lo que ahorra"
+      ],
+      "correcta": 1,
+      "explicacion": "Ahorro neto público negativo y ahorro neto externo también negativo (el país le presta al mundo). Para que sumen cero, el privado tiene que ser muy positivo: el ahorro de las familias y empresas japonesas alcanza para financiar al Estado <em>y</em> para prestarle al resto del mundo."
+    },
+    {
+      "texto": "<strong>Argentina, 2017 (América Latina).</strong> Déficit fiscal total cercano al 6% del PIB (3,9% primario más los intereses) y déficit de cuenta corriente de 4,8% del PIB. ¿Con qué se financió principalmente el déficit del Estado?",
+      "opciones": [
+        "Con ahorro del resto del mundo",
+        "Con ahorro del sector privado local",
+        "Con superávit de la cuenta corriente",
+        "Con partes iguales de privado y externo"
+      ],
+      "correcta": 1,
+      "explicacion": "Ahorro neto público ≈ −6, ahorro neto externo ≈ +4,8. El privado queda en ≈ +1,2. O sea: de los 6 puntos de déficit, casi 5 los cubrió el ahorro externo (deuda con el exterior) y poco más de 1 el ahorro privado local. Por eso, cuando en 2018 se cortó el financiamiento externo, el ajuste fue tan brusco."
+    },
+    {
+      "texto": "<strong>Argentina, 2003-2007 (América Latina).</strong> El Estado tenía superávit fiscal y el país superávit de cuenta corriente: los famosos \"superávits gemelos\". ¿Qué se puede decir del sector privado solo con esos signos?",
+      "opciones": [
+        "Depende de cuál de los dos superávits sea mayor",
+        "Seguro ahorraba más de lo que invertía",
+        "Seguro invertía más de lo que ahorraba",
+        "Ahorraba exactamente lo mismo que invertía"
+      ],
+      "correcta": 1,
+      "explicacion": "Ahorro neto público positivo y ahorro neto externo negativo (superávit de cuenta corriente = el país le presta al mundo). Uno suma y el otro resta: el privado puede dar positivo o negativo según cuál pese más. La identidad sola no alcanza; hacen falta los números. Es la pregunta trampa del banco. (Como contexto: a esos superávits los ayudaron los altos precios internacionales de las materias primas, y los dos se fueron achicando hacia el final de la década.)"
+    }
+  ]
+}

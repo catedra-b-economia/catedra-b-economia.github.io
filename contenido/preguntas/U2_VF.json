@@ -1,0 +1,59 @@
+{
+  "actividad": "Unidad II · Verdadero o falso",
+  "opciones_comunes": [
+    "Verdadero",
+    "Falso"
+  ],
+  "preguntas": [
+    {
+      "texto": "El mercantilismo consideraba que la riqueza de un país se medía principalmente por la cantidad de oro y plata que acumulaba.",
+      "correcta": 1,
+      "explicacion": "Es el núcleo de la idea mercantilista: acumular metales preciosos como forma de riqueza nacional."
+    },
+    {
+      "texto": "Los fisiócratas sostenían que la industria era la única fuente genuina de riqueza.",
+      "correcta": 2,
+      "explicacion": "Para los fisiócratas la fuente genuina de riqueza era la tierra y la actividad agrícola, no la industria."
+    },
+    {
+      "texto": "Adam Smith y David Ricardo son considerados los principales referentes de la escuela clásica.",
+      "correcta": 1,
+      "explicacion": "Son los autores centrales de la escuela clásica, con la teoría del valor-trabajo y la ventaja comparativa."
+    },
+    {
+      "texto": "Según la teoría marginalista (neoclásica), el valor de un bien depende exclusivamente de la cantidad de trabajo necesaria para producirlo.",
+      "correcta": 2,
+      "explicacion": "Esa es la teoría del valor-trabajo de los clásicos y de Marx; los marginalistas explican el valor por la utilidad marginal, no por el trabajo incorporado."
+    },
+    {
+      "texto": "Keynes sostenía que, en una recesión, el Estado debería aumentar el gasto público (aunque implique déficit) para sostener la demanda agregada.",
+      "correcta": 1,
+      "explicacion": "Es la idea central del keynesianismo, formulada a partir de la Gran Depresión."
+    },
+    {
+      "texto": "El estructuralismo latinoamericano (Prebisch/CEPAL) sostiene que los términos de intercambio tienden a mejorar con el tiempo para los países exportadores de materias primas.",
+      "correcta": 2,
+      "explicacion": "Sostienen lo contrario: que tienden a deteriorarse (la tesis del deterioro de los términos de intercambio)."
+    },
+    {
+      "texto": "Una economía de planificación centralizada, como la Unión Soviética, resuelve qué, cómo y para quién producir principalmente a través del sistema de precios de mercado.",
+      "correcta": 2,
+      "explicacion": "En la planificación centralizada esas decisiones las toma el Estado a través de un plan, no el sistema de precios."
+    },
+    {
+      "texto": "En una economía mixta conviven la propiedad privada y el mercado con un grado significativo de intervención estatal.",
+      "correcta": 1,
+      "explicacion": "Es la definición estándar de economía mixta."
+    },
+    {
+      "texto": "En una cooperativa de trabajadores, las decisiones de producción las toma un único dueño externo a quienes trabajan ahí.",
+      "correcta": 2,
+      "explicacion": "En una cooperativa las decisiones se toman colectivamente entre quienes trabajan ahí, no por un dueño externo."
+    },
+    {
+      "texto": "Marx retomó la teoría del valor-trabajo de los clásicos, pero agregó el concepto de plusvalía para explicar la ganancia del capitalista.",
+      "correcta": 1,
+      "explicacion": "La plusvalía es el aporte distintivo del análisis marxista sobre la base de la teoría del valor-trabajo clásica."
+    }
+  ]
+}

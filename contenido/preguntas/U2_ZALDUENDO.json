@@ -1,0 +1,156 @@
+{
+  "actividad": "Unidad II · Zalduendo: breve historia del pensamiento",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "<span class=\"nota-chica\">Cap. I</span> Según Zalduendo, siguiendo a Polanyi, ¿de dónde derivaba la escasez en el pensamiento de Aristóteles?",
+      "opciones": [
+        "De una categoría extraeconómica: la posición ocupada en la cima de la sociedad.",
+        "De la desproporción entre los deseos ilimitados y los recursos disponibles.",
+        "De la cantidad de trabajo necesaria para producir cada uno de los bienes."
+      ],
+      "correcta": 1,
+      "explicacion": "Zalduendo dice que la escasez \"derivaba de una categoría extraeconómica\" (rango, inmunidad, riqueza), y que los deseos ilimitados eran \"un concepto desconocido por los griegos\" (cap. I, p. 17)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. I</span> ¿Cómo caracteriza Zalduendo la pregunta central de la mentalidad económica medieval?",
+      "opciones": [
+        "Cómo funcionaba el sistema económico en su conjunto y qué lo equilibraba.",
+        "Si cada operación individual era lícita o ilícita, justa o injusta.",
+        "Cómo podía el príncipe acumular metales y aumentar el poder del reino."
+      ],
+      "correcta": 2,
+      "explicacion": "\"La mentalidad medieval aún no se preguntaba cómo funcionaba un sistema económico sino si las operaciones en sí (individuales) eran lícitas o ilícitas\". Por eso el planteo escolástico pertenece a la doctrina económica (cap. I, p. 25). Cómo enriquecer al príncipe acumulando metales es, en cambio, la pregunta mercantilista (p. 41)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. I</span> Entre los \"títulos extrínsecos\" que admitió la doctrina de la usura, ¿cuál asocia Zalduendo con el actual costo de oportunidad?",
+      "opciones": [
+        "El <em>damnum emergens</em>, aceptado por Santo Tomás como daño efectivo.",
+        "La <em>poena conventionalis</em>, aplicada por los pagos realizados tarde.",
+        "El <em>lucrum cessans</em>, que había sido rechazado por Santo Tomás."
+      ],
+      "correcta": 3,
+      "explicacion": "El <em>lucrum cessans</em> es un \"concepto que se asemeja al actual de costo de oportunidad y había sido rechazado por SANTO TOMÁS\" (cap. I, p. 29). En el cap. III lo vuelve a vincular con la ley de costos de von Wieser (p. 84)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. I</span> En el debate escolástico sobre el justo precio, ¿qué sostenía Juan Duns Scoto, de la corriente \"voluntarista\"?",
+      "opciones": [
+        "Que la autoridad pública debía fijar todos los precios del mercado.",
+        "Que el precio justo debía cubrir costos, beneficio normal y riesgo.",
+        "Que el precio justo era simplemente el vigente en el mercado."
+      ],
+      "correcta": 2,
+      "explicacion": "Zalduendo distingue tres corrientes. Duns Scoto (voluntaristas) incluye costos, beneficio normal y riesgo. Gerson (nominalistas) quería que la autoridad fijara todos los precios. Alberto Magno (corriente principal) tomaba el precio de mercado del momento (cap. I, p. 28)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. I</span> ¿Qué destaca Zalduendo del análisis monetario de Martín de Azpilcueta (1556)?",
+      "opciones": [
+        "Que esboza la teoría cuantitativa y se adelanta doce años a Bodin.",
+        "Que anticipa la ley de Gresham al estudiar las mutaciones monetarias.",
+        "Que define el valor como relación subjetiva entre dos mercaderías."
+      ],
+      "correcta": 1,
+      "explicacion": "A partir de la frase \"el dinero vale más donde y cuando hay falta de él\", Zalduendo dice que \"se esboza la teoría cuantitativa\" y que Azpilcueta \"se adelantó 12 años al juicio de JEAN BODIN\" (cap. I, p. 32). La anticipación de Gresham corresponde a Oresme (p. 30) y el valor subjetivo como relación, a Galiani (p. 38)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. I</span> ¿Qué juicio de Heckscher sobre el mercantilismo recoge Zalduendo?",
+      "opciones": [
+        "Que fue el primer sistema ordenado de teorías de la economía política.",
+        "Que nunca existió como tal: es una idea para comprender la historia.",
+        "Que fue una doctrina ética heredada de los escolásticos españoles."
+      ],
+      "correcta": 2,
+      "explicacion": "Heckscher abre su obra con \"El mercantilismo no ha existido nunca [...] es simplemente una idea que nos ayuda a comprender [...] un fragmento de la realidad histórica\". Zalduendo agrega que fue \"un conjunto de creencias, prácticas y a lo sumo hipótesis\" (cap. I, pp. 40–41)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. I</span> Para los fisiócratas, según Zalduendo, las actividades distintas de la agricultura eran \"estériles\". ¿Qué significaba eso?",
+      "opciones": [
+        "Que eran inútiles y el Estado debía desalentarlas con impuestos.",
+        "Que no generaban producto neto, aunque no se las juzgaba inútiles.",
+        "Que solo servían para exportar y traer metales preciosos al reino."
+      ],
+      "correcta": 2,
+      "explicacion": "Solo el trabajo de la tierra daba un resultado neto positivo; las demás eran \"estériles, sin que ello implicara que se las considerara inútiles\". Por eso el impuesto debía recaer solo sobre la tierra (cap. I, p. 48)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. II</span> ¿En qué contexto aparece la \"mano invisible\" en la <em>Teoría de los sentimientos morales</em>, según Zalduendo?",
+      "opciones": [
+        "Al explicar cómo la industria nacional promueve fines no buscados.",
+        "Al describir cómo los atenienses explicaban los actos de la naturaleza.",
+        "Al mostrar cómo el lujo de los terratenientes reparte lo necesario."
+      ],
+      "correcta": 3,
+      "explicacion": "Smith usa la metáfora solo tres veces. En la <em>Teoría de los sentimientos morales</em> se refiere a los terratenientes, cuyos apetitos crean trabajo y producen casi la misma distribución de lo necesario que un reparto igual de la tierra. Las otras dos apariciones están en los <em>Ensayos</em> (los atenienses y la naturaleza) y en <em>La riqueza de las naciones</em> (la industria nacional) (cap. II, p. 65)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. II</span> ¿Cuál es, para Zalduendo, el núcleo del sistema de Adam Smith?",
+      "opciones": [
+        "Su concepción ética, y no el egoísmo o la codicia de los agentes.",
+        "La mano invisible como mecanismo automático y autosuficiente del mercado.",
+        "La teoría del valor-trabajo como base de toda la distribución del ingreso."
+      ],
+      "correcta": 1,
+      "explicacion": "Tomar la mano invisible \"sin su correlato ético es perder parte de su relevancia, porque en el sistema de SMITH lo principal es su concepción ética y no el egoísmo o la codicia\". Smith \"no estaba convencido\" de que el mercado asegurara la mejor situación (cap. II, p. 66)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. II</span> ¿Qué entiende Zalduendo por la \"anglicidad\" de la ciencia económica en sus comienzos?",
+      "opciones": [
+        "Que casi todas las cátedras de economía del siglo XIX estaban en Inglaterra.",
+        "Que el libre comercio racionalizaba intereses de las clases británicas.",
+        "Que los clásicos escribían sobre todo para el Parlamento de Londres."
+      ],
+      "correcta": 2,
+      "explicacion": "Gran Bretaña era la primera potencia, y \"la prédica del libre comercio por los economistas de la época fuera, en el fondo, la racionalización de la defensa de los intereses coincidentes de las clases comerciales e industriales del Reino Unido\" (cap. II, p. 69)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. III</span> Según Zalduendo, ¿cuál es la diferencia sustancial entre el análisis clásico y el neoclásico en la formación de los precios?",
+      "opciones": [
+        "Los clásicos parten del consumidor y los neoclásicos de los costos.",
+        "Los clásicos usan equilibrio general y los neoclásicos solo el parcial.",
+        "Los clásicos miran la oferta y los costos; los neoclásicos, la demanda."
+      ],
+      "correcta": 3,
+      "explicacion": "En los clásicos domina \"la visión desde el lado de la oferta: los costos de producción son las variables que predominan\". Los neoclásicos ponen el énfasis en \"la perspectiva de la demanda\", el consumidor y la utilidad (cap. III, pp. 78–79)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. III</span> ¿Por qué, según Zalduendo, los neoclásicos \"fueron bien recibidos\" a fines del siglo XIX?",
+      "opciones": [
+        "Porque relegaron las clases sociales y se presentaron como socialmente neutros.",
+        "Porque ofrecieron a los gobiernos recetas para combatir el desempleo masivo.",
+        "Porque reivindicaron la teoría del valor-trabajo frente a los socialistas."
+      ],
+      "correcta": 1,
+      "explicacion": "Frente a clásicos que enfatizaban clases y conflictos, en un clima de nacionalismo, marxismo y Comuna de París, los neoclásicos \"relegan el tema de las clases sociales procurando presentarse como socialmente neutros\". Así fueron bien recibidos por una sociedad que quería alejarse de los conflictos (cap. III, p. 80). Zalduendo igual advierte que el modelo \"tiene fuertes connotaciones ideológicas\" (p. 89)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. IV</span> ¿Por qué, según Zalduendo, la \"síntesis neoclásica\" norteamericana interpretaba mal a Keynes?",
+      "opciones": [
+        "Porque ignoraba el multiplicador y la función de consumo de su modelo.",
+        "Porque lo reducía a un caso especial de corto plazo dentro del equilibrio.",
+        "Porque rechazaba toda intervención del gobierno en situaciones de crisis."
+      ],
+      "correcta": 2,
+      "explicacion": "Esa lectura dejaba a Keynes como \"propagador de un caso especial, válido para el corto plazo\". Pero Keynes \"señalaba que el mercado no ofrece una tendencia automática para lograr el pleno empleo\". En Cambridge llamaron a esa lectura \"keynesianismo bastardo\" (J. Robinson) (cap. IV, pp. 104–105)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. IV</span> ¿Cómo resume Zalduendo el contraste entre la economía neoclásica y la poskeynesiana en su visión del flujo circular?",
+      "opciones": [
+        "La neoclásica ve asignación según eficacia; la poskeynesiana, según poder.",
+        "La neoclásica ve asignación según poder; la poskeynesiana, según eficacia.",
+        "Ambas ven asignación según eficacia, pero difieren en el papel del dinero."
+      ],
+      "correcta": 1,
+      "explicacion": "La neoclásica \"trata de mostrar que los mercados... asignan los recursos escasos, de acuerdo con la eficacia relativa\". La poskeynesiana \"muestra que la distribución... se realiza de acuerdo con el poder relativo\" (cap. IV, p. 112)."
+    },
+    {
+      "texto": "<span class=\"nota-chica\">Cap. V</span> Según Zalduendo, ¿qué sostienen los institucionalistas sobre la asignación de recursos?",
+      "opciones": [
+        "Que la realiza el mercado, siempre que el Estado garantice la competencia.",
+        "Que la realiza la estructura de poder, y el mercado es una institución más.",
+        "Que la realiza la tecnología, independientemente de las instituciones vigentes."
+      ],
+      "correcta": 2,
+      "explicacion": "Los ortodoxos identifican la economía con el mercado, mientras que para los institucionalistas \"el mercado es una institución\". \"La distribución de recursos no la realiza el mercado sino la estructura de poder de la sociedad\", porque el problema clave es \"el control del poder\" (cap. V, pp. 130–131)."
+    }
+  ]
+}

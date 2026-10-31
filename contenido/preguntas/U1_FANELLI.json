@@ -1,0 +1,94 @@
+{
+  "actividad": "Unidad I · Test de lectura: Fanelli",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "En el esquema de la anatomía del sistema económico, ¿qué representan respectivamente el \"hardware\" y el \"software\"?",
+      "opciones": [
+        "El hardware son las empresas privadas y el software representa a las dependencias del sector público.",
+        "El hardware son los indicadores macroeconómicos y el software son las metas de desarrollo humano de la ONU.",
+        "El hardware es la dotación de recursos y tecnología, mientras que el software es el marco institucional y las reglas de juego.",
+        "El hardware es la base jurídica constitucional y el software incluye los contratos formales firmados por las firmas."
+      ],
+      "correcta": 3,
+      "explicacion": "La analogía es potente: dos países pueden tener un hardware parecido (recursos, tecnología disponible) y rendir distinto porque corren un software distinto — las instituciones y reglas que organizan la cooperación."
+    },
+    {
+      "texto": "¿Qué diferencia sustancial existe entre el mercado y las jerarquías (públicas o privadas) como modelos de organización económica?",
+      "opciones": [
+        "El mercado descentraliza las decisiones a través de precios, mientras que las jerarquías las centralizan mediante autoridad.",
+        "El mercado se aplica únicamente a bienes públicos, mientras que las jerarquías operan exclusivamente en el comercio exterior.",
+        "El mercado elimina por completo los costos de transacción, mientras que las jerarquías eliminan la incertidumbre estratégica.",
+        "El mercado requiere un estricto control estatal, mientras que las jerarquías funcionan de manera totalmente informal."
+      ],
+      "correcta": 1,
+      "explicacion": "Son dos formas distintas de coordinar: en el mercado nadie da órdenes y la información viaja por los precios; dentro de una empresa o de un ministerio, en cambio, las decisiones bajan por una línea de autoridad."
+    },
+    {
+      "texto": "En el análisis del capital humano y la demografía, ¿en qué consiste la ventana de oportunidad conocida como \"bono o dividendo demográfico\"? (Pensá cómo afecta esto a Argentina.)",
+      "opciones": [
+        "En un período en que la tasa de natalidad supera de forma histórica a la tasa de mortalidad en zonas rurales.",
+        "En una etapa donde la proporción de población en edad de trabajar es elevada respecto de los dependientes (niños y ancianos).",
+        "En el incremento automático de los ingresos fiscales provocado por la emigración de mano de obra calificada.",
+        "En la reducción permanente de la esperanza de vida producto del proceso acelerado de urbanización e industrialización."
+      ],
+      "correcta": 2,
+      "explicacion": "Es una ventana que se abre una sola vez y se cierra: mientras dura, hay proporcionalmente más gente en edad de producir y ahorrar que gente a cargo. Si no se aprovecha invirtiendo en capital humano y productividad, la ventana se cierra igual y llega el envejecimiento poblacional."
+    },
+    {
+      "texto": "Según la anatomía del software económico de Fanelli, ¿cuáles son los dos inputs o pilares fundamentales sobre los que se apoya el marco institucional?",
+      "opciones": [
+        "Las políticas monetarias anticíclicas y las regulaciones del sistema bancario.",
+        "La base jurídica (proveniente del sistema político) y las pautas culturales de la sociedad.",
+        "Los contratos informales entre firmas y las metas de crecimiento del producto bruto.",
+        "Las patentes de innovación tecnológica y los códigos de comercio internacional."
+      ],
+      "correcta": 2,
+      "explicacion": "Las reglas escritas vienen del sistema político, pero no funcionan solas: necesitan pautas culturales que las sostengan. Una ley que nadie considera legítima se incumple, y ahí el software deja de correr."
+    },
+    {
+      "texto": "¿De qué manera los problemas de información asimétrica (como la selección adversa y el azar moral) afectan la cooperación en el mercado?",
+      "opciones": [
+        "Garantizan que los precios reflejen de forma transparente la calidad de los productos negociados.",
+        "Eliminan por completo los costos de búsqueda y negociación en los contratos de largo plazo.",
+        "Provocan que ciertos mercados (como el crédito o los seguros) se vuelvan ineficientes o no lleguen a desarrollarse.",
+        "Forzadamente impulsan la conversión de empresas privadas en organizaciones familiares sin fines de lucro."
+      ],
+      "correcta": 3,
+      "explicacion": "Cuando una parte sabe algo que la otra no, el intercambio puede no ocurrir aunque convendría a los dos. El crédito y los seguros son los casos de manual: quien presta no sabe si le van a devolver, quien asegura no sabe cuán cuidadoso será el asegurado."
+    },
+    {
+      "texto": "En las jerarquías privadas o públicas, ¿en qué consiste la falla conocida como el problema del \"agente y el principal\"?",
+      "opciones": [
+        "En la imposibilidad técnica de transmitir directivas verbales a través de la estructura jerárquica.",
+        "En la discrepancia de intereses donde el contratado puede no actuar persiguiendo el objetivo del contratante.",
+        "En el conflicto entre empresas competidoras por fijar el precio final de un bien de consumo masivo.",
+        "En la falta de coordinación entre los poderes Ejecutivo y Legislativo al promulgar una nueva ley fiscal."
+      ],
+      "correcta": 2,
+      "explicacion": "El principal delega en el agente, pero no puede observar todo lo que este hace — y los intereses de los dos no coinciden del todo. Aparece en todos lados: accionistas y gerentes, ciudadanos y funcionarios, cátedra y estudiantes."
+    },
+    {
+      "texto": "¿Por qué el enfoque de Fanelli considera que el crecimiento del PBI es un indicador insuficiente para evaluar el desempeño del sistema económico?",
+      "opciones": [
+        "Porque no toma en cuenta el volumen total de divisas acumuladas en las reservas del Banco Central.",
+        "Porque omite dimensiones críticas como la estabilidad, la equidad distributiva y la expansión de las capacidades humanas (desarrollo humano).",
+        "Porque se calcula únicamente en base a las exportaciones primarias sin incluir al sector de servicios.",
+        "Porque impide comparar la evolución económica de países desarrollados con economías emergentes."
+      ],
+      "correcta": 2,
+      "explicacion": "Un sistema económico puede crecer y al mismo tiempo ser inestable, repartir muy mal y no ampliar lo que la gente efectivamente puede hacer con su vida. Por eso Fanelli evalúa el desempeño en varias dimensiones, no en una sola."
+    },
+    {
+      "texto": "¿Por qué la modificación del marco institucional de la economía (el software) es un proceso esencialmente político y no solo un diseño técnico?",
+      "opciones": [
+        "Porque las reglas de juego son universales e inmutables y no requieren de la aprobación del Congreso.",
+        "Porque los cambios institucionales generan efectos distributivos con ganadores y perdedores que exigen legitimidad y consensos.",
+        "Porque el sector privado siempre se opone a cualquier tipo de regulación sobre los mercados de crédito.",
+        "Porque las reformas económicas solo pueden aplicarse durante períodos de expansión cíclica."
+      ],
+      "correcta": 2,
+      "explicacion": "Cambiar las reglas cambia quién gana y quién pierde. Por eso no alcanza con que una reforma sea técnicamente buena: necesita construir la legitimidad y los acuerdos que la hagan sostenible en el tiempo."
+    }
+  ]
+}

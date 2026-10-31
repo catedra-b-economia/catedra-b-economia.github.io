@@ -1,0 +1,70 @@
+{
+  "actividad": "Unidad III · ¿Bien, insumo o factor?",
+  "opciones_comunes": [
+    "Bien final",
+    "Insumo",
+    "Factor de producción"
+  ],
+  "preguntas": [
+    {
+      "texto": "La harina que una familia compra para hacer una torta en su casa.",
+      "correcta": 1,
+      "explicacion": "Llega a su usuario final, una familia: es un bien final. La misma harina, comprada por una panadería, sería un insumo. Lo que define no es el objeto, sino para qué se usa."
+    },
+    {
+      "texto": "La harina que compra una panadería para hacer pan.",
+      "correcta": 2,
+      "explicacion": "Se transforma y desaparece dentro del pan: es un insumo (bien intermedio)."
+    },
+    {
+      "texto": "El horno con el que la panadería hornea todos los días desde hace diez años.",
+      "correcta": 3,
+      "explicacion": "Se usa para producir año tras año sin gastarse en un solo ciclo: es capital, un factor de producción. (El día que se compró, en las cuentas nacionales ese gasto contó como inversión; acá la pregunta es qué papel cumple en la producción.)"
+    },
+    {
+      "texto": "Las horas que trabaja el panadero.",
+      "correcta": 3,
+      "explicacion": "Es trabajo: factor de producción."
+    },
+    {
+      "texto": "La electricidad que consume la línea de montaje de una fábrica de autos.",
+      "correcta": 2,
+      "explicacion": "Se gasta por completo en el proceso de producción: insumo."
+    },
+    {
+      "texto": "La electricidad que usás en tu casa para ver una serie.",
+      "correcta": 1,
+      "explicacion": "Es consumo final de un hogar: bien final. Mismo objeto que el caso anterior, distinto uso."
+    },
+    {
+      "texto": "El campo donde se siembra la soja.",
+      "correcta": 3,
+      "explicacion": "Es tierra (recursos naturales): factor de producción."
+    },
+    {
+      "texto": "Las semillas de soja que se siembran.",
+      "correcta": 2,
+      "explicacion": "Se usan y desaparecen en la producción de la cosecha: insumo."
+    },
+    {
+      "texto": "La computadora con la que trabaja todos los días un estudio contable.",
+      "correcta": 3,
+      "explicacion": "Se usa durante años para producir un servicio: es capital, un factor de producción."
+    },
+    {
+      "texto": "La computadora que te comprás para jugar.",
+      "correcta": 1,
+      "explicacion": "Uso final de un hogar: bien final. El mismo objeto que en el caso del estudio contable."
+    },
+    {
+      "texto": "El papel que usa una imprenta para imprimir libros.",
+      "correcta": 2,
+      "explicacion": "Queda incorporado en el libro: insumo."
+    },
+    {
+      "texto": "El libro que comprás en la librería.",
+      "correcta": 1,
+      "explicacion": "Uso final: bien final."
+    }
+  ]
+}

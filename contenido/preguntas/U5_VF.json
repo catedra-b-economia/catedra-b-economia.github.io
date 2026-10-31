@@ -1,0 +1,69 @@
+{
+  "actividad": "Unidad V · Verdadero o falso",
+  "opciones_comunes": [
+    "Verdadero",
+    "Falso"
+  ],
+  "preguntas": [
+    {
+      "texto": "Para Ferrer, las economías regionales de la colonia se estancaron aunque exportaban mucho a Europa.",
+      "correcta": 2,
+      "explicacion": "No exportaban a Europa: estaban volcadas a Potosí y se autoabastecían. La falta de una exportación dinámica es justamente la causa del estancamiento."
+    },
+    {
+      "texto": "En la colonia, el Noroeste era la región más poblada del actual territorio argentino.",
+      "correcta": 1,
+      "explicacion": "Alrededor del 40% de la población, por su cercanía y vínculo con Potosí."
+    },
+    {
+      "texto": "El Reglamento de libre comercio de 1778 favoreció sobre todo al Interior, que pudo vender sus tejidos por el puerto.",
+      "correcta": 2,
+      "explicacion": "Favoreció al Litoral ganadero. El Interior tuvo que competir con las manufacturas importadas."
+    },
+    {
+      "texto": "Los ferrocarriles de la etapa agroexportadora se financiaron en buena medida con capital británico.",
+      "correcta": 1,
+      "explicacion": "Y se trazaron en abanico hacia los puertos."
+    },
+    {
+      "texto": "La crisis de 1890 fue solo bancaria: la Argentina casi no tenía deuda externa.",
+      "correcta": 2,
+      "explicacion": "Fue una crisis de deuda: el país se había endeudado mucho en Londres y la casa Baring, que colocaba sus bonos, quedó al borde de la quiebra."
+    },
+    {
+      "texto": "El control de cambios de 1931 terminó protegiendo, sin buscarlo, a la industria local.",
+      "correcta": 1,
+      "explicacion": "Al racionar las divisas encareció lo importado y le dejó lugar a la producción local."
+    },
+    {
+      "texto": "En el stop-and-go, el freno llega porque la industria exporta demasiado y el peso se aprecia.",
+      "correcta": 2,
+      "explicacion": "Es al revés: la industria casi no exporta y gasta divisas; el freno llega cuando se acaban los dólares."
+    },
+    {
+      "texto": "Para Ferrer, la industrialización quedó \"inconclusa\" porque no llegó a exportar manufacturas ni a dominar su tecnología.",
+      "correcta": 1,
+      "explicacion": "Por eso la restricción externa volvía una y otra vez."
+    },
+    {
+      "texto": "La deuda externa se multiplicó más de cinco veces entre 1975 y 1983.",
+      "correcta": 1,
+      "explicacion": "De unos 8.000 a unos 45.000 millones de dólares."
+    },
+    {
+      "texto": "La convertibilidad impedía que el Banco Central emitiera pesos sin respaldo en reservas.",
+      "correcta": 1,
+      "explicacion": "Era el corazón de la ley de 1991: la base monetaria tenía que estar respaldada por reservas."
+    },
+    {
+      "texto": "La pesificación de 2002 convirtió deudas y depósitos en dólares al mismo tipo de cambio.",
+      "correcta": 2,
+      "explicacion": "Fue asimétrica: las deudas a 1 peso por dólar y los depósitos a 1,40 (más un ajuste por inflación). La diferencia la cubrió el Estado con bonos a los bancos."
+    },
+    {
+      "texto": "La región pampeana concentra la mayor parte de la población y de la producción del país.",
+      "correcta": 1,
+      "explicacion": "Es el núcleo del desequilibrio territorial, heredado de la etapa agroexportadora."
+    }
+  ]
+}

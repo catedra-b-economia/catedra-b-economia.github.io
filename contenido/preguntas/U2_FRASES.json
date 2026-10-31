@@ -1,0 +1,94 @@
+{
+  "actividad": "Unidad II · Frases y teorías del valor",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "<em>\"El trabajo fue el primer precio, la moneda de compra primitiva que se pagó por todas las cosas.\"</em><br>— Adam Smith, <em>La riqueza de las naciones</em> (1776)",
+      "opciones": [
+        "Utilidad marginal",
+        "Valor-trabajo",
+        "Costo de producción",
+        "Escasez"
+      ],
+      "correcta": 2,
+      "explicacion": "Smith busca un patrón de medida del valor independiente del dinero y lo encuentra en el trabajo. Es el punto de partida de la teoría del valor-trabajo que después desarrollan Ricardo y Marx."
+    },
+    {
+      "texto": "<em>\"Nada hay más útil que el agua, pero con ella apenas puede comprarse cosa alguna. Un diamante, por el contrario, apenas tiene valor de uso, pero a cambio de él se puede adquirir una gran cantidad de otros bienes.\"</em><br>— Adam Smith, <em>La riqueza de las naciones</em> (1776)",
+      "opciones": [
+        "Plantea la paradoja del valor",
+        "Resuelve la paradoja del valor",
+        "Defiende el valor-trabajo",
+        "Rechaza el valor de uso"
+      ],
+      "correcta": 1,
+      "explicacion": "Smith <em>plantea</em> el problema —distingue valor de uso y valor de cambio— pero no llega a resolverlo. La respuesta llega un siglo después con el marginalismo: lo que importa no es la utilidad total del agua, sino la de la última unidad disponible."
+    },
+    {
+      "texto": "<em>\"El valor de una mercancía depende de la cantidad relativa de trabajo que es necesaria para su producción, y no de la mayor o menor compensación que se paga por ese trabajo.\"</em><br>— David Ricardo, <em>Principios de economía política</em> (1817)",
+      "opciones": [
+        "Utilidad marginal",
+        "Oferta y demanda",
+        "Valor-trabajo",
+        "Valor subjetivo"
+      ],
+      "correcta": 3,
+      "explicacion": "Ricardo lleva la teoría del valor-trabajo más lejos que Smith: aclara que lo que determina el valor es el trabajo incorporado, no el salario pagado. Es la versión que Marx toma como punto de partida."
+    },
+    {
+      "texto": "<em>\"Lo que determina la magnitud del valor de un artículo es la cantidad de trabajo socialmente necesario para su producción.\"</em><br>— Karl Marx, <em>El Capital</em> (1867)",
+      "opciones": [
+        "Costo de producción",
+        "Utilidad marginal",
+        "Valor institucional",
+        "Valor-trabajo"
+      ],
+      "correcta": 4,
+      "explicacion": "El agregado de Marx es \"socialmente necesario\": no vale más una silla porque el carpintero fue lento, cuenta el tiempo promedio que requiere la sociedad con la tecnología disponible. Sobre esa base construye después la plusvalía."
+    },
+    {
+      "texto": "<em>\"El valor no es algo inherente a los bienes, ni una propiedad de ellos. Es un juicio que los agentes económicos se forman sobre la importancia de los bienes de que disponen.\"</em><br>— Carl Menger, <em>Principios de economía política</em> (1871)",
+      "opciones": [
+        "Valor subjetivo",
+        "Valor-trabajo",
+        "Costo de producción",
+        "Oferta y demanda"
+      ],
+      "correcta": 1,
+      "explicacion": "Es el giro del marginalismo: el valor deja de estar <em>en</em> la cosa y pasa a estar en la relación entre la cosa y la necesidad de quien la evalúa. De ahí que el mismo vaso de agua valga distinto en tu casa que en el desierto."
+    },
+    {
+      "texto": "<em>\"Podríamos discutir con igual razón si es la hoja superior o la inferior de una tijera la que corta un trozo de papel, como si el valor está gobernado por la utilidad o por el costo de producción.\"</em><br>— Alfred Marshall, <em>Principios de economía</em> (1890)",
+      "opciones": [
+        "Valor-trabajo",
+        "Valor subjetivo",
+        "Oferta y demanda",
+        "Escasez"
+      ],
+      "correcta": 3,
+      "explicacion": "Marshall cierra una discusión de un siglo con la metáfora más famosa de la disciplina: la demanda (utilidad) y la oferta (costos) son las dos hojas de la misma tijera. Preguntarse cuál determina el precio es preguntar mal."
+    },
+    {
+      "texto": "<em>\"Un cínico es un hombre que conoce el precio de todo y el valor de nada.\"</em><br>— Oscar Wilde, <em>El abanico de Lady Windermere</em> (1892)",
+      "opciones": [
+        "Valor-trabajo",
+        "Utilidad marginal",
+        "Costo de producción",
+        "Precio distinto de valor"
+      ],
+      "correcta": 4,
+      "explicacion": "No es una teoría económica, pero marca el punto que la economía necesita aclarar: el precio es un número que sale de un mercado, el valor es un concepto más amplio. Buena parte de las discusiones sobre qué mide el PBI vive en esa grieta."
+    },
+    {
+      "texto": "<em>\"El precio es lo que pagás. El valor es lo que recibís.\"</em><br>— Warren Buffett, retomando a Benjamin Graham",
+      "opciones": [
+        "Precio distinto de valor",
+        "Valor-trabajo",
+        "Utilidad marginal",
+        "Oferta y demanda"
+      ],
+      "correcta": 1,
+      "explicacion": "Es la misma distinción de Wilde aplicada a las finanzas: si precio y valor coincidieran siempre, no existiría el oficio de buscar activos baratos. Presupone que hay algún valor de referencia independiente del precio observado."
+    }
+  ]
+}

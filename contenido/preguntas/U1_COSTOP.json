@@ -1,0 +1,83 @@
+{
+  "actividad": "Unidad I · Costo de oportunidad y comercio",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "¿En qué bienes tiene Invernalia <strong>ventaja absoluta</strong>?",
+      "opciones": [
+        "Solo en vino",
+        "Solo en trigo",
+        "En ninguno de los dos",
+        "En los dos bienes"
+      ],
+      "correcta": 4,
+      "explicacion": "Tener ventaja absoluta es producir el mismo bien usando <strong>menos recursos</strong>. Invernalia necesita menos horas en los dos casos: 100 contra 120 en vino, y 50 contra 100 en trigo. Por eso sus habitantes se creen superiores — y en producción por hora lo son."
+    },
+    {
+      "texto": "En Invernalia, ¿cuál es el <strong>costo de oportunidad</strong> de producir un hectolitro de vino?",
+      "opciones": [
+        "0,5 toneladas de trigo",
+        "2 toneladas de trigo",
+        "100 horas de trabajo",
+        "1,2 toneladas de trigo"
+      ],
+      "correcta": 2,
+      "explicacion": "Las 100 horas que usa para un hectolitro de vino podrían producir 100 / 50 = <strong>2 toneladas de trigo</strong>. El costo de oportunidad nunca se mide en horas ni en pesos: se mide en <em>unidades del otro bien al que se renuncia</em>."
+    },
+    {
+      "texto": "En Desembarco del Rey, ¿cuál es el costo de oportunidad de producir un hectolitro de vino?",
+      "opciones": [
+        "2 toneladas de trigo",
+        "0,83 toneladas de trigo",
+        "1,2 toneladas de trigo",
+        "120 horas de trabajo"
+      ],
+      "correcta": 3,
+      "explicacion": "120 horas para un hectolitro de vino equivalen a 120 / 100 = <strong>1,2 toneladas de trigo</strong>. Ojo con el resultado: aunque Desembarco es peor en todo, <em>sacrifica menos trigo</em> que Invernalia por cada hectolitro de vino."
+    },
+    {
+      "texto": "Entonces, ¿quién tiene <strong>ventaja comparativa</strong> en la producción de vino?",
+      "opciones": [
+        "Desembarco del Rey, porque resigna menos trigo",
+        "Ninguno, porque hace falta saber los precios",
+        "Los dos por igual, porque producen lo mismo",
+        "Invernalia, porque produce vino en menos horas"
+      ],
+      "correcta": 1,
+      "explicacion": "La ventaja comparativa se define por el <strong>costo de oportunidad</strong>, no por la productividad. Desembarco resigna 1,2 toneladas de trigo por hectolitro; Invernalia resigna 2. El que menos resigna tiene la ventaja comparativa."
+    },
+    {
+      "texto": "¿Y quién tiene ventaja comparativa en trigo?",
+      "opciones": [
+        "Invernalia",
+        "Desembarco del Rey",
+        "Los dos por igual",
+        "Ninguno de los dos"
+      ],
+      "correcta": 1,
+      "explicacion": "Invernalia: 50 / 100 = <strong>0,5</strong> hectolitros de vino por tonelada de trigo. Desembarco: 100 / 120 = <strong>0,83</strong>. Invernalia resigna menos vino, así que tiene ventaja comparativa en trigo. Fijate que cada país tiene ventaja comparativa en exactamente un bien: es matemáticamente imposible tenerla en los dos."
+    },
+    {
+      "texto": "¿Qué concepto no tuvieron en cuenta los habitantes de Invernalia, y por eso se creen mejores y no quieren comerciar?",
+      "opciones": [
+        "Ventajas absolutas",
+        "Ventajas relativas",
+        "Economías de escala",
+        "Rendimientos decrecientes"
+      ],
+      "correcta": 2,
+      "explicacion": "Miraron solo la ventaja absoluta (son más productivos en los dos bienes) y se olvidaron de la <strong>ventaja relativa</strong> o comparativa, que depende del costo de oportunidad. Es el hallazgo de Ricardo: aunque un país sea mejor en todo, su tiempo es limitado. Usar horas de Invernalia en vino (donde resigna 2 de trigo) es carísimo comparado con dedicarlas al trigo y comprarle el vino a Desembarco. El comercio no premia al más productivo, premia a quien organiza mejor sus costos de oportunidad."
+    },
+    {
+      "texto": "Hoy cada país reparte sus 240 horas mitad y mitad, y entre los dos producen 2,2 hectolitros de vino y 3,6 toneladas de trigo. Si cada uno se especializa según su ventaja comparativa, ¿qué pasa con el total producido?",
+      "opciones": [
+        "No se sabe, porque faltan los precios",
+        "Sube, porque cada uno se especializa",
+        "Baja, porque se pierde diversidad productiva",
+        "Queda igual, solo cambia quién produce"
+      ],
+      "correcta": 2,
+      "explicacion": "Con Desembarco volcado al vino (240 h → 2 hl) e Invernalia principalmente al trigo, el total pasa a ser de unos 2,4 hl de vino y ≈4 t de trigo: <strong>más de los dos bienes, con los mismos recursos</strong>. Esa producción extra es la ganancia del comercio, y es lo que permite que después, intercambiando, los dos países consuman más de lo que consumían antes. Cómo se reparte esa ganancia ya depende del precio al que se negocie."
+    }
+  ]
+}

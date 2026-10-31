@@ -1,0 +1,94 @@
+{
+  "actividad": "Unidad I · Test de lectura: Buchanan (1964)",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "Buchanan critica la definición de economía de Lionel Robbins (\"la ciencia que estudia la asignación de medios escasos entre fines alternativos\"). ¿Cuál es el núcleo de esa crítica?",
+      "opciones": [
+        "Que subestima el papel de la escasez",
+        "Que describe un cálculo individual, no un intercambio",
+        "Que usa demasiada matemática",
+        "Que no menciona al Estado"
+      ],
+      "correcta": 2,
+      "explicacion": "Para Buchanan, una vez dados los fines y los medios, \"asignar óptimamente\" es un problema técnico de cálculo que podría resolver cualquiera — incluso una máquina. Lo distintivamente económico aparece recién cuando hay dos personas que acuerdan un intercambio."
+    },
+    {
+      "texto": "¿Qué propone Buchanan como objeto central de la disciplina, en reemplazo del problema de asignación?",
+      "opciones": [
+        "La política monetaria",
+        "La conducta del consumidor",
+        "El intercambio entre personas",
+        "Los agregados macroeconómicos"
+      ],
+      "correcta": 3,
+      "explicacion": "Buchanan recupera el término \"catalaxia\" (la ciencia de los intercambios): propone estudiar el proceso de acuerdo voluntario entre partes y el orden que surge de él sin que nadie lo dirija."
+    },
+    {
+      "texto": "Buchanan dice que, con la definición de Robbins, el economista termina pareciéndose a un ingeniero. ¿Por qué le parece un problema?",
+      "opciones": [
+        "Porque el ingeniero recibe el objetivo ya dado",
+        "Porque el ingeniero usa más matemática",
+        "Porque la ingeniería no es una ciencia",
+        "Porque el ingeniero trabaja para privados"
+      ],
+      "correcta": 1,
+      "explicacion": "El ingeniero maximiza una función objetivo que alguien le entregó. Suponer que la sociedad tiene una función objetivo única y conocida es, para Buchanan, precisamente el error: esa función no viene dada, emerge del acuerdo entre personas con fines distintos."
+    },
+    {
+      "texto": "Según esta mirada, ¿qué pasa con la idea de un \"problema económico de la sociedad\" entendido como un gran problema de maximización?",
+      "opciones": [
+        "Es el planteo correcto",
+        "Vale solo para economías planificadas",
+        "Se resuelve con mejores computadoras",
+        "Supone una escala de fines única que no existe"
+      ],
+      "correcta": 4,
+      "explicacion": "No hay un \"nosotros\" con una lista ordenada de fines: hay individuos con fines propios que, al intercambiar, descubren acuerdos que los dejan mejor a todos. Por eso el foco se corre de maximizar a acordar."
+    },
+    {
+      "texto": "Buchanan se apoya en la famosa \"propensión a permutar, trocar e intercambiar una cosa por otra\". ¿De qué autor toma esa idea?",
+      "opciones": [
+        "Karl Marx",
+        "Adam Smith",
+        "John Maynard Keynes",
+        "Alfred Marshall"
+      ],
+      "correcta": 2,
+      "explicacion": "Es de Adam Smith, en \"La riqueza de las naciones\". Buchanan la usa para mostrar que el intercambio, y no el cálculo optimizador, es el fenómeno económico primitivo."
+    },
+    {
+      "texto": "En la mirada del intercambio, ¿por qué pasan a ser centrales las instituciones?",
+      "opciones": [
+        "Porque reemplazan a los mercados",
+        "Porque definen qué intercambios son posibles",
+        "Porque permiten calcular el óptimo social",
+        "Porque son un tema del derecho"
+      ],
+      "correcta": 2,
+      "explicacion": "Si lo central es el acuerdo entre partes, las reglas del juego dejan de ser un detalle y pasan a ser parte del objeto de estudio. De ahí la conexión directa con la disyuntiva Estado-Mercado que cierra la unidad."
+    },
+    {
+      "texto": "¿Qué tipo de discusión es, en el fondo, la que plantea el texto?",
+      "opciones": [
+        "Empírica",
+        "Jurídica",
+        "Metodológica",
+        "Estadística"
+      ],
+      "correcta": 3,
+      "explicacion": "No se resuelve con datos, porque lo que está en juego es qué cuenta como una pregunta económica. Por eso es una lectura metodológica y no un trabajo empírico."
+    },
+    {
+      "texto": "Una consecuencia práctica de tomarse en serio la propuesta de Buchanan es que el economista debería",
+      "opciones": [
+        "recomendar la política que maximiza el bienestar",
+        "abandonar todo modelo formal",
+        "dedicarse a la historia económica",
+        "evaluar las reglas bajo las que la gente acuerda"
+      ],
+      "correcta": 4,
+      "explicacion": "Es el corrimiento del \"qué resultado elegir\" al \"bajo qué reglas dejamos que la gente acuerde\". Esta idea es la semilla de su programa posterior sobre elección pública y reglas constitucionales."
+    }
+  ]
+}

@@ -1,0 +1,613 @@
+# Configuración del panel de administración (Pages CMS: https://app.pagescms.org)
+# Cada cambio que se guarda desde el panel es un commit en GitHub, y Netlify publica solo.
+components:
+  pregunta:
+    type: object
+    label: Pregunta
+    fields:
+      - { name: texto, label: Pregunta, type: text, required: true }
+      - { name: opciones, label: Opciones de esta pregunta, type: string, list: true, description: "Dejalo vacío si la pregunta usa las opciones comunes de la actividad." }
+      - { name: correcta, label: Número de la opción correcta, type: number, required: true, options: { min: 1 }, description: "La primera opción es 1, la segunda 2, etc." }
+      - { name: explicacion, label: Explicación (se muestra al responder), type: text }
+  pregunta-fija:
+    type: object
+    label: Pregunta
+    fields:
+      - { name: texto, label: Pregunta, type: text, required: true }
+      - { name: correcta, label: Respuesta correcta, type: number, required: true, options: { min: 1, max: 2 } }
+      - { name: explicacion, label: Explicación (se muestra al responder), type: text }
+content:
+  - name: config
+    label: "⚙ Unidades y actividades"
+    type: file
+    path: contenido/config.json
+    format: json
+    description: "Qué unidades están habilitadas, y qué actividades se ven en cada una (arrastrá para cambiar el orden)."
+    fields:
+      - name: curso
+        label: Curso
+        type: object
+        fields:
+          - { name: nombre, label: Nombre (título grande de la portada), type: string }
+          - { name: docente, label: Docente (texto chico arriba del título), type: string }
+      - name: unidades
+        label: Unidades
+        type: object
+        list: { min: 5, max: 5, collapsible: { collapsed: true, summary: "Unidad {fields.id} · {fields.nombre}" } }
+        fields:
+          - { name: id, label: Número, type: string, readonly: true }
+          - { name: nombre, label: Nombre, type: string }
+          - { name: habilitada, label: "Habilitada (si se destilda, se ve como Próximamente)", type: boolean, default: true }
+          - name: actividades
+            label: Actividades
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{fields.titulo}" } }
+            description: "Destildá Visible para ocultar una actividad. No cambies el código interno."
+            fields:
+              - { name: id, label: Código interno, type: string, readonly: true }
+              - { name: titulo, label: Título, type: string }
+              - { name: descripcion, label: Descripción, type: string }
+              - { name: visible, label: Visible, type: boolean, default: true }
+  - name: nuevas
+    label: "➕ Actividades nuevas"
+    type: file
+    path: contenido/actividades-nuevas.json
+    format: json
+    description: "Cuestionarios nuevos de opción múltiple. Aparecen al final de la unidad elegida."
+    fields:
+      - name: actividades
+        label: Actividades
+        type: object
+        list: { collapsible: { collapsed: true, summary: "Unidad {fields.unidad} · {fields.titulo}" } }
+        fields:
+          - { name: unidad, label: Unidad, type: select, required: true, options: { values: [I, II, III, IV, V] } }
+          - { name: titulo, label: Título, type: string, required: true }
+          - { name: descripcion, label: Descripción corta, type: string }
+          - { name: visible, label: Visible, type: boolean, default: true }
+          - { name: mezclar_preguntas, label: Mezclar el orden de las preguntas, type: boolean, default: true }
+          - { name: mezclar_opciones, label: Mezclar el orden de las opciones, type: boolean, default: false }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Opcional: si todas las preguntas tienen las mismas opciones (ej. Verdadero / Falso), ponelas acá una sola vez." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+  - name: unidad-1
+    label: "Unidad I · La Economía"
+    type: group
+    items:
+      - name: u1-repaso
+        label: "Preguntas de repaso"
+        type: file
+        path: contenido/preguntas/U1_REPASO.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u1-posnorm
+        label: "¿Positiva o normativa?"
+        type: file
+        path: contenido/preguntas/U1_POSNORM.json
+        format: json
+        description: "Respuesta correcta: 1 = Positiva, 2 = Normativa."
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones (fijas), type: string, list: true, readonly: true }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta-fija
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u1-vf
+        label: "Verdadero o falso"
+        type: file
+        path: contenido/preguntas/U1_VF.json
+        format: json
+        description: "Respuesta correcta: 1 = Verdadero, 2 = Falso."
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones (fijas), type: string, list: true, readonly: true }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta-fija
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u1-lectura
+        label: "Test de lectura: Buchanan (1964)"
+        type: file
+        path: contenido/preguntas/U1_LECTURA.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u1-gasparini
+        label: "Test de lectura: Gasparini"
+        type: file
+        path: contenido/preguntas/U1_GASPARINI.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u1-fanelli
+        label: "Test de lectura: Fanelli"
+        type: file
+        path: contenido/preguntas/U1_FANELLI.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u1-efeq
+        label: "¿Eficiencia o equidad?"
+        type: file
+        path: contenido/preguntas/U1_EFEQ.json
+        format: json
+        description: "Respuesta correcta: 1 = Eficiencia, 2 = Equidad."
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones (fijas), type: string, list: true, readonly: true }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta-fija
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u1-igualdad
+        label: "¿Igualdad de qué?"
+        type: file
+        path: contenido/preguntas/U1_IGUALDAD.json
+        format: json
+        description: "Respuesta correcta: 1 = Igualdad de resultados, 2 = Igualdad de oportunidades."
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones (fijas), type: string, list: true, readonly: true }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta-fija
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u1-indices
+        label: "Números índice: Laspeyres y Paasche"
+        type: file
+        path: contenido/preguntas/U1_INDICES.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u1-costop
+        label: "Costo de oportunidad y comercio"
+        type: file
+        path: contenido/preguntas/U1_COSTOP.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: misiones-1
+        label: "Misiones: tomá la decisión"
+        type: file
+        path: contenido/misiones/U1.json
+        format: json
+        fields:
+          - name: misiones
+            label: Misiones
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.titulo}" } }
+            fields:
+              - { name: titulo, label: Título, type: string, required: true }
+              - { name: brief, label: Situación, type: text }
+              - { name: objetivo, label: Objetivo, type: text }
+              - name: opciones
+                label: Opciones
+                type: object
+                list: { collapsible: { collapsed: true, summary: "{fields.label}" } }
+                fields:
+                  - { name: label, label: Opción, type: text, required: true }
+                  - { name: mejor, label: Es la mejor respuesta, type: boolean }
+                  - { name: resultado, label: Qué pasa si la elige, type: text }
+              - { name: nota, label: Nota final (opcional), type: text }
+  - name: unidad-2
+    label: "Unidad II · Sistemas Económicos"
+    type: group
+    items:
+      - name: u2-frases
+        label: "Frases y teorías del valor"
+        type: file
+        path: contenido/preguntas/U2_FRASES.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u2-vf
+        label: "Verdadero o falso"
+        type: file
+        path: contenido/preguntas/U2_VF.json
+        format: json
+        description: "Respuesta correcta: 1 = Verdadero, 2 = Falso."
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones (fijas), type: string, list: true, readonly: true }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta-fija
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u2-sistemas
+        label: "Identificá el sistema económico"
+        type: file
+        path: contenido/preguntas/U2_SISTEMAS.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u2-zalduendo
+        label: "Zalduendo: breve historia del pensamiento"
+        type: file
+        path: contenido/preguntas/U2_ZALDUENDO.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u2-escuelas
+        label: "¿Quién lo pensó?"
+        type: file
+        path: contenido/preguntas/U2_ESCUELAS.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: misiones-2
+        label: "Misiones: tomá la decisión"
+        type: file
+        path: contenido/misiones/U2.json
+        format: json
+        fields:
+          - name: misiones
+            label: Misiones
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.titulo}" } }
+            fields:
+              - { name: titulo, label: Título, type: string, required: true }
+              - { name: brief, label: Situación, type: text }
+              - { name: objetivo, label: Objetivo, type: text }
+              - name: opciones
+                label: Opciones
+                type: object
+                list: { collapsible: { collapsed: true, summary: "{fields.label}" } }
+                fields:
+                  - { name: label, label: Opción, type: text, required: true }
+                  - { name: mejor, label: Es la mejor respuesta, type: boolean }
+                  - { name: resultado, label: Qué pasa si la elige, type: text }
+              - { name: nota, label: Nota final (opcional), type: text }
+  - name: unidad-3
+    label: "Unidad III · Mercados Individuales"
+    type: group
+    items:
+      - name: u3-vf
+        label: "Verdadero o falso"
+        type: file
+        path: contenido/preguntas/U3_VF.json
+        format: json
+        description: "Respuesta correcta: 1 = Verdadero, 2 = Falso."
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones (fijas), type: string, list: true, readonly: true }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta-fija
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u3-elasticidad
+        label: "¿Sube o baja el gasto total?"
+        type: file
+        path: contenido/preguntas/U3_ELASTICIDAD.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u3-movdesp
+        label: "¿Movimiento o desplazamiento?"
+        type: file
+        path: contenido/preguntas/U3_MOVDESP.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u3-musgrave
+        label: "¿Para qué interviene el Estado?"
+        type: file
+        path: contenido/preguntas/U3_MUSGRAVE.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u3-rquiz
+        label: "¿Qué rendimiento es?"
+        type: file
+        path: contenido/preguntas/U3_RQUIZ.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u3-bif
+        label: "¿Bien, insumo o factor?"
+        type: file
+        path: contenido/preguntas/U3_BIF.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u3-fallaono
+        label: "¿Falla de mercado o no?"
+        type: file
+        path: contenido/preguntas/U3_FALLAONO.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u3-riesgo
+        label: "Riesgo moral, selección adversa o azar"
+        type: file
+        path: contenido/preguntas/U3_RIESGO.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: misiones-3
+        label: "Misiones: tomá la decisión"
+        type: file
+        path: contenido/misiones/U3.json
+        format: json
+        fields:
+          - name: misiones
+            label: Misiones
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.titulo}" } }
+            fields:
+              - { name: titulo, label: Título, type: string, required: true }
+              - { name: brief, label: Situación, type: text }
+              - { name: objetivo, label: Objetivo, type: text }
+              - name: opciones
+                label: Opciones
+                type: object
+                list: { collapsible: { collapsed: true, summary: "{fields.label}" } }
+                fields:
+                  - { name: label, label: Opción, type: text, required: true }
+                  - { name: mejor, label: Es la mejor respuesta, type: boolean }
+                  - { name: resultado, label: Qué pasa si la elige, type: text }
+              - { name: nota, label: Nota final (opcional), type: text }
+  - name: unidad-4
+    label: "Unidad IV · Mercados Agregados"
+    type: group
+    items:
+      - name: u4-vf
+        label: "Verdadero o falso"
+        type: file
+        path: contenido/preguntas/U4_VF.json
+        format: json
+        description: "Respuesta correcta: 1 = Verdadero, 2 = Falso."
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones (fijas), type: string, list: true, readonly: true }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta-fija
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u4-brechas
+        label: "Las tres brechas"
+        type: file
+        path: contenido/preguntas/U4_BRECHAS.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u4-ciclotend
+        label: "¿Tendencia o ciclo?"
+        type: file
+        path: contenido/preguntas/U4_CICLOTEND.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u4-brechas-real
+        label: "Las tres brechas en la vida real"
+        type: file
+        path: contenido/preguntas/U4_BRECHAS_REAL.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u4-claskeyn
+        label: "Clásicos vs. keynesianos"
+        type: file
+        path: contenido/preguntas/U4_CLASKEYN.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u4-finanzas
+        label: "Finanzas sanas vs. funcionales"
+        type: file
+        path: contenido/preguntas/U4_FINANZAS.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u4-dinero
+        label: "El rol del dinero"
+        type: file
+        path: contenido/preguntas/U4_DINERO.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u4-dinero-final
+        label: "El rol del dinero (pregunta final)"
+        type: file
+        path: contenido/preguntas/U4_DINERO_FINAL.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: misiones-4
+        label: "Misiones: tomá la decisión"
+        type: file
+        path: contenido/misiones/U4.json
+        format: json
+        fields:
+          - name: misiones
+            label: Misiones
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.titulo}" } }
+            fields:
+              - { name: titulo, label: Título, type: string, required: true }
+              - { name: brief, label: Situación, type: text }
+              - { name: objetivo, label: Objetivo, type: text }
+              - name: opciones
+                label: Opciones
+                type: object
+                list: { collapsible: { collapsed: true, summary: "{fields.label}" } }
+                fields:
+                  - { name: label, label: Opción, type: text, required: true }
+                  - { name: mejor, label: Es la mejor respuesta, type: boolean }
+                  - { name: resultado, label: Qué pasa si la elige, type: text }
+              - { name: nota, label: Nota final (opcional), type: text }
+  - name: unidad-5
+    label: "Unidad V · Economía Argentina"
+    type: group
+    items:
+      - name: u5-regiones
+        label: "¿Dónde se produce?"
+        type: file
+        path: contenido/preguntas/U5_REGIONES.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u5-sectores
+        label: "Agro, industria y energía"
+        type: file
+        path: contenido/preguntas/U5_SECTORES.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u5-etapas
+        label: "Las etapas según Ferrer"
+        type: file
+        path: contenido/preguntas/U5_ETAPAS.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u5-vf
+        label: "Verdadero o falso"
+        type: file
+        path: contenido/preguntas/U5_VF.json
+        format: json
+        description: "Respuesta correcta: 1 = Verdadero, 2 = Falso."
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones (fijas), type: string, list: true, readonly: true }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta-fija
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }

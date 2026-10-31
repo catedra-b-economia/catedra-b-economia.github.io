@@ -1,0 +1,49 @@
+{
+  "actividad": "Unidad III · ¿Falla de mercado o no?",
+  "opciones_comunes": [
+    "Hay una falla de mercado",
+    "No: es el mercado funcionando"
+  ],
+  "preguntas": [
+    {
+      "texto": "Una helada arruina la cosecha de tomate y el precio se triplica.",
+      "correcta": 2,
+      "explicacion": "Es el mercado funcionando: el tomate se volvió escaso y el precio sube para racionarlo y para atraer más oferta. Que duela no lo convierte en una falla."
+    },
+    {
+      "texto": "Una fábrica no paga nada por el ruido que les causa a los vecinos toda la noche.",
+      "correcta": 1,
+      "explicacion": "Externalidad negativa: un costo que cae sobre terceros y que no entra en la cuenta de quien lo produce."
+    },
+    {
+      "texto": "Las entradas para un recital se agotan en una hora.",
+      "correcta": 2,
+      "explicacion": "Mucha demanda y oferta fija. Si el precio quedó por debajo del que despejaría el mercado, es una decisión del organizador, no una falla del mercado."
+    },
+    {
+      "texto": "Nadie instala un sistema de alerta de tormentas porque no se le puede cobrar solo a quien lo aprovecha.",
+      "correcta": 1,
+      "explicacion": "Bien público: no se puede excluir a nadie, así que nadie tiene incentivos a pagarlo solo."
+    },
+    {
+      "texto": "Los autos de alta gama son carísimos y muy poca gente los puede comprar.",
+      "correcta": 2,
+      "explicacion": "Que un bien sea caro no es una falla de mercado. Puede preocuparnos por equidad, pero técnicamente el mercado está asignando de manera eficiente según quién paga."
+    },
+    {
+      "texto": "El que vende un seguro no puede distinguir quién maneja con cuidado y quién no.",
+      "correcta": 1,
+      "explicacion": "Información asimétrica: el asegurado sabe algo que la aseguradora no."
+    },
+    {
+      "texto": "Una empresa quiebra porque sus clientes prefirieron el producto de la competencia.",
+      "correcta": 2,
+      "explicacion": "Es la competencia haciendo lo suyo: los recursos se van hacia quien produce lo que la gente prefiere."
+    },
+    {
+      "texto": "El único laboratorio con la patente de un remedio lo vende muy por encima de su costo.",
+      "correcta": 1,
+      "explicacion": "Poder de mercado. Es una falla creada a propósito: la patente da un monopolio temporal como premio a la innovación. El debate es cuánto debería durar."
+    }
+  ]
+}

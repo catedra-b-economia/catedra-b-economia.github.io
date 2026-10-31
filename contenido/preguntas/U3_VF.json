@@ -1,0 +1,59 @@
+{
+  "actividad": "Unidad III · Verdadero o falso",
+  "opciones_comunes": [
+    "Verdadero",
+    "Falso"
+  ],
+  "preguntas": [
+    {
+      "texto": "Cuando sube el precio de un bien, manteniendo todo lo demás constante, la cantidad demandada tiende a bajar.",
+      "correcta": 1,
+      "explicacion": "Es la ley de demanda básica."
+    },
+    {
+      "texto": "Un aumento en el ingreso de los consumidores siempre desplaza la curva de demanda de cualquier bien hacia la izquierda.",
+      "correcta": 2,
+      "explicacion": "Eso vale para un bien inferior. Para un bien normal, un aumento del ingreso desplaza la demanda hacia la derecha (se demanda más a cada precio)."
+    },
+    {
+      "texto": "Un precio máximo fijado por debajo del precio de equilibrio genera un excedente de oferta.",
+      "correcta": 2,
+      "explicacion": "Genera lo contrario: un faltante (escasez), porque a ese precio bajo se demanda más de lo que se está dispuesto a ofrecer."
+    },
+    {
+      "texto": "Un precio mínimo fijado por encima del precio de equilibrio genera un excedente de oferta.",
+      "correcta": 1,
+      "explicacion": "A un precio más alto que el de equilibrio, se ofrece más de lo que se demanda: aparece un excedente."
+    },
+    {
+      "texto": "Un bien con demanda elástica es aquel en el que un cambio en el precio genera un cambio proporcionalmente mayor en la cantidad demandada.",
+      "correcta": 1,
+      "explicacion": "Esa es justamente la definición de elasticidad-precio de la demanda mayor a 1 en valor absoluto."
+    },
+    {
+      "texto": "Si la demanda de un bien es inelástica, un aumento de su precio reduce el ingreso total del vendedor.",
+      "correcta": 2,
+      "explicacion": "Si la demanda es inelástica, la cantidad cae proporcionalmente menos que lo que sube el precio, así que el ingreso total del vendedor aumenta."
+    },
+    {
+      "texto": "En competencia perfecta, cada empresa individual puede fijar el precio de mercado a su gusto.",
+      "correcta": 2,
+      "explicacion": "En competencia perfecta las empresas son \"tomadoras de precio\": ninguna, por sí sola, tiene poder para fijarlo."
+    },
+    {
+      "texto": "En un monopolio, la empresa enfrenta toda la curva de demanda del mercado, no solo una porción pequeña de ella.",
+      "correcta": 1,
+      "explicacion": "A diferencia de la competencia perfecta, el monopolista es el único oferente, así que su demanda es la demanda de todo el mercado."
+    },
+    {
+      "texto": "El equilibrio de un mercado es el punto donde la cantidad ofrecida coincide con la cantidad demandada.",
+      "correcta": 1,
+      "explicacion": "Es la definición estándar de equilibrio de mercado."
+    },
+    {
+      "texto": "Si sube el precio de un bien sustituto, la demanda del bien original tiende a desplazarse hacia la izquierda (se demanda menos).",
+      "correcta": 2,
+      "explicacion": "Es al revés: si sube el precio del sustituto, la demanda del bien original tiende a aumentar (desplazarse a la derecha), porque se vuelve relativamente más barato en comparación."
+    }
+  ]
+}

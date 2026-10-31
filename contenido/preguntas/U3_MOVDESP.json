@@ -1,0 +1,61 @@
+{
+  "actividad": "Unidad III · ¿Movimiento o desplazamiento?",
+  "opciones_comunes": [
+    "Movimiento a lo largo de la demanda",
+    "Desplazamiento de la demanda",
+    "Movimiento a lo largo de la oferta",
+    "Desplazamiento de la oferta"
+  ],
+  "preguntas": [
+    {
+      "texto": "Mercado de la yerba: sube el precio de la yerba y la gente compra menos paquetes.",
+      "correcta": 1,
+      "explicacion": "Cambió el precio del propio bien, así que la curva de demanda no se mueve: se recorre hacia arriba y a la izquierda."
+    },
+    {
+      "texto": "Mercado de la yerba: una sequía en Misiones arruina parte de la cosecha.",
+      "correcta": 4,
+      "explicacion": "El clima no es el precio de la yerba: a cualquier precio ahora se puede ofrecer menos. La oferta se corre a la izquierda."
+    },
+    {
+      "texto": "Mercado de la yerba: el mate se pone de moda en Europa.",
+      "correcta": 2,
+      "explicacion": "Cambian los gustos, no el precio: a cualquier precio se quiere más yerba. La demanda se corre a la derecha."
+    },
+    {
+      "texto": "Mercado de la yerba: sube el precio y los productores cosechan más.",
+      "correcta": 3,
+      "explicacion": "Es la respuesta de los productores al precio del propio bien: se recorre la curva de oferta."
+    },
+    {
+      "texto": "Mercado del café: baja el precio del té.",
+      "correcta": 2,
+      "explicacion": "El té es un sustituto del café. Si el té se abarata, a cualquier precio del café se compra menos café: la demanda de café se corre a la izquierda."
+    },
+    {
+      "texto": "Mercado de autos: baja mucho el precio del acero.",
+      "correcta": 4,
+      "explicacion": "El acero es un insumo. Si baja su costo, a cualquier precio conviene fabricar más autos: la oferta se corre a la derecha."
+    },
+    {
+      "texto": "Mercado de departamentos en alquiler: sube el alquiler y más dueños ponen su departamento en alquiler.",
+      "correcta": 3,
+      "explicacion": "Cambió el precio del propio servicio (el alquiler) y los dueños responden ofreciendo más: movimiento a lo largo de la oferta."
+    },
+    {
+      "texto": "Mercado de la carne: cae la oferta de carne, sube su precio y la gente compra menos. ¿Qué le pasó a la DEMANDA de carne?",
+      "correcta": 1,
+      "explicacion": "La trampa del caso. Lo que se movió fue la oferta; la demanda quedó quieta y los consumidores simplemente la recorrieron al subir el precio. Que se compre menos no significa que la demanda haya caído."
+    },
+    {
+      "texto": "Mercado de entradas de cine: se abaratan mucho las plataformas de streaming.",
+      "correcta": 2,
+      "explicacion": "El streaming es un sustituto del cine. Si se abarata, a cualquier precio de la entrada va menos gente: la demanda de cine se corre a la izquierda."
+    },
+    {
+      "texto": "Mercado del pan: una amasadora nueva baja los costos de las panaderías.",
+      "correcta": 4,
+      "explicacion": "Mejora tecnológica que baja los costos: a cualquier precio conviene hacer más pan. La oferta se corre a la derecha."
+    }
+  ]
+}

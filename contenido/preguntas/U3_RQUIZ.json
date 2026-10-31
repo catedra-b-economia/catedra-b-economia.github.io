@@ -1,0 +1,41 @@
+{
+  "actividad": "Unidad III · ¿Qué rendimiento es?",
+  "opciones_comunes": [
+    "Decrecientes del factor",
+    "Crecientes a escala",
+    "Constantes a escala",
+    "Decrecientes a escala"
+  ],
+  "preguntas": [
+    {
+      "texto": "En un campo de 100 hectáreas, el primer peón que se suma agrega 50 toneladas de cosecha, el segundo 40 y el tercero 25.",
+      "correcta": 1,
+      "explicacion": "La tierra está fija y se suma solo trabajo: cada peón agrega menos que el anterior. Rendimientos decrecientes del factor."
+    },
+    {
+      "texto": "Una fábrica de latas duplica la planta, las máquinas y el personal, y pasa a producir más del doble porque puede especializar cada línea.",
+      "correcta": 2,
+      "explicacion": "Se duplicaron todos los insumos y la producción más que se duplicó: crecientes a escala."
+    },
+    {
+      "texto": "Una cadena de lavaderos abre un local idéntico a los que ya tiene y produce exactamente lo mismo que cada uno de ellos.",
+      "correcta": 3,
+      "explicacion": "Duplicar es repetir: la producción crece en la misma proporción que los insumos. Constantes a escala."
+    },
+    {
+      "texto": "Una empresa duplica todas sus sucursales y su personal, pero coordinar tanto se complica y produce solo un 70% más.",
+      "correcta": 4,
+      "explicacion": "Se duplicaron todos los insumos y la producción creció menos que el doble: decrecientes a escala."
+    },
+    {
+      "texto": "Un estudio contable con una sola computadora contrata a un quinto empleado, que casi no agrega trabajo porque espera turno para usarla.",
+      "correcta": 1,
+      "explicacion": "La computadora es el factor fijo. Sumar gente sin sumar computadoras rinde cada vez menos: decrecientes del factor."
+    },
+    {
+      "texto": "Si duplicás el diámetro de un caño, el metal necesario se duplica, pero lo que puede transportar se multiplica por cuatro.",
+      "correcta": 2,
+      "explicacion": "El insumo (metal) se duplica y el producto (capacidad) se cuadruplica: crecientes a escala. Es la razón física por la que los gasoductos y los tanques grandes son más baratos por unidad."
+    }
+  ]
+}

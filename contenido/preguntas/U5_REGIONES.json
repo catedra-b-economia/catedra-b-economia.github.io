@@ -1,0 +1,62 @@
+{
+  "actividad": "Unidad V · ¿Dónde se produce?",
+  "opciones_comunes": [
+    "Pampeana",
+    "NOA (Noroeste)",
+    "NEA (Noreste)",
+    "Cuyo",
+    "Patagonia"
+  ],
+  "preguntas": [
+    {
+      "texto": "Soja, maíz y trigo, y los puertos del Gran Rosario por donde sale la mayor parte de los granos.",
+      "correcta": 1,
+      "explicacion": "Región pampeana: Buenos Aires, Córdoba, Santa Fe, Entre Ríos y La Pampa. Suelos y clima excepcionales y la red de transporte armada en la etapa agroexportadora."
+    },
+    {
+      "texto": "Caña de azúcar e ingenios, en Tucumán, Salta y Jujuy.",
+      "correcta": 2,
+      "explicacion": "Noroeste. La industria azucarera tucumana creció con la llegada del ferrocarril (1876) y la protección al azúcar: una de las pocas economías del Interior que se integró al mercado nacional."
+    },
+    {
+      "texto": "Yerba mate y té, en Misiones y el norte de Corrientes.",
+      "correcta": 3,
+      "explicacion": "Noreste: clima subtropical húmedo."
+    },
+    {
+      "texto": "Vid y vino, sobre todo en Mendoza y San Juan.",
+      "correcta": 4,
+      "explicacion": "Cuyo: agricultura bajo riego en oasis. La vitivinicultura también creció con el ferrocarril a fines del siglo XIX, orientada al mercado interno."
+    },
+    {
+      "texto": "Peras y manzanas del Alto Valle de Río Negro y Neuquén.",
+      "correcta": 5,
+      "explicacion": "Patagonia norte: fruticultura bajo riego, gran parte para exportar."
+    },
+    {
+      "texto": "Algodón, con el Chaco como principal productor.",
+      "correcta": 3,
+      "explicacion": "Noreste. El algodón chaqueño abasteció a la industria textil nacional durante la sustitución de importaciones."
+    },
+    {
+      "texto": "Limones: la Argentina es uno de los mayores productores del mundo, la mayor parte en una sola provincia.",
+      "correcta": 2,
+      "explicacion": "Noroeste: Tucumán concentra la mayor parte de la producción de limón."
+    },
+    {
+      "texto": "Petróleo y gas de Neuquén y del golfo San Jorge.",
+      "correcta": 5,
+      "explicacion": "Patagonia. El petróleo argentino aparece en Comodoro Rivadavia en 1907; la cuenca neuquina es hoy la principal productora de gas."
+    },
+    {
+      "texto": "Terminales automotrices y buena parte de la industria metalmecánica.",
+      "correcta": 1,
+      "explicacion": "Región pampeana: Gran Buenos Aires, Córdoba y Santa Fe. La industria se concentró cerca del mayor mercado y del puerto."
+    },
+    {
+      "texto": "Tabaco Virginia, sobre todo en Jujuy y Salta.",
+      "correcta": 2,
+      "explicacion": "Noroeste. (En Misiones se cultiva otra variedad, el Burley.)"
+    }
+  ]
+}

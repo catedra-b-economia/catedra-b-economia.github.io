@@ -1,0 +1,83 @@
+{
+  "misiones": [
+    {
+      "titulo": "¿Por qué este país quedó atrás?",
+      "brief": "Sos parte de un equipo asesor. Dos países vecinos arrancaron el siglo XX con recursos naturales, clima y población parecidos. Hoy uno tiene un ingreso por habitante cinco veces más alto que el otro. El gobierno del país rezagado te pide un diagnóstico de fondo: ¿de dónde viene la diferencia?",
+      "objetivo": "Objetivo declarado: identificar la causa que, según Acemoglu y Robinson (\"Por qué fracasan los países\"), explica de manera más profunda por qué dos países parecidos terminan tan distintos.",
+      "opciones": [
+        {
+          "label": "De la geografía y de los recursos: el país quedó con las tierras menos fértiles y más lejos de los puertos.",
+          "mejor": false,
+          "resultado": "Es la explicación geográfica, y Acemoglu y Robinson la descartan como causa última justamente con casos como este: países con geografía casi idéntica (los dos lados de la frontera entre Corea del Norte y Corea del Sur, o entre Nogales de Arizona y Nogales de Sonora) terminan con niveles de vida completamente distintos. Si la geografía fuera la causa, esas diferencias no deberían existir."
+        },
+        {
+          "label": "De las reglas de juego: quién puede participar de la economía, si se respetan los contratos y los derechos de propiedad, y si el poder político está concentrado en pocas manos.",
+          "mejor": true,
+          "resultado": "Esta es la tesis institucionalista de Acemoglu y Robinson: la causa última está en si las instituciones son <strong>inclusivas</strong> (amplían la participación, protegen la propiedad, permiten que mucha gente invierta e innove) o <strong>extractivas</strong> (diseñadas para que una élite extraiga rentas del resto). Las instituciones extractivas pueden generar crecimiento por un tiempo, pero es un progreso efímero porque nadie tiene incentivos sostenidos para innovar."
+        },
+        {
+          "label": "De su lugar en la división internacional del trabajo: exporta materias primas baratas e importa manufacturas caras, y esa estructura lo condena.",
+          "mejor": false,
+          "resultado": "Esta es la explicación <strong>estructuralista</strong> (Prebisch y la CEPAL): el problema está en la estructura productiva y en el deterioro de los términos de intercambio, no en las reglas internas. Es una tradición muy fuerte en América Latina y señala un problema real. Pero para el institucionalismo la pregunta queda a mitad de camino: no explica por qué un país adopta y sostiene esa estructura, ni por qué otros países que también exportaban materias primas (Australia, Canadá, Noruega) no quedaron atrapados en ella."
+        }
+      ],
+      "nota": "Ojo: institucionalismo y estructuralismo no son \"uno verdadero y otro falso\". Discuten dónde está la causa <em>última</em>: en las reglas de juego que moldean los incentivos, o en la posición estructural de la economía. En la cursada vas a encontrar los dos argumentos, y la discusión entre ambos sigue abierta."
+    },
+    {
+      "titulo": "Sos el Ministerio y necesitás un dato",
+      "brief": "El ministerio va a lanzar un programa que reparte fondos barrio por barrio, en todo el país. Para repartirlos necesita saber cuánta gente vive en cada barrio, incluidos los barrios más chicos y los más alejados. No hay plata para hacer todo, así que hay que elegir UNA herramienta de medición.",
+      "objetivo": "Objetivo declarado: conseguir un dato de población con cobertura total del país y el mayor detalle geográfico posible.",
+      "opciones": [
+        {
+          "label": "Un censo de población",
+          "mejor": true,
+          "resultado": "Correcto. El censo es el único instrumento <strong>exhaustivo</strong>: intenta contar a todas las personas, una por una. Por eso es el que permite bajar al máximo detalle geográfico (barrio, manzana) sin problemas de representatividad. Su contracara: es carísimo y lentísimo, por eso se hace cada diez años y no sirve para seguir cosas que cambian rápido."
+        },
+        {
+          "label": "Una encuesta a hogares",
+          "mejor": false,
+          "resultado": "La encuesta trabaja con una <strong>muestra</strong>: entrevista a una parte de la población y a partir de ahí infiere el total. Es mucho más barata y rápida que un censo, y permite preguntar cosas que el censo no pregunta (ingresos, condiciones de trabajo). Pero al ser una muestra, no se puede desagregar al nivel de barrio chico: ahí el margen de error se vuelve enorme. Es la herramienta de la EPH, por ejemplo."
+        },
+        {
+          "label": "Los registros administrativos que ya tiene el Estado",
+          "mejor": false,
+          "resultado": "Son datos que el Estado genera al funcionar: altas de ANSES, matrículas escolares, historias clínicas, padrones. Son baratísimos (ya existen), se actualizan solos y permiten mucho detalle. El problema para este caso: solo cubren a quienes pasan por ese trámite. Quien no cobra una asignación ni va a la escuela pública no aparece — y suele ser justamente la población más vulnerable, que es la que el programa quiere alcanzar."
+        },
+        {
+          "label": "Big data: huellas de celulares, consumo eléctrico e imágenes satelitales",
+          "mejor": false,
+          "resultado": "Es muy potente para detectar cambios rápidos y para llegar donde no llega la estadística tradicional (por ejemplo, estimar actividad económica desde luces nocturnas). Pero no cuenta personas: cuenta señales. No sabés si un celular es de una persona o si una persona tiene tres, ni quién quedó afuera por no tener celular. Sirve para complementar, no para repartir fondos por padrón."
+        }
+      ],
+      "nota": "La idea no es que haya una herramienta \"mejor\" siempre, sino que cada una responde bien una pregunta distinta: el censo cuenta a todos cada mucho tiempo, la encuesta profundiza sobre una muestra, los registros siguen al que ya está en el sistema y el big data detecta señales rápido. Buena parte del trabajo de medición económica es elegir bien, y combinarlas."
+    },
+    {
+      "titulo": "¿Qué desigualdad hay que corregir?",
+      "brief": "Una fundación te contrata para asignar un fondo destinado a reducir desigualdades \"inaceptables\". El informe que te dan muestra cuatro brechas de ingreso, todas reales y todas del mismo tamaño. Solo alcanza para atacar una.",
+      "objetivo": "Objetivo declarado: elegir la brecha que, siguiendo la distinción de Gasparini, resulta más claramente inaceptable — es decir, la que menos depende de lo que la persona decidió y más de las circunstancias con las que le tocó nacer.",
+      "opciones": [
+        {
+          "label": "Entre quienes eligieron una carrera bien paga y quienes eligieron una peor paga, teniendo los dos la misma información y las mismas oportunidades de estudiar.",
+          "mejor": false,
+          "resultado": "Acá la diferencia viene de una <strong>decisión</strong> tomada en igualdad de condiciones. Es desigualdad de resultados, pero no de oportunidades: para la mayoría de las miradas (y explícitamente para Gasparini) es de las más difíciles de calificar como injusta, porque penalizarla implicaría desconocer que las personas eligen distinto."
+        },
+        {
+          "label": "Entre quienes trabajan más horas y quienes eligen trabajar menos para tener más tiempo libre.",
+          "mejor": false,
+          "resultado": "Misma lógica que la anterior: la brecha refleja una preferencia distinta entre ingreso y tiempo libre. Es una diferencia de resultados que responde a una elección, no a una circunstancia impuesta."
+        },
+        {
+          "label": "Entre chicos nacidos en hogares con padres profesionales y chicos nacidos en hogares sin secundario terminado, midiendo el ingreso que tienen 30 años después.",
+          "mejor": true,
+          "resultado": "Esta es la que Gasparini señalaría como más claramente inaceptable: la brecha se explica por una <strong>circunstancia</strong> que la persona no eligió ni pudo controlar — en qué hogar nació. Es el núcleo de la desigualdad de oportunidades: cuando el lugar de partida predice el lugar de llegada, lo que falla es la equidad del \"juego\", no el esfuerzo de los jugadores."
+        },
+        {
+          "label": "Entre quienes ahorraron parte de su sueldo durante veinte años y quienes lo gastaron, partiendo del mismo ingreso.",
+          "mejor": false,
+          "resultado": "También es una brecha que nace de una decisión propia, tomada desde el mismo punto de partida. Puede discutirse cuánto de \"decisión libre\" hay en ahorrar cuando el ingreso es bajo — y esa es una discusión legítima — pero el enunciado aclara que ambos partían del mismo ingreso."
+        }
+      ],
+      "nota": "Gasparini distingue <strong>desigualdad</strong> (la medición objetiva de una diferencia) de <strong>inequidad</strong> (el juicio de que esa diferencia es injusta). La desigualdad se mide; la inequidad se argumenta. Y aclara algo importante: que la igualdad de oportunidades tampoco alcanza por sí sola, porque hace falta además que las opciones disponibles sean moralmente aceptables y que el juego sea justo."
+    }
+  ]
+}

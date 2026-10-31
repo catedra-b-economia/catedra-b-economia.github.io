@@ -1,0 +1,88 @@
+{
+  "misiones": [
+    {
+      "titulo": "Diez años de buenas cosechas",
+      "brief": "Inglaterra, fines del siglo XVIII. Una seguidilla de cosechas excelentes hace que la comida alcance y sobre, y los salarios reales suben. Te piden un pronóstico para dentro de cincuenta años, razonando como Thomas Malthus en 1798.",
+      "objetivo": "Objetivo declarado: aplicar el razonamiento malthusiano, aunque después veamos por qué la historia lo contradijo.",
+      "opciones": [
+        {
+          "label": "Las familias van a vivir mejor para siempre: hay más comida por persona.",
+          "mejor": false,
+          "resultado": "Malthus no estaría de acuerdo. Con más comida la gente se casa antes y tiene más hijos, y como la población crece más rápido que los alimentos, la ventaja dura poco. Para él, una mejora de la comida por persona es siempre transitoria."
+        },
+        {
+          "label": "Va a nacer más gente y la comida por persona va a volver a lo de antes.",
+          "mejor": true,
+          "resultado": "Es el razonamiento de Malthus: la población crece en progresión geométrica y los alimentos en aritmética, así que cualquier mejora termina en más población y no en mejor nivel de vida. Los frenos (hambre, enfermedad, o casarse más tarde) devuelven a la sociedad a la subsistencia."
+        },
+        {
+          "label": "El trigo se va a abaratar tanto que los productores se van a arruinar.",
+          "mejor": false,
+          "resultado": "Puede pasar en el corto plazo, pero no es el mecanismo que le interesa a Malthus. Él mira el largo plazo: qué pasa con la población y con la comida por persona."
+        },
+        {
+          "label": "Hay que guardar lo que sobra para exportarlo y acumular oro y plata.",
+          "mejor": false,
+          "resultado": "Es un razonamiento mercantilista y está fuera de tema: la pregunta es por el nivel de vida de la población, no por la balanza comercial."
+        }
+      ],
+      "nota": "Malthus se equivocó en el pronóstico: desde el siglo XIX la producción de alimentos creció mucho más rápido que la población, y cuando los ingresos subieron las familias empezaron a tener menos hijos (la transición demográfica). Pero su lógica describe bastante bien a muchas sociedades preindustriales. Probá el simulador de Malthus."
+    },
+    {
+      "titulo": "El precio del pan se disparó",
+      "brief": "En pocas semanas el pan se duplicó de precio. Se armó un debate público y cuatro personas te dan cuatro explicaciones distintas. Te toca decidir cuál te parece el mejor diagnóstico.",
+      "objetivo": "Objetivo declarado: reconocer qué teoría del valor está usando cada explicación y cuál de ellas puede dar cuenta de un cambio <em>rápido</em> de precio.",
+      "opciones": [
+        {
+          "label": "\"Subió porque ahora hace falta más trabajo para producir el pan.\"",
+          "mejor": false,
+          "resultado": "Es un argumento de <strong>valor-trabajo</strong> (clásicos, Marx). Explica muy bien por qué a largo plazo un bien que requiere más trabajo tiende a costar más, pero acá no cierra: la tecnología de panificación no cambió en tres semanas."
+        },
+        {
+          "label": "\"Subió porque se perdió buena parte de la cosecha de trigo y hoy hay mucho menos.\"",
+          "mejor": true,
+          "resultado": "Es el diagnóstico que mejor explica un salto rápido: cayó la oferta, cada unidad disponible pasó a ser más escasa y por lo tanto su <strong>utilidad marginal</strong> —y su precio— subieron. El marginalismo está hecho precisamente para explicar cambios de precio en el corto plazo a partir de la escasez relativa."
+        },
+        {
+          "label": "\"Subió porque el pan es un bien de primera necesidad y siempre fue muy útil.\"",
+          "mejor": false,
+          "resultado": "Confunde utilidad total con utilidad marginal: es exactamente el error que produce la paradoja del valor. Si la utilidad total explicara el precio, el agua sería lo más caro del mundo. El pan era igual de necesario el mes pasado, cuando costaba la mitad."
+        },
+        {
+          "label": "\"Subió porque los panaderos decidieron ganar más.\"",
+          "mejor": false,
+          "resultado": "Puede ser parte de la historia si hay poca competencia, pero como explicación general es débil: si un panadero pudiera subir el precio a voluntad sin perder clientes, ya lo habría hecho antes. La pregunta que queda abierta es <em>por qué ahora puede</em> — y ahí volvemos a la escasez."
+        }
+      ],
+      "nota": "Ninguna teoría del valor es \"la verdadera\": responden preguntas distintas. La del valor-trabajo mira los determinantes de largo plazo de los precios relativos; la marginalista, cómo se forman los precios en el corto plazo dada la escasez. Marshall diría que son las dos hojas de la misma tijera."
+    },
+    {
+      "titulo": "Speenhamland, 1795",
+      "brief": "Inglaterra, 1795. El pan está carísimo. Los jueces del distrito de Speenhamland deciden completarles el salario a los trabajadores pobres con un subsidio que sube con el precio del pan y con la cantidad de hijos. Un economista que cree en la ley de hierro de los salarios da su opinión.",
+      "objetivo": "Objetivo declarado: razonar con la lógica de la ley de hierro de los salarios y distinguirla de otras explicaciones.",
+      "opciones": [
+        {
+          "label": "Mejora la vida obrera un tiempo, pero crece la población y el salario vuelve al mínimo.",
+          "mejor": true,
+          "resultado": "Es el razonamiento de la ley de hierro: el salario natural es el de subsistencia; si algo lo empuja hacia arriba, la población crece, sobra mano de obra y el salario vuelve al mínimo. Malthus y Ricardo criticaron Speenhamland con este argumento, y sumaban otro: con el subsidio, a los patrones les convenía pagar menos, porque la diferencia la ponía la parroquia. El sistema se abolió en 1834."
+        },
+        {
+          "label": "Hace a los obreros más productivos y con eso sube para siempre su salario.",
+          "mejor": false,
+          "resultado": "Es la idea de los \"salarios de eficiencia\", del siglo XX. No es el razonamiento clásico: para la ley de hierro la productividad no cambia el salario de largo plazo, porque cualquier mejora se la come el crecimiento de la población."
+        },
+        {
+          "label": "No cambia nada, porque el salario lo fija el Estado y no la oferta y la demanda.",
+          "mejor": false,
+          "resultado": "Es al revés: para los clásicos el salario lo fijan la oferta y la demanda de trabajo, y la oferta depende de la población. Justamente por eso el subsidio no funciona en su visión."
+        },
+        {
+          "label": "Hace que el Estado acumule reservas de oro para proteger la industria nacional.",
+          "mejor": false,
+          "resultado": "Es mercantilismo y está fuera de tema: la pregunta es sobre salarios, no sobre la balanza comercial."
+        }
+      ],
+      "nota": "La historia desmintió la ley de hierro por el mismo motivo que desmintió a Malthus: desde la revolución industrial la productividad creció mucho más rápido que la población. Probá el juego de la ley de hierro para ver la lógica funcionando."
+    }
+  ]
+}

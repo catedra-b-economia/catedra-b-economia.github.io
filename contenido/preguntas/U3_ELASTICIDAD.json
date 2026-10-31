@@ -1,0 +1,61 @@
+{
+  "actividad": "Unidad III · ¿Sube o baja el gasto total?",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "Sube el precio de la nafta un 10% y la cantidad comprada baja apenas un 2%.",
+      "opciones": [
+        "Elástica: el ingreso total del vendedor sube",
+        "Inelástica: el ingreso total del vendedor sube",
+        "Elástica: el ingreso total del vendedor cae",
+        "Inelástica: el ingreso total del vendedor cae"
+      ],
+      "correcta": 2,
+      "explicacion": "La cantidad cae mucho menos (2%) que lo que sube el precio (10%): es inelástica. Como la cantidad casi no se mueve, el mayor precio se traduce en más ingreso total para el vendedor."
+    },
+    {
+      "texto": "Sube el precio de una marca puntual de gaseosa un 10% (hay muchas marcas sustitutas) y la cantidad comprada de esa marca cae un 25%.",
+      "opciones": [
+        "Elástica: el ingreso total del vendedor sube",
+        "Inelástica: el ingreso total del vendedor sube",
+        "Inelástica: el ingreso total del vendedor cae",
+        "Elástica: el ingreso total del vendedor cae"
+      ],
+      "correcta": 4,
+      "explicacion": "La cantidad cae mucho más (25%) que el precio (10%): es elástica. El vendedor pierde ingreso total porque la caída de cantidad supera con creces el aumento de precio."
+    },
+    {
+      "texto": "Sube el precio de un medicamento esencial sin sustitutos un 15% y la cantidad comprada baja solo un 1%.",
+      "opciones": [
+        "Inelástica: el ingreso total del vendedor sube",
+        "Elástica: el ingreso total del vendedor cae",
+        "Elástica: el ingreso total del vendedor sube",
+        "Inelástica: el ingreso total del vendedor cae"
+      ],
+      "correcta": 1,
+      "explicacion": "Sin sustitutos y siendo esencial, la demanda es muy inelástica: la cantidad casi no reacciona, así que el mayor precio se traduce en más ingreso total."
+    },
+    {
+      "texto": "Sube el precio de un lujo importado, no esencial y con muchos sustitutos, un 10%, y la cantidad comprada cae un 40%.",
+      "opciones": [
+        "Elástica: el ingreso total del vendedor cae",
+        "Inelástica: el ingreso total del vendedor sube",
+        "Inelástica: el ingreso total del vendedor cae",
+        "Elástica: el ingreso total del vendedor sube"
+      ],
+      "correcta": 1,
+      "explicacion": "La caída en cantidad (40%) es mucho mayor que la suba de precio (10%): demanda elástica, el vendedor termina con menos ingreso total."
+    },
+    {
+      "texto": "Sube el precio del boleto de colectivo un 8% (poco sustituto en el corto plazo para buena parte de los usuarios) y la cantidad de viajes baja solo un 3%.",
+      "opciones": [
+        "Elástica: el ingreso total del vendedor cae",
+        "Inelástica: el ingreso total del vendedor cae",
+        "Inelástica: el ingreso total del vendedor sube",
+        "Elástica: el ingreso total del vendedor sube"
+      ],
+      "correcta": 3,
+      "explicacion": "La cantidad reacciona poco frente al cambio de precio: demanda inelástica, más ingreso total para quien presta el servicio."
+    }
+  ]
+}

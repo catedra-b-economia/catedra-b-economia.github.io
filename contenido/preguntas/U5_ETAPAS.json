@@ -1,0 +1,96 @@
+{
+  "actividad": "Unidad V · Las etapas según Ferrer",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "La plata del Alto Perú organiza el comercio; cada región produce casi todo lo que consume.",
+      "opciones": [
+        "Economías regionales de subsistencia",
+        "Etapa de transición",
+        "Economía primaria exportadora"
+      ],
+      "correcta": 1,
+      "explicacion": "Siglos XVI a XVIII: economías regionales volcadas hacia Potosí, sin exportación dinámica."
+    },
+    {
+      "texto": "Se abre el puerto de Buenos Aires, crecen los cueros y el Interior empieza a quedar atrás.",
+      "opciones": [
+        "Etapa de transición",
+        "Economías regionales de subsistencia",
+        "Industrialización inconclusa"
+      ],
+      "correcta": 1,
+      "explicacion": "Fines del siglo XVIII a 1860: la transición, con la estancia ganadera y la aduana de Buenos Aires."
+    },
+    {
+      "texto": "Ferrocarriles, inmigrantes y capital británico: la pampa exporta granos y carnes.",
+      "opciones": [
+        "Economía primaria exportadora",
+        "Etapa de transición",
+        "Hegemonía neoliberal"
+      ],
+      "correcta": 1,
+      "explicacion": "1860 a 1930."
+    },
+    {
+      "texto": "La industria crece para el mercado interno y los dólares del agro no alcanzan: stop-and-go.",
+      "opciones": [
+        "Industrialización inconclusa",
+        "Economía primaria exportadora",
+        "Hegemonía neoliberal"
+      ],
+      "correcta": 1,
+      "explicacion": "1930 a 1976."
+    },
+    {
+      "texto": "Apertura, reforma financiera, deuda externa y, en los 90, convertibilidad.",
+      "opciones": [
+        "Hegemonía neoliberal",
+        "Industrialización inconclusa",
+        "Etapa de transición"
+      ],
+      "correcta": 1,
+      "explicacion": "1976 a 2001, en la periodización de Ferrer."
+    },
+    {
+      "texto": "¿En qué año pone Ferrer el fin de la industrialización inconclusa?",
+      "opciones": [
+        "1976",
+        "1955",
+        "1989"
+      ],
+      "correcta": 1,
+      "explicacion": "1976: empieza la etapa que llama de hegemonía neoliberal."
+    },
+    {
+      "texto": "¿En qué año pone Ferrer el comienzo de la economía primaria exportadora?",
+      "opciones": [
+        "1860",
+        "1810",
+        "1914"
+      ],
+      "correcta": 1,
+      "explicacion": "Hacia 1860, con la organización nacional y la llegada de capitales, inmigrantes y ferrocarriles."
+    },
+    {
+      "texto": "¿Cómo define Ferrer el desarrollo?",
+      "opciones": [
+        "Generar, asimilar y difundir el progreso técnico",
+        "Hacer crecer el producto por habitante cada año",
+        "Industrializar por completo la estructura productiva"
+      ],
+      "correcta": 1,
+      "explicacion": "Para Ferrer, desarrollo es \"la capacidad de una sociedad de generar, asimilar y difundir el progreso técnico\"; el crecimiento del producto es una consecuencia."
+    },
+    {
+      "texto": "Para Ferrer, ¿qué es la \"densidad nacional\"?",
+      "opciones": [
+        "Las condiciones internas para decidir con criterio propio",
+        "La cantidad de habitantes por kilómetro cuadrado",
+        "El peso del Estado en el producto de la economía"
+      ],
+      "correcta": 1,
+      "explicacion": "Cohesión social, liderazgos con estrategias de largo plazo, instituciones estables y pensamiento propio (en vez del \"pensamiento céntrico\" de las potencias). Con densidad nacional, la relación con el mundo impulsa el desarrollo; sin ella, lo frena."
+    }
+  ]
+}

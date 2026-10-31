@@ -1,0 +1,16 @@
+{
+  "actividad": "Unidad IV · El rol del dinero (pregunta final)",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "<strong>La pregunta de fondo:</strong> ¿cuál de las tres funciones cumple peor el peso argentino?",
+      "opciones": [
+        "Medio de cambio",
+        "Unidad de cuenta",
+        "Reserva de valor"
+      ],
+      "correcta": 3,
+      "explicacion": "Con inflación alta y persistente, el peso pierde poder de compra mes a mes: guardar pesos es perder. Por eso quien puede ahorra en dólares u otros activos. Como <strong>medio de cambio</strong> el peso sigue funcionando (el día a día se paga en pesos), y como <strong>unidad de cuenta</strong> funciona a medias: los precios del supermercado están en pesos, pero los de las casas y los autos, muchas veces en dólares."
+    }
+  ]
+}

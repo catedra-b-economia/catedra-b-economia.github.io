@@ -1,0 +1,49 @@
+{
+  "actividad": "Unidad IV · ¿Tendencia o ciclo?",
+  "opciones_comunes": [
+    "Tendencia",
+    "Ciclo"
+  ],
+  "preguntas": [
+    {
+      "texto": "La electrificación de las fábricas a principios del siglo XX.",
+      "correcta": 1,
+      "explicacion": "Cambio tecnológico que aumenta la capacidad de producir durante décadas: tendencia."
+    },
+    {
+      "texto": "Una crisis de confianza hace que las empresas posterguen sus inversiones durante un año.",
+      "correcta": 2,
+      "explicacion": "Caída transitoria de la demanda: ciclo."
+    },
+    {
+      "texto": "La población en edad de trabajar crece durante décadas.",
+      "correcta": 1,
+      "explicacion": "Más trabajadores durante mucho tiempo: más capacidad de producir. Tendencia."
+    },
+    {
+      "texto": "Una sequía fuerte hace caer la cosecha de un año.",
+      "correcta": 2,
+      "explicacion": "Shock transitorio: al año siguiente, con lluvias normales, se vuelve a producir como antes. Ciclo."
+    },
+    {
+      "texto": "En treinta años, un país duplica los años de escolaridad promedio de su población.",
+      "correcta": 1,
+      "explicacion": "Capital humano: trabajadores más productivos de manera permanente. Tendencia."
+    },
+    {
+      "texto": "Sube mucho la tasa de interés y la compra en cuotas se frena durante unos trimestres.",
+      "correcta": 2,
+      "explicacion": "Efecto de corto plazo sobre la demanda: ciclo."
+    },
+    {
+      "texto": "Se acumulan año tras año más máquinas, rutas y puertos.",
+      "correcta": 1,
+      "explicacion": "Acumulación de capital: tendencia."
+    },
+    {
+      "texto": "Cae la demanda del principal socio comercial y las exportaciones se desploman por un año.",
+      "correcta": 2,
+      "explicacion": "Shock externo transitorio: ciclo."
+    }
+  ]
+}

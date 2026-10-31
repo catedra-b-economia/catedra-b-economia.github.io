@@ -1,0 +1,49 @@
+{
+  "actividad": "Unidad IV · Finanzas sanas vs. funcionales",
+  "opciones_comunes": [
+    "Finanzas sanas",
+    "Finanzas funcionales"
+  ],
+  "preguntas": [
+    {
+      "texto": "\"El Estado tiene que gastar lo que recauda, como cualquier familia.\"",
+      "correcta": 1,
+      "explicacion": "La analogía con el presupuesto familiar es la base de las finanzas sanas."
+    },
+    {
+      "texto": "\"En una recesión, el déficit es la herramienta correcta para recuperar el empleo.\"",
+      "correcta": 2,
+      "explicacion": "El presupuesto al servicio del pleno empleo: finanzas funcionales."
+    },
+    {
+      "texto": "\"Si la economía está recalentada y con inflación, hay que subir impuestos o bajar el gasto, aunque sobre plata.\"",
+      "correcta": 2,
+      "explicacion": "Suena a ajuste, pero es finanzas funcionales: el superávit se usa como herramienta para enfriar la demanda, no porque equilibrar sea bueno en sí."
+    },
+    {
+      "texto": "\"Un presupuesto equilibrado es una virtud en sí misma, en cualquier momento del ciclo.\"",
+      "correcta": 1,
+      "explicacion": "El equilibrio como fin, independientemente de la situación: finanzas sanas."
+    },
+    {
+      "texto": "\"La pregunta no es si el presupuesto cierra, sino qué le hace al empleo y a los precios.\"",
+      "correcta": 2,
+      "explicacion": "Es casi la definición de Lerner: juzgar la política fiscal por su función. Sus críticos señalan que exige saber cuánta deuda es sostenible y que el déficit efectivamente se revierta cuando la economía se recupera."
+    },
+    {
+      "texto": "\"Si cae la recaudación por una crisis, hay que recortar el gasto para no tener déficit.\"",
+      "correcta": 1,
+      "explicacion": "Equilibrar a cualquier costo, incluso en plena recesión: finanzas sanas. Sus críticos dicen que es procíclico: agrava la caída."
+    },
+    {
+      "texto": "\"Los impuestos no están solo para financiar el gasto: también sirven para frenar la demanda cuando sobra.\"",
+      "correcta": 2,
+      "explicacion": "Usar los impuestos como instrumento de estabilización: finanzas funcionales."
+    },
+    {
+      "texto": "\"El déficit siempre termina en inflación o en crisis de deuda, así que hay que evitarlo.\"",
+      "correcta": 1,
+      "explicacion": "La desconfianza de principio hacia el déficit: finanzas sanas."
+    }
+  ]
+}

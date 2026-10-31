@@ -1,0 +1,171 @@
+{
+  "actividad": "Unidad II · ¿Quién lo pensó?",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "Un ministro francés del siglo XVII crea manufacturas reales, prohíbe importar telas y mide el éxito del reino por el oro y la plata que entran.",
+      "opciones": [
+        "Mercantilismo",
+        "Fisiocracia",
+        "Escuela clásica",
+        "Keynesianismo"
+      ],
+      "correcta": 1,
+      "explicacion": "Es Colbert. Riqueza = metales preciosos, exportar es bueno e importar es malo: mercantilismo."
+    },
+    {
+      "texto": "Estados Unidos, 2018: se ponen aranceles al acero y al aluminio importados, con el argumento de achicar el déficit comercial.",
+      "opciones": [
+        "Mercantilismo",
+        "Estructuralismo latinoamericano",
+        "Marginalismo",
+        "Escuela clásica"
+      ],
+      "correcta": 1,
+      "explicacion": "Proteger la industria local para mejorar la balanza comercial es, en términos económicos, lógica mercantilista."
+    },
+    {
+      "texto": "Estados Unidos, 2024: se suben los aranceles a los autos eléctricos y los paneles solares chinos para proteger a los fabricantes locales y achicar el déficit comercial con China.",
+      "opciones": [
+        "Mercantilismo",
+        "Institucionalismo",
+        "Escuela clásica",
+        "Marxismo"
+      ],
+      "correcta": 1,
+      "explicacion": "El mismo razonamiento que el caso de 2018, con un gobierno de otro signo político: \"mercantilista\" describe una lógica de política económica, no un partido."
+    },
+    {
+      "texto": "Un médico de la corte francesa dibuja una tabla que muestra cómo circula la riqueza entre las clases, y sostiene que solo la agricultura deja un producto neto.",
+      "opciones": [
+        "Fisiocracia",
+        "Mercantilismo",
+        "Marginalismo",
+        "Escuela clásica"
+      ],
+      "correcta": 1,
+      "explicacion": "Es François Quesnay y su <em>Tableau économique</em> (1758): fisiocracia."
+    },
+    {
+      "texto": "Se propone dejar hacer y dejar pasar, y reemplazar todos los impuestos por uno solo sobre la tierra, que es la única que genera un excedente.",
+      "opciones": [
+        "Fisiocracia",
+        "Keynesianismo",
+        "Mercantilismo",
+        "Marxismo"
+      ],
+      "correcta": 1,
+      "explicacion": "El <em>laissez faire</em> y el impuesto único a la tierra son propuestas fisiócratas."
+    },
+    {
+      "texto": "Inglaterra, principios del siglo XIX: se argumenta que cada país debe especializarse en lo que produce con menor costo relativo, aunque sea peor produciendo todo.",
+      "opciones": [
+        "Escuela clásica",
+        "Mercantilismo",
+        "Estructuralismo latinoamericano",
+        "Fisiocracia"
+      ],
+      "correcta": 1,
+      "explicacion": "Es la ventaja comparativa de David Ricardo (1817): escuela clásica."
+    },
+    {
+      "texto": "Se sostiene que todo lo que se produce genera el ingreso necesario para comprarlo, así que no puede haber una sobreproducción general.",
+      "opciones": [
+        "Escuela clásica",
+        "Keynesianismo",
+        "Marxismo",
+        "Estructuralismo latinoamericano"
+      ],
+      "correcta": 1,
+      "explicacion": "Es la ley de Say: la oferta crea su propia demanda. Pilar de la escuela clásica, y justamente lo que Keynes discutió después."
+    },
+    {
+      "texto": "Se afirma que el salario paga menos de lo que el trabajador produce, y que esa diferencia, que se queda el dueño de los medios de producción, es el origen de la ganancia.",
+      "opciones": [
+        "Marxismo",
+        "Escuela clásica",
+        "Marginalismo",
+        "Institucionalismo"
+      ],
+      "correcta": 1,
+      "explicacion": "Es la teoría de la plusvalía: marxismo. Parte del valor-trabajo de los clásicos, pero saca otra conclusión sobre el origen de la ganancia."
+    },
+    {
+      "texto": "Se predice que la competencia va a concentrar la producción en empresas cada vez más grandes y que las crisis van a ser cada vez más profundas.",
+      "opciones": [
+        "Marxismo",
+        "Escuela clásica",
+        "Keynesianismo",
+        "Fisiocracia"
+      ],
+      "correcta": 1,
+      "explicacion": "Concentración del capital y crisis crecientes: son predicciones de Marx."
+    },
+    {
+      "texto": "Se explica que el agua es barata y los diamantes caros porque lo que importa no es la utilidad total de un bien, sino la de la última unidad disponible.",
+      "opciones": [
+        "Marginalismo",
+        "Escuela clásica",
+        "Marxismo",
+        "Mercantilismo"
+      ],
+      "correcta": 1,
+      "explicacion": "La utilidad marginal resuelve la paradoja del valor: marginalismo (Jevons, Menger y Walras, 1871-1874)."
+    },
+    {
+      "texto": "Se afirma que el precio de un bien depende de cuánto lo valoran los compradores, y no de cuánto trabajo costó producirlo.",
+      "opciones": [
+        "Marginalismo",
+        "Marxismo",
+        "Escuela clásica",
+        "Fisiocracia"
+      ],
+      "correcta": 1,
+      "explicacion": "Teoría subjetiva del valor: marginalismo. Es la ruptura con el valor-trabajo de clásicos y marxistas."
+    },
+    {
+      "texto": "Tras el crack de 1929, se sostiene que en una recesión el Estado debe gastar más aunque tenga déficit, porque el mercado solo no garantiza el pleno empleo.",
+      "opciones": [
+        "Keynesianismo",
+        "Escuela clásica",
+        "Mercantilismo",
+        "Marginalismo"
+      ],
+      "correcta": 1,
+      "explicacion": "Demanda efectiva y rol activo del Estado: keynesianismo."
+    },
+    {
+      "texto": "Se sostiene que si todos intentan ahorrar más al mismo tiempo, la producción cae y el ahorro total termina sin aumentar.",
+      "opciones": [
+        "Keynesianismo",
+        "Escuela clásica",
+        "Fisiocracia",
+        "Marxismo"
+      ],
+      "correcta": 1,
+      "explicacion": "La paradoja del ahorro: keynesianismo."
+    },
+    {
+      "texto": "En 1949 se argumenta que los precios de las materias primas que exportan los países periféricos crecen menos que los de las manufacturas que importan.",
+      "opciones": [
+        "Estructuralismo latinoamericano",
+        "Mercantilismo",
+        "Marginalismo",
+        "Escuela clásica"
+      ],
+      "correcta": 1,
+      "explicacion": "Es la tesis del deterioro de los términos de intercambio de Prebisch y la CEPAL: estructuralismo latinoamericano."
+    },
+    {
+      "texto": "Se propone que el Estado impulse la industria, porque especializarse en exportar productos primarios deja a un país periférico cada vez más atrás.",
+      "opciones": [
+        "Estructuralismo latinoamericano",
+        "Marginalismo",
+        "Fisiocracia",
+        "Escuela clásica"
+      ],
+      "correcta": 1,
+      "explicacion": "Industrializar para cambiar la estructura productiva y escapar del deterioro de los términos de intercambio: estructuralismo. Ojo que no es mercantilismo: el objetivo no es acumular oro, sino dejar de depender de las materias primas."
+    }
+  ]
+}

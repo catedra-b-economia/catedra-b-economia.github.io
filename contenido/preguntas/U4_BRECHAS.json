@@ -1,0 +1,72 @@
+{
+  "actividad": "Unidad IV · Las tres brechas",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "Si el ahorro privado de una economía es menor a la inversión privada deseada, se dice que existe",
+      "opciones": [
+        "Brecha (déficit) de ahorro privado",
+        "Brecha fiscal",
+        "Brecha externa",
+        "Superávit de la brecha de ahorro privado"
+      ],
+      "correcta": 1,
+      "explicacion": "Cuando el ahorro privado no alcanza para financiar toda la inversión deseada, aparece una brecha de ahorro privado que hay que cubrir con otras fuentes."
+    },
+    {
+      "texto": "Cuando el gasto público de un período supera a los ingresos públicos de ese mismo período, se habla de",
+      "opciones": [
+        "Brecha externa",
+        "Déficit fiscal (brecha fiscal)",
+        "Brecha de ahorro privado",
+        "Superávit fiscal"
+      ],
+      "correcta": 2,
+      "explicacion": "Es la definición estándar de déficit fiscal."
+    },
+    {
+      "texto": "Cuando las importaciones de un país superan a sus exportaciones, se dice que existe",
+      "opciones": [
+        "Brecha (déficit) externa",
+        "Brecha fiscal",
+        "Ninguna brecha, es una situación neutra",
+        "Superávit externo"
+      ],
+      "correcta": 1,
+      "explicacion": "Cuando el país compra más al resto del mundo de lo que le vende, hay una brecha externa que debe financiarse (por ejemplo, con deuda o inversión extranjera)."
+    },
+    {
+      "texto": "Si el Estado gasta más de lo que recauda y financia esa diferencia emitiendo deuda, esa diferencia se refleja principalmente en",
+      "opciones": [
+        "La brecha de ahorro privado",
+        "La brecha externa",
+        "La brecha fiscal",
+        "Ninguna de las tres brechas"
+      ],
+      "correcta": 3,
+      "explicacion": ""
+    },
+    {
+      "texto": "Un país que exporta mucho más de lo que importa presenta",
+      "opciones": [
+        "Una brecha de ahorro privado negativa por definición",
+        "Un déficit fiscal automático",
+        "Un déficit en su brecha externa",
+        "Un superávit en su brecha externa"
+      ],
+      "correcta": 4,
+      "explicacion": ""
+    },
+    {
+      "texto": "Que las tres brechas (ahorro privado, fiscal y externa) estén relacionadas entre sí en la contabilidad nacional significa, entre otras cosas, que",
+      "opciones": [
+        "Solo la brecha fiscal importa para la macroeconomía",
+        "Un cambio en una de ellas típicamente tiene relación con cambios en alguna de las otras dos",
+        "Son completamente independientes y nunca se relacionan",
+        "Las tres brechas suman cero cada una por separado, sin relación entre sí"
+      ],
+      "correcta": 2,
+      "explicacion": "Son parte de una misma identidad contable: por ejemplo, un mayor déficit fiscal no cubierto con más ahorro privado tiende a reflejarse en una mayor brecha externa."
+    }
+  ]
+}

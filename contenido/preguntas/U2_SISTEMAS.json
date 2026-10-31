@@ -1,0 +1,171 @@
+{
+  "actividad": "Unidad II · Identificá el sistema económico",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "Roma, siglo VIII a. C.",
+      "opciones": [
+        "Economía doméstica pastoril",
+        "Economía señorial agrícola",
+        "Economía urbana artesanal",
+        "Economía colectivista"
+      ],
+      "correcta": 1,
+      "explicacion": "La <em>gens</em> romana: la familia antigua, mucho más amplia que la actual, es la célula económica. El padre de familia reparte las tareas y los productos, y casi no hay intercambio. Lajugie la usa como ejemplo de la economía doméstica pastoril."
+    },
+    {
+      "texto": "Grecia de los poemas homéricos, siglo VIII a. C.",
+      "opciones": [
+        "Economía doméstica pastoril",
+        "Economía urbana artesanal",
+        "Economía señorial agrícola",
+        "Capitalismo liberal"
+      ],
+      "correcta": 1,
+      "explicacion": "El <em>genos</em> griego: la familia produce todo lo que necesita y solo eso, bajo la autoridad del padre. Economía cerrada: la economía doméstica pastoril."
+    },
+    {
+      "texto": "Imperio carolingio, año 800.",
+      "opciones": [
+        "Economía señorial agrícola",
+        "Economía doméstica pastoril",
+        "Economía urbana artesanal",
+        "Capitalismo reglamentario"
+      ],
+      "correcta": 1,
+      "explicacion": "La villa carolingia es, para Lajugie, \"el ejemplo tipo\" de la economía señorial: el castillo, el poblado que se arma alrededor buscando protección y las tierras cultivadas en la periferia."
+    },
+    {
+      "texto": "Europa occidental, año 1000.",
+      "opciones": [
+        "Economía señorial agrícola",
+        "Economía urbana artesanal",
+        "Economía doméstica pastoril",
+        "Economía colectivista"
+      ],
+      "correcta": 1,
+      "explicacion": "Alta Edad Media: la célula económica ya no es la familia sino el dominio rural del señor. Casi todo es agricultura y el intercambio es mínimo."
+    },
+    {
+      "texto": "Francia, año 1250.",
+      "opciones": [
+        "Economía urbana artesanal",
+        "Economía señorial agrícola",
+        "Capitalismo liberal",
+        "Capitalismo reglamentario"
+      ],
+      "correcta": 1,
+      "explicacion": "Desde el siglo XI despiertan las ciudades y surgen las comunas. La célula económica pasa a ser la ciudad; aparece una pequeña industria artesanal organizada en corporaciones de oficio."
+    },
+    {
+      "texto": "Flandes, año 1300.",
+      "opciones": [
+        "Economía urbana artesanal",
+        "Economía señorial agrícola",
+        "Capitalismo liberal",
+        "Economía doméstica pastoril"
+      ],
+      "correcta": 1,
+      "explicacion": "Ciudades textiles con una división del trabajo muy avanzada (hiladores, tejedores, tintoreros) y corporaciones que regulan cada oficio: economía urbana artesanal."
+    },
+    {
+      "texto": "Inglaterra, año 1840.",
+      "opciones": [
+        "Capitalismo liberal",
+        "Capitalismo reglamentario",
+        "Economía urbana artesanal",
+        "Economía colectivista"
+      ],
+      "correcta": 1,
+      "explicacion": "Lajugie ubica el florecimiento del capitalismo liberal a principios del siglo XIX: maquinismo, propiedad privada de los medios de producción, libre competencia y búsqueda sistemática de la ganancia."
+    },
+    {
+      "texto": "Francia, año 1860.",
+      "opciones": [
+        "Capitalismo liberal",
+        "Capitalismo reglamentario",
+        "Economía urbana artesanal",
+        "Economía señorial agrícola"
+      ],
+      "correcta": 1,
+      "explicacion": "Después de la Revolución, el decreto de Allarde (1791) suprimió las corporaciones y consagró la libre competencia, y la ley Le Chapelier prohibió las coaliciones de patrones y de obreros. Es capitalismo liberal."
+    },
+    {
+      "texto": "Estados Unidos, año 1934.",
+      "opciones": [
+        "Capitalismo reglamentario",
+        "Capitalismo liberal",
+        "Economía colectivista",
+        "Economía urbana artesanal"
+      ],
+      "correcta": 1,
+      "explicacion": "El New Deal. Para Lajugie, Roosevelt es \"el iniciador del movimiento contemporáneo de dirección de la economía\", y aclara que no es una política hostil al capitalismo: se mantiene la propiedad privada, pero se abandona la libre competencia. Capitalismo reglamentario."
+    },
+    {
+      "texto": "Portugal, año 1935.",
+      "opciones": [
+        "Capitalismo reglamentario",
+        "Economía urbana artesanal",
+        "Economía colectivista",
+        "Capitalismo liberal"
+      ],
+      "correcta": 1,
+      "explicacion": "La trampa del banco: el régimen de Salazar se llamaba \"corporativo\", pero no es el régimen corporativo medieval. Lajugie lo define como un corporativismo de Estado (no de asociación) dentro del capitalismo: capitalismo reglamentario."
+    },
+    {
+      "texto": "Italia, año 1934.",
+      "opciones": [
+        "Capitalismo reglamentario",
+        "Economía colectivista",
+        "Capitalismo liberal",
+        "Economía urbana artesanal"
+      ],
+      "correcta": 1,
+      "explicacion": "Según Lajugie, las experiencias \"corporativas\" de Italia y Alemania conservan del capitalismo la propiedad privada, pero lo despojan de su liberalismo: son un dirigismo. Capitalismo reglamentario, no colectivismo."
+    },
+    {
+      "texto": "Gran Bretaña, año 1947.",
+      "opciones": [
+        "Capitalismo reglamentario",
+        "Economía colectivista",
+        "Capitalismo liberal",
+        "Economía señorial agrícola"
+      ],
+      "correcta": 1,
+      "explicacion": "El gobierno laborista nacionaliza sectores clave. Parece colectivismo, pero para Lajugie la dirección planificada británica de posguerra ocurre \"en el cuadro del sistema capitalista\": capitalismo reglamentario, con intervención en la estructura."
+    },
+    {
+      "texto": "Unión Soviética, año 1930.",
+      "opciones": [
+        "Economía colectivista",
+        "Capitalismo reglamentario",
+        "Capitalismo liberal",
+        "Economía urbana artesanal"
+      ],
+      "correcta": 1,
+      "explicacion": "Planes quinquenales (desde 1928): propiedad colectiva de los medios de producción y un plan que reemplaza al mercado. Economía colectivista."
+    },
+    {
+      "texto": "Polonia, año 1952.",
+      "opciones": [
+        "Economía colectivista",
+        "Capitalismo reglamentario",
+        "Capitalismo liberal",
+        "Economía señorial agrícola"
+      ],
+      "correcta": 1,
+      "explicacion": "Una de las democracias populares de Europa Central y Oriental, en la fase que Lajugie llama de \"crecimiento integrado\" a la economía soviética (1948-1954). Economía colectivista."
+    },
+    {
+      "texto": "China, año 1955.",
+      "opciones": [
+        "Economía colectivista",
+        "Capitalismo reglamentario",
+        "Economía urbana artesanal",
+        "Capitalismo liberal"
+      ],
+      "correcta": 1,
+      "explicacion": "Primer Plan Quinquenal (1953-1957), siguiendo el modelo soviético. Lajugie la estudia dentro de las economías colectivistas de las democracias populares."
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "actividad": "Unidad I · ¿Eficiencia o equidad?",
+  "opciones_comunes": [
+    "Eficiencia",
+    "Equidad"
+  ],
+  "preguntas": [
+    {
+      "texto": "\"Hay que sacar el subsidio a la energía porque hace que la gente consuma más gas del que consumiría si pagara lo que realmente cuesta producirlo.\"",
+      "correcta": 1,
+      "explicacion": "El argumento es sobre asignación de recursos: el precio subsidiado no refleja el costo real, así que se consume más de lo que conviene socialmente. No dice nada sobre a quién le toca qué."
+    },
+    {
+      "texto": "\"Hay que sacar el subsidio a la energía porque termina beneficiando más a los hogares de altos ingresos, que son los que más consumen.\"",
+      "correcta": 2,
+      "explicacion": "Misma política que el caso anterior, pero el argumento cambió por completo: acá lo que importa es quién se queda con el beneficio, no cuánto se consume de más."
+    },
+    {
+      "texto": "\"Un impuesto a la herencia es deseable porque las fortunas heredadas no responden a ningún esfuerzo de quien las recibe.\"",
+      "correcta": 2,
+      "explicacion": "Apunta a la justicia del punto de partida: es un argumento sobre circunstancias no elegidas, no sobre cuánto produce la economía."
+    },
+    {
+      "texto": "\"Un impuesto muy alto a las ganancias empresarias puede desalentar la inversión y hacer que se produzca menos.\"",
+      "correcta": 1,
+      "explicacion": "Habla de los efectos sobre los incentivos y sobre el tamaño de la torta, no sobre cómo se reparte."
+    },
+    {
+      "texto": "\"El balde de Okun está perforado: cada peso que se transfiere de los que más tienen a los que menos tienen llega incompleto.\"",
+      "correcta": 1,
+      "explicacion": "La imagen de Okun es justamente sobre el costo de eficiencia de redistribuir: los costos administrativos y los efectos sobre incentivos hacen que parte del valor se pierda en el camino. El <em>objetivo</em> de la transferencia es de equidad, pero esta frase señala su costo en eficiencia."
+    },
+    {
+      "texto": "\"Que un chico que nace en un hogar pobre tenga muchas menos chances de terminar la universidad es un problema serio.\"",
+      "correcta": 2,
+      "explicacion": "Es un argumento sobre igualdad de oportunidades: circunstancias de origen que condicionan resultados."
+    },
+    {
+      "texto": "\"Si nadie puede ser excluido de usar una plaza y el uso de uno no impide el del otro, el mercado por sí solo va a proveer menos plazas de las socialmente deseables.\"",
+      "correcta": 1,
+      "explicacion": "Es el argumento clásico de bienes públicos: una falla de mercado que lleva a una cantidad producida distinta de la óptima. Es un problema de asignación de recursos."
+    },
+    {
+      "texto": "\"Una fábrica que contamina un río le traslada un costo a los vecinos que ella no paga.\"",
+      "correcta": 1,
+      "explicacion": "Es una externalidad negativa: el costo social es mayor al privado, así que se produce más de lo socialmente óptimo. Ojo, también tiene una dimensión de equidad (quién sufre la contaminación), pero el concepto central acá es la falla de asignación."
+    },
+    {
+      "texto": "\"El sistema tributario debería cobrarle proporcionalmente más a quien más tiene, porque puede soportar mejor esa carga.\"",
+      "correcta": 2,
+      "explicacion": "Es el principio de capacidad de pago: un criterio distributivo sobre cómo repartir la carga del financiamiento del Estado."
+    },
+    {
+      "texto": "\"Conviene que cada país se especialice en lo que produce con menor costo de oportunidad, porque así el total producido entre todos es mayor.\"",
+      "correcta": 1,
+      "explicacion": "Ventajas comparativas: el argumento es que la torta total crece. No dice nada sobre cómo se reparte esa ganancia entre países ni dentro de cada país — esa es la discusión de equidad que viene después."
+    },
+    {
+      "texto": "\"Aunque el ingreso total del país creciera, si todo ese crecimiento se lo lleva el 10% más rico, algo está funcionando mal.\"",
+      "correcta": 2,
+      "explicacion": "Acepta que hubo una ganancia de eficiencia (creció el producto) y aun así objeta el resultado: eso es exactamente un juicio de equidad distributiva."
+    },
+    {
+      "texto": "\"Un precio máximo al alquiler por debajo del equilibrio genera faltante de viviendas en alquiler.\"",
+      "correcta": 1,
+      "explicacion": "Describe un efecto sobre la cantidad ofrecida y demandada, o sea sobre la asignación. El motivo por el que se suele proponer un precio máximo, en cambio, es de equidad — otra vez, los dos planos conviven en la misma política."
+    }
+  ]
+}

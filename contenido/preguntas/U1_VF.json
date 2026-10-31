@@ -1,0 +1,59 @@
+{
+  "actividad": "Unidad I · Verdadero o falso",
+  "opciones_comunes": [
+    "Verdadero",
+    "Falso"
+  ],
+  "preguntas": [
+    {
+      "texto": "El costo de oportunidad de una decisión puede ser distinto de cero incluso si el bien elegido no cuesta dinero.",
+      "correcta": 1,
+      "explicacion": "Incluye el tiempo u otros recursos resignados, no solo el precio de mercado."
+    },
+    {
+      "texto": "Una afirmación normativa se puede confirmar o refutar por completo solo con datos.",
+      "correcta": 2,
+      "explicacion": "Las normativas incluyen un juicio de valor: los datos ayudan, pero no alcanzan para \"resolverlas\" del todo."
+    },
+    {
+      "texto": "El PBI mide el valor de los bienes y servicios finales producidos en un período, dentro de las fronteras de un país.",
+      "correcta": 1,
+      "explicacion": "Esa es justamente la definición base de Producto Bruto Interno."
+    },
+    {
+      "texto": "La microeconomía y la macroeconomía estudian exactamente los mismos problemas, solo que con otro nombre.",
+      "correcta": 2,
+      "explicacion": "La micro mira decisiones individuales y mercados puntuales; la macro mira agregados como el nivel general de precios o el producto total."
+    },
+    {
+      "texto": "Un punto dentro de la Frontera de Posibilidades de Producción representa una situación eficiente.",
+      "correcta": 2,
+      "explicacion": "Un punto dentro de la frontera es ineficiente: hay recursos que no se están usando plenamente."
+    },
+    {
+      "texto": "\"Ceteris paribus\" es un supuesto que permite aislar el efecto de una variable, manteniendo las demás constantes.",
+      "correcta": 1,
+      "explicacion": "Es exactamente la función metodológica de esa cláusula."
+    },
+    {
+      "texto": "La eficiencia paretiana implica que no se puede mejorar la situación de alguien sin empeorar la de otra persona.",
+      "correcta": 1,
+      "explicacion": "Esa es la definición de un óptimo de Pareto."
+    },
+    {
+      "texto": "La disyuntiva entre eficiencia y equidad significa que nunca hay ninguna relación entre ambos objetivos.",
+      "correcta": 2,
+      "explicacion": "Al revés: la disyuntiva existe justamente porque a veces sí hay una relación (un trade-off) entre ambos."
+    },
+    {
+      "texto": "Si un productor agrícola consigue una cosecha excepcional le va a ir mejor; por lo tanto, si todos los productores consiguen una cosecha excepcional al mismo tiempo, a todos les va a ir mejor.",
+      "correcta": 2,
+      "explicacion": "Es una falacia de composición. Si la cosecha extraordinaria es de uno solo, vende más al mismo precio. Si es de todos a la vez, la oferta total se dispara y el precio se desploma — y como la demanda de alimentos suele ser inelástica, el ingreso total del sector puede terminar siendo menor que con una cosecha normal. Lo que es bueno para uno puede ser malo para el conjunto."
+    },
+    {
+      "texto": "Si cada familia decide ahorrar una porción mayor de su ingreso, el ahorro total de la economía va a aumentar en esa misma proporción.",
+      "correcta": 2,
+      "explicacion": "Otra falacia de composición, conocida como la paradoja del ahorro. Ahorrar más significa consumir menos; si todos consumen menos al mismo tiempo, cae la demanda, cae la producción y caen los ingresos. Con ingresos más bajos, el ahorro total puede terminar igual o incluso menor. Que sea bueno para una familia no garantiza que sea bueno para todas juntas."
+    }
+  ]
+}
