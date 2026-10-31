@@ -1,7 +1,7 @@
-# Sitio estático: no hay que compilar nada, se publica la carpeta tal cual.
+# En cada publicación se corre publicar.js, que arma dist/ con el contenido cifrado.
 [build]
-  publish = "."
-  command = ""
+  command = "node publicar.js"
+  publish = "dist"
 
 # El contenido se edita seguido: que el navegador siempre consulte si hay versión nueva.
 [[headers]]

@@ -28,6 +28,10 @@ Sobre las preguntas:
 - Se puede usar HTML simple en los textos (`<strong>`, `<em>`).
 - Si una pregunta queda mal cargada (sin texto, o con un número de respuesta que no existe), la página la saltea y muestra un aviso arriba con el detalle. El resto sigue funcionando.
 
+## Respuestas cifradas
+
+En cada publicación, Netlify corre `publicar.js`, que arma la carpeta `dist/` con el contenido cifrado. Así, quien mire los archivos de la página no ve las respuestas. En este repositorio el contenido sigue en JSON normal, por eso conviene que el repositorio sea privado.
+
 ## Probar en la computadora
 
 ```bash
