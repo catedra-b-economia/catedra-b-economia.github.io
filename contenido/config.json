@@ -419,7 +419,7 @@
     {
       "id": "V",
       "nombre": "Economía Argentina",
-      "habilitada": true,
+      "habilitada": false,
       "actividades": [
         {
           "id": "viajear",
