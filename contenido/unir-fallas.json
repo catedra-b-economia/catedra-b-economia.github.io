@@ -1,0 +1,100 @@
+{
+  "fallas": [
+    {
+      "id": "publico",
+      "falla": "Bien público",
+      "casos": [
+        {
+          "caso": "Los vecinos quieren arreglar la plaza del barrio, pero cada uno espera que ponga la plata el otro: si se arregla, la disfrutan todos igual.",
+          "por": "No se puede excluir a quien no paga y que la use uno no le quita nada al otro. Cada vecino tiene incentivos a esperar que pague el resto (el \"polizón\"), y la plaza no se arregla."
+        },
+        {
+          "caso": "Un faro en la costa avisa a todos los barcos que pasan, hayan pagado o no.",
+          "por": "Es el ejemplo clásico de bien público: no se puede cobrarle la luz a cada barco y que la vea uno no impide que la vea otro. Coase (1974) mostró que en Inglaterra muchos faros los financiaban tasas cobradas en los puertos, una forma de resolver el problema de cobrar."
+        },
+        {
+          "caso": "Los vecinos quieren alumbrado en la cuadra, pero cada uno espera que ponga la plata el otro: si se instala, lo disfrutan todos igual.",
+          "por": "No se puede excluir a quien no paga y que lo use uno no le quita nada al otro. Cada uno tiene incentivos a esperar que pague el resto (el \"polizón\"), y el bien no se provee."
+        }
+      ]
+    },
+    {
+      "id": "comun",
+      "falla": "Recurso común",
+      "casos": [
+        {
+          "caso": "En un lago donde cualquiera puede pescar, cada uno saca todo lo que puede antes de que lo saque otro, y los peces se agotan.",
+          "por": "No se puede excluir a nadie, pero lo que saca uno ya no lo tiene el otro. Cada pescador no paga el costo de agotar el lago: es la tragedia de los comunes."
+        },
+        {
+          "caso": "Los barcos pesqueros sacan merluza del Mar Argentino a un ritmo mayor del que la especie tarda en reproducirse.",
+          "por": "Cada barco que pesca de más reduce lo que queda para los otros y para el futuro, pero no paga ese costo. Por eso hacen falta cupos o vedas: el recurso es rival pero nadie lo puede cerrar."
+        },
+        {
+          "caso": "En un campo comunal donde cualquiera puede llevar sus vacas, cada criador suma animales hasta que el pasto se agota.",
+          "por": "Es el ejemplo de Hardin (1968), \"la tragedia de los comunes\": cada criador gana con una vaca más, pero el costo de gastar el pasto lo reparten todos."
+        }
+      ]
+    },
+    {
+      "id": "extneg",
+      "falla": "Externalidad negativa",
+      "casos": [
+        {
+          "caso": "Una curtiembre sobre el Riachuelo produce más barato porque el agua que devuelve al río nadie se la cobra.",
+          "por": "El costo de ensuciar el río lo pagan otros (los vecinos, los pescadores), no la curtiembre. Como no entra en su cuenta, produce más de lo que convendría a la sociedad."
+        },
+        {
+          "caso": "Un boliche pone la música a todo volumen hasta las seis de la mañana y los vecinos no pueden dormir.",
+          "por": "El ruido es un costo que sufren terceros y que no entra en las cuentas del boliche. Por eso se regula con horarios y límites de volumen."
+        }
+      ]
+    },
+    {
+      "id": "extpos",
+      "falla": "Externalidad positiva",
+      "casos": [
+        {
+          "caso": "Tu vecino se vacuna contra la gripe y, sin pagar nada, vos tenés menos chances de contagiarte.",
+          "por": "Hay un beneficio para terceros que el que se vacuna no cobra. Por eso, librado al mercado, la gente se vacuna menos de lo que convendría a todos."
+        },
+        {
+          "caso": "Un vecino pinta y arregla la fachada de su casa, y sube el valor de todas las casas de la cuadra.",
+          "por": "El beneficio les llega a los vecinos, que no pagaron nada. Como quien arregla no cobra ese beneficio, se arreglan menos fachadas de las que convendría."
+        }
+      ]
+    },
+    {
+      "id": "info",
+      "falla": "Información asimétrica",
+      "casos": [
+        {
+          "caso": "Quien contrata un seguro de salud sabe mucho mejor que la aseguradora si se viene sintiendo mal.",
+          "por": "Una de las partes sabe algo relevante que la otra no. Eso hace que el precio no pueda reflejar el riesgo real, y el mercado funciona mal o directamente desaparece."
+        },
+        {
+          "caso": "El vendedor de un auto usado jura que \"anda perfecto\", y el comprador no tiene forma de saber si es cierto.",
+          "por": "El vendedor conoce el estado del auto y el comprador no. Es el mercado de \"limones\" de Akerlof: la desconfianza baja los precios y los dueños de autos buenos dejan de vender."
+        }
+      ]
+    },
+    {
+      "id": "poder",
+      "falla": "Poder de mercado",
+      "casos": [
+        {
+          "caso": "La única empresa con la concesión del agua de una ciudad cobra bastante más de lo que le cuesta producirla.",
+          "por": "Sin competencia, puede fijar el precio por encima del costo y producir menos de lo eficiente."
+        },
+        {
+          "caso": "Un laboratorio tiene la patente de un remedio y lo vende a un precio muy superior a lo que cuesta fabricarlo.",
+          "por": "La patente le da un monopolio temporal: nadie más puede fabricarlo. Es un poder de mercado que se acepta a propósito, para premiar la investigación, pero mientras dura el precio queda por encima del costo."
+        },
+        {
+          "caso": "En una ciudad hay una sola línea de colectivos, y sube el boleto sin perder pasajeros.",
+          "por": "Sin otra línea a la que pasarse, los pasajeros no tienen alternativa. Esa falta de competencia le permite cobrar por encima del costo."
+        }
+      ]
+    }
+  ]
+}

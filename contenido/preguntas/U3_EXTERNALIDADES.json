@@ -1,0 +1,66 @@
+{
+  "actividad": "Unidad III · Externalidades: ¿qué tipo es?",
+  "opciones_comunes": [
+    "Negativa en la producción",
+    "Negativa en el consumo",
+    "Positiva en la producción",
+    "Positiva en el consumo"
+  ],
+  "preguntas": [
+    {
+      "texto": "1871. Buenos Aires sufre una epidemia de fiebre amarilla. Los saladeros y curtiembres tiran sus desechos al Riachuelo.",
+      "correcta": 1,
+      "explicacion": "Son empresas que, al producir, ensucian el agua que usan otros: externalidad negativa en la producción. Se corrigió prohibiendo los saladeros sobre el Riachuelo y trasladándolos."
+    },
+    {
+      "texto": "1858, Londres. Las cloacas de las casas desbordan en el Támesis y el olor paraliza la ciudad: el \"Gran Hedor\".",
+      "correcta": 2,
+      "explicacion": "Los desechos venían de los hogares, del consumo diario de agua y de las letrinas: externalidad negativa en el consumo. Se corrigió con la red cloacal que diseñó Joseph Bazalgette, financiada por el Estado."
+    },
+    {
+      "texto": "1920. Las chispas de las locomotoras incendian los campos de trigo que están junto a las vías. Pigou usa el caso como ejemplo.",
+      "correcta": 1,
+      "explicacion": "El ferrocarril, al producir su servicio, les causa un daño a los agricultores que no paga: externalidad negativa en la producción. De acá sale el impuesto pigouviano: cobrarle al que causa el daño. Coase (1960) discutió la idea: si los derechos están claros, las partes pueden negociar."
+    },
+    {
+      "texto": "1952, Londres. Una niebla cargada de humo de carbón cubre la ciudad durante cinco días: el \"Gran Smog\". Gran parte del humo sale de las estufas de las casas.",
+      "correcta": 2,
+      "explicacion": "El humo de las estufas hogareñas es una externalidad negativa en el consumo. Ojo con la trampa: también había humo industrial, pero la parte hogareña fue la que más pesó en la respuesta. Se corrigió con la Ley de Aire Limpio de 1956, que limitó la quema de carbón en las ciudades."
+    },
+    {
+      "texto": "1962. Rachel Carson publica \"Primavera silenciosa\": el DDT que se fumiga en los campos mata aves y peces lejos de donde se aplica.",
+      "correcta": 1,
+      "explicacion": "El daño lo causa el uso del DDT en la producción agrícola y lo sufren terceros: externalidad negativa en la producción. Se corrigió con prohibiciones en los años 70."
+    },
+    {
+      "texto": "1987. Se comprueba que los CFC, usados en heladeras, aires acondicionados y aerosoles, destruyen la capa de ozono.",
+      "correcta": 1,
+      "explicacion": "Trampa: los CFC se liberan tanto al fabricar como al usar heladeras y aerosoles, así que hay externalidad en la producción y en el consumo. La respuesta apunta a la producción porque la solución fue prohibir fabricarlos: el Protocolo de Montreal (1987)."
+    },
+    {
+      "texto": "Fines de los 90. Los autos que cargan nafta con plomo largan al aire partículas que dañan la salud de quienes respiran en la ciudad.",
+      "correcta": 2,
+      "explicacion": "Es el uso de los autos (el consumo de nafta) lo que contamina a terceros: externalidad negativa en el consumo. Se corrigió prohibiendo la nafta con plomo."
+    },
+    {
+      "texto": "1796. Edward Jenner prueba la vacuna contra la viruela. Cada persona vacunada deja de contagiar a las demás.",
+      "correcta": 4,
+      "explicacion": "El que se vacuna se protege a sí mismo y además protege a otros, que no pagan nada: externalidad positiva en el consumo. Se corrigió con la vacunación obligatoria y gratuita, hasta que en 1980 se declaró erradicada la viruela."
+    },
+    {
+      "texto": "1884. La Ley 1420 establece la educación primaria común, gratuita y obligatoria en la Argentina.",
+      "correcta": 4,
+      "explicacion": "Que una persona se eduque beneficia también a los demás (ciudadanos que votan informados, trabajadores más productivos): externalidad positiva en el consumo. La corrección es la provisión pública y obligatoria."
+    },
+    {
+      "texto": "1952. James Meade pone un ejemplo: las abejas de un apicultor polinizan los manzanos del vecino, que cosecha más sin pagar nada.",
+      "correcta": 3,
+      "explicacion": "La producción de miel genera un beneficio en la producción de manzanas de otro: externalidad positiva en la producción. En la práctica se resolvió con contratos: los fruticultores pagan para que les traigan colmenas."
+    },
+    {
+      "texto": "1956. Se crea el INTA, que investiga y difunde nuevas variedades de semillas que después adoptan todos los productores.",
+      "correcta": 3,
+      "explicacion": "El conocimiento que genera una investigación lo aprovechan muchos productores que no la pagaron: externalidad positiva en la producción. Por eso la investigación la financia el Estado: el mercado solo produciría menos de la que conviene."
+    }
+  ]
+}

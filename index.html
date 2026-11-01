@@ -309,12 +309,14 @@ const DESDE_OPCION = {
   })
 };
 
-const NOMBRES_BANCOS = [ "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U3_REGULADOR", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
+const NOMBRES_BANCOS = [ "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U3_REGULADOR", "U3_EXTERNALIDADES", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
 
-const [CONFIG, NUEVAS, GLOSARIO_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
+const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
   actividades: []
 }), leerJSON("contenido/glosario.json", {
   terminos: []
+}), leerJSON("contenido/unir-fallas.json", {
+  fallas: []
 }), ...[ 1, 2, 3, 4 ].map(u => leerJSON(`contenido/misiones/U${u}.json`, {
   misiones: []
 })), ...NOMBRES_BANCOS.map(n => leerJSON(`contenido/preguntas/${n}.json`, {
@@ -3290,42 +3292,59 @@ const U3_RQUIZ = BANCOS.U3_RQUIZ;
 
 const U3_BIF = BANCOS.U3_BIF;
 
-const UNIR_FALLAS = [ {
-  id: "extneg",
-  falla: "Externalidad negativa",
-  caso: "Una curtiembre sobre el Riachuelo produce más barato porque el agua que devuelve al río nadie se la cobra.",
-  por: "El costo de ensuciar el río lo pagan otros (los vecinos, los pescadores), no la curtiembre. Como no entra en su cuenta, produce más de lo que convendría a la sociedad."
-}, {
-  id: "extpos",
-  falla: "Externalidad positiva",
-  caso: "Tu vecino se vacuna contra la gripe y, sin pagar nada, vos tenés menos chances de contagiarte.",
-  por: "Hay un beneficio para terceros que el que se vacuna no cobra. Por eso, librado al mercado, la gente se vacuna menos de lo que convendría a todos."
-}, {
-  id: "publico",
-  falla: "Bien público",
-  caso: "Los vecinos quieren alumbrado en la cuadra, pero cada uno espera que ponga la plata el otro: si se instala, lo disfrutan todos igual.",
-  por: 'No se puede excluir a quien no paga y que lo use uno no le quita nada al otro. Cada uno tiene incentivos a esperar que pague el resto (el "polizón"), y el bien no se provee.'
-}, {
-  id: "info",
-  falla: "Información asimétrica",
-  caso: "Quien contrata un seguro de salud sabe mucho mejor que la aseguradora si se viene sintiendo mal.",
-  por: "Una de las partes sabe algo relevante que la otra no. Eso hace que el precio no pueda reflejar el riesgo real, y el mercado funciona mal o directamente desaparece."
-}, {
-  id: "poder",
-  falla: "Poder de mercado",
-  caso: "La única empresa con la concesión del agua de una ciudad cobra bastante más de lo que le cuesta producirla.",
-  por: "Sin competencia, puede fijar el precio por encima del costo y producir menos de lo eficiente."
-}, {
-  id: "comun",
-  falla: "Recurso común",
-  caso: "En un lago donde cualquiera puede pescar, cada uno saca todo lo que puede antes de que lo saque otro, y los peces se agotan.",
-  por: "No se puede excluir a nadie, pero lo que saca uno ya no lo tiene el otro. Cada pescador no paga el costo de agotar el lago: es la tragedia de los comunes."
-} ];
+const UNIR_FALLAS = ((UNIR_DATOS && UNIR_DATOS.fallas) || []).map((f, i) => ({
+  id: lleno(f.id) ? f.id : "f" + i,
+  falla: f.falla,
+  casos: (f.casos || []).filter(c => lleno(c.caso))
+})).filter(f => lleno(f.falla) && f.casos.length);
+
+
+const U3_EXTERNALIDADES = BANCOS.U3_EXTERNALIDADES;
+
+const INTRO_EXTERNALIDADES = `
+    <p style="margin:0 0 8px;">Una <strong>externalidad</strong> es un efecto sobre terceros que no se paga ni se cobra. Se clasifica según dos preguntas: ¿perjudica o beneficia?, y ¿nace de producir o de consumir?</p>
+    <table class="tabla-datos">
+      <tr><th></th><th>Al producir</th><th>Al consumir</th></tr>
+      <tr><td><strong>Perjudica</strong></td><td>Una fábrica contamina el río</td><td>El humo de la estufa de una casa</td></tr>
+      <tr><td><strong>Beneficia</strong></td><td>Las abejas polinizan al vecino</td><td>Vacunarse protege a otros</td></tr>
+    </table>
+    <p class="nota-chica" style="margin:8px 0 0;">Cuando la externalidad es negativa, el mercado produce de más; cuando es positiva, de menos. Para cada caso, pensá también cómo se corrigió.</p>`;
+
+const EXT_PANTALLAS = [ [ "tipo", "¿Qué tipo es?" ], [ "unir", "Uní con flechas" ], [ "fallaono", "¿Falla o no?" ] ];
+
+function renderExternalidadesU3() {
+  const tab = state.extTab || "tipo";
+  const chips = `<div class="chips-fila">${EXT_PANTALLAS.map(([k, l]) => `<button class="chip-btn ${tab === k ? "activo" : ""}" data-ext-tab="${k}">${l}</button>`).join("")}</div>`;
+  if (tab === "unir") return chips + renderUnirU3();
+  if (tab === "fallaono") {
+    if (!state.quiz || state.quiz.key !== "III-fallaono") {
+      const generar = () => preparar(U3_FALLAONO, {
+        orden: true
+      });
+      iniciarQuiz("III-fallaono", generar(), generar);
+    }
+    return chips + renderQuiz();
+  }
+  return chips + quizConIntro("III-ext-tipo", () => preparar(U3_EXTERNALIDADES, {
+    orden: true
+  }), INTRO_EXTERNALIDADES, "Los cuatro tipos de externalidad");
+}
+
+function bindExternalidadesU3() {
+  document.querySelectorAll("[data-ext-tab]").forEach(b => {
+    b.onclick = () => {
+      state.extTab = b.dataset.extTab;
+      state.quiz = null;
+      refreshUnidad();
+    };
+  });
+}
 
 function nuevoUnir() {
   return {
     orden: mezclar(UNIR_FALLAS.map(f => f.id)),
     casos: mezclar(UNIR_FALLAS.map(f => f.id)),
+    elegido: Object.fromEntries(UNIR_FALLAS.map(f => [ f.id, f.casos[Math.floor(Math.random() * f.casos.length)] ])),
     pares: {},
     sel: null,
     comprobado: false
@@ -3333,11 +3352,12 @@ function nuevoUnir() {
 }
 
 function renderUnirU3() {
+  if (!UNIR_FALLAS.length) return `<div class="card"><p class="sub" style="margin:0;">Esta actividad no tiene casos cargados.</p></div>`;
   const u = state.unir || (state.unir = nuevoUnir());
   const porId = id => UNIR_FALLAS.find(f => f.id === id);
   const completos = Object.keys(u.pares).length === UNIR_FALLAS.length;
   const aciertos = Object.entries(u.pares).filter(([c, f]) => c === f).length;
-  return `\n      <div class="card"><p class="sub" style="margin:0;">Tocá un caso de la izquierda y después la falla de mercado de la derecha que lo explica. Se dibuja la flecha. Cuando tengas las ${UNIR_FALLAS.length}, comprobá.</p></div>\n      <div class="unir" id="unir">\n        <svg class="unir-svg" id="unir-svg"></svg>\n        <div class="unir-col">${u.casos.map(id => `<button class="unir-item unir-caso ${u.sel === id ? "sel" : ""} ${u.pares[id] ? "unido" : ""}" data-unir-caso="${id}" ${u.comprobado ? "disabled" : ""}>${porId(id).caso}</button>`).join("")}</div>\n        <div></div>\n        <div class="unir-col">${u.orden.map(id => `<button class="unir-item unir-falla ${Object.values(u.pares).includes(id) ? "unido" : ""}" data-unir-falla="${id}" ${u.comprobado ? "disabled" : ""}>${porId(id).falla}</button>`).join("")}</div>\n      </div>\n      <div class="chips-fila" style="margin-top:12px;">\n        ${u.comprobado ? `<button class="btn" data-unir-nuevo="1">Jugar de nuevo</button>` : `<button class="btn" data-unir-comprobar="1" ${completos ? "" : "disabled"}>${completos ? "Comprobar" : `Faltan ${UNIR_FALLAS.length - Object.keys(u.pares).length}`}</button><button class="btn secondary" data-unir-borrar="1">Borrar flechas</button>`}\n      </div>\n      ${u.comprobado ? `\n        <div class="feedback ${aciertos === UNIR_FALLAS.length ? "ok" : "bad"}"><strong>${aciertos} de ${UNIR_FALLAS.length}.</strong> ${aciertos === UNIR_FALLAS.length ? "Todas bien." : "Las flechas rojas están mal. Abajo tenés cada caso explicado."}</div>\n        ${UNIR_FALLAS.map(f => `<div class="card unir-expl ${u.pares[f.id] === f.id ? "bien" : "mal"}"><div class="unir-expl-t">${f.falla}</div><div class="sub" style="margin:4px 0 6px;">${f.caso}</div><div style="font-size:13.5px;">${f.por}</div></div>`).join("")}` : ""}`;
+  return `\n      <div class="card"><p class="sub" style="margin:0;">Tocá un caso de la izquierda y después la falla de mercado de la derecha que lo explica. Se dibuja la flecha. Cuando tengas las ${UNIR_FALLAS.length}, comprobá.</p></div>\n      <div class="unir" id="unir">\n        <svg class="unir-svg" id="unir-svg"></svg>\n        <div class="unir-col">${u.casos.map(id => `<button class="unir-item unir-caso ${u.sel === id ? "sel" : ""} ${u.pares[id] ? "unido" : ""}" data-unir-caso="${id}" ${u.comprobado ? "disabled" : ""}>${u.elegido[id].caso}</button>`).join("")}</div>\n        <div></div>\n        <div class="unir-col">${u.orden.map(id => `<button class="unir-item unir-falla ${Object.values(u.pares).includes(id) ? "unido" : ""}" data-unir-falla="${id}" ${u.comprobado ? "disabled" : ""}>${porId(id).falla}</button>`).join("")}</div>\n      </div>\n      <div class="chips-fila" style="margin-top:12px;">\n        ${u.comprobado ? `<button class="btn" data-unir-nuevo="1">Jugar de nuevo</button>` : `<button class="btn" data-unir-comprobar="1" ${completos ? "" : "disabled"}>${completos ? "Comprobar" : `Faltan ${UNIR_FALLAS.length - Object.keys(u.pares).length}`}</button><button class="btn secondary" data-unir-borrar="1">Borrar flechas</button>`}\n      </div>\n      ${u.comprobado ? `\n        <div class="feedback ${aciertos === UNIR_FALLAS.length ? "ok" : "bad"}"><strong>${aciertos} de ${UNIR_FALLAS.length}.</strong> ${aciertos === UNIR_FALLAS.length ? "Todas bien." : "Las flechas rojas están mal. Abajo tenés cada caso explicado."}</div>\n        ${UNIR_FALLAS.map(f => `<div class="card unir-expl ${u.pares[f.id] === f.id ? "bien" : "mal"}"><div class="unir-expl-t">${f.falla}</div><div class="sub" style="margin:4px 0 6px;">${u.elegido[f.id].caso}</div><div style="font-size:13.5px;">${u.elegido[f.id].por || ""}</div></div>`).join("")}` : ""}`;
 }
 
 function dibujarFlechasUnir() {
@@ -5081,17 +5101,10 @@ const CONTENIDO_UNIDAD = {
         orden: true
       })
     }, {
-      id: "unir",
-      titulo: "Fallas de mercado: uní con flechas",
-      desc: "Cada caso con la falla que lo explica",
-      render: renderUnirU3
-    }, {
-      id: "fallaono",
-      titulo: "¿Falla de mercado o no?",
-      desc: "No todo lo que duele es una falla",
-      quiz: () => preparar(U3_FALLAONO, {
-        orden: true
-      })
+      id: "externalidades",
+      titulo: "Externalidades y fallas de mercado",
+      desc: "De qué tipo es cada externalidad, uní con flechas y ¿falla o no?",
+      render: renderExternalidadesU3
     }, {
       id: "dilema",
       titulo: "Dilema del prisionero",
@@ -5621,6 +5634,7 @@ function bindUnidad() {
   };
   bindSim();
   bindMonopolioU3();
+  bindExternalidadesU3();
   bindEquilibrioU3();
   bindUnirU3();
   bindViajeU2();

@@ -439,6 +439,39 @@ content:
             label: Preguntas
             component: pregunta
             list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u3-externalidades
+        label: "Externalidades: ¿qué tipo es?"
+        type: file
+        path: contenido/preguntas/U3_EXTERNALIDADES.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: unir-fallas
+        label: "Uní con flechas: pozo de casos"
+        type: file
+        path: contenido/unir-fallas.json
+        format: json
+        description: "En cada partida se sortea un caso por falla. Podés sumar casos a cada falla."
+        fields:
+          - name: fallas
+            label: Fallas
+            type: object
+            list: { min: 2, collapsible: { collapsed: true, summary: "{fields.falla}" } }
+            fields:
+              - { name: id, label: Código interno, type: string, readonly: true }
+              - { name: falla, label: Falla de mercado, type: string, required: true }
+              - name: casos
+                label: Casos
+                type: object
+                list: { min: 1, collapsible: { collapsed: true, summary: "{fields.caso}" } }
+                fields:
+                  - { name: caso, label: Caso, type: text, required: true }
+                  - { name: por, label: Por qué es esta falla, type: text }
       - name: misiones-3
         label: "Misiones: tomá la decisión"
         type: file

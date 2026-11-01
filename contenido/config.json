@@ -258,15 +258,9 @@
           "visible": true
         },
         {
-          "id": "unir",
-          "titulo": "Fallas de mercado: uní con flechas",
-          "descripcion": "Cada caso con la falla que lo explica",
-          "visible": true
-        },
-        {
-          "id": "fallaono",
-          "titulo": "¿Falla de mercado o no?",
-          "descripcion": "No todo lo que duele es una falla",
+          "id": "externalidades",
+          "titulo": "Externalidades y fallas de mercado",
+          "descripcion": "De qué tipo es cada externalidad, uní con flechas y ¿falla o no?",
           "visible": true
         },
         {
