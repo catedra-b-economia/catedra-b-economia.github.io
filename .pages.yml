@@ -30,6 +30,13 @@ content:
         fields:
           - { name: nombre, label: Nombre (título grande de la portada), type: string }
           - { name: docente, label: Docente (texto chico arriba del título), type: string }
+      - name: asistente
+        label: Asistente de la cátedra (Gemini)
+        type: object
+        fields:
+          - { name: url, label: Link del Gem, type: string, description: "Si queda vacío, no se muestra el botón." }
+          - { name: texto, label: Texto del botón, type: string }
+          - { name: aclaracion, label: Aclaración debajo del botón, type: text }
       - name: formulario
         label: Formulario de dudas (Google Forms)
         type: object

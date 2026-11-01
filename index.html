@@ -107,6 +107,7 @@
   .chip-btn:hover{ border-color:var(--blue); color:var(--blue); }
   .chip-btn.activo{ background:var(--blue); border-color:var(--blue); color:#fff; }
   details.duda{ margin:0 0 8px; }
+  a.btn.asistente{ display:block; text-align:center; text-decoration:none; }
   .glos-item{ border-bottom:1px solid var(--rule); padding:12px 2px; }
   .glos-item:last-child{ border-bottom:none; }
   .glos-term{ font-weight:900; color:var(--blue); font-size:15px; }
@@ -500,6 +501,8 @@ function irA(u, s) {
 }
 
 function abrirGlosario() {
+  state.glosarioU = state.unidadActiva || "";
+  state.glosarioQ = "";
   state.glosario = true;
   state.unidadActiva = null;
   state.unidadActivaSeccion = null;
@@ -517,9 +520,21 @@ function leerHash() {
   irA(u, s.join("-"));
 }
 
+function botonesPortada() {
+  const u = state.unidadActiva;
+  const glos = `<button class="btn secondary block" data-glosario="1" style="margin-bottom:10px;">${u ? `Glosario de la Unidad ${u}` : "Glosario: buscá un concepto"}</button>`;
+  const a = CONFIG.asistente || {};
+  let url = "";
+  try {
+    url = /^https:\/\//.test(a.url) ? new URL(a.url).href : "";
+  } catch (e) {}
+  if (u || state.glosario || !url) return glos;
+  return glos + `<a class="btn block asistente" href="${escaparHTML(url)}" target="_blank" rel="noopener">${escaparHTML(a.texto || "Preguntale al asistente de la cátedra")} ↗</a>${lleno(a.aclaracion) ? `<p class="nota-chica" style="margin:6px 2px 14px;text-align:center;">${escaparHTML(a.aclaracion)}</p>` : ""}`;
+}
+
 function viewUnidades() {
   const nodos = UNIDADES.map(u => u.habilitada ? `\n      <div class="node clickable" data-unidad="${u.id}">\n        <div class="dot unlocked">${u.id}</div>\n        <div class="node-cuerpo">\n          <div class="title">${u.nombre}</div>\n          <div class="status unlocked">${CONTENIDO_UNIDAD[u.id].secciones.length} actividades</div>\n        </div>\n      </div>` : `\n      <div class="node">\n        <div class="dot locked">${u.id}</div>\n        <div class="node-cuerpo">\n          <div class="title">${u.nombre}</div>\n          <div class="status locked">Próximamente</div>\n        </div>\n      </div>`).join("");
-  return `\n      <div class="aviso">Esto no reemplaza la bibliografía ni al AU24: <u>SON COMPLEMENTARIOS</u>.</div>\n      <div class="accent-bar"></div>\n      <div class="eyebrow eyebrow-crest">${CURSO.docente}</div>\n      <h1>${CURSO.nombre}</h1>\n      <div class="sub">Practicá los contenidos de la materia unidad por unidad. Elegí una y entrá.</div>\n      <div class="path">${nodos}</div>\n      <button class="btn secondary block" data-glosario="1" style="margin-bottom:10px;">Glosario: buscá un concepto</button>\n      <div id="unidad-detalle">${renderUnidadDetalle()}</div>\n    `;
+  return `\n      <div class="aviso">Esto no reemplaza la bibliografía ni al AU24: <u>SON COMPLEMENTARIOS</u>.</div>\n      <div class="accent-bar"></div>\n      <div class="eyebrow eyebrow-crest">${CURSO.docente}</div>\n      <h1>${CURSO.nombre}</h1>\n      <div class="sub">Practicá los contenidos de la materia unidad por unidad. Elegí una y entrá.</div>\n      <div class="path">${nodos}</div>\n      ${botonesPortada()}\n      <div id="unidad-detalle">${renderUnidadDetalle()}</div>\n    `;
 }
 
 function renderUnidadDetalle() {
@@ -5816,8 +5831,7 @@ function bind() {
       state.unidadActivaSeccion = null;
       state.quiz = null;
       ponerHash(n.dataset.unidad);
-      document.getElementById("unidad-detalle").innerHTML = renderUnidadDetalle();
-      bindUnidad();
+      render();
       irAlDetalle();
     };
   });
