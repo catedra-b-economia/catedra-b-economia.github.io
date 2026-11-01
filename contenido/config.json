@@ -258,9 +258,9 @@
           "visible": true
         },
         {
-          "id": "externalidades",
-          "titulo": "Externalidades y fallas de mercado",
-          "descripcion": "De qué tipo es cada externalidad, uní con flechas y ¿falla o no?",
+          "id": "fallas",
+          "titulo": "Fallas de mercado",
+          "descripcion": "Uní cada caso con su falla, y después: ¿es falla o no?",
           "visible": true
         },
         {

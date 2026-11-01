@@ -454,20 +454,8 @@ content:
             label: Preguntas
             component: pregunta
             list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
-      - name: u3-externalidades
-        label: "Externalidades: ¿qué tipo es?"
-        type: file
-        path: contenido/preguntas/U3_EXTERNALIDADES.json
-        format: json
-        fields:
-          - { name: actividad, label: Actividad, type: string, readonly: true }
-          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
-          - name: preguntas
-            label: Preguntas
-            component: pregunta
-            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
       - name: unir-fallas
-        label: "Uní con flechas: pozo de casos"
+        label: "Fallas de mercado: pozo de casos"
         type: file
         path: contenido/unir-fallas.json
         format: json

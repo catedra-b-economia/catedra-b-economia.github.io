@@ -151,7 +151,11 @@
   .eq-inputs input{ width:110px; font-family:inherit; font-size:15px; padding:9px 10px; border:1px solid var(--rule); border-radius:var(--radius); }
   .eq-inputs input:focus{ outline:none; border-color:var(--blue); box-shadow:0 0 0 3px var(--blue-soft); }
   .pasos{ font-size:13.5px; line-height:1.7; padding-left:20px; margin:10px 0 0; }
-  .unir{ position:relative; display:grid; grid-template-columns:1fr 34px 1fr; }
+  .unir{ position:relative; display:grid; grid-template-columns:1fr 56px 1fr; }
+  @media (max-width:480px){ .unir{ grid-template-columns:1fr 40px 1fr; } }
+  .unir-tag{ display:block; margin-top:6px; font-size:11.5px; font-weight:700; color:var(--blue); }
+  .unir-tag.bien{ color:var(--verde); }
+  .unir-tag.mal{ color:var(--rojo); }
   .unir-svg{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; overflow:visible; }
   .unir-col{ display:flex; flex-direction:column; gap:8px; justify-content:space-around; }
   .unir-item{ text-align:left; border:1px solid var(--rule); background:#fff; border-radius:var(--radius); padding:9px 10px; font-size:12.5px; line-height:1.35; color:var(--ink); }
@@ -311,7 +315,7 @@ const DESDE_OPCION = {
   })
 };
 
-const NOMBRES_BANCOS = [ "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U3_REGULADOR", "U3_EXTERNALIDADES", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
+const NOMBRES_BANCOS = [ "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U3_REGULADOR", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
 
 const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, DUDAS_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
   actividades: []
@@ -3493,23 +3497,11 @@ const UNIR_FALLAS = ((UNIR_DATOS && UNIR_DATOS.fallas) || []).map((f, i) => ({
 })).filter(f => lleno(f.falla) && f.casos.length);
 
 
-const U3_EXTERNALIDADES = BANCOS.U3_EXTERNALIDADES;
-
-const INTRO_EXTERNALIDADES = `
-    <p style="margin:0 0 8px;">Una <strong>externalidad</strong> es un efecto sobre terceros que no se paga ni se cobra. Se clasifica según dos preguntas: ¿perjudica o beneficia?, y ¿nace de producir o de consumir?</p>
-    <table class="tabla-datos">
-      <tr><th></th><th>Al producir</th><th>Al consumir</th></tr>
-      <tr><td><strong>Perjudica</strong></td><td>Una fábrica contamina el río</td><td>El humo de la estufa de una casa</td></tr>
-      <tr><td><strong>Beneficia</strong></td><td>Las abejas polinizan al vecino</td><td>Vacunarse protege a otros</td></tr>
-    </table>
-    <p class="nota-chica" style="margin:8px 0 0;">Cuando la externalidad es negativa, el mercado produce de más; cuando es positiva, de menos. Para cada caso, pensá también cómo se corrigió.</p>`;
-
-const EXT_PANTALLAS = [ [ "tipo", "¿Qué tipo es?" ], [ "unir", "Uní con flechas" ], [ "fallaono", "¿Falla o no?" ] ];
+const EXT_PANTALLAS = [ [ "unir", "Uní con flechas" ], [ "fallaono", "¿Falla o no?" ] ];
 
 function renderExternalidadesU3() {
-  const tab = state.extTab || "tipo";
+  const tab = state.extTab || "unir";
   const chips = `<div class="chips-fila">${EXT_PANTALLAS.map(([k, l]) => `<button class="chip-btn ${tab === k ? "activo" : ""}" data-ext-tab="${k}">${l}</button>`).join("")}</div>`;
-  if (tab === "unir") return chips + renderUnirU3();
   if (tab === "fallaono") {
     if (!state.quiz || state.quiz.key !== "III-fallaono") {
       const generar = () => preparar(U3_FALLAONO, {
@@ -3519,9 +3511,7 @@ function renderExternalidadesU3() {
     }
     return chips + renderQuiz();
   }
-  return chips + quizConIntro("III-ext-tipo", () => preparar(U3_EXTERNALIDADES, {
-    orden: true
-  }), INTRO_EXTERNALIDADES, "Los cuatro tipos de externalidad");
+  return chips + renderUnirU3();
 }
 
 function bindExternalidadesU3() {
@@ -3551,7 +3541,7 @@ function renderUnirU3() {
   const porId = id => UNIR_FALLAS.find(f => f.id === id);
   const completos = Object.keys(u.pares).length === UNIR_FALLAS.length;
   const aciertos = Object.entries(u.pares).filter(([c, f]) => c === f).length;
-  return `\n      <div class="card"><p class="sub" style="margin:0;">Tocá un caso de la izquierda y después la falla de mercado de la derecha que lo explica. Se dibuja la flecha. Cuando tengas las ${UNIR_FALLAS.length}, comprobá.</p></div>\n      <div class="unir" id="unir">\n        <svg class="unir-svg" id="unir-svg"></svg>\n        <div class="unir-col">${u.casos.map(id => `<button class="unir-item unir-caso ${u.sel === id ? "sel" : ""} ${u.pares[id] ? "unido" : ""}" data-unir-caso="${id}" ${u.comprobado ? "disabled" : ""}>${u.elegido[id].caso}</button>`).join("")}</div>\n        <div></div>\n        <div class="unir-col">${u.orden.map(id => `<button class="unir-item unir-falla ${Object.values(u.pares).includes(id) ? "unido" : ""}" data-unir-falla="${id}" ${u.comprobado ? "disabled" : ""}>${porId(id).falla}</button>`).join("")}</div>\n      </div>\n      <div class="chips-fila" style="margin-top:12px;">\n        ${u.comprobado ? `<button class="btn" data-unir-nuevo="1">Jugar de nuevo</button>` : `<button class="btn" data-unir-comprobar="1" ${completos ? "" : "disabled"}>${completos ? "Comprobar" : `Faltan ${UNIR_FALLAS.length - Object.keys(u.pares).length}`}</button><button class="btn secondary" data-unir-borrar="1">Borrar flechas</button>`}\n      </div>\n      ${u.comprobado ? `\n        <div class="feedback ${aciertos === UNIR_FALLAS.length ? "ok" : "bad"}"><strong>${aciertos} de ${UNIR_FALLAS.length}.</strong> ${aciertos === UNIR_FALLAS.length ? "Todas bien." : "Las flechas rojas están mal. Abajo tenés cada caso explicado."}</div>\n        ${UNIR_FALLAS.map(f => `<div class="card unir-expl ${u.pares[f.id] === f.id ? "bien" : "mal"}"><div class="unir-expl-t">${f.falla}</div><div class="sub" style="margin:4px 0 6px;">${u.elegido[f.id].caso}</div><div style="font-size:13.5px;">${u.elegido[f.id].por || ""}</div></div>`).join("")}` : ""}`;
+  return `\n      <div class="card"><p class="sub" style="margin:0;">Tocá un caso de la izquierda y después la falla de mercado de la derecha que lo explica. Se dibuja la flecha. Cuando tengas las ${UNIR_FALLAS.length}, comprobá.</p></div>\n      <div class="unir" id="unir">\n        <svg class="unir-svg" id="unir-svg"></svg>\n        <div class="unir-col">${u.casos.map(id => `<button class="unir-item unir-caso ${u.sel === id ? "sel" : ""} ${u.pares[id] ? "unido" : ""}" data-unir-caso="${id}" ${u.comprobado ? "disabled" : ""}>${u.elegido[id].caso}${u.pares[id] ? `<span class="unir-tag ${u.comprobado ? (u.pares[id] === id ? "bien" : "mal") : ""}">→ ${porId(u.pares[id]).falla}</span>` : ""}</button>`).join("")}</div>\n        <div></div>\n        <div class="unir-col">${u.orden.map(id => `<button class="unir-item unir-falla ${Object.values(u.pares).includes(id) ? "unido" : ""}" data-unir-falla="${id}" ${u.comprobado ? "disabled" : ""}>${porId(id).falla}</button>`).join("")}</div>\n      </div>\n      <div class="chips-fila" style="margin-top:12px;">\n        ${u.comprobado ? `<button class="btn" data-unir-nuevo="1">Jugar de nuevo</button>` : `<button class="btn" data-unir-comprobar="1" ${completos ? "" : "disabled"}>${completos ? "Comprobar" : `Faltan ${UNIR_FALLAS.length - Object.keys(u.pares).length}`}</button><button class="btn secondary" data-unir-borrar="1">Borrar flechas</button>`}\n      </div>\n      ${u.comprobado ? `\n        <div class="feedback ${aciertos === UNIR_FALLAS.length ? "ok" : "bad"}"><strong>${aciertos} de ${UNIR_FALLAS.length}.</strong> ${aciertos === UNIR_FALLAS.length ? "Todas bien." : "Las flechas rojas están mal. Abajo tenés cada caso explicado."}</div>\n        ${UNIR_FALLAS.map(f => `<div class="card unir-expl ${u.pares[f.id] === f.id ? "bien" : "mal"}"><div class="unir-expl-t">${f.falla}</div><div class="sub" style="margin:4px 0 6px;">${u.elegido[f.id].caso}</div><div style="font-size:13.5px;">${u.elegido[f.id].por || ""}</div></div>`).join("")}` : ""}`;
 }
 
 function dibujarFlechasUnir() {
@@ -3573,7 +3563,8 @@ function dibujarFlechasUnir() {
       verde: "var(--verde)",
       rojo: "var(--rojo)"
     }[col];
-    s += `<path d="M${x1},${y1} C${x1 + 18},${y1} ${x2 - 18},${y2} ${x2},${y2}" style="fill:none;stroke:${css};stroke-width:2.2" marker-end="url(#punta-${col})"/>`;
+    const dx = (x2 - x1) * .55, curva = `M${x1},${y1} C${x1 + dx},${y1} ${x2 - dx},${y2} ${x2},${y2}`;
+    s += `<path d="${curva}" style="fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round"/><path d="${curva}" style="fill:none;stroke:${css};stroke-width:2.4" marker-end="url(#punta-${col})"/><circle cx="${x1}" cy="${y1}" r="3.5" style="fill:${css}"/>`;
   });
   svg.innerHTML = s;
 }
@@ -5295,9 +5286,9 @@ const CONTENIDO_UNIDAD = {
         orden: true
       })
     }, {
-      id: "externalidades",
-      titulo: "Externalidades y fallas de mercado",
-      desc: "De qué tipo es cada externalidad, uní con flechas y ¿falla o no?",
+      id: "fallas",
+      titulo: "Fallas de mercado",
+      desc: "Uní cada caso con su falla, y después: ¿es falla o no?",
       render: renderExternalidadesU3
     }, {
       id: "dilema",

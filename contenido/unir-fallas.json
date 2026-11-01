@@ -5,34 +5,16 @@
       "falla": "Bien público",
       "casos": [
         {
-          "caso": "Los vecinos quieren arreglar la plaza del barrio, pero cada uno espera que ponga la plata el otro: si se arregla, la disfrutan todos igual.",
-          "por": "No se puede excluir a quien no paga y que la use uno no le quita nada al otro. Cada vecino tiene incentivos a esperar que pague el resto (el \"polizón\"), y la plaza no se arregla."
+          "caso": "Un barrio quiere arreglar su plaza. Todos dicen que la usarían, pero la colecta no junta ni la mitad de lo que hace falta.",
+          "por": "La plaza es un bien público: no se puede impedir que la use quien no puso plata, y que la use uno no le quita nada a otro. Cada vecino tiene incentivos a esperar que pague el resto (el \"polizón\"), y la plata no alcanza."
         },
         {
-          "caso": "Un faro en la costa avisa a todos los barcos que pasan, hayan pagado o no.",
-          "por": "Es el ejemplo clásico de bien público: no se puede cobrarle la luz a cada barco y que la vea uno no impide que la vea otro. Coase (1974) mostró que en Inglaterra muchos faros los financiaban tasas cobradas en los puertos, una forma de resolver el problema de cobrar."
+          "caso": "Ninguna empresa privada se interesa en construir un faro en una costa peligrosa, aunque los barcos que pasan lo necesitan.",
+          "por": "Es el ejemplo clásico de bien público: no se le puede cobrar la luz a cada barco y que la vea uno no impide que la vea otro. Coase (1974) mostró que en Inglaterra muchos faros se financiaban con tasas cobradas en los puertos, una forma de resolver el problema de cobrar."
         },
         {
-          "caso": "Los vecinos quieren alumbrado en la cuadra, pero cada uno espera que ponga la plata el otro: si se instala, lo disfrutan todos igual.",
-          "por": "No se puede excluir a quien no paga y que lo use uno no le quita nada al otro. Cada uno tiene incentivos a esperar que pague el resto (el \"polizón\"), y el bien no se provee."
-        }
-      ]
-    },
-    {
-      "id": "comun",
-      "falla": "Recurso común",
-      "casos": [
-        {
-          "caso": "En un lago donde cualquiera puede pescar, cada uno saca todo lo que puede antes de que lo saque otro, y los peces se agotan.",
-          "por": "No se puede excluir a nadie, pero lo que saca uno ya no lo tiene el otro. Cada pescador no paga el costo de agotar el lago: es la tragedia de los comunes."
-        },
-        {
-          "caso": "Los barcos pesqueros sacan merluza del Mar Argentino a un ritmo mayor del que la especie tarda en reproducirse.",
-          "por": "Cada barco que pesca de más reduce lo que queda para los otros y para el futuro, pero no paga ese costo. Por eso hacen falta cupos o vedas: el recurso es rival pero nadie lo puede cerrar."
-        },
-        {
-          "caso": "En un campo comunal donde cualquiera puede llevar sus vacas, cada criador suma animales hasta que el pasto se agota.",
-          "por": "Es el ejemplo de Hardin (1968), \"la tragedia de los comunes\": cada criador gana con una vaca más, pero el costo de gastar el pasto lo reparten todos."
+          "caso": "La defensa nacional la financia el Estado con impuestos: ninguna empresa la vende por suscripción.",
+          "por": "Es no excluible (protege a todos los que viven en el país, paguen o no) y no rival (que proteja a uno no reduce la protección de otro). Si se vendiera, casi nadie pagaría: por eso la provee el Estado."
         }
       ]
     },
@@ -41,12 +23,12 @@
       "falla": "Externalidad negativa",
       "casos": [
         {
-          "caso": "Una curtiembre sobre el Riachuelo produce más barato porque el agua que devuelve al río nadie se la cobra.",
+          "caso": "Una curtiembre se instala junto al Riachuelo porque ahí le sale más barato deshacerse del agua que usa.",
           "por": "El costo de ensuciar el río lo pagan otros (los vecinos, los pescadores), no la curtiembre. Como no entra en su cuenta, produce más de lo que convendría a la sociedad."
         },
         {
-          "caso": "Un boliche pone la música a todo volumen hasta las seis de la mañana y los vecinos no pueden dormir.",
-          "por": "El ruido es un costo que sufren terceros y que no entra en las cuentas del boliche. Por eso se regula con horarios y límites de volumen."
+          "caso": "Abre un boliche y le va muy bien. Al año, las casas de esa cuadra se venden más baratas que las del resto del barrio.",
+          "por": "El ruido y el movimiento de la noche son un costo que sufren los vecinos y que no entra en las cuentas del boliche. Por eso se regula con horarios y límites de volumen."
         }
       ]
     },
@@ -55,26 +37,12 @@
       "falla": "Externalidad positiva",
       "casos": [
         {
-          "caso": "Tu vecino se vacuna contra la gripe y, sin pagar nada, vos tenés menos chances de contagiarte.",
-          "por": "Hay un beneficio para terceros que el que se vacuna no cobra. Por eso, librado al mercado, la gente se vacuna menos de lo que convendría a todos."
-        },
-        {
-          "caso": "Un vecino pinta y arregla la fachada de su casa, y sube el valor de todas las casas de la cuadra.",
+          "caso": "Desde que un vecino arregló y pintó la fachada de su casa, las demás casas de la cuadra se tasan más alto.",
           "por": "El beneficio les llega a los vecinos, que no pagaron nada. Como quien arregla no cobra ese beneficio, se arreglan menos fachadas de las que convendría."
-        }
-      ]
-    },
-    {
-      "id": "info",
-      "falla": "Información asimétrica",
-      "casos": [
-        {
-          "caso": "Quien contrata un seguro de salud sabe mucho mejor que la aseguradora si se viene sintiendo mal.",
-          "por": "Una de las partes sabe algo relevante que la otra no. Eso hace que el precio no pueda reflejar el riesgo real, y el mercado funciona mal o directamente desaparece."
         },
         {
-          "caso": "El vendedor de un auto usado jura que \"anda perfecto\", y el comprador no tiene forma de saber si es cierto.",
-          "por": "El vendedor conoce el estado del auto y el comprador no. Es el mercado de \"limones\" de Akerlof: la desconfianza baja los precios y los dueños de autos buenos dejan de vender."
+          "caso": "Cuantos más chicos de un barrio se vacunan contra el sarampión, menos se enferman también los que no se vacunaron.",
+          "por": "El que se vacuna protege además a otros, que no pagan nada por eso. Librada al mercado, la gente se vacunaría menos de lo que conviene a todos: por eso hay calendario obligatorio y gratuito."
         }
       ]
     },
@@ -83,16 +51,52 @@
       "falla": "Poder de mercado",
       "casos": [
         {
-          "caso": "La única empresa con la concesión del agua de una ciudad cobra bastante más de lo que le cuesta producirla.",
+          "caso": "La distribuidora de agua de una ciudad sube la tarifa 40% y casi nadie consume menos: no hay otra forma de tener agua de red.",
           "por": "Sin competencia, puede fijar el precio por encima del costo y producir menos de lo eficiente."
         },
         {
-          "caso": "Un laboratorio tiene la patente de un remedio y lo vende a un precio muy superior a lo que cuesta fabricarlo.",
-          "por": "La patente le da un monopolio temporal: nadie más puede fabricarlo. Es un poder de mercado que se acepta a propósito, para premiar la investigación, pero mientras dura el precio queda por encima del costo."
+          "caso": "Un laboratorio vende un remedio a diez veces lo que cuesta fabricarlo, y durante años nadie más puede producirlo.",
+          "por": "La patente le da un monopolio temporal. Es un poder de mercado que se acepta a propósito, para premiar la investigación, pero mientras dura el precio queda muy por encima del costo."
         },
         {
-          "caso": "En una ciudad hay una sola línea de colectivos, y sube el boleto sin perder pasajeros.",
+          "caso": "Una empresa de colectivos sube el boleto y no pierde pasajeros: es la única línea que llega al barrio.",
           "por": "Sin otra línea a la que pasarse, los pasajeros no tienen alternativa. Esa falta de competencia le permite cobrar por encima del costo."
+        }
+      ]
+    },
+    {
+      "id": "seladv",
+      "falla": "Selección adversa",
+      "casos": [
+        {
+          "caso": "Una prepaga nueva cobra la misma cuota a todos. Al año, sus afiliados se enferman mucho más que el promedio de la población.",
+          "por": "Antes de firmar, cada persona sabe mejor que la prepaga cuánto va a necesitar el servicio. Con una cuota única, a los que se sienten sanos no les conviene y a los que esperan enfermarse sí: se afilian los de mayor riesgo."
+        },
+        {
+          "caso": "En el mercado de autos usados, los dueños de autos en buen estado dejan de vender porque nadie les ofrece lo que valen.",
+          "por": "El vendedor conoce el estado del auto y el comprador no, así que el comprador ofrece un precio promedio. A ese precio no les conviene vender a los que tienen autos buenos, y quedan los peores: es el mercado de \"limones\" de Akerlof."
+        },
+        {
+          "caso": "Un banco sube la tasa de interés de sus préstamos y, para su sorpresa, aumenta la proporción de deudores que no pagan.",
+          "por": "El banco no sabe de antemano quién es buen pagador. Con una tasa alta, los clientes prudentes dejan de pedir prestado y se quedan los que encaran proyectos más riesgosos: la suba de tasa empeora la calidad de los deudores."
+        }
+      ]
+    },
+    {
+      "id": "riesgo",
+      "falla": "Riesgo moral",
+      "casos": [
+        {
+          "caso": "Después de asegurar el auto contra robo, Martín deja de ponerle la traba al volante.",
+          "por": "El problema aparece después de firmar: una vez asegurado, cuidar el auto le cuesta a él pero el robo lo paga la aseguradora, que no puede ver cuánto se cuida. Por eso existen las franquicias."
+        },
+        {
+          "caso": "Un empleado que trabaja desde su casa, sin que nadie controle sus horas, rinde menos que cuando iba a la oficina.",
+          "por": "El empleador no puede observar el esfuerzo una vez firmado el contrato. Cuando la acción no se ve, el que la hace tiene incentivos a cuidarse menos de lo acordado."
+        },
+        {
+          "caso": "Un banco que sabe que el Estado lo va a rescatar si quiebra empieza a prestarles a clientes cada vez más riesgosos.",
+          "por": "Si las pérdidas las cubre otro, se asumen más riesgos: es riesgo moral. Es la crítica a los rescates bancarios, porque anticipar el rescate cambia la conducta de antemano."
         }
       ]
     }

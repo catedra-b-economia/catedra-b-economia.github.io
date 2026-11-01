@@ -322,7 +322,7 @@
       "termino": "Externalidad",
       "definicion": "Efecto de una actividad sobre terceros que no se refleja en el precio. Puede ser negativa (contaminación) o positiva (vacunación).",
       "unidad": "III",
-      "actividad": "externalidades"
+      "actividad": "fallas"
     },
     {
       "termino": "Bien público",
@@ -334,7 +334,7 @@
       "termino": "Recurso común",
       "definicion": "Bien rival pero no excluible, como un caladero de pesca: tiende a sobreexplotarse.",
       "unidad": "III",
-      "actividad": "externalidades"
+      "actividad": ""
     },
     {
       "termino": "Polizón (free rider)",
