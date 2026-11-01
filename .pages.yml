@@ -235,6 +235,39 @@ content:
             label: Preguntas
             component: pregunta
             list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u1-efeq-conceptos
+        label: "Eficiencia y equidad en toda la unidad"
+        type: file
+        path: contenido/preguntas/U1_EFEQ_CONCEPTOS.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: unir-conceptos
+        label: "Uní concepto y definición"
+        type: file
+        path: contenido/unir-conceptos.json
+        format: json
+        description: "Cada juego sortea 6 y, de cada uno, una de sus variantes."
+        fields:
+          - name: items
+            label: Pares
+            type: object
+            list: { min: 2, collapsible: { collapsed: true, summary: "{fields.nombre}" } }
+            fields:
+              - { name: id, label: Código interno, type: string, readonly: true }
+              - { name: nombre, label: Columna derecha, type: string, required: true }
+              - name: casos
+                label: Columna izquierda (variantes)
+                type: object
+                list: { min: 1, collapsible: { collapsed: true, summary: "{fields.caso}" } }
+                fields:
+                  - { name: caso, label: Texto, type: text, required: true }
+                  - { name: por, label: Explicación, type: text }
       - name: misiones-1
         label: "Misiones: tomá la decisión"
         type: file
@@ -323,6 +356,39 @@ content:
             label: Preguntas
             component: pregunta
             list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u2-quien-decide
+        label: "¿Quién decide qué producir?"
+        type: file
+        path: contenido/preguntas/U2_QUIEN_DECIDE.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: unir-autores
+        label: "Uní autor e idea"
+        type: file
+        path: contenido/unir-autores.json
+        format: json
+        description: "Cada juego sortea 6 y, de cada uno, una de sus variantes."
+        fields:
+          - name: items
+            label: Pares
+            type: object
+            list: { min: 2, collapsible: { collapsed: true, summary: "{fields.nombre}" } }
+            fields:
+              - { name: id, label: Código interno, type: string, readonly: true }
+              - { name: nombre, label: Columna derecha, type: string, required: true }
+              - name: casos
+                label: Columna izquierda (variantes)
+                type: object
+                list: { min: 1, collapsible: { collapsed: true, summary: "{fields.caso}" } }
+                fields:
+                  - { name: caso, label: Texto, type: text, required: true }
+                  - { name: por, label: Explicación, type: text }
       - name: misiones-2
         label: "Misiones: tomá la decisión"
         type: file

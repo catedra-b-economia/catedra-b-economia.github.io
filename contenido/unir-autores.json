@@ -1,0 +1,112 @@
+{
+  "items": [
+    {
+      "id": "smith",
+      "nombre": "Adam Smith",
+      "casos": [
+        {
+          "caso": "Cada uno, buscando su propio interés, termina promoviendo el bien de la sociedad, como guiado por una mano invisible.",
+          "por": "Es la idea central de \"La riqueza de las naciones\" (1776): el mercado coordina sin que nadie lo dirija."
+        },
+        {
+          "caso": "La división del trabajo multiplica la productividad: repartiendo las tareas, diez obreros hacen muchísimos más alfileres que cada uno por su cuenta.",
+          "por": "El ejemplo de la fábrica de alfileres abre \"La riqueza de las naciones\"."
+        }
+      ]
+    },
+    {
+      "id": "ricardo",
+      "nombre": "David Ricardo",
+      "casos": [
+        {
+          "caso": "Las tierras más fértiles cobran una renta porque, al crecer la población, hay que cultivar tierras peores.",
+          "por": "Es la teoría de la renta diferencial: la renta no la crea el terrateniente, sino la diferencia de fertilidad."
+        },
+        {
+          "caso": "Aunque un país sea mejor que otro en producir todo, a los dos les conviene especializarse y comerciar.",
+          "por": "Es la ventaja comparativa, con el ejemplo del vino y el paño entre Portugal e Inglaterra."
+        }
+      ]
+    },
+    {
+      "id": "malthus",
+      "nombre": "Thomas Malthus",
+      "casos": [
+        {
+          "caso": "La población tiende a crecer en progresión geométrica y los alimentos en progresión aritmética.",
+          "por": "Por eso Malthus era pesimista: el crecimiento de la población empujaría siempre a la subsistencia."
+        }
+      ]
+    },
+    {
+      "id": "marx",
+      "nombre": "Karl Marx",
+      "casos": [
+        {
+          "caso": "El trabajador produce más valor del que recibe como salario, y esa diferencia se la apropia el capitalista.",
+          "por": "Es la plusvalía, central en \"El capital\" (1867)."
+        }
+      ]
+    },
+    {
+      "id": "quesnay",
+      "nombre": "François Quesnay",
+      "casos": [
+        {
+          "caso": "Solo la agricultura genera un producto neto; la industria y el comercio solo transforman o trasladan lo que ya existe.",
+          "por": "Es la idea de la fisiocracia, que Quesnay representó en su \"Tableau économique\"."
+        }
+      ]
+    },
+    {
+      "id": "say",
+      "nombre": "Jean-Baptiste Say",
+      "casos": [
+        {
+          "caso": "La oferta crea su propia demanda: lo que se produce genera el ingreso para comprarlo.",
+          "por": "Es la \"ley de Say\", que niega la posibilidad de una sobreproducción general y que después discutió Keynes."
+        }
+      ]
+    },
+    {
+      "id": "keynes",
+      "nombre": "John Maynard Keynes",
+      "casos": [
+        {
+          "caso": "Puede haber desempleo involuntario durante mucho tiempo si la demanda agregada no alcanza; el Estado tiene que intervenir.",
+          "por": "Es el centro de la \"Teoría general\" (1936), escrita después de la crisis del 30."
+        }
+      ]
+    },
+    {
+      "id": "mun",
+      "nombre": "Thomas Mun",
+      "casos": [
+        {
+          "caso": "La riqueza de un reino crece si vende al extranjero más de lo que le compra, y así entra oro y plata.",
+          "por": "Es la idea mercantilista de la balanza comercial favorable."
+        }
+      ]
+    },
+    {
+      "id": "prebisch",
+      "nombre": "Raúl Prebisch",
+      "casos": [
+        {
+          "caso": "Los precios de las materias primas tienden a caer en relación con los de las manufacturas, y eso perjudica a los países de la periferia.",
+          "por": "Es la tesis del deterioro de los términos de intercambio, base del pensamiento de la CEPAL."
+        }
+      ]
+    },
+    {
+      "id": "marginalistas",
+      "nombre": "Los marginalistas (Jevons, Menger, Walras)",
+      "casos": [
+        {
+          "caso": "El valor de un bien depende de la utilidad que da la última unidad consumida, no del trabajo que costó producirlo.",
+          "por": "Es la revolución marginalista de 1870, que resuelve la paradoja del agua y los diamantes."
+        }
+      ]
+    }
+  ]
+}

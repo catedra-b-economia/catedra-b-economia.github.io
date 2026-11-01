@@ -1,0 +1,140 @@
+{
+  "items": [
+    {
+      "id": "escasez",
+      "nombre": "Escasez",
+      "casos": [
+        {
+          "caso": "Los recursos disponibles no alcanzan para satisfacer todo lo que la gente quiere, y por eso hay que elegir.",
+          "por": "Es el punto de partida de la economía: si alcanzara para todo, no habría que elegir ni resignar nada."
+        },
+        {
+          "caso": "Aunque un país sea muy rico, igual tiene que decidir si usa sus recursos en hospitales o en rutas.",
+          "por": "La escasez no es pobreza: es que los recursos son limitados frente a necesidades que no tienen límite, aun en un país rico."
+        }
+      ]
+    },
+    {
+      "id": "costop",
+      "nombre": "Costo de oportunidad",
+      "casos": [
+        {
+          "caso": "Lo que dejás de tener por haber elegido una alternativa: el valor de la mejor opción que resignaste.",
+          "por": "No es lo que pagaste, sino lo que perdiste al no elegir lo otro. Por eso existe aunque algo sea \"gratis\"."
+        },
+        {
+          "caso": "Si dedicás la tarde a estudiar, lo que perdés es la plata que hubieras ganado trabajando esas horas.",
+          "por": "El costo de estudiar esa tarde es la mejor alternativa resignada: el ingreso de las horas de trabajo."
+        }
+      ]
+    },
+    {
+      "id": "ceteris",
+      "nombre": "Ceteris paribus",
+      "casos": [
+        {
+          "caso": "Suponer que todo lo demás queda constante para aislar el efecto de una sola variable.",
+          "por": "\"Lo demás constante\": permite decir, por ejemplo, que si sube el precio baja la cantidad demandada, sin que se mezclen otros cambios."
+        }
+      ]
+    },
+    {
+      "id": "fpp",
+      "nombre": "Frontera de posibilidades de producción",
+      "casos": [
+        {
+          "caso": "Curva que muestra las combinaciones máximas de dos bienes que se pueden producir con los recursos y la tecnología disponibles.",
+          "por": "Los puntos sobre la curva son eficientes, los de adentro desperdician recursos y los de afuera no se alcanzan con lo que hay."
+        },
+        {
+          "caso": "Si una economía quiere producir más de un bien, sin desperdiciar nada, tiene que producir menos del otro: la curva tiene pendiente negativa.",
+          "por": "La pendiente de la frontera es el costo de oportunidad de un bien medido en el otro."
+        }
+      ]
+    },
+    {
+      "id": "eficiencia",
+      "nombre": "Eficiencia",
+      "casos": [
+        {
+          "caso": "Situación en la que no se puede mejorar a nadie sin empeorar a otro.",
+          "por": "Es el criterio de Pareto: no queda ningún cambio que beneficie a alguien sin perjudicar a nadie. No dice nada sobre si el reparto es justo."
+        },
+        {
+          "caso": "Usar los recursos de manera que no haya desperdicio: no se puede producir más de algo sin producir menos de otra cosa.",
+          "por": "En la FPP, la eficiencia corresponde a estar sobre la frontera."
+        }
+      ]
+    },
+    {
+      "id": "equidad",
+      "nombre": "Equidad",
+      "casos": [
+        {
+          "caso": "Criterio sobre si un reparto es justo; requiere un juicio de valor.",
+          "por": "A diferencia de la eficiencia, no se puede definir solo con datos: depende de qué consideramos justo."
+        }
+      ]
+    },
+    {
+      "id": "tradeoff",
+      "nombre": "Trade-off",
+      "casos": [
+        {
+          "caso": "Disyuntiva: conseguir más de algo implica resignar algo de otra cosa.",
+          "por": "Es la consecuencia directa de la escasez y aparece en todas las decisiones económicas."
+        }
+      ]
+    },
+    {
+      "id": "ventcomp",
+      "nombre": "Ventaja comparativa",
+      "casos": [
+        {
+          "caso": "La tiene quien produce un bien con menor costo de oportunidad, aunque no sea el que lo produce más rápido.",
+          "por": "Es la que explica por qué conviene especializarse y comerciar: incluso el que es peor en todo tiene algo en lo que resigna menos."
+        }
+      ]
+    },
+    {
+      "id": "ventabs",
+      "nombre": "Ventaja absoluta",
+      "casos": [
+        {
+          "caso": "La tiene quien produce un bien usando menos recursos (horas, insumos) que otro.",
+          "por": "Mide quién es más productivo, pero no alcanza para decidir quién debería especializarse en qué: para eso se mira la ventaja comparativa."
+        }
+      ]
+    },
+    {
+      "id": "positiva",
+      "nombre": "Economía positiva",
+      "casos": [
+        {
+          "caso": "Afirmaciones sobre cómo es la economía, que se pueden contrastar con datos.",
+          "por": "Pueden ser verdaderas o falsas, pero se resuelven mirando la evidencia, no con juicios de valor."
+        }
+      ]
+    },
+    {
+      "id": "normativa",
+      "nombre": "Economía normativa",
+      "casos": [
+        {
+          "caso": "Afirmaciones sobre cómo debería ser la economía, que incluyen juicios de valor.",
+          "por": "Suelen tener palabras como \"debería\", \"justo\" o \"mejor\"; los datos solos no alcanzan para resolverlas."
+        }
+      ]
+    },
+    {
+      "id": "flujo",
+      "nombre": "Flujo circular del ingreso",
+      "casos": [
+        {
+          "caso": "Modelo en el que la plata va de las familias a las empresas por las compras, y vuelve de las empresas a las familias como salarios, rentas y ganancias.",
+          "por": "Muestra que el gasto de unos es el ingreso de otros: por eso gasto, producto e ingreso de una economía dan lo mismo."
+        }
+      ]
+    }
+  ]
+}

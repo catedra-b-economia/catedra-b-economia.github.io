@@ -314,9 +314,9 @@ const DESDE_OPCION = {
   })
 };
 
-const NOMBRES_BANCOS = [ "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U3_REGULADOR", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
+const NOMBRES_BANCOS = [ "U1_EFEQ_CONCEPTOS", "U2_QUIEN_DECIDE", "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U3_REGULADOR", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
 
-const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, DUDAS_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
+const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, DUDAS_DATOS, UNIR_CONCEPTOS_DATOS, UNIR_AUTORES_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
   actividades: []
 }), leerJSON("contenido/glosario.json", {
   terminos: []
@@ -326,6 +326,10 @@ const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, DUDAS_DATOS, ...re
   fichas: []
 }), leerJSON("contenido/dudas.json", {
   dudas: []
+}), leerJSON("contenido/unir-conceptos.json", {
+  items: []
+}), leerJSON("contenido/unir-autores.json", {
+  items: []
 }), ...[ 1, 2, 3, 4 ].map(u => leerJSON(`contenido/misiones/U${u}.json`, {
   misiones: []
 })), ...NOMBRES_BANCOS.map(n => leerJSON(`contenido/preguntas/${n}.json`, {
@@ -617,6 +621,15 @@ const comoOpcionMultiple = {
 const U1_REPASO = BANCOS.U1_REPASO;
 
 const U1_POSNORM = BANCOS.U1_POSNORM;
+
+
+const U1_EFEQ_CONCEPTOS = BANCOS.U1_EFEQ_CONCEPTOS;
+
+const INTRO_EFEQ_CONCEPTOS = `
+    <p style="margin:0 0 8px;"><strong>Eficiencia</strong>: no desperdiciar; no se puede mejorar a nadie sin empeorar a otro. <strong>Equidad</strong>: que el reparto sea justo, y eso requiere un juicio de valor.</p>
+    <p style="margin:0;">Las dos ideas atraviesan toda la unidad: la frontera de posibilidades, el costo de oportunidad, el trade-off, la ventaja comparativa, los índices y las instituciones. En cada pregunta, pensá cuál de las dos está en juego y por qué.</p>`;
+
+const U2_QUIEN_DECIDE = BANCOS.U2_QUIEN_DECIDE;
 
 const U1_VF = BANCOS.U1_VF;
 
@@ -3489,11 +3502,32 @@ const U3_RQUIZ = BANCOS.U3_RQUIZ;
 
 const U3_BIF = BANCOS.U3_BIF;
 
-const UNIR_FALLAS = ((UNIR_DATOS && UNIR_DATOS.fallas) || []).map((f, i) => ({
-  id: lleno(f.id) ? f.id : "f" + i,
-  falla: f.falla,
-  casos: (f.casos || []).filter(c => lleno(c.caso))
-})).filter(f => lleno(f.falla) && f.casos.length);
+function paresUnir(datos) {
+  return ((datos && (datos.items || datos.fallas)) || []).map((f, i) => ({
+    id: lleno(f.id) ? f.id : "f" + i,
+    falla: f.nombre || f.falla,
+    casos: (f.casos || []).filter(c => lleno(c.caso))
+  })).filter(f => lleno(f.falla) && f.casos.length);
+}
+
+const UNIRES = {
+  fallas: {
+    datos: paresUnir(UNIR_DATOS),
+    consigna: "Tocá un caso de la izquierda y después la falla de mercado de la derecha que lo explica."
+  },
+  conceptos: {
+    datos: paresUnir(UNIR_CONCEPTOS_DATOS),
+    consigna: "Tocá una definición de la izquierda y después el concepto de la derecha que le corresponde.",
+    cuantos: 6
+  },
+  autores: {
+    datos: paresUnir(UNIR_AUTORES_DATOS),
+    consigna: "Tocá una idea de la izquierda y después el autor de la derecha que la sostuvo.",
+    cuantos: 6
+  }
+};
+
+const UNIR_FALLAS = UNIRES.fallas.datos;
 
 
 const EXT_PANTALLAS = [ [ "unir", "Uní con flechas" ], [ "fallaono", "¿Falla o no?" ] ];
@@ -3523,31 +3557,37 @@ function bindExternalidadesU3() {
   });
 }
 
-function ordenUnir() {
-  const ids = UNIR_FALLAS.map(f => f.id);
+function nuevoUnir(clave) {
+  const juego = UNIRES[clave];
+  const elegidos = mezclar(juego.datos).slice(0, juego.cuantos || juego.datos.length);
+  const ids = elegidos.map(f => f.id);
   return {
+    clave: clave,
+    grupos: elegidos,
     orden: mezclar(ids),
-    casos: mezclar(ids)
-  };
-}
-
-function nuevoUnir() {
-  return {
-    ...ordenUnir(),
-    elegido: Object.fromEntries(UNIR_FALLAS.map(f => [ f.id, f.casos[Math.floor(Math.random() * f.casos.length)] ])),
+    casos: mezclar(ids),
+    elegido: Object.fromEntries(elegidos.map(f => [ f.id, f.casos[Math.floor(Math.random() * f.casos.length)] ])),
     pares: {},
     sel: null,
     comprobado: false
   };
 }
 
-function renderUnirU3() {
-  if (!UNIR_FALLAS.length) return `<div class="card"><p class="sub" style="margin:0;">Esta actividad no tiene casos cargados.</p></div>`;
-  const u = state.unir || (state.unir = nuevoUnir());
-  const porId = id => UNIR_FALLAS.find(f => f.id === id);
-  const completos = Object.keys(u.pares).length === UNIR_FALLAS.length;
+function renderUnir(clave) {
+  const juego = UNIRES[clave];
+  if (!juego.datos.length) return `<div class="card"><p class="sub" style="margin:0;">Esta actividad no tiene casos cargados.</p></div>`;
+  if (!state.unirs) state.unirs = {};
+  const u = state.unirs[clave] || (state.unirs[clave] = nuevoUnir(clave));
+  state.unir = u;
+  const N = u.grupos.length;
+  const porId = id => u.grupos.find(f => f.id === id);
+  const completos = Object.keys(u.pares).length === N;
   const aciertos = Object.entries(u.pares).filter(([c, f]) => c === f).length;
-  return `\n      <div class="card"><p class="sub" style="margin:0;">Tocá un caso de la izquierda y después la falla de mercado de la derecha que lo explica. Se dibuja la flecha. Cuando tengas las ${UNIR_FALLAS.length}, comprobá.</p></div>\n      <div class="unir" id="unir">\n        <svg class="unir-svg" id="unir-svg"></svg>\n        <div class="unir-col">${u.casos.map(id => `<button class="unir-item unir-caso ${u.sel === id ? "sel" : ""} ${u.pares[id] ? "unido" : ""}" data-unir-caso="${id}" ${u.comprobado ? "disabled" : ""}>${u.elegido[id].caso}${u.pares[id] ? `<span class="unir-tag ${u.comprobado ? (u.pares[id] === id ? "bien" : "mal") : ""}">→ ${porId(u.pares[id]).falla}</span>` : ""}</button>`).join("")}</div>\n        <div></div>\n        <div class="unir-col">${u.orden.map(id => `<button class="unir-item unir-falla ${Object.values(u.pares).includes(id) ? "unido" : ""}" data-unir-falla="${id}" ${u.comprobado ? "disabled" : ""}>${porId(id).falla}</button>`).join("")}</div>\n      </div>\n      <div class="chips-fila" style="margin-top:12px;">\n        ${u.comprobado ? `<button class="btn" data-unir-nuevo="1">Jugar de nuevo</button>` : `<button class="btn" data-unir-comprobar="1" ${completos ? "" : "disabled"}>${completos ? "Comprobar" : `Faltan ${UNIR_FALLAS.length - Object.keys(u.pares).length}`}</button><button class="btn secondary" data-unir-borrar="1">Borrar flechas</button>`}\n      </div>\n      ${u.comprobado ? `\n        <div class="feedback ${aciertos === UNIR_FALLAS.length ? "ok" : "bad"}"><strong>${aciertos} de ${UNIR_FALLAS.length}.</strong> ${aciertos === UNIR_FALLAS.length ? "Todas bien." : "Las flechas rojas están mal. Abajo tenés cada caso explicado."}</div>\n        ${UNIR_FALLAS.map(f => `<div class="card unir-expl ${u.pares[f.id] === f.id ? "bien" : "mal"}"><div class="unir-expl-t">${f.falla}</div><div class="sub" style="margin:4px 0 6px;">${u.elegido[f.id].caso}</div><div style="font-size:13.5px;">${u.elegido[f.id].por || ""}</div></div>`).join("")}` : ""}`;
+  return `\n      <div class="card"><p class="sub" style="margin:0;">${juego.consigna} Se dibuja la flecha. Cuando tengas las ${N}, comprobá.</p></div>\n      <div class="unir" id="unir">\n        <svg class="unir-svg" id="unir-svg"></svg>\n        <div class="unir-col">${u.casos.map(id => `<button class="unir-item unir-caso ${u.sel === id ? "sel" : ""} ${u.pares[id] ? "unido" : ""}" data-unir-caso="${id}" ${u.comprobado ? "disabled" : ""}>${u.elegido[id].caso}${u.pares[id] ? `<span class="unir-tag ${u.comprobado ? (u.pares[id] === id ? "bien" : "mal") : ""}">→ ${porId(u.pares[id]).falla}</span>` : ""}</button>`).join("")}</div>\n        <div></div>\n        <div class="unir-col">${u.orden.map(id => `<button class="unir-item unir-falla ${Object.values(u.pares).includes(id) ? "unido" : ""}" data-unir-falla="${id}" ${u.comprobado ? "disabled" : ""}>${porId(id).falla}</button>`).join("")}</div>\n      </div>\n      <div class="chips-fila" style="margin-top:12px;">\n        ${u.comprobado ? `<button class="btn" data-unir-nuevo="1">Jugar de nuevo</button>` : `<button class="btn" data-unir-comprobar="1" ${completos ? "" : "disabled"}>${completos ? "Comprobar" : `Faltan ${N - Object.keys(u.pares).length}`}</button><button class="btn secondary" data-unir-borrar="1">Borrar flechas</button>`}\n      </div>\n      ${u.comprobado ? `\n        <div class="feedback ${aciertos === N ? "ok" : "bad"}"><strong>${aciertos} de ${N}.</strong> ${aciertos === N ? "Todas bien." : "Las flechas rojas están mal. Abajo tenés cada caso explicado."}</div>\n        ${u.grupos.map(f => `<div class="card unir-expl ${u.pares[f.id] === f.id ? "bien" : "mal"}"><div class="unir-expl-t">${f.falla}</div><div class="sub" style="margin:4px 0 6px;">${u.elegido[f.id].caso}</div><div style="font-size:13.5px;">${u.elegido[f.id].por || ""}</div></div>`).join("")}` : ""}`;
+}
+
+function renderUnirU3() {
+  return renderUnir("fallas");
 }
 
 function dibujarFlechasUnir() {
@@ -3613,7 +3653,7 @@ function bindUnirU3() {
   };
   const nuevo = document.querySelector("[data-unir-nuevo]");
   if (nuevo) nuevo.onclick = () => {
-    state.unir = nuevoUnir();
+    state.unirs[u.clave] = nuevoUnir(u.clave);
     refreshUnidad();
   };
   requestAnimationFrame(dibujarFlechasUnir);
@@ -5117,6 +5157,19 @@ const CONTENIDO_UNIDAD = {
       desc: "Frente a cada argumento, reconocé de cuál de las dos se está hablando",
       quiz: () => comoOpcionMultiple.efeq(U1_EFEQ)
     }, {
+      id: "efeqrel",
+      titulo: "Eficiencia y equidad en toda la unidad",
+      desc: "Cómo se cruzan con la FPP, el costo de oportunidad, el comercio y más",
+      render: () => quizConIntro("I-efeqrel", () => preparar(U1_EFEQ_CONCEPTOS, {
+        orden: true,
+        opciones: true
+      }), INTRO_EFEQ_CONCEPTOS, "Eficiencia y equidad")
+    }, {
+      id: "conceptos",
+      titulo: "Uní concepto y definición",
+      desc: "Escasez, costo de oportunidad, FPP, ventajas y más",
+      render: () => renderUnir("conceptos")
+    }, {
       id: "lectura",
       titulo: "Test de lectura: Buchanan (1964)",
       desc: '"¿Qué deberían hacer los economistas?"',
@@ -5150,6 +5203,13 @@ const CONTENIDO_UNIDAD = {
         opciones: true
       }), INTRO_LAJUGIE, "Los sistemas según Lajugie")
     }, {
+      id: "quiendecide",
+      titulo: "¿Quién decide qué producir?",
+      desc: "La tradición, el mercado o un plan central",
+      quiz: () => preparar(U2_QUIEN_DECIDE, {
+        orden: true
+      })
+    }, {
       id: "viaje",
       titulo: "Un viaje a través de la historia",
       desc: "De Aristóteles a la CEPAL, parada por parada",
@@ -5169,6 +5229,11 @@ const CONTENIDO_UNIDAD = {
         orden: true,
         opciones: true
       })
+    }, {
+      id: "autores",
+      titulo: "Uní autor e idea",
+      desc: "Smith, Ricardo, Malthus, Marx, Keynes y otros",
+      render: () => renderUnir("autores")
     }, {
       id: "frases",
       titulo: "Frases y teorías del valor",

@@ -1,0 +1,127 @@
+{
+  "actividad": "Unidad I · Eficiencia y equidad en la unidad",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "Una economía está produciendo en un punto dentro de su frontera de posibilidades de producción. ¿Qué se puede afirmar?",
+      "opciones": [
+        "Es ineficiente: podría producir más de un bien sin resignar el otro",
+        "Es inequitativa: los recursos están mal repartidos entre la gente",
+        "Es eficiente, aunque podría repartir mejor lo que produce",
+        "No se puede saber nada sin conocer cómo se reparte"
+      ],
+      "correcta": 1,
+      "explicacion": "Estar dentro de la frontera significa que hay recursos ociosos o mal usados: es un problema de eficiencia. La FPP no dice nada de cómo se reparte lo producido, así que no permite hablar de equidad."
+    },
+    {
+      "texto": "Todos los puntos sobre la frontera de posibilidades de producción son eficientes. Entonces, ¿con qué criterio se elige entre ellos?",
+      "opciones": [
+        "Con un criterio de valores: qué combinación prefiere la sociedad",
+        "Con un criterio técnico: el punto del medio es el más eficiente",
+        "Con el costo de oportunidad: el punto donde ese costo es cero",
+        "No hace falta elegir: el mercado llega siempre al mismo punto"
+      ],
+      "correcta": 1,
+      "explicacion": "La eficiencia deja muchas opciones abiertas. Elegir entre ellas (más salud o más rutas, más para unos o para otros) requiere un juicio de valor: ahí entra la discusión normativa, y con ella la equidad."
+    },
+    {
+      "texto": "En la metáfora de Okun, redistribuir es pasar agua con un balde agujereado. ¿Qué representa el agua que se pierde?",
+      "opciones": [
+        "El costo de oportunidad de redistribuir: la eficiencia que se resigna",
+        "La parte del ingreso que los ricos esconden para no pagar",
+        "El dinero que el Estado se queda para pagar sus gastos",
+        "La desigualdad que queda aunque se redistribuya bastante"
+      ],
+      "correcta": 1,
+      "explicacion": "El agujero es lo que se pierde en el camino: incentivos que cambian, costos de administrar. Es el costo de oportunidad de ganar equidad, medido en eficiencia: un trade-off."
+    },
+    {
+      "texto": "Se le saca algo a una persona rica para dárselo a una pobre, y la pobre mejora mucho. ¿Es una mejora de Pareto?",
+      "opciones": [
+        "No: alguien empeoró, aunque el cambio pueda ser más equitativo",
+        "Sí: el que gana mejora más de lo que pierde el otro",
+        "Sí: toda redistribución hacia los pobres es una mejora de Pareto",
+        "No: las mejoras de Pareto solo existen en la producción"
+      ],
+      "correcta": 1,
+      "explicacion": "Una mejora de Pareto exige que nadie empeore. Este cambio puede defenderse por equidad, pero no por el criterio de Pareto: por eso eficiencia y equidad son preguntas distintas."
+    },
+    {
+      "texto": "\"Esta asignación de recursos es eficiente\" y \"esta asignación es justa\". ¿Cómo se clasifican?",
+      "opciones": [
+        "La primera puede ser positiva; la segunda es normativa",
+        "Las dos son positivas: se pueden medir con datos",
+        "Las dos son normativas: incluyen palabras valorativas",
+        "La primera es normativa; la segunda puede ser positiva"
+      ],
+      "correcta": 1,
+      "explicacion": "Si una asignación es eficiente se puede chequear con un criterio técnico (¿hay desperdicio?, ¿se puede mejorar a alguien sin empeorar a otro?). Decir que es justa requiere un juicio de valor."
+    },
+    {
+      "texto": "Dos países se especializan según su ventaja comparativa y comercian. ¿Qué pasa con la eficiencia y la equidad?",
+      "opciones": [
+        "La producción total sube (eficiencia), pero el reparto de la ganancia depende de los términos del intercambio",
+        "La producción total sube, y la ganancia siempre se reparte en partes iguales entre los dos",
+        "La producción no cambia: solo se reparte distinto lo que ya se producía",
+        "Gana el país con ventaja absoluta y pierde el otro, aunque crezca la producción total"
+      ],
+      "correcta": 1,
+      "explicacion": "Especializarse según la ventaja comparativa permite producir más en total: es una ganancia de eficiencia. Cuánto se lleva cada uno depende del precio al que intercambian, y eso es una cuestión distributiva."
+    },
+    {
+      "texto": "Un contrato de alquiler se ajusta por un índice de precios. Usar Laspeyres o Paasche da montos distintos. ¿Qué tipo de problema es?",
+      "opciones": [
+        "Distributivo: cambia quién gana y quién pierde, no cuánto se produce",
+        "De eficiencia: un índice usa los recursos mejor que el otro",
+        "De escasez: con un índice hay más recursos que con el otro",
+        "No es un problema económico: es solo una cuestión de cálculo"
+      ],
+      "correcta": 1,
+      "explicacion": "Elegir el índice cambia cuánto le paga el inquilino al dueño: se reparte distinto lo mismo. Es una cuestión de equidad entre las partes, no de eficiencia."
+    },
+    {
+      "texto": "Si los recursos no fueran escasos, ¿qué pasaría con la discusión entre eficiencia y equidad?",
+      "opciones": [
+        "Perdería sentido: no habría que elegir ni resignar nada",
+        "Sería más importante, porque habría más para repartir",
+        "Solo importaría la equidad, porque la eficiencia es automática",
+        "Solo importaría la eficiencia, porque todos tendrían lo mismo"
+      ],
+      "correcta": 1,
+      "explicacion": "El trade-off entre eficiencia y equidad nace de la escasez: si alcanzara para todo, nadie tendría que resignar nada para que otro tenga más."
+    },
+    {
+      "texto": "El Estado garantiza educación pública de calidad para chicos de todos los barrios. ¿Cómo se relaciona con eficiencia y equidad?",
+      "opciones": [
+        "Puede mejorar las dos: iguala oportunidades y aprovecha talento que se perdía",
+        "Mejora la equidad pero empeora siempre la eficiencia, por el balde de Okun",
+        "Mejora la eficiencia pero no la equidad, porque no reparte ingresos",
+        "No tiene relación con ninguna de las dos: es una política social"
+      ],
+      "correcta": 1,
+      "explicacion": "No siempre hay trade-off. Si chicos talentosos no estudiaban por falta de oportunidades, se desperdiciaba un recurso: igualar oportunidades puede ser más equitativo y más eficiente a la vez."
+    },
+    {
+      "texto": "Una mejora tecnológica desplaza hacia afuera la frontera de posibilidades de producción. ¿Qué se puede decir?",
+      "opciones": [
+        "Se puede producir más de todo, pero eso no asegura cómo se reparte",
+        "Se puede producir más de todo, y por eso la sociedad es más equitativa",
+        "No cambia nada, porque la economía ya estaba sobre la frontera",
+        "Solo mejora la equidad, porque hay más para repartir entre todos"
+      ],
+      "correcta": 1,
+      "explicacion": "Crecer amplía lo que se puede producir (más posibilidades para todos), pero la FPP no dice quién se queda con qué. Que el crecimiento llegue a todos es otra discusión: la de la equidad."
+    },
+    {
+      "texto": "Según Fanelli, las instituciones son el \"software\" de la economía. ¿Por qué importan para la eficiencia y la equidad?",
+      "opciones": [
+        "Porque las reglas definen los incentivos para producir y también cómo se reparte",
+        "Porque las instituciones solo afectan la equidad, no la producción",
+        "Porque con buenas instituciones desaparece la escasez",
+        "Porque las instituciones reemplazan al mercado en todas las decisiones"
+      ],
+      "correcta": 1,
+      "explicacion": "Las reglas de juego (derechos de propiedad, contratos, quién puede participar) afectan cuánto se produce y cómo se reparte. Por eso aparecen en las dos discusiones."
+    }
+  ]
+}

@@ -70,6 +70,18 @@
           "visible": true
         },
         {
+          "id": "efeqrel",
+          "titulo": "Eficiencia y equidad en toda la unidad",
+          "descripcion": "Cómo se cruzan con la FPP, el costo de oportunidad, el comercio y más",
+          "visible": true
+        },
+        {
+          "id": "conceptos",
+          "titulo": "Uní concepto y definición",
+          "descripcion": "Escasez, costo de oportunidad, FPP, ventajas y más",
+          "visible": true
+        },
+        {
           "id": "lectura",
           "titulo": "Test de lectura: Buchanan (1964)",
           "descripcion": "\"¿Qué deberían hacer los economistas?\"",
@@ -107,6 +119,12 @@
           "visible": true
         },
         {
+          "id": "quiendecide",
+          "titulo": "¿Quién decide qué producir?",
+          "descripcion": "La tradición, el mercado o un plan central",
+          "visible": true
+        },
+        {
           "id": "viaje",
           "titulo": "Un viaje a través de la historia",
           "descripcion": "De Aristóteles a la CEPAL, parada por parada",
@@ -122,6 +140,12 @@
           "id": "escuelas",
           "titulo": "¿Quién lo pensó?",
           "descripcion": "Hechos, políticas e ideas: ¿qué escuela hay detrás?",
+          "visible": true
+        },
+        {
+          "id": "autores",
+          "titulo": "Uní autor e idea",
+          "descripcion": "Smith, Ricardo, Malthus, Marx, Keynes y otros",
           "visible": true
         },
         {

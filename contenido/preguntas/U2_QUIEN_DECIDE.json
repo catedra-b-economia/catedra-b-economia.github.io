@@ -1,0 +1,60 @@
+{
+  "actividad": "Unidad II · ¿Quién decide qué producir?",
+  "opciones_comunes": [
+    "La tradición",
+    "El mercado",
+    "Un plan central"
+  ],
+  "preguntas": [
+    {
+      "texto": "En una aldea medieval, el hijo del herrero va a ser herrero, y cada familia siembra lo mismo que sembraron sus abuelos.",
+      "correcta": 1,
+      "explicacion": "Qué se produce y quién lo hace lo resuelve la costumbre heredada: es una economía tradicional."
+    },
+    {
+      "texto": "En la Unión Soviética, una oficina central fija cuántas toneladas de acero tiene que producir cada fábrica en los próximos cinco años.",
+      "correcta": 3,
+      "explicacion": "Las metas las decide una autoridad central y las fábricas las cumplen: es una economía planificada."
+    },
+    {
+      "texto": "Una panadería se queda sin medialunas antes del mediodía, sube un poco el precio y al día siguiente hornea más.",
+      "correcta": 2,
+      "explicacion": "El precio y la escasez le avisan qué producir más: es el mercado el que decide."
+    },
+    {
+      "texto": "En una comunidad de cazadores y recolectores, lo que se caza se reparte según reglas que se respetan desde siempre.",
+      "correcta": 1,
+      "explicacion": "El reparto y las tareas siguen la costumbre del grupo: es tradición."
+    },
+    {
+      "texto": "Sube el precio internacional de la soja y los productores de la región pampeana deciden sembrar más soja y menos maíz.",
+      "correcta": 2,
+      "explicacion": "Cada productor decide mirando los precios: es una decisión de mercado."
+    },
+    {
+      "texto": "En 1942, el gobierno de Estados Unidos ordena que las fábricas de autos dejen de hacer autos y produzcan tanques y aviones.",
+      "correcta": 3,
+      "explicacion": "En la economía de guerra, una autoridad central decide qué se produce: es planificación, aunque sea en un país de mercado."
+    },
+    {
+      "texto": "En las ciudades medievales, los gremios fijan cuántos maestros y aprendices puede haber y cómo se debe fabricar cada cosa.",
+      "correcta": 1,
+      "explicacion": "Las reglas de los gremios, transmitidas de generación en generación, deciden cómo y cuánto se produce: es la tradición corporativa de la economía urbana artesanal."
+    },
+    {
+      "texto": "Una aplicación de viajes sube la tarifa cuando llueve, y más choferes salen a trabajar.",
+      "correcta": 2,
+      "explicacion": "El precio sube por la demanda y atrae más oferta: es el mercado coordinando."
+    },
+    {
+      "texto": "En una comunidad andina, la cosecha se organiza con trabajo colectivo según reglas de ayuda mutua que vienen de generaciones.",
+      "correcta": 1,
+      "explicacion": "Las tareas y el reparto se organizan por costumbre comunitaria: es tradición."
+    },
+    {
+      "texto": "En Cuba, el Estado entrega a cada familia una libreta con las cantidades de arroz, azúcar y aceite que le corresponden por mes.",
+      "correcta": 3,
+      "explicacion": "Qué y cuánto recibe cada familia lo decide el Estado, no el precio: es planificación."
+    }
+  ]
+}
