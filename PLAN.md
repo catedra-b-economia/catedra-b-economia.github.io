@@ -6,6 +6,26 @@ Ocho frentes de trabajo para la próxima versión. Las reglas de diseño están 
 
 Los datos y fechas marcados con *(verificar)* son de memoria: chequearlos antes de publicar.
 
+## Estado (1 de noviembre de 2026)
+
+| Punto | Estado |
+| --- | --- |
+| 7. Correcciones | Hecho |
+| 6. Glosario y links con `#` | Hecho (`contenido/glosario.json`, 87 términos) |
+| 1. Sos el regulador | Hecho (Unidad III, `#III-monopolio`) |
+| 2. Externalidades | Hecho (Unidad III, `#III-externalidades`; reemplaza "uní con flechas" y "¿falla o no?") |
+| 3. La plaza del barrio | Hecho (Unidad III, `#III-plaza`) |
+| 4. Encuestador de la EPH | Hecho (Unidad IV, `#IV-eph`) |
+| 5. 16 actividades por unidad | Pendiente: falta decidir 16 o 14 |
+| 8. Preguntas de los alumnos | Pendiente: falta decidir anónimo o con nombre, quién revisa, Netlify o Google |
+
+**Para verificar antes de dar por buenos** (quedaron en la página tal como estaban en el plan):
+
+- Externalidades: el traslado de los saladeros del Riachuelo en 1871; la nafta con plomo en la Argentina (el caso dice "fines de los 90").
+- Uní con flechas: el caso de la merluza del Mar Argentino.
+- Plaza: la cita de Fehr y Gächter (2000) sobre castigos en juegos de bienes públicos.
+- EPH: Diego (plan con contraprestación = ocupado), Pablo (empieza la semana que viene = desocupado), "31 aglomerados urbanos", y las definiciones contra la metodología del INDEC.
+
 **Orden sugerido:** 7 (correcciones) → 6 (glosario + links con `#unidad-seccion`) → 1 → 2 → 3 → 4 → 5 → 8.
 
 ---
