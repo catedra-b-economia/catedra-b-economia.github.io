@@ -477,5 +477,8 @@
         }
       ]
     }
-  ]
+  ],
+  "formulario": {
+    "vinculo_prellenado": "https://docs.google.com/forms/d/e/1FAIpQLScF80nLTTmJzPxS7dZPFtGxRscXpfk-6F1eY8PMw53XtXo27A/viewform?usp=pp_url&entry.86695316=TIPO&entry.647077909=NOMBRE&entry.662263255=APELLIDO&entry.1339650400=UNIDAD&entry.1331955402=ACTIVIDAD&entry.1957351165=MENSAJE"
+  }
 }

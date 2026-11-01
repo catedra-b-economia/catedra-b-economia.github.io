@@ -30,6 +30,11 @@ content:
         fields:
           - { name: nombre, label: Nombre (título grande de la portada), type: string }
           - { name: docente, label: Docente (texto chico arriba del título), type: string }
+      - name: formulario
+        label: Formulario de dudas (Google Forms)
+        type: object
+        fields:
+          - { name: vinculo_prellenado, label: Vínculo prellenado, type: string, description: "En Google Forms: ⋮ → Completar previamente el formulario, con TIPO, NOMBRE, APELLIDO, UNIDAD, ACTIVIDAD y MENSAJE en cada pregunta → Obtener vínculo. Si queda vacío, no se muestran los botones de dudas." }
       - name: unidades
         label: Unidades
         type: object

@@ -214,7 +214,6 @@
 <body>
 <div id="file-warning" style="display:none; position:sticky; top:0; z-index:99; background:#B7791F; color:#fff; font-family:'Lato', sans-serif; font-size:12.5px; padding:10px 16px; text-align:center;"></div>
 <main id="app"></main>
-<form name="consultas" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="tipo"><input name="nombre"><input name="unidad"><input name="actividad"><textarea name="mensaje"></textarea></form>
 
 <script type="module">
 document.addEventListener("keydown", e => {
@@ -5555,6 +5554,23 @@ const CONTENIDO_UNIDAD = {
 
 const DUDAS = ((DUDAS_DATOS && DUDAS_DATOS.dudas) || []).filter(d => lleno(d.pregunta) && lleno(d.respuesta));
 
+const FORMULARIO = (() => {
+  try {
+    const u = new URL(CONFIG.formulario && CONFIG.formulario.vinculo_prellenado);
+    const campos = {};
+    u.searchParams.forEach((v, k) => {
+      if (k.startsWith("entry.")) campos[v.trim().toUpperCase()] = k;
+    });
+    if (!/docs\.google\.com$/.test(u.hostname) || !campos.MENSAJE) return null;
+    return {
+      accion: u.origin + u.pathname.replace(/\/viewform$/, "/formResponse"),
+      campos: campos
+    };
+  } catch (e) {
+    return null;
+  }
+})();
+
 const escaparHTML = t => String(t || "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
 function viewDudasUnidad(unidadId) {
@@ -5564,35 +5580,40 @@ function viewDudasUnidad(unidadId) {
 }
 
 function viewFormulario(tipo, unidadId, seccion) {
+  if (!FORMULARIO) return "";
   const f = state.form;
   const abierto = f && f.tipo === tipo && f.unidad === unidadId && (f.actividad || "") === (seccion ? seccion.id : "");
   const etiqueta = tipo === "duda" ? `¿Te quedó una duda de la Unidad ${unidadId}?` : "Reportar un error en esta actividad";
   if (!abierto) return `<button class="btn secondary block" data-form-abrir="${tipo}" style="margin-top:10px;">${etiqueta}</button>`;
   if (f.enviado) return `<div class="feedback ok" style="margin-top:10px;">${tipo === "duda" ? "¡Gracias! Tu duda le llegó a la cátedra." : "¡Gracias por avisar! Lo vamos a revisar."}</div>`;
   const consigna = tipo === "duda" ? "Escribí tu duda sobre la unidad. Le llega a la cátedra; las que se repiten se responden en esta misma página." : `Contanos qué está mal en <strong>${seccion ? seccion.titulo : ""}</strong>: qué pregunta, qué esperabas y qué te mostró.`;
-  return `<div class="card" style="margin-top:10px;"><h3 style="font-size:15px;margin-bottom:6px;">${etiqueta}</h3><p class="sub" style="margin:0 0 10px;">${consigna}</p><input type="text" id="form-nombre" placeholder="Tu nombre y apellido" value="${escaparHTML(f.nombre ?? state.nombreAlumno)}" autocomplete="name"><textarea id="form-mensaje" rows="4" placeholder="${tipo === "duda" ? "Tu duda" : "Qué está mal"}">${escaparHTML(f.mensaje)}</textarea>${f.error ? `<div class="feedback bad">${f.error}</div>` : ""}<div class="chips-fila" style="margin:4px 0 0;"><button class="btn" data-form-enviar="1" ${f.enviando ? "disabled" : ""}>${f.enviando ? "Enviando…" : "Enviar"}</button><button class="btn secondary" data-form-cerrar="1">Cancelar</button></div></div>`;
+  return `<div class="card" style="margin-top:10px;"><h3 style="font-size:15px;margin-bottom:6px;">${etiqueta}</h3><p class="sub" style="margin:0 0 10px;">${consigna}</p><input type="text" id="form-nombre" placeholder="Nombre" value="${escaparHTML(f.nombre ?? state.nombreAlumno)}" autocomplete="given-name"><input type="text" id="form-apellido" placeholder="Apellido" value="${escaparHTML(f.apellido ?? state.apellidoAlumno)}" autocomplete="family-name"><textarea id="form-mensaje" rows="4" placeholder="${tipo === "duda" ? "Tu duda" : "Qué está mal"}">${escaparHTML(f.mensaje)}</textarea>${f.error ? `<div class="feedback bad">${f.error}</div>` : ""}<div class="chips-fila" style="margin:4px 0 0;"><button class="btn" data-form-enviar="1" ${f.enviando ? "disabled" : ""}>${f.enviando ? "Enviando…" : "Enviar"}</button><button class="btn secondary" data-form-cerrar="1">Cancelar</button></div></div>`;
 }
 
 async function enviarFormulario() {
   const f = state.form;
   f.nombre = document.getElementById("form-nombre").value.trim();
+  f.apellido = document.getElementById("form-apellido").value.trim();
   f.mensaje = document.getElementById("form-mensaje").value.trim();
-  if (f.nombre.length < 3) { f.error = "Poné tu nombre y apellido."; return refreshUnidad(); }
+  if (f.nombre.length < 2) { f.error = "Poné tu nombre."; return refreshUnidad(); }
+  if (f.apellido.length < 2) { f.error = "Poné tu apellido."; return refreshUnidad(); }
   if (f.mensaje.length < 5) { f.error = "Escribí un poco más."; return refreshUnidad(); }
   state.nombreAlumno = f.nombre;
+  state.apellidoAlumno = f.apellido;
   f.error = ""; f.enviando = true; refreshUnidad();
   const def = CONTENIDO_UNIDAD[f.unidad], sec = def && def.secciones.find(s => s.id === f.actividad);
-  const cuerpo = new URLSearchParams({
-    "form-name": "consultas",
-    tipo: f.tipo === "duda" ? "Duda" : "Error reportado",
-    nombre: f.nombre,
-    unidad: `Unidad ${f.unidad}${def ? " · " + def.nombre : ""}`,
-    actividad: sec ? `${sec.titulo} (#${f.unidad}-${sec.id})` : "",
-    mensaje: f.mensaje
-  });
+  const valores = {
+    TIPO: f.tipo === "duda" ? "Duda" : "Error reportado",
+    NOMBRE: f.nombre,
+    APELLIDO: f.apellido,
+    UNIDAD: `Unidad ${f.unidad}${def ? " · " + def.nombre : ""}`,
+    ACTIVIDAD: sec ? `${sec.titulo} (#${f.unidad}-${sec.id})` : "",
+    MENSAJE: f.mensaje
+  };
+  const cuerpo = new URLSearchParams();
+  Object.entries(valores).forEach(([k, v]) => { if (FORMULARIO.campos[k]) cuerpo.append(FORMULARIO.campos[k], v); });
   try {
-    const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: cuerpo.toString() });
-    if (!r.ok) throw new Error("HTTP " + r.status);
+    await fetch(FORMULARIO.accion, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: cuerpo.toString() });
     f.enviado = true;
   } catch (e) {
     f.error = "No se pudo enviar. Revisá la conexión y probá de nuevo.";
@@ -5617,6 +5638,8 @@ function bindFormulario() {
   const m = document.getElementById("form-mensaje"), n = document.getElementById("form-nombre");
   if (m) m.oninput = () => { state.form.mensaje = m.value; };
   if (n) n.oninput = () => { state.form.nombre = n.value; };
+  const a = document.getElementById("form-apellido");
+  if (a) a.oninput = () => { state.form.apellido = a.value; };
 }
 
 function viewUnidad(unidadId) {

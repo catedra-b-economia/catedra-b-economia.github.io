@@ -30,7 +30,7 @@ Sobre las preguntas:
 
 ## Dudas y errores que mandan los alumnos
 
-Al final de cada unidad hay un botón "¿Te quedó una duda?" y en cada actividad uno para "Reportar un error". Los mensajes (con nombre, unidad y actividad) llegan por Netlify Forms: se ven en Netlify → el proyecto → **Forms** y por mail si se configuró la notificación. Las dudas que se repiten se responden en el panel, en **💬 Preguntas de la comisión**, y aparecen al final de la unidad.
+Al final de cada unidad hay un botón "¿Te quedó una duda?" y en cada actividad uno para "Reportar un error". Los mensajes (con nombre, apellido, unidad y actividad) llegan al formulario de Google "Consultas Cátedra B" y a su planilla de respuestas; Google avisa por mail de cada respuesta nueva. El vínculo prellenado del formulario está en el panel, en **⚙ Unidades y actividades → Formulario de dudas**. Las dudas que se repiten se responden en el panel, en **💬 Preguntas de la comisión**, y aparecen al final de la unidad.
 
 ## Respuestas cifradas
 
