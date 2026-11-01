@@ -1003,22 +1003,39 @@ const PLAZA_RONDAS = 6, PLAZA_ASAMBLEA = 4, PLAZA_MULT = 1.6;
 
 const PLAZA_HITOS = [ [ 20, "pasto" ], [ 50, "un banco" ], [ 90, "árboles" ], [ 130, "una hamaca" ], [ 170, "un tobogán" ], [ 210, "una fuente" ] ];
 
+const PLAZA_PROX = [ "aparece el pasto", "llega un banco", "se plantan árboles", "se pone una hamaca", "se arma un tobogán", "se construye una fuente" ];
+
 function plazaSVG(total) {
   const hay = n => total >= PLAZA_HITOS[n][0];
-  let s = `<svg viewBox="0 0 380 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:6px;">`;
-  s += `<rect x="0" y="0" width="380" height="190" fill="${PAPEL}"/>`;
-  s += `<rect x="20" y="40" width="340" height="130" rx="6" fill="${hay(0) ? "var(--verde)" : SOMBRA}" fill-opacity="${hay(0) ? .35 : .35}" stroke="${TINTA}" stroke-width="1.2" stroke-dasharray="${hay(0) ? "0" : "5 4"}"/>`;
-  if (!hay(0)) s += `<text x="190" y="110" text-anchor="middle" style="font:700 13px Lato,sans-serif;fill:${TINTA};opacity:.6;">Terreno baldío</text>`;
-  if (hay(1)) s += `<g stroke="${TINTA}" stroke-width="1.4"><rect x="50" y="140" width="56" height="7" fill="${OCRE}"/><path d="M54,147 V156 M102,147 V156" fill="none"/><rect x="50" y="128" width="56" height="5" fill="${OCRE}"/></g>`;
-  if (hay(2)) [ [ 70, 82 ], [ 320, 78 ], [ 300, 140 ] ].forEach(([x, y]) => {
-    s += `<rect x="${x - 3}" y="${y}" width="6" height="22" fill="${TINTA}"/><circle cx="${x}" cy="${y - 6}" r="17" fill="var(--verde)" fill-opacity=".8" stroke="${TINTA}" stroke-width="1"/>`;
-  });
-  if (hay(3)) s += `<g stroke="${TINTA}" stroke-width="1.6" fill="none"><path d="M140,140 L150,70 L190,70 L200,140"/><path d="M162,70 V118 M178,70 V118"/><rect x="159" y="118" width="22" height="5" fill="${ROJIZO}"/></g>`;
-  if (hay(4)) s += `<g stroke="${TINTA}" stroke-width="1.6"><path d="M232,140 V82 M244,140 V82" fill="none"/><path d="M232,92 H244 M232,104 H244 M232,116 H244" fill="none"/><path d="M244,82 Q262,82 282,140" fill="none" stroke="var(--blue)" stroke-width="5"/></g>`;
-  if (hay(5)) s += `<g><ellipse cx="190" cy="160" rx="28" ry="7" fill="var(--blue)" fill-opacity=".45" stroke="${TINTA}" stroke-width="1"/><path d="M190,158 V140 M190,140 Q182,146 178,154 M190,140 Q198,146 202,154" stroke="var(--blue)" stroke-width="2" fill="none"/></g>`;
-  s += `<text x="20" y="26" style="font:700 12px Lato,sans-serif;fill:${TINTA};">Juntado para la plaza: ${pesos(total)}</text>`;
+  const prox = PLAZA_HITOS.find(([u]) => total < u);
+  const L = `stroke="${TINTA}" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"`;
+  const arbol = (x, y, s) => `<g transform="translate(${x},${y}) scale(${s})"><path d="M-3,0 V-22 M3,0 V-22" ${L} fill="none"/><rect x="-3" y="-24" width="6" height="24" fill="${SOMBRA}" ${L}/><circle cx="-10" cy="-32" r="13" fill="var(--verde)" ${L}/><circle cx="10" cy="-32" r="13" fill="var(--verde)" ${L}/><circle cx="0" cy="-44" r="15" fill="var(--verde)" ${L}/><circle cx="-4" cy="-48" r="4" fill="#fff" fill-opacity=".18"/></g>`;
+  const mata = (x, y) => `<path d="M${x - 5},${y} q2,-7 5,-8 q3,1 5,8" fill="none" stroke="var(--verde)" stroke-width="1.6"/>`;
+  let s = `<svg viewBox="0 0 380 210" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:6px;font-family:Lato,system-ui,sans-serif;">`;
+  s += `<rect width="380" height="210" fill="${PAPEL}"/>`;
+  s += `<path d="M0,70 Q60,58 120,66 T240,62 T380,68 V70 H0 Z" fill="${SOMBRA}" fill-opacity=".35"/>`;
+  s += `<rect x="0" y="70" width="380" height="140" fill="${hay(0) ? "var(--verde)" : SOMBRA}" fill-opacity="${hay(0) ? .32 : .45}"/>`;
+  if (!hay(0)) {
+    s += [ [ 60, 120 ], [ 150, 170 ], [ 260, 110 ], [ 320, 175 ], [ 210, 150 ] ].map(([x, y]) => `<ellipse cx="${x}" cy="${y}" rx="7" ry="3.5" fill="${TINTA}" fill-opacity=".25"/>`).join("");
+    s += [ [ 90, 160 ], [ 240, 185 ], [ 300, 130 ] ].map(([x, y]) => `<path d="M${x},${y} l-3,-9 M${x},${y} l0,-11 M${x},${y} l4,-8" stroke="${TINTA}" stroke-opacity=".45" stroke-width="1.2"/>`).join("");
+    s += `<g ${L}><path d="M190,150 V108" fill="none"/><rect x="132" y="88" width="116" height="24" rx="2" fill="#fff"/></g><text x="190" y="104" text-anchor="middle" style="font-size:11px;font-weight:700;fill:${TINTA};">TERRENO BALDÍO</text>`;
+  } else {
+    s += `<path d="M208,212 C204,182 186,168 190,138" fill="none" stroke="${SOMBRA}" stroke-width="20" stroke-linecap="round"/>`;
+    s += `<path d="M208,212 C204,182 186,168 190,138" fill="none" stroke="${PAPEL}" stroke-width="16" stroke-linecap="round"/>`;
+    s += [ [ 30, 190 ], [ 110, 130 ], [ 300, 195 ], [ 350, 120 ], [ 70, 100 ], [ 265, 92 ] ].map(([x, y]) => mata(x, y)).join("");
+    s += `<g stroke="${TINTA}" stroke-width="1.1">${Array.from({ length: 20 }, (_, i) => `<path d="M${8 + i * 19.5},204 V190"/>`).join("")}<path d="M4,193 H376 M4,200 H376"/></g>`;
+  }
+  if (hay(2)) s += arbol(36, 112, .9) + arbol(345, 108, .95) + arbol(300, 80, .6);
+  if (hay(3)) s += `<g ${L} fill="none"><path d="M62,170 L74,112 M122,170 L110,112 M70,112 H114"/><path d="M84,112 V152 M100,112 V152"/><rect x="80" y="152" width="24" height="5" fill="${ROJIZO}"/></g><ellipse cx="92" cy="172" rx="22" ry="3" fill="${TINTA}" fill-opacity=".12"/>`;
+  if (hay(4)) s += `<g ${L}><path d="M262,168 V118 M276,168 V118" fill="none"/><path d="M262,130 H276 M262,142 H276 M262,154 H276" fill="none"/><rect x="258" y="112" width="22" height="7" fill="${OCRE}"/><path d="M280,116 C300,118 304,150 330,166" fill="none" stroke="var(--blue)" stroke-width="7"/><path d="M280,116 C300,118 304,150 330,166" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/></g><ellipse cx="300" cy="170" rx="34" ry="3" fill="${TINTA}" fill-opacity=".12"/>`;
+  if (hay(5)) s += `<g ${L}><ellipse cx="190" cy="128" rx="30" ry="9" fill="${SOMBRA}"/><ellipse cx="190" cy="126" rx="25" ry="6" fill="var(--blue)" fill-opacity=".55" stroke="none"/><path d="M190,124 V104" fill="none"/></g><path d="M190,104 Q180,106 176,120 M190,104 Q200,106 204,120 M190,104 V98" fill="none" stroke="var(--blue)" stroke-width="2"/>`;
+  if (hay(1)) s += `<g ${L}><rect x="128" y="176" width="44" height="5" fill="${OCRE}"/><rect x="128" y="166" width="44" height="4" fill="${OCRE}"/><path d="M132,181 V190 M168,181 V190 M132,170 V176 M168,170 V176" fill="none"/><path d="M248,190 V142" fill="none"/><path d="M243,142 H253 L250,135 H246 Z" fill="${OCRE}"/></g>`;
+  s += `<rect x="8" y="8" width="${prox ? 250 : 190}" height="40" rx="5" fill="#fff" fill-opacity=".85"/>`;
+  s += `<text x="16" y="24" style="font-size:12px;font-weight:700;fill:${TINTA};">Juntado para la plaza: ${pesos(total)}</text>`;
+  s += `<text x="16" y="40" style="font-size:11px;fill:${TINTA};opacity:.75;">${prox ? `Con ${pesos(prox[0])} ${PLAZA_PROX[PLAZA_HITOS.indexOf(prox)]}.` : "¡La plaza está completa!"}</text>`;
   return s + `</svg>`;
 }
+
 
 function plazaBots(p) {
   const prev = p.hist[p.hist.length - 1];
@@ -1184,7 +1201,10 @@ function renderEPHU4() {
     const bien = r.estado === f.estado && (f.estado !== "ocupado" || !!r.sub === !!f.subocupado);
     const chips = EPH_ESTADOS.map(([k, l]) => `<button class="chip-btn ${r.estado === k ? "activo" : ""}" data-eph="${i}" data-eph-estado="${k}" ${s.corregido ? "disabled" : ""}>${l}</button>`).join("");
     const subChips = r.estado === "ocupado" ? `<div class="chips-fila" style="margin:6px 0 0;"><span class="sub" style="margin:0;align-self:center;">¿Subocupado?</span><button class="chip-btn ${r.sub === true ? "activo" : ""}" data-eph="${i}" data-eph-sub="1" ${s.corregido ? "disabled" : ""}>Sí</button><button class="chip-btn ${r.sub === false ? "activo" : ""}" data-eph="${i}" data-eph-sub="0" ${s.corregido ? "disabled" : ""}>No</button></div>` : "";
-    const corr = s.corregido ? `<div class="feedback ${bien ? "ok" : "bad"}"><strong>${bien ? "Bien." : "Era: " + EPH_ESTADOS.find(([k]) => k === f.estado)[1].toLowerCase() + (f.subocupado ? " y subocupado" : "") + "."}</strong> ${f.explicacion || ""}</div>` : "";
+    const nombreEstado = k => EPH_ESTADOS.find(([e]) => e === k)[1].toLowerCase();
+    const subTxt = f.subocupado ? "y subocupado" : "pero no subocupado";
+    const veredicto = bien ? "Bien." : r.estado !== f.estado ? `Era: ${nombreEstado(f.estado)}${f.estado === "ocupado" ? " " + subTxt : ""}.` : `Bien que es ocupado, ${f.subocupado ? "pero además es subocupado" : "pero no es subocupado"}.`;
+    const corr = s.corregido ? `<div class="feedback ${bien ? "ok" : "bad"}"><strong>${veredicto}</strong> ${f.explicacion || ""}</div>` : "";
     return `<div class="card"><p style="margin:0 0 8px;"><strong>${f.nombre}${f.edad ? ", " + f.edad : ""}.</strong> <em>“${f.dice}”</em></p><div class="chips-fila" style="margin-bottom:0;">${chips}</div>${subChips}${corr}</div>`;
   }).join("");
   const completas = EPH_FICHAS.every((f, i) => s.resp[i] && s.resp[i].estado && (s.resp[i].estado !== "ocupado" || s.resp[i].sub !== undefined));

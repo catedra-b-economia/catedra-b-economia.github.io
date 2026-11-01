@@ -30,7 +30,7 @@
       "dice": "Trabajo en negro en una obra, unas 45 horas por semana.",
       "estado": "ocupado",
       "subocupado": false,
-      "explicacion": "Para la EPH, trabajar en negro es trabajar: está ocupado. La informalidad se mide aparte, no lo saca de los ocupados."
+      "explicacion": "Para la EPH, trabajar en negro es trabajar: está ocupado. La informalidad se mide aparte, no lo saca de los ocupados. Trabaja más de 35 horas, así que no es subocupado."
     },
     {
       "nombre": "Ana",
@@ -59,10 +59,10 @@
     {
       "nombre": "Diego",
       "edad": 25,
-      "dice": "Cobro un plan social y a cambio trabajo en una cooperativa del barrio.",
+      "dice": "Cobro un plan social y a cambio trabajo cuatro horas por día en una cooperativa del barrio. Si pudiera, trabajaría más.",
       "estado": "ocupado",
-      "subocupado": false,
-      "explicacion": "Hace una tarea a cambio del plan (contraprestación), por eso la EPH lo cuenta como ocupado."
+      "subocupado": true,
+      "explicacion": "Hace una tarea a cambio del plan (contraprestación), por eso la EPH lo cuenta como ocupado. Trabaja unas 20 horas por semana, menos de 35, y quiere trabajar más: además es subocupado."
     },
     {
       "nombre": "Pablo",
@@ -78,7 +78,7 @@
       "dice": "Tengo un kiosco y estoy unas 60 horas por semana.",
       "estado": "ocupado",
       "subocupado": false,
-      "explicacion": "Trabajar por cuenta propia también es estar ocupado."
+      "explicacion": "Trabajar por cuenta propia también es estar ocupado. Con 60 horas por semana no es subocupada."
     },
     {
       "nombre": "Tomás",
