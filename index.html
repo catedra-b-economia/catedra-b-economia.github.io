@@ -309,7 +309,7 @@ const DESDE_OPCION = {
   })
 };
 
-const NOMBRES_BANCOS = [ "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
+const NOMBRES_BANCOS = [ "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U3_REGULADOR", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
 
 const [CONFIG, NUEVAS, GLOSARIO_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
   actividades: []
@@ -2978,6 +2978,164 @@ const SIM_IMPUESTO = {
   }
 };
 
+const MONO_CF = 1e3;
+
+function resultadoMonopolio(v) {
+  const nat = v.nat === 1, CF = nat ? MONO_CF : 0;
+  const r = { Q: 40, P: 60, cf: 20, estado: 0, cierra: false, nota: "" };
+  const m = v.med;
+  if (m === "pmax") {
+    const T = v.tope;
+    if (T < 60) {
+      if (T < 20) {
+        r.Q = 0; r.P = T; r.cierra = true;
+        r.nota = `Con un tope de ${pesos(T, 1)}, por debajo del costo de cada unidad, a la empresa no le conviene producir nada. Los consumidores quieren ${fmt(100 - T)} unidades y no hay ninguna: faltante total.`;
+      } else {
+        r.Q = 100 - T; r.P = T;
+      }
+    }
+  } else if (m === "impuesto") {
+    r.Q = (80 - v.t) / 2; r.P = 100 - r.Q; r.estado = v.t * r.Q; r.cf = 20 + v.t;
+  } else if (m === "subsidio") {
+    r.Q = (80 + v.s) / 2; r.P = 100 - r.Q; r.estado = -v.s * r.Q; r.cf = 20 - v.s;
+  } else if (m === "competencia") {
+    r.Q = 80 * v.N / (v.N + 1); r.P = 20 + 80 / (v.N + 1);
+  } else if (m === "importar") {
+    if (v.pint < 60) { r.P = v.pint; r.Q = 100 - v.pint; }
+  }
+  const firmas = m === "competencia" ? v.N : 1;
+  let G = (r.P - r.cf) * r.Q - CF * firmas;
+  if (m === "ganancias") { r.estado = Math.max(0, G) * v.alic / 100; G -= r.estado; }
+  if (nat && m === "pmax" && !r.cierra && G < -.5) {
+    if (v.cubre === 1) { r.estado += G; r.cubierto = -G; G = 0; }
+    else { r.cierra = true; r.nota = `Con el precio en ${pesos(v.tope, 1)} la empresa no cubre el costo fijo: perdería ${pesos(-G)}. Cierra y el barrio se queda sin gas.`; }
+  }
+  if (r.cierra) { r.Q = 0; G = 0; r.estado = 0; }
+  r.G = Math.abs(G) < .5 ? 0 : G;
+  r.EC = r.Q > 0 ? 100 * r.Q - r.Q * r.Q / 2 - r.P * r.Q : 0;
+  r.W = r.EC + r.G + r.estado;
+  r.Wmax = nat ? 3200 - MONO_CF : 3200;
+  r.perdida = Math.max(0, r.Wmax - r.W);
+  r.firmas = firmas;
+  r.Gfirma = G / firmas;
+  return r;
+}
+
+const SIM_MONOPOLIO = {
+  id: "monopolio",
+  intro: `<p class="sub" style="margin:0;">Una sola empresa abastece a todo el mercado. La demanda es <strong>P = 100 − Q</strong> y producir cada unidad cuesta <strong>$20</strong>. Si hubiera competencia, el precio sería $20 y se venderían 80 unidades. El monopolista cobra $60 y vende 40. Sos el regulador: elegí una medida y dosificala.</p>`,
+  inicial: { med: "ninguna", nat: 0, cubre: 0, tope: 60, t: 10, s: 20, N: 1, pint: 60, alic: 30 },
+  toggles: [ {
+    k: "nat",
+    label: "Tipo de mercado",
+    opciones: [ [ 0, "Monopolio común" ], [ 1, "Monopolio natural (gas)" ] ]
+  }, {
+    k: "med",
+    label: "Medida",
+    si: v => v.nat !== 1,
+    opciones: [ [ "ninguna", "Ninguna" ], [ "pmax", "Precio máximo" ], [ "impuesto", "Impuesto por unidad" ], [ "subsidio", "Subsidio por unidad" ], [ "competencia", "Abrir a la competencia" ], [ "importar", "Abrir importaciones" ], [ "ganancias", "Impuesto a las ganancias" ] ]
+  }, {
+    k: "med",
+    label: "Medida",
+    si: v => v.nat === 1,
+    opciones: [ [ "ninguna", "Ninguna" ], [ "pmax", "Precio máximo" ], [ "competencia", "Abrir a la competencia" ] ]
+  }, {
+    k: "cubre",
+    label: "Si el tope deja a la empresa a pérdida…",
+    si: v => v.nat === 1 && v.med === "pmax",
+    opciones: [ [ 0, "Que se arregle" ], [ 1, "El Estado cubre la pérdida" ] ]
+  } ],
+  sliders: [
+    { k: "tope", label: "Precio máximo", min: 10, max: 60, step: .5, si: v => v.med === "pmax", fmt: v => pesos(v, 1) },
+    { k: "t", label: "Impuesto por unidad", min: 0, max: 40, si: v => v.med === "impuesto", fmt: v => pesos(v) },
+    { k: "s", label: "Subsidio por unidad", min: 0, max: 80, si: v => v.med === "subsidio", fmt: v => pesos(v) },
+    { k: "N", label: "Cantidad de empresas", min: 1, max: 10, si: v => v.med === "competencia" },
+    { k: "pint", label: "Precio internacional", min: 20, max: 70, si: v => v.med === "importar", fmt: v => pesos(v) },
+    { k: "alic", label: "Alícuota sobre las ganancias", min: 0, max: 60, si: v => v.med === "ganancias", fmt: v => v + "%" }
+  ],
+  acciones: [ { k: "cme", label: "Llevar el tope al costo medio", sec: true, si: v => v.nat === 1 && v.med === "pmax" } ],
+  accion(v, k) {
+    if (k === "cme") v.tope = 35.5;
+  },
+  dibujar(v) {
+    const r = resultadoMonopolio(v), nat = v.nat === 1;
+    const areas = [];
+    if (r.Q > 0) {
+      areas.push({ pts: [ [ 0, r.P ], [ 0, 100 ], [ r.Q, 100 - r.Q ], [ r.Q, r.P ] ], color: "var(--blue)", op: .18 });
+      if (r.P > r.cf) areas.push({ pts: [ [ 0, r.cf ], [ r.Q, r.cf ], [ r.Q, r.P ], [ 0, r.P ] ], color: "var(--verde)", op: .22 });
+      if (v.med === "impuesto" && v.t > 0) areas.push({ pts: [ [ 0, 20 ], [ r.Q, 20 ], [ r.Q, r.cf ], [ 0, r.cf ] ], color: "var(--ocre)", op: .3 });
+      if (v.med === "subsidio" && v.s > 0) areas.push({ pts: [ [ 0, r.cf ], [ r.Q, r.cf ], [ r.Q, 20 ], [ 0, 20 ] ], color: "var(--ocre)", op: .3 });
+    }
+    if (r.Q < 80) areas.push({ pts: [ [ r.Q, 100 - r.Q ], [ 80, 20 ], [ r.Q, 20 ] ], color: "var(--rojo)", op: .3 });
+    const series = [
+      { pts: recta(0, 100, 100, 0), color: "var(--blue)", label: "Demanda", labelEn: [ 88, 12 ] },
+      { pts: recta(0, 100, 50, 0), color: "var(--blue)", dash: "5 4", label: "IMg", labelEn: [ 44, 12 ] },
+      { pts: recta(0, 20, 100, 20), color: "var(--ocre)", label: "CMg", labelEn: [ 96, 24 ] }
+    ];
+    if (nat) series.push({ pts: curva(q => 20 + MONO_CF / q, 12, 100, 50), color: "var(--ink-soft)", dash: "3 3", label: "Costo medio", labelEn: [ 90, 33 ] });
+    if (v.med === "impuesto" && v.t > 0) series.push({ pts: recta(0, 20 + v.t, 100, 20 + v.t), color: "var(--ocre)", dash: "5 4", label: "CMg + t", labelEn: [ 92, 24 + v.t ] });
+    if (v.med === "subsidio" && v.s > 0) series.push({ pts: recta(0, 20 - v.s, 100, 20 - v.s), color: "var(--ocre)", dash: "5 4", label: "CMg − s", labelEn: [ 92, Math.max(4, 24 - v.s) ] });
+    if (v.med === "pmax" && v.tope < 60) series.push({ pts: recta(0, v.tope, 100, v.tope), color: "var(--rojo)", dash: "5 4", label: "tope", labelEn: [ 6, v.tope + 4 ] });
+    if (v.med === "importar" && v.pint < 60) series.push({ pts: recta(0, v.pint, 100, v.pint), color: "var(--verde)", dash: "5 4", label: "precio mundial", labelEn: [ 16, v.pint + 4 ] });
+    const g = grafico({
+      xmax: 100, ymax: 100, xlabel: "Cantidad", ylabel: "Precio ($)",
+      xticks: [ 0, 40, 80, 100 ], yticks: [ 0, 20, 60, 100 ],
+      areas, series,
+      puntos: r.Q > 0 ? [ { x: r.Q, y: r.P, t: `${pesos(r.P, 1)} · ${fmt(r.Q, 1)} u.`, color: "var(--blue)" } ] : []
+    });
+    const filas = [
+      [ "Precio", r.Q > 0 ? pesos(r.P, 1) : "—" ],
+      [ "Cantidad", fmt(r.Q, 1) + " (eficiente: 80)" ],
+      [ "Excedente del consumidor", pesos(r.EC) ],
+      [ r.firmas > 1 ? `Ganancia de las ${r.firmas} empresas` : "Ganancia de la empresa", (r.G < 0 ? "−" : "") + pesos(Math.abs(r.G)), r.G < 0 ? "malo" : "" ]
+    ];
+    if (r.estado) filas.push([ r.estado > 0 ? "El Estado recauda" : "Le cuesta al Estado", pesos(Math.abs(r.estado)), r.estado < 0 ? "malo" : "" ]);
+    filas.push([ "Pérdida de eficiencia", pesos(r.perdida), r.perdida > .5 ? "malo" : "" ]);
+    const base = 800;
+    const elim = Math.round((1 - r.perdida / base) * 100);
+    let nota;
+    if (r.nota) nota = r.nota;
+    else if (v.med === "ninguna") nota = nat ? "El monopolio natural, sin regular, cobra $60 y vende 40: gana $600 después de pagar el costo fijo de $1.000. La pérdida de eficiencia es de $800." : "Sin regulación: precio $60, 40 unidades, ganancia de $1.600 y una pérdida de eficiencia de $800 que no se lleva nadie. Probá una medida.";
+    else if (v.med === "competencia" && nat && v.N > 1) nota = `Con ${v.N} empresas, cada una pagando el costo fijo, cada una ${r.Gfirma < 0 ? `pierde ${pesos(-r.Gfirma)}` : `gana ${pesos(r.Gfirma)}`}. ${r.Gfirma < 0 ? "Nadie entraría: en un monopolio natural la competencia no aparece sola, porque duplicar la red no se paga." : ""}`;
+    else if (v.med === "impuesto") nota = "El impuesto sube el costo de cada unidad, y el monopolista responde produciendo todavía menos: la pérdida crece. Un impuesto sirve para corregir una externalidad negativa, pero acá el problema era que se producía poco.";
+    else if (v.med === "ganancias") nota = "El Estado se queda con parte de la ganancia, pero el precio y la cantidad no se mueven: el monopolista sigue eligiendo 40 unidades. Redistribuye, pero no corrige la pérdida.";
+    else if (v.med === "subsidio") nota = `Eliminaste ${Math.max(0, elim)}% de la pérdida, pero a un costo fiscal de ${pesos(-r.estado)}, y la ganancia del monopolista subió a ${pesos(r.G)}. Se corrige la cantidad pagando caro.`;
+    else if (v.med === "pmax" && r.cubierto) nota = `La empresa produce ${fmt(r.Q, 1)} unidades a ${pesos(r.P, 1)}, pero el Estado tiene que cubrirle ${pesos(r.cubierto)} de pérdida.`;
+    else if (v.med === "pmax" && nat && v.tope < 60) nota = Math.abs(v.tope - 35.5) < .3 ? "Precio igual al costo medio: la empresa no gana ni pierde, nadie pone plata, y se vende mucho más que sin regular. Es la salida más común para los servicios públicos." : `Con ${pesos(v.tope, 1)} la empresa cubre sus costos. Eliminaste ${Math.max(0, elim)}% de la pérdida sin gasto público.`;
+    else if (v.med === "pmax" && v.tope < 60) nota = `Eliminaste ${Math.max(0, elim)}% de la pérdida sin gastar un peso. Un precio máximo en competencia crea faltante; en un monopolio puede <strong>aumentar</strong> la cantidad, porque le saca al monopolista el incentivo a restringirla.`;
+    else if (v.med === "competencia") nota = `Con ${v.N} empresa${v.N > 1 ? "s" : ""} eliminaste ${Math.max(0, elim)}% de la pérdida, sin gasto público. Cuantas más empresas, más se acerca al resultado competitivo.`;
+    else if (v.med === "importar" && v.pint < 60) nota = `El precio internacional funciona como un precio máximo puesto por el mundo: el monopolista no puede cobrar más de ${pesos(v.pint)}. Eliminaste ${Math.max(0, elim)}% de la pérdida.`;
+    else nota = "Con esta dosis la medida todavía no cambia nada: el monopolista sigue en $60 y 40 unidades.";
+    return g + `<div class="leyenda"><span><span style="color:var(--blue)">■</span> excedente del consumidor</span><span><span style="color:var(--verde)">■</span> ganancia</span><span><span style="color:var(--ocre)">■</span> Estado</span><span><span style="color:var(--rojo)">■</span> pérdida</span></div>` + datos(filas) + `<div class="feedback ${r.perdida > 400 || r.cierra ? "bad" : "ok"}"><strong>Nota del regulador:</strong> ${nota}</div>`;
+  },
+  alCambiar(v, k) {
+    if (k === "nat" && v.nat === 1 && ![ "ninguna", "pmax", "competencia" ].includes(v.med)) v.med = "pmax";
+  }
+};
+
+const U3_REGULADOR = BANCOS.U3_REGULADOR;
+
+function renderMonopolioU3() {
+  if (state.monoCierre) {
+    if (!state.quiz || state.quiz.key !== "III-regulador") {
+      const generar = () => preparar(U3_REGULADOR, { opciones: true });
+      iniciarQuiz("III-regulador", generar(), generar);
+    }
+    return `<div class="card"><p class="sub" style="margin:0;"><strong>Tomá la decisión.</strong> Tres mercados con problemas distintos: elegí la mejor medida para cada uno.</p></div>${renderQuiz()}<button class="btn secondary block" data-mono-cierre="0" style="margin-top:10px;">Volver al simulador</button>`;
+  }
+  return renderSim(SIM_MONOPOLIO) + `<button class="btn block" data-mono-cierre="1" style="margin-top:4px;">Cierre: tomá la decisión</button>`;
+}
+
+function bindMonopolioU3() {
+  document.querySelectorAll("[data-mono-cierre]").forEach(b => {
+    b.onclick = () => {
+      state.monoCierre = b.dataset.monoCierre === "1";
+      state.quiz = null;
+      refreshUnidad();
+    };
+  });
+}
+
 const U3_MUSGRAVE = BANCOS.U3_MUSGRAVE;
 
 const PT_FACTOR = {
@@ -4911,6 +5069,11 @@ const CONTENIDO_UNIDAD = {
       desc: "Recaudación, pérdida de eficiencia y a quién le cae",
       render: () => renderSim(SIM_IMPUESTO)
     }, {
+      id: "monopolio",
+      titulo: "Sos el regulador: monopolio",
+      desc: "Probá medidas contra el monopolio; dos dan al revés de lo que esperás",
+      render: renderMonopolioU3
+    }, {
       id: "musgrave",
       titulo: "¿Para qué interviene el Estado?",
       desc: "Asignación, distribución y estabilización",
@@ -5457,6 +5620,7 @@ function bindUnidad() {
     refreshUnidad();
   };
   bindSim();
+  bindMonopolioU3();
   bindEquilibrioU3();
   bindUnirU3();
   bindViajeU2();

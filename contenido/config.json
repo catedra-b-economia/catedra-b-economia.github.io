@@ -246,6 +246,12 @@
           "visible": true
         },
         {
+          "id": "monopolio",
+          "titulo": "Sos el regulador: monopolio",
+          "descripcion": "Probá medidas contra el monopolio; dos dan al revés de lo que esperás",
+          "visible": true
+        },
+        {
           "id": "musgrave",
           "titulo": "¿Para qué interviene el Estado?",
           "descripcion": "Asignación, distribución y estabilización",

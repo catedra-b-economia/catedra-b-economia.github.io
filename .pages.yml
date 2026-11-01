@@ -427,6 +427,18 @@ content:
             label: Preguntas
             component: pregunta
             list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: u3-regulador
+        label: "Sos el regulador: monopolio (cierre)"
+        type: file
+        path: contenido/preguntas/U3_REGULADOR.json
+        format: json
+        fields:
+          - { name: actividad, label: Actividad, type: string, readonly: true }
+          - { name: opciones_comunes, label: Opciones comunes, type: string, list: true, description: "Si se completan, las preguntas sin opciones propias usan estas." }
+          - name: preguntas
+            label: Preguntas
+            component: pregunta
+            list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
       - name: misiones-3
         label: "Misiones: tomá la decisión"
         type: file

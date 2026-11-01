@@ -1,0 +1,39 @@
+{
+  "actividad": "Unidad III · Sos el regulador: monopolio (cierre)",
+  "opciones_comunes": [],
+  "preguntas": [
+    {
+      "texto": "Una empresa es la única que vende cemento en la región porque hay trabas para que se instalen otras. Querés eliminar la pérdida de eficiencia sin gastar plata pública, y no conocés bien los costos de la empresa. ¿Qué medida elegís?",
+      "opciones": [
+        "Fijar un precio máximo",
+        "Levantar las trabas para que entren competidores",
+        "Darle un subsidio por unidad producida",
+        "Cobrarle un impuesto a las ganancias"
+      ],
+      "correcta": 2,
+      "explicacion": "Abrir a la competencia acerca el precio al costo sin gasto fiscal y sin que el regulador tenga que conocer los costos. Un precio máximo también podría eliminar la pérdida, pero hay que acertar el costo: si el tope queda bajo, la empresa deja de producir. El subsidio cuesta plata y el impuesto a las ganancias no cambia la cantidad."
+    },
+    {
+      "texto": "En un pueblo aislado hay una sola línea de colectivos y no hay forma de que entre otra empresa a corto plazo. El intendente quiere bajar el boleto ya, sin poner plata del municipio. ¿Qué medida elegís?",
+      "opciones": [
+        "Abrir el servicio a la competencia",
+        "Fijar un precio máximo al boleto",
+        "Subsidiar cada pasaje vendido",
+        "Cobrar un impuesto por pasaje"
+      ],
+      "correcta": 2,
+      "explicacion": "Si no pueden entrar competidores, abrir el mercado no cambia nada en el corto plazo. El precio máximo actúa de inmediato y, en un monopolio, puede aumentar la cantidad vendida en vez de crear faltante. El subsidio requiere plata pública y el impuesto haría subir el boleto."
+    },
+    {
+      "texto": "La distribuidora de gas de una ciudad es un monopolio natural: tiene un costo fijo enorme por la red de caños. Querés el precio más bajo posible sin que la empresa cierre y sin poner plata pública. ¿Qué precio fijás?",
+      "opciones": [
+        "Un precio igual al costo marginal",
+        "Un precio igual al costo medio",
+        "El precio que elegiría el monopolista",
+        "Un precio por debajo del costo marginal"
+      ],
+      "correcta": 2,
+      "explicacion": "Con precio igual al costo marginal la empresa no cubre el costo fijo y cierra, salvo que el Estado le cubra la pérdida. Con precio igual al costo medio no gana ni pierde: es el precio más bajo que se sostiene sin subsidio. Dejar el precio del monopolista no baja nada, y por debajo del costo marginal la empresa pierde en cada unidad."
+    }
+  ]
+}
