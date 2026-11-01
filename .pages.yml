@@ -71,6 +71,22 @@ content:
             label: Preguntas
             component: pregunta
             list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+  - name: glosario
+    label: "📖 Glosario"
+    type: file
+    path: contenido/glosario.json
+    format: json
+    description: "Términos del glosario. La actividad es el código interno de la actividad (lo ves en Unidades y actividades); si queda vacía, el término no lleva el link Practicalo."
+    fields:
+      - name: terminos
+        label: Términos
+        type: object
+        list: { collapsible: { collapsed: true, summary: "{fields.termino} (Unidad {fields.unidad})" } }
+        fields:
+          - { name: termino, label: Término, type: string, required: true }
+          - { name: definicion, label: Definición, type: text, required: true }
+          - { name: unidad, label: Unidad, type: select, options: { values: [I, II, III, IV, V] } }
+          - { name: actividad, label: Código de la actividad para practicar, type: string }
   - name: unidad-1
     label: "Unidad I · La Economía"
     type: group

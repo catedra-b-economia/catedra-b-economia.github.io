@@ -1,0 +1,526 @@
+{
+  "terminos": [
+    {
+      "termino": "Escasez",
+      "definicion": "Situación en la que los recursos disponibles no alcanzan para satisfacer todas las necesidades y deseos. Es el problema que da origen a la economía: obliga a elegir.",
+      "unidad": "I",
+      "actividad": "aprender"
+    },
+    {
+      "termino": "Costo de oportunidad",
+      "definicion": "Lo que se resigna al elegir una alternativa: el valor de la mejor opción que se deja de lado.",
+      "unidad": "I",
+      "actividad": "costop"
+    },
+    {
+      "termino": "Frontera de posibilidades de producción (FPP)",
+      "definicion": "Curva que muestra las combinaciones máximas de dos bienes que una economía puede producir con sus recursos y su tecnología. Los puntos sobre la curva son eficientes; los de adentro, ineficientes; los de afuera, inalcanzables.",
+      "unidad": "I",
+      "actividad": "aprender"
+    },
+    {
+      "termino": "Eficiencia de Pareto",
+      "definicion": "Situación en la que no se puede mejorar a nadie sin empeorar a otro. No dice nada sobre si el reparto es justo.",
+      "unidad": "I",
+      "actividad": "efeq"
+    },
+    {
+      "termino": "Equidad",
+      "definicion": "Criterio sobre si una distribución es justa. A diferencia de la eficiencia, implica juicios de valor.",
+      "unidad": "I",
+      "actividad": "efeq"
+    },
+    {
+      "termino": "Ceteris paribus",
+      "definicion": "\"Lo demás constante\": supuesto que permite analizar el efecto de una variable dejando fijas todas las otras.",
+      "unidad": "I",
+      "actividad": "repaso"
+    },
+    {
+      "termino": "Economía positiva",
+      "definicion": "Afirmaciones sobre cómo es la economía, que se pueden contrastar con datos. Pueden ser verdaderas o falsas.",
+      "unidad": "I",
+      "actividad": "posnorm"
+    },
+    {
+      "termino": "Economía normativa",
+      "definicion": "Afirmaciones sobre cómo debería ser la economía. Incluyen juicios de valor y no se resuelven solo con datos.",
+      "unidad": "I",
+      "actividad": "posnorm"
+    },
+    {
+      "termino": "Flujo circular del ingreso",
+      "definicion": "Modelo que muestra cómo circulan el dinero, los bienes y los factores entre familias, empresas, Estado y resto del mundo.",
+      "unidad": "I",
+      "actividad": "flujo"
+    },
+    {
+      "termino": "Índice de Laspeyres",
+      "definicion": "Índice de precios que pondera con las cantidades del año base.",
+      "unidad": "I",
+      "actividad": "indices"
+    },
+    {
+      "termino": "Índice de Paasche",
+      "definicion": "Índice de precios que pondera con las cantidades del año actual.",
+      "unidad": "I",
+      "actividad": "indices"
+    },
+    {
+      "termino": "Ventaja absoluta",
+      "definicion": "La tiene quien produce un bien usando menos recursos que otro.",
+      "unidad": "I",
+      "actividad": "costop"
+    },
+    {
+      "termino": "Ventaja comparativa",
+      "definicion": "La tiene quien produce un bien con menor costo de oportunidad. Es la que explica por qué conviene especializarse y comerciar.",
+      "unidad": "I",
+      "actividad": "costop"
+    },
+    {
+      "termino": "Trade-off",
+      "definicion": "Disyuntiva: conseguir más de una cosa implica resignar algo de otra.",
+      "unidad": "I",
+      "actividad": "tradeoff"
+    },
+    {
+      "termino": "Balde de Okun",
+      "definicion": "Metáfora de Arthur Okun: redistribuir ingresos es como pasar agua con un balde agujereado; parte se pierde en el camino. Ilustra la tensión entre equidad y eficiencia.",
+      "unidad": "I",
+      "actividad": "aprender"
+    },
+    {
+      "termino": "Desigualdad",
+      "definicion": "Diferencia medible entre personas o grupos (por ejemplo, en ingresos). Es una descripción, no un juicio.",
+      "unidad": "I",
+      "actividad": "gasparini"
+    },
+    {
+      "termino": "Inequidad",
+      "definicion": "Desigualdad que se considera injusta. Requiere un juicio de valor sobre su origen o su magnitud.",
+      "unidad": "I",
+      "actividad": "gasparini"
+    },
+    {
+      "termino": "Igualdad de oportunidades",
+      "definicion": "Que las circunstancias que nadie eligió (familia, lugar de nacimiento) no determinen los resultados de cada persona.",
+      "unidad": "I",
+      "actividad": "igualdad"
+    },
+    {
+      "termino": "Igualdad de resultados",
+      "definicion": "Que el punto de llegada (ingresos, consumo) sea parecido entre las personas.",
+      "unidad": "I",
+      "actividad": "igualdad"
+    },
+    {
+      "termino": "Instituciones",
+      "definicion": "Reglas de juego de una sociedad, formales e informales, que moldean los incentivos de las personas.",
+      "unidad": "I",
+      "actividad": "fanelli"
+    },
+    {
+      "termino": "Sistema económico",
+      "definicion": "Conjunto de instituciones y mecanismos con los que una sociedad resuelve qué, cómo y para quién producir.",
+      "unidad": "II",
+      "actividad": "sistemas"
+    },
+    {
+      "termino": "Economía señorial",
+      "definicion": "Sistema en el que el dominio rural es la célula económica: el señor organiza la producción y casi no hay intercambio.",
+      "unidad": "II",
+      "actividad": "sistemas"
+    },
+    {
+      "termino": "Capitalismo liberal",
+      "definicion": "Economía de mercado con propiedad privada de los medios de producción, libre competencia y poca intervención del Estado.",
+      "unidad": "II",
+      "actividad": "sistemas"
+    },
+    {
+      "termino": "Capitalismo reglamentario",
+      "definicion": "Economía de mercado en la que el Estado interviene y regula para corregir resultados del mercado.",
+      "unidad": "II",
+      "actividad": "sistemas"
+    },
+    {
+      "termino": "Economía colectivista",
+      "definicion": "Sistema con propiedad colectiva de los medios de producción, en el que un plan central decide qué y cuánto producir.",
+      "unidad": "II",
+      "actividad": "sistemas"
+    },
+    {
+      "termino": "Mercantilismo",
+      "definicion": "Conjunto de ideas y políticas (siglos XVI a XVIII) que asociaba la riqueza de una nación con la acumulación de metales y buscaba exportar más de lo que se importaba.",
+      "unidad": "II",
+      "actividad": "escuelas"
+    },
+    {
+      "termino": "Fisiocracia",
+      "definicion": "Escuela francesa del siglo XVIII que sostenía que solo la tierra genera un producto neto.",
+      "unidad": "II",
+      "actividad": "escuelas"
+    },
+    {
+      "termino": "Producto neto",
+      "definicion": "Para los fisiócratas, el excedente que deja la agricultura por encima de lo que se usó para producir.",
+      "unidad": "II",
+      "actividad": "escuelas"
+    },
+    {
+      "termino": "Valor de uso",
+      "definicion": "Utilidad que tiene un bien para satisfacer una necesidad.",
+      "unidad": "II",
+      "actividad": "valor"
+    },
+    {
+      "termino": "Valor de cambio",
+      "definicion": "Capacidad de un bien de intercambiarse por otros; en una economía monetaria, su precio.",
+      "unidad": "II",
+      "actividad": "valor"
+    },
+    {
+      "termino": "Teoría del valor-trabajo",
+      "definicion": "Idea de los clásicos y de Marx según la cual el valor de un bien depende del trabajo necesario para producirlo.",
+      "unidad": "II",
+      "actividad": "frases"
+    },
+    {
+      "termino": "Plusvalía",
+      "definicion": "Para Marx, el valor que produce el trabajador por encima de lo que recibe como salario, y del que se apropia el capitalista.",
+      "unidad": "II",
+      "actividad": "frases"
+    },
+    {
+      "termino": "Utilidad marginal",
+      "definicion": "Satisfacción adicional que da una unidad más de un bien. Los marginalistas basan el valor en ella.",
+      "unidad": "II",
+      "actividad": "frases"
+    },
+    {
+      "termino": "Paradoja del valor",
+      "definicion": "Por qué el agua, tan útil, es barata y los diamantes, poco útiles, son caros. La resuelve la utilidad marginal: lo que cuenta es la última unidad, no el total.",
+      "unidad": "II",
+      "actividad": "valor"
+    },
+    {
+      "termino": "Ley de Say",
+      "definicion": "\"La oferta crea su propia demanda\": lo que se produce genera el ingreso para comprarlo, por lo que no habría sobreproducción general.",
+      "unidad": "II",
+      "actividad": "escuelas"
+    },
+    {
+      "termino": "Renta diferencial",
+      "definicion": "Para Ricardo, la renta que cobran las tierras más fértiles por sobre las menos fértiles que se ponen en producción.",
+      "unidad": "II",
+      "actividad": "renta"
+    },
+    {
+      "termino": "Ley de hierro de los salarios",
+      "definicion": "Idea clásica de que los salarios tienden al nivel de subsistencia, porque si suben la población crece y los vuelve a bajar.",
+      "unidad": "II",
+      "actividad": "hierro"
+    },
+    {
+      "termino": "Patrón oro",
+      "definicion": "Sistema monetario en el que la moneda se respalda y es convertible en una cantidad fija de oro.",
+      "unidad": "II",
+      "actividad": "crisis30"
+    },
+    {
+      "termino": "Demanda",
+      "definicion": "Relación entre el precio de un bien y la cantidad que los compradores quieren y pueden comprar, ceteris paribus.",
+      "unidad": "III",
+      "actividad": "demanda"
+    },
+    {
+      "termino": "Oferta",
+      "definicion": "Relación entre el precio de un bien y la cantidad que los productores quieren vender, ceteris paribus.",
+      "unidad": "III",
+      "actividad": "oferta"
+    },
+    {
+      "termino": "Equilibrio de mercado",
+      "definicion": "Precio al que la cantidad demandada es igual a la ofrecida: no hay faltante ni sobrante.",
+      "unidad": "III",
+      "actividad": "equilibrio"
+    },
+    {
+      "termino": "Elasticidad-precio de la demanda",
+      "definicion": "Cuánto cambia, en porcentaje, la cantidad demandada cuando el precio cambia 1%.",
+      "unidad": "III",
+      "actividad": "elasticidad"
+    },
+    {
+      "termino": "Bien normal",
+      "definicion": "Bien cuya demanda aumenta cuando aumenta el ingreso.",
+      "unidad": "III",
+      "actividad": "demanda"
+    },
+    {
+      "termino": "Bien inferior",
+      "definicion": "Bien cuya demanda disminuye cuando aumenta el ingreso.",
+      "unidad": "III",
+      "actividad": "demanda"
+    },
+    {
+      "termino": "Bienes sustitutos",
+      "definicion": "Bienes que se reemplazan entre sí: si sube el precio de uno, aumenta la demanda del otro.",
+      "unidad": "III",
+      "actividad": "demanda"
+    },
+    {
+      "termino": "Bienes complementarios",
+      "definicion": "Bienes que se usan juntos: si sube el precio de uno, baja la demanda del otro.",
+      "unidad": "III",
+      "actividad": "demanda"
+    },
+    {
+      "termino": "Precio máximo",
+      "definicion": "Tope legal al precio. Si está por debajo del equilibrio, genera faltante.",
+      "unidad": "III",
+      "actividad": "pmax"
+    },
+    {
+      "termino": "Precio mínimo",
+      "definicion": "Piso legal al precio. Si está por encima del equilibrio, genera excedente.",
+      "unidad": "III",
+      "actividad": "pmin"
+    },
+    {
+      "termino": "Excedente del consumidor",
+      "definicion": "Diferencia entre lo máximo que los compradores estaban dispuestos a pagar y lo que efectivamente pagan.",
+      "unidad": "III",
+      "actividad": "impuesto"
+    },
+    {
+      "termino": "Pérdida de eficiencia",
+      "definicion": "Parte del excedente total que se pierde y nadie aprovecha cuando el mercado no llega a la cantidad eficiente (por un impuesto, un precio regulado o un monopolio).",
+      "unidad": "III",
+      "actividad": "impuesto"
+    },
+    {
+      "termino": "Rendimientos decrecientes",
+      "definicion": "Cuando se agregan unidades de un factor variable a uno fijo, a partir de cierto punto cada unidad extra agrega menos producción.",
+      "unidad": "III",
+      "actividad": "rfactor"
+    },
+    {
+      "termino": "Rendimientos a escala",
+      "definicion": "Cómo cambia la producción cuando se aumentan todos los factores en la misma proporción: crecientes, constantes o decrecientes.",
+      "unidad": "III",
+      "actividad": "rescala"
+    },
+    {
+      "termino": "Monopolio",
+      "definicion": "Mercado con un solo vendedor. Produce menos y cobra más que en competencia.",
+      "unidad": "III",
+      "actividad": "monopolio"
+    },
+    {
+      "termino": "Externalidad",
+      "definicion": "Efecto de una actividad sobre terceros que no se refleja en el precio. Puede ser negativa (contaminación) o positiva (vacunación).",
+      "unidad": "III",
+      "actividad": "externalidades"
+    },
+    {
+      "termino": "Bien público",
+      "definicion": "Bien no rival (que lo use uno no impide que lo use otro) y no excluible (no se puede impedir que lo use quien no paga).",
+      "unidad": "III",
+      "actividad": "plaza"
+    },
+    {
+      "termino": "Recurso común",
+      "definicion": "Bien rival pero no excluible, como un caladero de pesca: tiende a sobreexplotarse.",
+      "unidad": "III",
+      "actividad": "unir"
+    },
+    {
+      "termino": "Polizón (free rider)",
+      "definicion": "Quien aprovecha un bien sin pagar por él, porque no se lo puede excluir.",
+      "unidad": "III",
+      "actividad": "plaza"
+    },
+    {
+      "termino": "Selección adversa",
+      "definicion": "Problema de información asimétrica antes del contrato: los que más tienden a contratar son los de mayor riesgo.",
+      "unidad": "III",
+      "actividad": "aseguradora"
+    },
+    {
+      "termino": "Riesgo moral",
+      "definicion": "Problema de información asimétrica después del contrato: una vez asegurado, alguien cambia su conducta y se cuida menos.",
+      "unidad": "III",
+      "actividad": "riesgo"
+    },
+    {
+      "termino": "Equilibrio de Nash",
+      "definicion": "Situación en la que ningún jugador puede mejorar cambiando solo su estrategia, dado lo que hacen los demás.",
+      "unidad": "III",
+      "actividad": "dilema"
+    },
+    {
+      "termino": "Producto Interno Bruto (PIB)",
+      "definicion": "Valor de mercado de todos los bienes y servicios finales producidos en un país en un período.",
+      "unidad": "IV",
+      "actividad": "flujopib"
+    },
+    {
+      "termino": "Valor agregado",
+      "definicion": "Valor de lo que produce una empresa menos el de los insumos que compró a otras. La suma de los valores agregados da el PIB.",
+      "unidad": "IV",
+      "actividad": "flujopib"
+    },
+    {
+      "termino": "Ciclo económico",
+      "definicion": "Fluctuaciones de corto plazo de la actividad alrededor de su tendencia: expansiones y recesiones.",
+      "unidad": "IV",
+      "actividad": "ciclo"
+    },
+    {
+      "termino": "Tendencia",
+      "definicion": "Trayectoria de largo plazo del producto, que depende de la acumulación de factores y de la tecnología.",
+      "unidad": "IV",
+      "actividad": "ciclotend"
+    },
+    {
+      "termino": "Demanda agregada",
+      "definicion": "Gasto total en bienes y servicios finales: consumo, inversión, gasto público y exportaciones netas.",
+      "unidad": "IV",
+      "actividad": "cruz"
+    },
+    {
+      "termino": "Multiplicador",
+      "definicion": "Cuánto aumenta el producto ante un aumento del gasto autónomo, porque el gasto de uno es ingreso de otro.",
+      "unidad": "IV",
+      "actividad": "multi"
+    },
+    {
+      "termino": "Propensión marginal a consumir",
+      "definicion": "Parte de cada peso adicional de ingreso que se destina al consumo.",
+      "unidad": "IV",
+      "actividad": "multi"
+    },
+    {
+      "termino": "Paradoja del ahorro",
+      "definicion": "Si todos intentan ahorrar más a la vez, cae la demanda y el ingreso, y el ahorro total puede no aumentar.",
+      "unidad": "IV",
+      "actividad": "cruz"
+    },
+    {
+      "termino": "Tres brechas",
+      "definicion": "Identidad contable: la brecha de ahorro privado, la fiscal y la externa están relacionadas y se compensan entre sí.",
+      "unidad": "IV",
+      "actividad": "brechas"
+    },
+    {
+      "termino": "Desempleo involuntario",
+      "definicion": "Personas que quieren trabajar al salario vigente y no consiguen empleo. Keynes lo explica por falta de demanda.",
+      "unidad": "IV",
+      "actividad": "trabajo"
+    },
+    {
+      "termino": "Tasa de desocupación",
+      "definicion": "Desocupados como porcentaje de la población económicamente activa.",
+      "unidad": "IV",
+      "actividad": "eph"
+    },
+    {
+      "termino": "Inflación",
+      "definicion": "Aumento sostenido y generalizado de los precios.",
+      "unidad": "IV",
+      "actividad": "inflacion"
+    },
+    {
+      "termino": "Teoría cuantitativa del dinero",
+      "definicion": "Sostiene que, con velocidad y producto dados, más dinero se traduce en precios más altos (MV = PY).",
+      "unidad": "IV",
+      "actividad": "inflacion"
+    },
+    {
+      "termino": "Finanzas funcionales",
+      "definicion": "Postura según la cual el presupuesto público debe usarse para lograr el pleno empleo, aunque implique déficit.",
+      "unidad": "IV",
+      "actividad": "finanzas"
+    },
+    {
+      "termino": "Estanflación",
+      "definicion": "Combinación de estancamiento económico con inflación alta.",
+      "unidad": "IV",
+      "actividad": "shocks"
+    },
+    {
+      "termino": "Funciones del dinero",
+      "definicion": "Medio de cambio, unidad de cuenta y reserva de valor.",
+      "unidad": "IV",
+      "actividad": "dinero"
+    },
+    {
+      "termino": "Economías regionales",
+      "definicion": "Producciones del interior del país, fuera de la región pampeana, ligadas a cada región.",
+      "unidad": "V",
+      "actividad": "regiones"
+    },
+    {
+      "termino": "Modelo agroexportador",
+      "definicion": "Etapa (aprox. 1880-1930) en la que la economía argentina creció exportando productos agropecuarios e importando manufacturas y capitales.",
+      "unidad": "V",
+      "actividad": "etapas"
+    },
+    {
+      "termino": "Industrialización por sustitución de importaciones",
+      "definicion": "Estrategia de producir localmente lo que antes se importaba, protegiendo a la industria nacional.",
+      "unidad": "V",
+      "actividad": "etapas"
+    },
+    {
+      "termino": "Restricción externa",
+      "definicion": "Límite al crecimiento que aparece cuando la economía necesita más divisas de las que genera.",
+      "unidad": "V",
+      "actividad": "stopgo"
+    },
+    {
+      "termino": "Stop-and-go",
+      "definicion": "Ciclo de crecimiento, falta de divisas, devaluación y recesión, típico de la Argentina en la etapa de sustitución de importaciones.",
+      "unidad": "V",
+      "actividad": "stopgo"
+    },
+    {
+      "termino": "Estructura productiva desequilibrada",
+      "definicion": "Concepto de Diamand: un agro de alta productividad que genera divisas y una industria de productividad menor que las usa.",
+      "unidad": "V",
+      "actividad": "stopgo"
+    },
+    {
+      "termino": "Densidad nacional",
+      "definicion": "Concepto de Ferrer: la calidad de las instituciones, la cohesión social y el liderazgo que permiten a un país aprovechar la globalización a su favor.",
+      "unidad": "V",
+      "actividad": "etapas"
+    },
+    {
+      "termino": "Heterogeneidad estructural",
+      "definicion": "Coexistencia de sectores de productividad muy distinta dentro de una misma economía.",
+      "unidad": "V",
+      "actividad": "sectores"
+    },
+    {
+      "termino": "Convertibilidad",
+      "definicion": "Régimen (1991-2001) que fijó por ley un peso igual a un dólar, con respaldo de la base monetaria en reservas.",
+      "unidad": "V",
+      "actividad": "ministro"
+    },
+    {
+      "termino": "Corralito",
+      "definicion": "Restricción a la extracción de depósitos bancarios dispuesta en diciembre de 2001.",
+      "unidad": "V",
+      "actividad": "ministro"
+    },
+    {
+      "termino": "Pesificación",
+      "definicion": "Conversión a pesos de depósitos y deudas en dólares en 2002; fue asimétrica porque se aplicaron tipos de cambio distintos a unos y otras.",
+      "unidad": "V",
+      "actividad": "ministro"
+    }
+  ]
+}

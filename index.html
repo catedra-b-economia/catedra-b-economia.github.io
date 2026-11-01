@@ -106,6 +106,12 @@
   .chip-btn{ border:1px solid var(--rule); background:#fff; color:var(--ink); border-radius:99px; padding:7px 14px; font-size:13px; font-weight:700; }
   .chip-btn:hover{ border-color:var(--blue); color:var(--blue); }
   .chip-btn.activo{ background:var(--blue); border-color:var(--blue); color:#fff; }
+  .glos-item{ border-bottom:1px solid var(--rule); padding:12px 2px; }
+  .glos-item:last-child{ border-bottom:none; }
+  .glos-term{ font-weight:900; color:var(--blue); font-size:15px; }
+  .glos-def{ font-size:13.5px; margin:4px 0 6px; }
+  .glos-pie{ display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:11.5px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.04em; font-weight:700; }
+  .glos-ir{ background:none; border:none; color:var(--blue); font-weight:700; font-size:13px; padding:4px 0; text-transform:none; letter-spacing:0; }
   @media (max-width:420px){
     main{ padding:18px 14px 56px; }
     h1{ font-size:23px; }
@@ -305,8 +311,10 @@ const DESDE_OPCION = {
 
 const NOMBRES_BANCOS = [ "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
 
-const [CONFIG, NUEVAS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
+const [CONFIG, NUEVAS, GLOSARIO_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
   actividades: []
+}), leerJSON("contenido/glosario.json", {
+  terminos: []
 }), ...[ 1, 2, 3, 4 ].map(u => leerJSON(`contenido/misiones/U${u}.json`, {
   misiones: []
 })), ...NOMBRES_BANCOS.map(n => leerJSON(`contenido/preguntas/${n}.json`, {
@@ -387,12 +395,120 @@ function render() {
   bind();
 }
 
+const sinTildes = s => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+function existeActividad(u, s) {
+  const unidad = UNIDADES.find(x => x.id === u);
+  if (!unidad || !unidad.habilitada) return false;
+  return !s || CONTENIDO_UNIDAD[u].secciones.some(x => x.id === s);
+}
+
+const GLOSARIO = ((GLOSARIO_DATOS && GLOSARIO_DATOS.terminos) || []).filter(t => lleno(t.termino) && lleno(t.definicion)).map(t => ({
+  ...t,
+  clave: sinTildes(t.termino + " " + t.definicion)
+})).sort((a, b) => a.termino.localeCompare(b.termino, "es"));
+
+function listaGlosario() {
+  const q = sinTildes(state.glosarioQ || "").trim();
+  const f = state.glosarioU || "";
+  const items = GLOSARIO.filter(t => (!f || t.unidad === f) && (!q || t.clave.includes(q)));
+  if (!items.length) return `<p class="sub" style="margin:12px 0;">No hay términos que coincidan.</p>`;
+  return items.map(t => `\n      <div class="glos-item">\n        <div class="glos-term">${t.termino}</div>\n        <div class="glos-def">${t.definicion}</div>\n        <div class="glos-pie"><span>${t.unidad ? "Unidad " + t.unidad : ""}</span>${t.actividad && existeActividad(t.unidad, t.actividad) ? `<button class="glos-ir" data-ir="${t.unidad}-${t.actividad}">Practicalo ›</button>` : ""}</div>\n      </div>`).join("");
+}
+
+function viewGlosario() {
+  const f = state.glosarioU || "";
+  const chips = [ [ "", "Todas" ], ...UNIDADES.map(u => [ u.id, u.id ]) ].map(([id, lab]) => `<button class="chip-btn ${f === id ? "activo" : ""}" data-glos-u="${id}">${lab}</button>`).join("");
+  return `\n      <div class="card">\n        <h3 style="font-size:15px; margin-bottom:10px;">Glosario</h3>\n        <input type="text" id="glosario-q" placeholder="Buscá un concepto…" value="${(state.glosarioQ || "").replace(/"/g, "&quot;")}" autocomplete="off">\n        <div class="chips-fila" style="margin-bottom:0;">${chips}</div>\n      </div>\n      <div class="card" id="glosario-lista">${listaGlosario()}</div>\n      <button class="btn secondary block" data-glosario-cerrar="1" style="margin-top:6px;">Cerrar el glosario</button>`;
+}
+
+function bindListaGlosario() {
+  document.querySelectorAll("[data-ir]").forEach(b => {
+    b.onclick = () => {
+      const [u, ...s] = b.dataset.ir.split("-");
+      irA(u, s.join("-"));
+    };
+  });
+}
+
+function bindGlosario() {
+  const q = document.getElementById("glosario-q");
+  if (!q) return;
+  q.oninput = () => {
+    state.glosarioQ = q.value;
+    document.getElementById("glosario-lista").innerHTML = listaGlosario();
+    bindListaGlosario();
+  };
+  document.querySelectorAll("[data-glos-u]").forEach(b => {
+    b.onclick = () => {
+      state.glosarioU = b.dataset.glosU;
+      refreshUnidad();
+    };
+  });
+  const cerrar = document.querySelector("[data-glosario-cerrar]");
+  if (cerrar) cerrar.onclick = () => {
+    state.glosario = false;
+    ponerHash("");
+    render();
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+  bindListaGlosario();
+}
+
+function ponerHash(h) {
+  try {
+    history.replaceState(null, "", h ? "#" + h : location.pathname + location.search);
+  } catch (e) {}
+}
+
+function limpiarActividad() {
+  state.quiz = null;
+  state.mision = null;
+  state.misionId = null;
+  state.misionAns = undefined;
+  state.lecturaIniciada = false;
+}
+
+function irA(u, s) {
+  if (!existeActividad(u, s)) return false;
+  state.glosario = false;
+  state.unidadActiva = u;
+  state.unidadActivaSeccion = s || null;
+  limpiarActividad();
+  ponerHash(s ? `${u}-${s}` : u);
+  render();
+  irAlDetalle();
+  return true;
+}
+
+function abrirGlosario() {
+  state.glosario = true;
+  state.unidadActiva = null;
+  state.unidadActivaSeccion = null;
+  limpiarActividad();
+  ponerHash("glosario");
+  render();
+  irAlDetalle();
+}
+
+function leerHash() {
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (!h) return;
+  if (h === "glosario") return abrirGlosario();
+  const [u, ...s] = h.split("-");
+  irA(u, s.join("-"));
+}
+
 function viewUnidades() {
   const nodos = UNIDADES.map(u => u.habilitada ? `\n      <div class="node clickable" data-unidad="${u.id}">\n        <div class="dot unlocked">${u.id}</div>\n        <div class="node-cuerpo">\n          <div class="title">${u.nombre}</div>\n          <div class="status unlocked">${CONTENIDO_UNIDAD[u.id].secciones.length} actividades</div>\n        </div>\n      </div>` : `\n      <div class="node">\n        <div class="dot locked">${u.id}</div>\n        <div class="node-cuerpo">\n          <div class="title">${u.nombre}</div>\n          <div class="status locked">Próximamente</div>\n        </div>\n      </div>`).join("");
-  return `\n      <div class="aviso">Esto no reemplaza la bibliografía ni al AU24: <u>SON COMPLEMENTARIOS</u>.</div>\n      <div class="accent-bar"></div>\n      <div class="eyebrow eyebrow-crest">${CURSO.docente}</div>\n      <h1>${CURSO.nombre}</h1>\n      <div class="sub">Practicá los contenidos de la materia unidad por unidad. Elegí una y entrá.</div>\n      <div class="path">${nodos}</div>\n      <div id="unidad-detalle">${renderUnidadDetalle()}</div>\n    `;
+  return `\n      <div class="aviso">Esto no reemplaza la bibliografía ni al AU24: <u>SON COMPLEMENTARIOS</u>.</div>\n      <div class="accent-bar"></div>\n      <div class="eyebrow eyebrow-crest">${CURSO.docente}</div>\n      <h1>${CURSO.nombre}</h1>\n      <div class="sub">Practicá los contenidos de la materia unidad por unidad. Elegí una y entrá.</div>\n      <div class="path">${nodos}</div>\n      <button class="btn secondary block" data-glosario="1" style="margin-bottom:10px;">Glosario: buscá un concepto</button>\n      <div id="unidad-detalle">${renderUnidadDetalle()}</div>\n    `;
 }
 
 function renderUnidadDetalle() {
+  if (state.glosario) return viewGlosario();
   if (state.unidadActiva) return viewUnidad(state.unidadActiva);
   return "";
 }
@@ -5163,20 +5279,25 @@ function renderMisionesGenerico(misiones) {
 function bind() {
   document.querySelectorAll("[data-unidad]").forEach(n => {
     n.onclick = () => {
+      state.glosario = false;
       state.unidadActiva = n.dataset.unidad;
       state.unidadActivaSeccion = null;
       state.quiz = null;
+      ponerHash(n.dataset.unidad);
       document.getElementById("unidad-detalle").innerHTML = renderUnidadDetalle();
       bindUnidad();
       irAlDetalle();
     };
   });
+  const g = document.querySelector("[data-glosario]");
+  if (g) g.onclick = abrirGlosario;
   if (state.unidadActiva) bindUnidad();
+  bindGlosario();
 }
 
 function refreshUnidad() {
   document.getElementById("unidad-detalle").innerHTML = renderUnidadDetalle();
-  bindUnidad();
+  if (state.glosario) bindGlosario(); else bindUnidad();
 }
 
 function irAlDetalle() {
@@ -5194,6 +5315,7 @@ function irAlDetalle() {
 
 function bindUnidad() {
   const abrirSeccion = id => {
+    ponerHash(`${state.unidadActiva}-${id}`);
     state.unidadActivaSeccion = id;
     state.quiz = null;
     state.lecturaIniciada = false;
@@ -5208,6 +5330,7 @@ function bindUnidad() {
   document.querySelectorAll("[data-seccion-back]").forEach(b => {
     b.onclick = () => {
       const deDonde = state.unidadActivaSeccion;
+      ponerHash(state.unidadActiva);
       state.unidadActivaSeccion = null;
       state.quiz = null;
       refreshUnidad();
@@ -5226,6 +5349,7 @@ function bindUnidad() {
   });
   document.querySelectorAll("[data-cerrar-unidad]").forEach(b => {
     b.onclick = () => {
+      ponerHash("");
       state.unidadActiva = null;
       state.unidadActivaSeccion = null;
       state.quiz = null;
@@ -5344,6 +5468,10 @@ function bindUnidad() {
 mostrarProblemas();
 
 render();
+
+leerHash();
+
+window.addEventListener("hashchange", leerHash);
 </script>
 </body>
 </html>
