@@ -3523,10 +3523,21 @@ function bindExternalidadesU3() {
   });
 }
 
+function ordenUnir() {
+  const ids = UNIR_FALLAS.map(f => f.id);
+  const orden = mezclar(ids);
+  const lejos = casos => casos.every((id, i) => Math.abs(i - orden.indexOf(id)) >= (ids.length >= 5 ? 2 : 1));
+  let casos = mezclar(ids);
+  for (let k = 0; k < 2e3 && !lejos(casos); k++) casos = mezclar(ids);
+  return {
+    orden: orden,
+    casos: casos
+  };
+}
+
 function nuevoUnir() {
   return {
-    orden: mezclar(UNIR_FALLAS.map(f => f.id)),
-    casos: mezclar(UNIR_FALLAS.map(f => f.id)),
+    ...ordenUnir(),
     elegido: Object.fromEntries(UNIR_FALLAS.map(f => [ f.id, f.casos[Math.floor(Math.random() * f.casos.length)] ])),
     pares: {},
     sel: null,
@@ -3562,7 +3573,7 @@ function dibujarFlechasUnir() {
       verde: "var(--verde)",
       rojo: "var(--rojo)"
     }[col];
-    const dx = (x2 - x1) * .55, curva = `M${x1},${y1} C${x1 + dx},${y1} ${x2 - dx},${y2} ${x2},${y2}`;
+    const curva = `M${x1},${y1} L${x2},${y2}`;
     s += `<path d="${curva}" style="fill:none;stroke:#fff;stroke-width:6;stroke-linecap:round"/><path d="${curva}" style="fill:none;stroke:${css};stroke-width:2.4" marker-end="url(#punta-${col})"/><circle cx="${x1}" cy="${y1}" r="3.5" style="fill:${css}"/>`;
   });
   svg.innerHTML = s;
