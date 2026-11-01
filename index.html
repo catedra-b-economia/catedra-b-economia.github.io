@@ -3525,13 +3525,9 @@ function bindExternalidadesU3() {
 
 function ordenUnir() {
   const ids = UNIR_FALLAS.map(f => f.id);
-  const orden = mezclar(ids);
-  const lejos = casos => casos.every((id, i) => Math.abs(i - orden.indexOf(id)) >= (ids.length >= 5 ? 2 : 1));
-  let casos = mezclar(ids);
-  for (let k = 0; k < 2e3 && !lejos(casos); k++) casos = mezclar(ids);
   return {
-    orden: orden,
-    casos: casos
+    orden: mezclar(ids),
+    casos: mezclar(ids)
   };
 }
 
