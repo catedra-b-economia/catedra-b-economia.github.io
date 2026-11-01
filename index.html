@@ -996,6 +996,96 @@ function renderDilemaU3() {
   return `\n      <div class="card">\n        ${matriz}\n        <div class="eyebrow" style="margin-top:10px;">Resultado final: vos ${s.puntosJugador} — ${s.puntosBot} cátedra</div>\n      </div>\n      ${historial}\n      <div class="feedback ok" style="margin-top:12px;">\n        Si los dos hubieran cooperado <em>siempre</em>, entre los dos habrían sumado 6 puntos por ronda (3 y 3) — el mejor resultado conjunto posible. Pero en una sola ronda, traicionar siempre te conviene más a vos sin importar qué haga el otro (fijate en la matriz: pasás de 3 a 5, o de 0 a 1) — por eso "los dos traicionan" es el <strong>equilibrio de Nash</strong> de una ronda suelta: nadie puede mejorar cambiando de estrategia solo. El problema es que ese equilibrio (1, 1) es peor para los dos que cooperar (3, 3). Jugando varias rondas contra el mismo rival, en cambio, cooperar puede sostenerse porque el otro puede "castigar" una traición en la ronda siguiente — que es exactamente lo que hizo la cátedra con vos.\n      </div>\n      <button class="btn secondary" data-dilema-reiniciar="1">Jugar de nuevo</button>\n    `;
 }
 
+
+const PLAZA_RONDAS = 6, PLAZA_ASAMBLEA = 4, PLAZA_MULT = 1.6;
+
+const PLAZA_HITOS = [ [ 20, "pasto" ], [ 50, "un banco" ], [ 90, "árboles" ], [ 130, "una hamaca" ], [ 170, "un tobogán" ], [ 210, "una fuente" ] ];
+
+function plazaSVG(total) {
+  const hay = n => total >= PLAZA_HITOS[n][0];
+  let s = `<svg viewBox="0 0 380 190" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;border-radius:6px;">`;
+  s += `<rect x="0" y="0" width="380" height="190" fill="${PAPEL}"/>`;
+  s += `<rect x="20" y="40" width="340" height="130" rx="6" fill="${hay(0) ? "var(--verde)" : SOMBRA}" fill-opacity="${hay(0) ? .35 : .35}" stroke="${TINTA}" stroke-width="1.2" stroke-dasharray="${hay(0) ? "0" : "5 4"}"/>`;
+  if (!hay(0)) s += `<text x="190" y="110" text-anchor="middle" style="font:700 13px Lato,sans-serif;fill:${TINTA};opacity:.6;">Terreno baldío</text>`;
+  if (hay(1)) s += `<g stroke="${TINTA}" stroke-width="1.4"><rect x="50" y="140" width="56" height="7" fill="${OCRE}"/><path d="M54,147 V156 M102,147 V156" fill="none"/><rect x="50" y="128" width="56" height="5" fill="${OCRE}"/></g>`;
+  if (hay(2)) [ [ 70, 82 ], [ 320, 78 ], [ 300, 140 ] ].forEach(([x, y]) => {
+    s += `<rect x="${x - 3}" y="${y}" width="6" height="22" fill="${TINTA}"/><circle cx="${x}" cy="${y - 6}" r="17" fill="var(--verde)" fill-opacity=".8" stroke="${TINTA}" stroke-width="1"/>`;
+  });
+  if (hay(3)) s += `<g stroke="${TINTA}" stroke-width="1.6" fill="none"><path d="M140,140 L150,70 L190,70 L200,140"/><path d="M162,70 V118 M178,70 V118"/><rect x="159" y="118" width="22" height="5" fill="${ROJIZO}"/></g>`;
+  if (hay(4)) s += `<g stroke="${TINTA}" stroke-width="1.6"><path d="M232,140 V82 M244,140 V82" fill="none"/><path d="M232,92 H244 M232,104 H244 M232,116 H244" fill="none"/><path d="M244,82 Q262,82 282,140" fill="none" stroke="var(--blue)" stroke-width="5"/></g>`;
+  if (hay(5)) s += `<g><ellipse cx="190" cy="160" rx="28" ry="7" fill="var(--blue)" fill-opacity=".45" stroke="${TINTA}" stroke-width="1"/><path d="M190,158 V140 M190,140 Q182,146 178,154 M190,140 Q198,146 202,154" stroke="var(--blue)" stroke-width="2" fill="none"/></g>`;
+  s += `<text x="20" y="26" style="font:700 12px Lato,sans-serif;fill:${TINTA};">Juntado para la plaza: ${pesos(total)}</text>`;
+  return s + `</svg>`;
+}
+
+function plazaBots(p) {
+  const prev = p.hist[p.hist.length - 1];
+  const ramiro = !prev ? 5 : Math.round((prev.vos + prev.rosa + prev.poli) / 3);
+  if (p.regla === "tasa" || p.regla === "multa") return { rosa: 10, poli: 10, ramiro: 10 };
+  return { rosa: 10, poli: 0, ramiro };
+}
+
+function jugarRondaPlaza() {
+  const p = state.plaza;
+  const vos = p.regla === "tasa" ? 10 : p.aporte;
+  const b = plazaBots(p);
+  const S = vos + b.rosa + b.poli + b.ramiro;
+  const parte = S * PLAZA_MULT / 4;
+  let multaVos = 0, costoMulta = 0;
+  if (p.regla === "multa" && vos < 5) { multaVos = 6; costoMulta = 2; }
+  p.hist.push({ ronda: p.ronda, vos, ...b, S, gVos: 10 - vos + parte - multaVos, gPoli: 10 - b.poli + parte, multaVos, costoMulta });
+  p.total += S;
+  if (p.ronda === PLAZA_ASAMBLEA && !p.regla) p.fase = "asamblea";
+  else if (p.ronda >= PLAZA_RONDAS) p.fase = "fin";
+  p.ronda++;
+}
+
+const PLAZA_REGLAS = {
+  nada: [ "Seguir como hasta ahora", "Cada uno pone lo que quiere." ],
+  multa: [ "Multar al que no pone", "Cualquier vecino puede pagar $1 para multar con $3 a quien ponga menos de $5." ],
+  tasa: [ "Tasa municipal obligatoria", "La municipalidad cobra $10 por ronda a cada vecino y arma la plaza." ]
+};
+
+function renderPlazaU3() {
+  const p = state.plaza || (state.plaza = { ronda: 1, aporte: 10, hist: [], total: 0, regla: null, fase: "juego" });
+  const ult = p.hist[p.hist.length - 1];
+  const tabla = p.hist.length ? `<table class="matriz" style="margin-top:10px;"><tr><th>Ronda</th><th>Vos</th><th>Rosa</th><th>Polizón</th><th>Ramiro</th><th>Ganaste</th></tr>${p.hist.map(h => `<tr><td>${h.ronda}</td><td>$${h.vos}</td><td>$${h.rosa}</td><td>$${h.poli}</td><td>$${h.ramiro}</td><td>${pesos(h.gVos, 1)}</td></tr>`).join("")}</table>` : "";
+  const dialogo = dialogoHTML([
+    { tipo: "mujer", quien: "Doña Rosa", rol: ult ? `puso $${ult.rosa}` : "vecina", dice: "La plaza es para los chicos del barrio." },
+    { tipo: "sombrero", quien: "El Polizón", rol: ult ? `puso $${ult.poli}` : "vecino", dice: p.regla === "multa" || p.regla === "tasa" ? "Bueno, si no hay otra, pongo." : "Si la hacen igual, ¿para qué voy a poner?" },
+    { tipo: "anteojos", quien: "Ramiro", rol: ult ? `puso $${ult.ramiro}` : "vecino", dice: "Yo pongo lo que pone el resto." }
+  ]);
+  const reglas = `<div class="card"><p class="sub" style="margin:0;">Cuatro vecinos quieren armar una plaza. En cada ronda cada uno tiene <strong>$10</strong> y decide cuánto pone. Lo que se junta se multiplica por ${fmt(PLAZA_MULT, 1)} (la plaza vale más que la plata suelta) y se reparte en partes iguales. Si todos ponen todo, cada uno se lleva $16; si vos no ponés y los demás sí, te llevás $22.</p></div>`;
+  if (p.fase === "asamblea") {
+    return `${reglas}<div class="card">${plazaSVG(p.total)}</div><div class="card"><h3 style="font-size:15px;margin-bottom:6px;">Asamblea de vecinos</h3><p class="sub" style="margin:0 0 10px;">Pasaron ${PLAZA_ASAMBLEA} rondas. ¿Qué regla votás para las que quedan?</p><div class="options">${Object.entries(PLAZA_REGLAS).map(([k, [t, d]]) => `<button class="opt" data-plaza-regla="${k}"><strong>${t}.</strong> ${d}</button>`).join("")}</div></div>${tabla}`;
+  }
+  if (p.fase === "fin") {
+    const prom = arr => arr.length ? arr.reduce((a, h) => a + h.vos + h.rosa + h.poli + h.ramiro, 0) / (arr.length * 4) : 0;
+    const antes = p.hist.slice(0, PLAZA_ASAMBLEA), despues = p.hist.slice(PLAZA_ASAMBLEA);
+    const gVos = p.hist.reduce((a, h) => a + h.gVos, 0), gPoli = p.hist.reduce((a, h) => a + h.gPoli, 0);
+    const hechas = PLAZA_HITOS.filter(([u]) => p.total >= u).map(([, n]) => n);
+    const txtRegla = { nada: "Sin regla, el Polizón siguió sin poner y la plaza avanzó lento: es el problema del <strong>polizón</strong>, que aparece con todo bien público.", multa: "Con multas, poner pasó a convenir. En los experimentos de laboratorio pasa algo parecido: cuando los participantes pueden castigar a los que no aportan, aunque les cueste, los aportes se sostienen (Fehr y Gächter, 2000).", tasa: "Con la tasa, todos ponen y la plaza se completa. Es la <strong>función de asignación</strong> de Musgrave: el Estado provee el bien público y lo financia con impuestos, porque el mercado solo no lo haría." }[p.regla];
+    return `${reglas}<div class="card">${plazaSVG(p.total)}</div>${datos([ [ "Aporte promedio, rondas 1 a 4", pesos(prom(antes), 1) ], [ "Aporte promedio con la regla", pesos(prom(despues), 1) ], [ "Ganaste en total", pesos(gVos, 1) ], [ "Ganó el Polizón", pesos(gPoli, 1) ] ])}<div class="feedback ok"><strong>${hechas.length ? "La plaza tiene " + hechas.join(", ") + "." : "La plaza quedó en terreno baldío."}</strong> ${txtRegla} Fijate quién ganó más: el Polizón disfruta de la plaza igual que todos sin haber puesto, porque de un bien público no se puede excluir a nadie.</div>${tabla}<button class="btn secondary block" data-plaza-reiniciar="1" style="margin-top:10px;">Jugar de nuevo</button>`;
+  }
+  const fija = p.regla === "tasa";
+  return `${reglas}<div class="card">${plazaSVG(p.total)}${dialogo}</div><div class="card"><div class="eyebrow">Ronda ${p.ronda} de ${PLAZA_RONDAS}${p.regla ? " · Regla: " + PLAZA_REGLAS[p.regla][0].toLowerCase() : ""}</div>${fija ? `<p style="margin:6px 0 10px;">La tasa municipal te cobra $10 esta ronda.</p>` : `<label class="sim-lbl sim-lbl-fila" style="margin-top:8px;">Cuánto ponés <span class="mono" id="plaza-val">$${p.aporte}</span></label><input type="range" id="plaza-aporte" min="0" max="10" step="1" value="${p.aporte}">`}<button class="btn block" data-plaza-poner="1">${fija ? "Pagar la tasa" : "Poner la plata"}</button>${ult && ult.multaVos ? `<div class="feedback bad">Pusiste menos de $5 y Rosa y Ramiro te multaron: perdiste $${ult.multaVos} (a ellos les costó $${ult.costoMulta}).</div>` : ""}</div>${tabla}`;
+}
+
+function bindPlazaU3() {
+  const r = document.getElementById("plaza-aporte");
+  if (r) r.oninput = () => {
+    state.plaza.aporte = +r.value;
+    document.getElementById("plaza-val").textContent = "$" + r.value;
+  };
+  const poner = document.querySelector("[data-plaza-poner]");
+  if (poner) poner.onclick = () => { jugarRondaPlaza(); refreshUnidad(); };
+  document.querySelectorAll("[data-plaza-regla]").forEach(b => {
+    b.onclick = () => { state.plaza.regla = b.dataset.plazaRegla; state.plaza.fase = "juego"; refreshUnidad(); };
+  });
+  const re = document.querySelector("[data-plaza-reiniciar]");
+  if (re) re.onclick = () => { state.plaza = null; refreshUnidad(); };
+}
+
 const ULTIMATUM_RONDAS = 3;
 
 const umbralesUltimatum = () => Array.from({
@@ -5116,6 +5206,11 @@ const CONTENIDO_UNIDAD = {
       desc: "Repartí una torta y descubrí que la gente no siempre actúa 100% racional",
       render: renderUltimatumU3
     }, {
+      id: "plaza",
+      titulo: "La plaza del barrio",
+      desc: "Un bien público, cuatro vecinos y un polizón",
+      render: renderPlazaU3
+    }, {
       id: "elasticidad",
       titulo: "¿Sube o baja el gasto total?",
       desc: "Casos de elasticidad-precio de la demanda",
@@ -5635,6 +5730,7 @@ function bindUnidad() {
   bindSim();
   bindMonopolioU3();
   bindExternalidadesU3();
+  bindPlazaU3();
   bindEquilibrioU3();
   bindUnirU3();
   bindViajeU2();

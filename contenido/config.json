@@ -276,6 +276,12 @@
           "visible": true
         },
         {
+          "id": "plaza",
+          "titulo": "La plaza del barrio",
+          "descripcion": "Un bien público, cuatro vecinos y un polizón",
+          "visible": true
+        },
+        {
           "id": "elasticidad",
           "titulo": "¿Sube o baja el gasto total?",
           "descripcion": "Casos de elasticidad-precio de la demanda",
