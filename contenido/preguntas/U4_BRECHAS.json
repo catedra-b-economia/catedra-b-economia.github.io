@@ -44,7 +44,7 @@
         "Ninguna de las tres brechas"
       ],
       "correcta": 3,
-      "explicacion": ""
+      "explicacion": "Gastar más de lo que se recauda es la brecha fiscal, sin importar cómo se financie. La emisión de deuda es la forma de cubrirla, no otra brecha distinta."
     },
     {
       "texto": "Un país que exporta mucho más de lo que importa presenta",
@@ -55,7 +55,7 @@
         "Un superávit en su brecha externa"
       ],
       "correcta": 4,
-      "explicacion": ""
+      "explicacion": "Si las exportaciones superan a las importaciones, la brecha externa es positiva: el país le vende al resto del mundo más de lo que le compra y, en términos netos, le presta. No implica nada automático sobre las cuentas del Estado ni sobre el ahorro privado."
     },
     {
       "texto": "Que las tres brechas (ahorro privado, fiscal y externa) estén relacionadas entre sí en la contabilidad nacional significa, entre otras cosas, que",

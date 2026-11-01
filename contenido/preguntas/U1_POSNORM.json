@@ -8,62 +8,62 @@
     {
       "texto": "Según el INDEC, la pobreza medida por ingresos bajó respecto del semestre anterior.",
       "correcta": 1,
-      "explicacion": ""
+      "explicacion": "Es positiva: describe un dato que se puede chequear contra las estadísticas del INDEC. Que la pobreza baje es algo que se mide, no una opinión."
     },
     {
       "texto": "Un aumento del salario mínimo por encima del equilibrio reduce el empleo formal.",
       "correcta": 1,
-      "explicacion": ""
+      "explicacion": "Es positiva aunque sea discutida: afirma una relación de causa y efecto que se puede contrastar con datos de empleo. Una afirmación puede ser positiva y estar equivocada; lo que la hace positiva es que se puede poner a prueba."
     },
     {
       "texto": "El sistema tributario argentino es demasiado regresivo para una sociedad justa.",
       "correcta": 2,
-      "explicacion": ""
+      "explicacion": "Es normativa: \"demasiado\" y \"sociedad justa\" son juicios de valor. Que el sistema sea regresivo se puede medir; que lo sea \"demasiado\" depende de qué consideres justo."
     },
     {
       "texto": "Un impuesto al consumo recae proporcionalmente más sobre los hogares de bajos ingresos.",
       "correcta": 1,
-      "explicacion": ""
+      "explicacion": "Es positiva: describe sobre quién recae el impuesto en proporción a su ingreso, algo que se calcula con datos de consumo e ingresos de los hogares."
     },
     {
       "texto": "Conviene tolerar algo más de inflación si con eso se consigue bajar el desempleo.",
       "correcta": 2,
-      "explicacion": ""
+      "explicacion": "Es normativa: \"conviene\" esconde una valoración. Decide que bajar el desempleo vale más que la inflación extra, y esa ponderación es una elección, no un dato."
     },
     {
       "texto": "Eliminar los subsidios a la energía reduciría el déficit fiscal en el corto plazo.",
       "correcta": 1,
-      "explicacion": ""
+      "explicacion": "Es positiva: es una predicción sobre las cuentas públicas que se puede verificar con los números del presupuesto. No dice si eliminarlos está bien o mal."
     },
     {
       "texto": "Subsidiarle la energía a los hogares más ricos es un uso injusto de los recursos.",
       "correcta": 2,
-      "explicacion": ""
+      "explicacion": "Es normativa: el adjetivo \"injusto\" es un juicio de valor. Cuánto subsidio reciben los hogares ricos se mide; que sea injusto se argumenta."
     },
     {
       "texto": "Cuando se emite más dinero del que la gente quiere mantener, los precios tienden a subir.",
       "correcta": 1,
-      "explicacion": ""
+      "explicacion": "Es positiva: enuncia una relación entre dinero y precios que se puede contrastar con la evidencia. No dice si emitir es bueno o malo."
     },
     {
       "texto": "En los países con mayor desigualdad se observa menor movilidad social entre generaciones.",
       "correcta": 1,
-      "explicacion": ""
+      "explicacion": "Es positiva: es una regularidad que se observa comparando datos de distintos países. Afirma lo que se ve, no lo que debería pasar."
     },
     {
       "texto": "Una sociedad más igualitaria es una sociedad mejor.",
       "correcta": 2,
-      "explicacion": ""
+      "explicacion": "Es normativa: \"mejor\" es un juicio de valor puro. Dos personas pueden estar de acuerdo en todos los datos sobre igualdad y discrepar en esta frase."
     },
     {
       "texto": "Emitir para financiar el déficit es el peor error que puede cometer un gobierno.",
       "correcta": 2,
-      "explicacion": ""
+      "explicacion": "Es normativa: \"el peor error\" es una valoración. Las consecuencias de emitir se pueden estudiar; calificarlas como el peor error depende de qué se priorice."
     },
     {
       "texto": "Entre 2003 y 2015 el empleo registrado creció más rápido que el no registrado.",
       "correcta": 1,
-      "explicacion": ""
+      "explicacion": "Es positiva: compara dos tasas de crecimiento que se pueden chequear con las series de empleo. Si es cierta o no se resuelve con datos, no con valores."
     }
   ]
 }

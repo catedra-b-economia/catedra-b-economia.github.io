@@ -33,8 +33,6 @@
   .eyebrow-crest::before{ content:"B"; display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; background:var(--blue); color:#fff; font-weight:900; font-size:11px; border-radius:2px; flex-shrink:0; }
   h1{ font-size:27px; margin-bottom:6px; line-height:1.25; }
   .sub{ font-size:14px; color:var(--ink-soft); margin-bottom:22px; }
-  .tile{ display:flex; align-items:center; justify-content:space-between; gap:10px; width:100%; text-align:left; padding:16px 18px; margin-bottom:10px; border:1px solid var(--rule); border-radius:var(--radius-lg); background:var(--bg); color:var(--ink); }
-  .tile:hover{ border-color:var(--blue); }
   .path{ position:relative; }
   .node{ display:flex; align-items:center; gap:14px; position:relative; margin-bottom:10px; padding:14px 16px; border-radius:var(--radius); background:var(--bg); border:1px solid var(--rule); border-left:3px solid var(--rule); transition:border-color 150ms ease, background 150ms ease; }
   .node.clickable{ cursor:pointer; border-left-color:var(--blue); }
@@ -55,7 +53,6 @@
   .btn.block{ display:block; width:100%; text-align:center; }
   .btn.secondary{ background:#fff; color:var(--blue); border:1px solid var(--blue); }
   .btn.secondary:hover{ background:var(--blue-soft); }
-  .btn.gold{ background:var(--blue); }
   .btn:disabled{ opacity:0.45; }
   input[type=text], textarea{ font-family:inherit; font-size:13.5px; padding:10px 12px; border:1px solid var(--rule); border-radius:var(--radius); width:100%; margin-bottom:8px; background:#fff; color:var(--ink); }
   input[type=text]:focus, textarea:focus{ outline:none; border-color:var(--blue); box-shadow:0 0 0 3px var(--blue-soft); }
@@ -67,25 +64,8 @@
   input[type=range]::-moz-range-track{ height:5px; border-radius:3px; background:var(--bg-elevated); }
   input[type=range]::-moz-range-thumb{ width:26px; height:26px; border-radius:50%; background:var(--blue); box-shadow:0 1px 3px rgba(0,0,0,0.25); cursor:pointer; border:3px solid #fff; }
   input[type=range]:disabled{ opacity:0.5; }
-  label.check{ display:flex; align-items:center; gap:6px; font-size:13px; margin-right:14px; color:var(--ink-soft); }
-  label.check input[type=checkbox]{ accent-color:var(--blue); width:16px; height:16px; }
-  .admin-row{ border:1px solid var(--rule); border-radius:var(--radius-lg); padding:14px 16px; margin-bottom:10px; background:var(--bg); }
-  .checks{ display:flex; flex-wrap:wrap; gap:4px 0; margin:10px 0; }
-  .footlink{ font-size:12.5px; color:var(--ink-soft); text-align:center; margin-top:20px; }
-  .footlink button{ background:none; border:none; color:var(--blue); text-decoration:none; font-size:12.5px; font-weight:700; }
-  .footlink a{ color:var(--blue); text-decoration:none; font-weight:700; }
   .note{ font-size:12.5px; color:var(--ink-soft); background:var(--bg-soft); border:1px solid var(--rule); border-radius:var(--radius); padding:10px 12px; margin-bottom:14px; }
-  .disclaimer{ font-size:12.5px; color:var(--ocre); background:var(--ocre-soft); border:1px solid rgba(183,121,31,0.3); border-radius:var(--radius); padding:10px 12px; margin-bottom:16px; line-height:1.5; }
   .aviso{ background:var(--blue-soft); border:1px solid rgba(50,114,185,0.25); border-left:4px solid var(--blue); border-radius:var(--radius); padding:14px 16px; margin-bottom:20px; color:var(--blue-dark); font-weight:700; font-size:15px; line-height:1.45; }
-  .grid-comisiones{ display:grid; grid-template-columns:repeat(auto-fill, minmax(210px, 1fr)); gap:10px; margin-bottom:20px; }
-  .ccard{ background:var(--bg); border:1px solid var(--rule); border-radius:var(--radius-lg); padding:16px; text-align:left; display:flex; flex-direction:column; gap:6px; color:var(--ink); }
-  .ccard:hover{ border-color:var(--blue); }
-  .ccard-status{ display:flex; align-items:center; gap:6px; font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-soft); font-weight:700; }
-  .ccard-dot{ width:7px; height:7px; border-radius:50%; background:var(--ink-soft); flex-shrink:0; }
-  .ccard-dot.on{ background:var(--verde); }
-  .ccard-name{ font-weight:900; font-size:17px; color:var(--blue); }
-  .ccard-doc{ font-size:12.5px; color:var(--ink-soft); }
-  .live{ display:inline-flex; align-items:center; gap:5px; }
   .list-item{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 16px; border:1px solid var(--rule); border-radius:var(--radius-lg); background:var(--bg); margin-bottom:8px; width:100%; text-align:left; color:var(--ink); transition:border-color 150ms ease; }
   .list-item:hover{ border-color:var(--blue); }
   .list-item .title{ font-weight:700; font-size:14.5px; }
@@ -100,12 +80,6 @@
   .feedback{ border-radius:var(--radius); padding:12px 14px; font-size:13.5px; line-height:1.55; margin-bottom:12px; border-left:3px solid; }
   .feedback.ok{ background:var(--verde-soft); border-color:var(--verde); color:var(--ink); }
   .feedback.bad{ background:var(--rojo-soft); border-color:var(--rojo); color:var(--ink); }
-  .badge-soon{ display:inline-block; font-size:10px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-soft); background:var(--bg-elevated); border:1px solid var(--rule); border-radius:3px; padding:2px 6px; margin-left:8px; vertical-align:middle; font-weight:700; }
-  .googlebtn{ display:flex; align-items:center; justify-content:center; gap:10px; width:100%; background:#fff; color:#1F1F1F; border:1px solid var(--rule); border-radius:var(--radius); padding:13px 16px; font-size:14px; font-weight:700; }
-  .googlebtn:hover{ border-color:var(--blue); background:var(--bg-soft); }
-  .userbar button{ background:none; border:none; color:var(--blue); text-decoration:none; font-size:12px; font-weight:700; flex-shrink:0; }
-  .video-wrap{ position:relative; width:100%; padding-top:56.25%; background:var(--bg-elevated); border-radius:var(--radius-lg); overflow:hidden; margin-bottom:10px; border:1px solid var(--rule); }
-  .video-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; }
   .flujo-zonas{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; margin-bottom:14px; }
   .flujo-zona{ min-height:110px; border:2px dashed var(--rule); border-radius:var(--radius); padding:8px; background:var(--bg-soft); transition:border-color 120ms ease, background 120ms ease; }
   .flujo-zona.sobre{ border-color:var(--blue); border-style:solid; background:var(--blue-soft); }
@@ -116,11 +90,9 @@
   .flujo-chip.correcta{ border-color:var(--verde); background:var(--verde-soft); cursor:default; }
   .flujo-chip.incorrecta{ border-color:var(--rojo); background:var(--rojo-soft); cursor:default; animation:sacudir 300ms; }
   .flujo-chip.colocada{ width:100%; }
+  .flujo-chip.sel{ border-color:var(--blue); box-shadow:0 0 0 2px var(--blue); }
+  .flujo-zona.elegible{ cursor:pointer; border-color:var(--blue); }
   @keyframes sacudir{ 0%,100%{transform:translateX(0);} 25%{transform:translateX(-4px);} 75%{transform:translateX(4px);} }
-  .valor-fila{ display:flex; align-items:center; gap:10px; margin-bottom:14px; }
-  .valor-fila .valor-label{ flex:1; font-size:13.5px; }
-  .valor-fila input[type=range]{ width:110px; flex-shrink:0; }
-  .valor-fila .valor-num{ width:24px; text-align:right; font-size:13px; font-weight:900; flex-shrink:0; color:var(--blue); }
   .matriz{ border-collapse:collapse; width:100%; font-size:12px; text-align:center; margin-bottom:6px; color:var(--ink); }
   .matriz th, .matriz td{ border:1px solid var(--rule); padding:8px 6px; }
   .matriz th{ background:var(--bg-elevated); font-weight:700; font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.03em; }
@@ -430,10 +402,6 @@ function seccionesDeUnidad(unidadId) {
   return u && u.secciones ? u.secciones : [];
 }
 
-function bancoActivo(id, porDefecto) {
-  return porDefecto;
-}
-
 function iniciarQuiz(key, items, regenerar) {
   state.quiz = {
     key: key,
@@ -516,8 +484,7 @@ const comoOpcionMultiple = {
     opciones: [ "Igualdad de resultados", "Igualdad de oportunidades" ],
     correcta: it.tipo === "resultados" ? 0 : 1,
     explicacion: it.explicacion
-  })),
-  directo: banco => banco
+  }))
 };
 
 const U1_REPASO = BANCOS.U1_REPASO;
@@ -539,7 +506,7 @@ const U1_EFEQ = BANCOS.U1_EFEQ;
 const U1_IGUALDAD = BANCOS.U1_IGUALDAD;
 
 function renderIgualdadU1() {
-  if (!state.quiz || state.quiz.key !== "I-igualdad") iniciarQuiz("I-igualdad", comoOpcionMultiple.igualdad(bancoActivo("U1_IGUALDAD", U1_IGUALDAD)));
+  if (!state.quiz || state.quiz.key !== "I-igualdad") iniciarQuiz("I-igualdad", comoOpcionMultiple.igualdad(U1_IGUALDAD));
   return `\n      <div class="card">\n        <h3 style="font-size:15px; margin-bottom:8px;">Antes de empezar</h3>\n        <p style="margin-top:0;">Cuando alguien dice "hay que reducir la desigualdad", casi nunca aclara <strong>desigualdad de qué</strong>. Y ahí se esconden dos ideas muy distintas:</p>\n        <p style="margin:0 0 8px;"><strong style="color:var(--blue);">Igualdad de resultados</strong> — que el punto de llegada sea parecido. El caso extremo: que un médico y un recolector de residuos cobren exactamente lo mismo.</p>\n        <p style="margin:0 0 8px;"><strong style="color:var(--blue);">Igualdad de oportunidades</strong> — que el punto de partida sea parecido, y que después cada uno llegue donde llegue. El caso típico: que dos chicos con el mismo talento tengan la misma chance real de estudiar, más allá del hogar en el que nacieron.</p>\n        <p class="sub" style="margin:10px 0 0;">Casi nadie defiende la igualdad de resultados total (elimina el premio al esfuerzo y a la formación), y casi nadie se opone del todo a la igualdad de oportunidades. La discusión interesante está en el medio: cuánto de la desigualdad que vemos viene de decisiones y cuánto de circunstancias que nadie eligió. Gasparini agrega una vuelta más: ni siquiera la igualdad de oportunidades alcanza, porque hace falta además que el juego que se juega sea aceptable.</p>\n      </div>\n      <div class="card" style="background:var(--bg-soft);">\n        <p style="margin:0; font-size:13.5px;"><strong>Tu turno:</strong> para cada situación, decidí si se está buscando igualar <strong>resultados</strong> o <strong>oportunidades</strong>.</p>\n      </div>\n      ${renderQuiz()}`;
 }
 
@@ -794,14 +761,22 @@ function renderFlujoU1() {
   const completado = enBandeja.length === 0 && FLUJO_ITEMS.every(it => s.estado[it.id] === "correcta");
   const zonas = FLUJO_ZONAS.map(z => {
     const colocadas = FLUJO_ITEMS.filter(it => s.estado[it.id] === "correcta" && it.zona === z.id);
-    return `\n        <div class="flujo-zona" data-zona="${z.id}">\n          <div class="zona-titulo">${z.nombre}</div>\n          ${colocadas.map(it => `<div class="flujo-chip colocada correcta">${it.texto}</div>`).join("")}\n        </div>`;
+    return `\n        <div class="flujo-zona ${s.sel ? "elegible" : ""}" data-zona="${z.id}">\n          <div class="zona-titulo">${z.nombre}</div>\n          ${colocadas.map(it => `<div class="flujo-chip colocada correcta">${it.texto}</div>`).join("")}\n        </div>`;
   }).join("");
-  const bandeja = enBandeja.length ? `<div class="flujo-bandeja">${enBandeja.map(it => `<div class="flujo-chip ${s.estado[it.id] === "incorrecta" ? "incorrecta" : ""}" data-flujo-chip="${it.id}">${it.texto}</div>`).join("")}</div>` : "";
-  return `\n      <div class="card">\n        <p style="margin-top:0;">Cada tarjeta describe algo que hacés vos o tu familia. Arrastrala hasta la zona del actor con el que ese flujo se relaciona: ¿le pagás o le comprás a una <strong>empresa</strong>, es una operación con el <strong>Estado</strong>, o es un intercambio con el <strong>resto del mundo</strong>?</p>\n      </div>\n      <div class="flujo-zonas">${zonas}</div>\n      ${bandeja}\n      ${completado ? `<div class="feedback ok">¡Completo! Esto es una versión simplificada del flujo circular del ingreso: la plata y los bienes circulan todo el tiempo entre las familias y estos tres actores — por eso ninguno de los tres "sobra" en el modelo.</div>` : `<div class="note">Tocá y arrastrá una tarjeta hasta la zona correcta. Si te equivocás, vuelve a la bandeja para que la reintentes.</div>`}\n    `;
+  const bandeja = enBandeja.length ? `<div class="flujo-bandeja">${enBandeja.map(it => `<div class="flujo-chip ${s.estado[it.id] === "incorrecta" ? "incorrecta" : ""} ${s.sel === it.id ? "sel" : ""}" data-flujo-chip="${it.id}">${it.texto}</div>`).join("")}</div>` : "";
+  return `\n      <div class="card">\n        <p style="margin-top:0;">Cada tarjeta describe algo que hacés vos o tu familia. Arrastrala hasta la zona del actor con el que ese flujo se relaciona: ¿le pagás o le comprás a una <strong>empresa</strong>, es una operación con el <strong>Estado</strong>, o es un intercambio con el <strong>resto del mundo</strong>?</p>\n      </div>\n      <div class="flujo-zonas">${zonas}</div>\n      ${bandeja}\n      ${completado ? `<div class="feedback ok">¡Completo! Esto es una versión simplificada del flujo circular del ingreso: la plata y los bienes circulan todo el tiempo entre las familias y estos tres actores — por eso ninguno de los tres "sobra" en el modelo.</div>` : `<div class="note">Arrastrá una tarjeta hasta la zona correcta, o tocá la tarjeta y después la zona. Si te equivocás, vuelve a la bandeja para que la reintentes.</div>`}\n    `;
+}
+
+function colocarFlujo(itemId, zonaId) {
+  const item = FLUJO_ITEMS.find(it => it.id === itemId);
+  state.flujo.estado[itemId] = zonaId === item.zona ? "correcta" : "incorrecta";
+  state.flujo.sel = null;
+  refreshUnidad();
 }
 
 function iniciarDragFlujo(chipEl, pointerEvent, itemId) {
   const rect = chipEl.getBoundingClientRect();
+  const x0 = pointerEvent.clientX, y0 = pointerEvent.clientY;
   const offsetX = pointerEvent.clientX - rect.left, offsetY = pointerEvent.clientY - rect.top;
   chipEl.setPointerCapture(pointerEvent.pointerId);
   chipEl.classList.add("arrastrando");
@@ -816,22 +791,30 @@ function iniciarDragFlujo(chipEl, pointerEvent, itemId) {
     const zona = abajo && abajo.closest(".flujo-zona");
     if (zona) zona.classList.add("sobre");
   }
-  function soltar(e) {
+  function terminar() {
     chipEl.removeEventListener("pointermove", mover);
     chipEl.removeEventListener("pointerup", soltar);
+    chipEl.removeEventListener("pointercancel", cancelar);
     document.querySelectorAll(".flujo-zona").forEach(z => z.classList.remove("sobre"));
+  }
+  function cancelar() {
+    terminar();
+    refreshUnidad();
+  }
+  function soltar(e) {
+    terminar();
+    if (Math.hypot(e.clientX - x0, e.clientY - y0) < 6) {
+      state.flujo.sel = state.flujo.sel === itemId ? null : itemId;
+      refreshUnidad();
+      return;
+    }
     const abajo = document.elementFromPoint(e.clientX, e.clientY);
     const zonaEl = abajo && abajo.closest(".flujo-zona");
-    const item = FLUJO_ITEMS.find(it => it.id === itemId);
-    if (zonaEl && zonaEl.dataset.zona === item.zona) {
-      state.flujo.estado[itemId] = "correcta";
-    } else if (zonaEl) {
-      state.flujo.estado[itemId] = "incorrecta";
-    }
-    refreshUnidad();
+    if (zonaEl) colocarFlujo(itemId, zonaEl.dataset.zona); else refreshUnidad();
   }
   chipEl.addEventListener("pointermove", mover);
   chipEl.addEventListener("pointerup", soltar);
+  chipEl.addEventListener("pointercancel", cancelar);
 }
 
 const INDICES_TABLA = `\n    <table class="tabla-datos">\n      <tr><th></th><th>Cantidad<br>año base</th><th>Precio<br>año base</th><th>Cantidad<br>año actual</th></tr>\n      <tr><td>Yerba mate</td><td>400 kg</td><td>$5 / kg</td><td>600 kg</td></tr>\n      <tr><td>Té</td><td>200 kg</td><td>$10 / kg</td><td>100 kg</td></tr>\n      <tr class="destacada"><td>Valor total</td><td colspan="2">$4.000 (año base)</td><td>$5.200 (ventas actuales)</td></tr>\n    </table>\n    <p class="sub" style="margin:8px 0 0;">La producción de yerba creció 50% y la de té bajó a la mitad. Las ventas totales del año actual fueron $5.200.</p>`;
@@ -839,7 +822,7 @@ const INDICES_TABLA = `\n    <table class="tabla-datos">\n      <tr><th></th><th
 const U1_INDICES = BANCOS.U1_INDICES;
 
 function renderIndicesU1() {
-  if (!state.quiz || state.quiz.key !== "I-indices") iniciarQuiz("I-indices", bancoActivo("U1_INDICES", U1_INDICES));
+  if (!state.quiz || state.quiz.key !== "I-indices") iniciarQuiz("I-indices", U1_INDICES);
   return `\n      <div class="card">\n        <p style="margin-top:0;">Una cooperativa de Misiones <strong>alquila un secadero</strong> y produce yerba mate y té. El contrato de alquiler dice que el monto a pagar se ajusta cada año según un índice de precios que toma en cuenta esos dos bienes.</p>\n        ${INDICES_TABLA}\n      </div>\n      <div class="card" style="background:var(--bg-soft);">\n        <p style="margin:0 0 6px; font-weight:700;">Las dos fórmulas</p>\n        <p style="margin:0 0 4px; font-size:13.5px;"><strong>Laspeyres</strong> = Σ(p₁ · q₀) / Σ(p₀ · q₀) → canasta del <strong>año base</strong></p>\n        <p style="margin:0; font-size:13.5px;"><strong>Paasche</strong> = Σ(p₁ · q₁) / Σ(p₀ · q₁) → canasta del <strong>año actual</strong></p>\n      </div>\n      ${renderQuiz()}`;
 }
 
@@ -848,7 +831,7 @@ const COSTOP_TABLA = `\n    <table class="tabla-datos">\n      <tr><th>Horas de 
 const U1_COSTOP = BANCOS.U1_COSTOP;
 
 function renderCostoOportunidadU1() {
-  if (!state.quiz || state.quiz.key !== "I-costop") iniciarQuiz("I-costop", bancoActivo("U1_COSTOP", U1_COSTOP));
+  if (!state.quiz || state.quiz.key !== "I-costop") iniciarQuiz("I-costop", U1_COSTOP);
   return `\n      <div class="card">\n        <p style="margin-top:0;"><strong>Invernalia</strong> y <strong>Desembarco del Rey</strong> son dos países vecinos y de tamaño parecido: los dos disponen de 240 horas de trabajo. En Invernalia siempre se consideraron productivamente superiores, y por eso no quieren comerciar con su vecino.</p>\n        ${COSTOP_TABLA}\n      </div>\n      ${renderQuiz()}`;
 }
 
@@ -897,12 +880,14 @@ function renderDilemaU3() {
 
 const ULTIMATUM_RONDAS = 3;
 
-const ULTIMATUM_UMBRALES = [ 25, 45, 15 ];
+const umbralesUltimatum = () => Array.from({
+  length: ULTIMATUM_RONDAS
+}, () => 10 + Math.floor(Math.random() * 8) * 5);
 
 function jugarRondaUltimatum() {
   const s = state.ultimatum;
   if (!s || s.terminado) return;
-  const umbral = ULTIMATUM_UMBRALES[s.ronda - 1];
+  const umbral = s.umbrales[s.ronda - 1];
   const aceptado = s.oferta >= umbral;
   const jugadorGana = aceptado ? 100 - s.oferta : 0;
   const botGana = aceptado ? s.oferta : 0;
@@ -925,14 +910,15 @@ function renderUltimatumU3() {
     ronda: 1,
     oferta: 50,
     historial: [],
-    terminado: false
+    terminado: false,
+    umbrales: umbralesUltimatum()
   });
   const historial = s.historial.length ? `\n      <table class="matriz" style="margin-top:10px;">\n        <tr><th>Ronda</th><th>Ofreciste</th><th>Resultado</th><th>Ganaste</th></tr>\n        ${s.historial.map(h => `<tr><td>${h.ronda}</td><td>$${h.oferta}</td><td>${h.aceptado ? "Aceptó" : "Rechazó"}</td><td>$${h.jugadorGana}</td></tr>`).join("")}\n      </table>` : "";
   if (!s.terminado) {
     return `\n        <div class="card">\n          <p style="margin-top:0;">Tenés $100 para repartir con un compañero (la cátedra). Vos proponés cuánto le das; si lo acepta, cada uno se queda con su parte. Si lo rechaza, <strong>los dos se quedan con $0</strong>. Jugás ${ULTIMATUM_RONDAS} rondas con compañeros distintos.</p>\n          <div style="margin-top:14px;">\n            <label style="display:flex; justify-content:space-between; font-size:13px; margin-bottom:6px;"><span id="ultimatum-label">Le ofrecés <span class="mono">$${s.oferta}</span> (vos te quedás con $${100 - s.oferta})</span></label>\n            <input type="range" id="ultimatum-oferta" min="0" max="100" step="5" value="${s.oferta}">\n          </div>\n          <div class="eyebrow" style="margin-top:10px;">Ronda ${s.ronda} de ${ULTIMATUM_RONDAS}</div>\n          <button class="btn block" data-ultimatum-proponer="1" style="margin-top:8px;">Proponer</button>\n        </div>\n        ${historial}`;
   }
   const totalGanado = s.historial.reduce((acc, h) => acc + h.jugadorGana, 0);
-  return `\n      <div class="card">\n        <div class="eyebrow">Total que te llevaste: $${totalGanado}</div>\n      </div>\n      ${historial}\n      <div class="feedback ok" style="margin-top:12px;">\n        Si el otro fuera un "homo economicus" perfectamente racional y egoísta, debería aceptar cualquier oferta mayor a $0 (algo es mejor que nada), así que a vos te convendría ofrecer casi todo para vos. Pero en experimentos reales con personas, las ofertas muy bajas (menos del 20-30% del total) se rechazan con frecuencia, aunque eso signifique que el que rechaza también pierda su parte: la gente parece valorar la equidad de la repartición, no solo el resultado numérico. Es uno de los ejemplos clásicos que usa la economía del comportamiento para cuestionar el supuesto de racionalidad estrictamente egoísta de los modelos más simples.\n      </div>\n      <button class="btn secondary" data-ultimatum-reiniciar="1">Jugar de nuevo</button>\n    `;
+  return `\n      <div class="card">\n        <div class="eyebrow">Total que te llevaste: $${totalGanado}</div>\n      </div>\n      ${historial}\n      <div class="feedback ok" style="margin-top:12px;">\n        Si el otro fuera un "homo economicus" perfectamente racional y egoísta, debería aceptar cualquier oferta mayor a $0 (algo es mejor que nada), así que a vos te convendría quedarte con casi todo. Pero en experimentos reales con personas, las ofertas muy bajas (menos del 20-30% del total) se rechazan con frecuencia, aunque eso signifique que el que rechaza también pierda su parte: la gente parece valorar la equidad de la repartición, no solo el resultado numérico. Es uno de los ejemplos clásicos que usa la economía del comportamiento para cuestionar el supuesto de racionalidad estrictamente egoísta de los modelos más simples.\n      </div>\n      <button class="btn secondary" data-ultimatum-reiniciar="1">Jugar de nuevo</button>\n    `;
 }
 
 const U3_VF = BANCOS.U3_VF;
@@ -4624,22 +4610,27 @@ const CONTENIDO_UNIDAD = {
       id: "posnorm",
       titulo: "¿Positiva o normativa?",
       desc: "Clasificá afirmaciones a toda velocidad",
-      quiz: () => comoOpcionMultiple.posnorm(bancoActivo("U1_POSNORM", U1_POSNORM))
+      quiz: () => comoOpcionMultiple.posnorm(U1_POSNORM)
     }, {
       id: "vf",
       titulo: "Verdadero o falso",
       desc: "Definiciones, conceptos y alguna trampa de la unidad",
-      quiz: () => comoOpcionMultiple.vf(bancoActivo("U1_VF", U1_VF))
+      quiz: () => comoOpcionMultiple.vf(preparar(U1_VF, {
+        orden: true
+      }))
     }, {
       id: "repaso",
       titulo: "Preguntas de repaso",
       desc: "Aplicá los conceptos de la unidad a casos concretos",
-      quiz: () => bancoActivo("U1_REPASO", U1_REPASO)
+      quiz: () => preparar(U1_REPASO, {
+        orden: true,
+        opciones: true
+      })
     }, {
       id: "efeq",
       titulo: "¿Eficiencia o equidad?",
       desc: "Frente a cada argumento, reconocé de cuál de las dos se está hablando",
-      quiz: () => comoOpcionMultiple.efeq(bancoActivo("U1_EFEQ", U1_EFEQ))
+      quiz: () => comoOpcionMultiple.efeq(U1_EFEQ)
     }, {
       id: "lectura",
       titulo: "Test de lectura: Buchanan (1964)",
@@ -4650,12 +4641,12 @@ const CONTENIDO_UNIDAD = {
       id: "gasparini",
       titulo: "Test de lectura: Gasparini",
       desc: "Desigualdad, inequidad y igualdad de oportunidades",
-      render: () => renderLecturaGen("I-gasparini", U1_GASPARINI, "U1_GASPARINI", 'el texto de la Unidad I de L. Gasparini (2018), "Desigualdades aceptables e inaceptables" (capítulo 1 de <em>DesIguales</em>),')
+      render: () => renderLecturaGen("I-gasparini", U1_GASPARINI, 'el texto de la Unidad I de L. Gasparini (2018), "Desigualdades aceptables e inaceptables" (capítulo 1 de <em>DesIguales</em>),')
     }, {
       id: "fanelli",
       titulo: "Test de lectura: Fanelli",
       desc: "La anatomía del sistema económico: hardware, software y coordinación",
-      render: () => renderLecturaGen("I-fanelli", U1_FANELLI, "U1_FANELLI", "el capítulo 1 de J. M. Fanelli (2012), <em>La Argentina y el desarrollo económico en el siglo XXI</em>,")
+      render: () => renderLecturaGen("I-fanelli", U1_FANELLI, "el capítulo 1 de J. M. Fanelli (2012), <em>La Argentina y el desarrollo económico en el siglo XXI</em>,")
     }, {
       id: "mision",
       titulo: "Misiones: tomá la decisión",
@@ -4697,7 +4688,10 @@ const CONTENIDO_UNIDAD = {
       id: "frases",
       titulo: "Frases y teorías del valor",
       desc: "Qué teoría del valor hay detrás de cada cita famosa",
-      quiz: () => bancoActivo("U2_FRASES", U2_FRASES)
+      quiz: () => preparar(U2_FRASES, {
+        orden: true,
+        opciones: true
+      })
     }, {
       id: "valor",
       titulo: "¿Esto tiene valor?",
@@ -4727,7 +4721,9 @@ const CONTENIDO_UNIDAD = {
       id: "vf",
       titulo: "Verdadero o falso",
       desc: "Sistemas económicos y escuelas de pensamiento",
-      quiz: () => comoOpcionMultiple.vf(bancoActivo("U2_VF", U2_VF))
+      quiz: () => comoOpcionMultiple.vf(preparar(U2_VF, {
+        orden: true
+      }))
     }, {
       id: "mision",
       titulo: "Misiones: tomá la decisión",
@@ -4831,7 +4827,10 @@ const CONTENIDO_UNIDAD = {
       id: "elasticidad",
       titulo: "¿Sube o baja el gasto total?",
       desc: "Casos de elasticidad-precio de la demanda",
-      quiz: () => U3_ELASTICIDAD
+      quiz: () => preparar(U3_ELASTICIDAD, {
+        orden: true,
+        opciones: true
+      })
     }, {
       id: "aseguradora",
       titulo: "Armá tu aseguradora",
@@ -4853,7 +4852,9 @@ const CONTENIDO_UNIDAD = {
       id: "vf",
       titulo: "Verdadero o falso",
       desc: "Oferta, demanda, precios máximos y mínimos, elasticidad",
-      quiz: () => comoOpcionMultiple.vf(U3_VF)
+      quiz: () => comoOpcionMultiple.vf(preparar(U3_VF, {
+        orden: true
+      }))
     }, {
       id: "mision",
       titulo: "Misiones: tomá la decisión",
@@ -4894,7 +4895,10 @@ const CONTENIDO_UNIDAD = {
       id: "brechas",
       titulo: "Las tres brechas",
       desc: "Ahorro neto privado, público y externo",
-      quiz: () => U4_BRECHAS
+      quiz: () => preparar(U4_BRECHAS, {
+        orden: true,
+        opciones: true
+      })
     }, {
       id: "brechasreal",
       titulo: "Las tres brechas en la vida real",
@@ -4948,7 +4952,9 @@ const CONTENIDO_UNIDAD = {
       id: "vf",
       titulo: "Verdadero o falso",
       desc: "Identidades macro, multiplicador y tipo de cambio",
-      quiz: () => comoOpcionMultiple.vf(U4_VF)
+      quiz: () => comoOpcionMultiple.vf(preparar(U4_VF, {
+        orden: true
+      }))
     }, {
       id: "mision",
       titulo: "Sos el Banco Central",
@@ -5114,11 +5120,16 @@ function actualizarOkun() {
   if (v) v.textContent = (state.okun ?? 30) + "%";
 }
 
-function renderLecturaGen(key, banco, bancoId, cita) {
+function renderLecturaGen(key, banco, cita) {
   if (!state.lecturaIniciada) {
     return `<div class="card">\n        <p style="margin-top:0;">Antes de resolver: leé (o releé) ${cita} y después volvé acá a practicar.</p>\n        <button class="btn" data-lectura-start="1">Ya lo leí, empezar</button>\n      </div>`;
   }
-  if (!state.quiz || state.quiz.key !== key) iniciarQuiz(key, bancoActivo(bancoId, banco));
+  if (!state.quiz || state.quiz.key !== key) {
+    const generar = () => preparar(banco, {
+      opciones: true
+    });
+    iniciarQuiz(key, generar(), generar);
+  }
   return renderQuiz();
 }
 
@@ -5126,7 +5137,12 @@ function renderLecturaU1() {
   if (!state.lecturaIniciada) {
     return `<div class="card">\n        <p style="margin-top:0;">Antes de resolver: leé (o releé) el artículo de lectura motivacional de la Unidad I — J. Buchanan (1964), "¿Qué deberían hacer los economistas?" — y después volvé acá a practicar.</p>\n        <button class="btn" data-lectura-start="1">Ya lo leí, empezar</button>\n      </div>`;
   }
-  if (!state.quiz || state.quiz.key !== "I-lectura") iniciarQuiz("I-lectura", bancoActivo("U1_LECTURA", U1_LECTURA));
+  if (!state.quiz || state.quiz.key !== "I-lectura") {
+    const generar = () => preparar(U1_LECTURA, {
+      opciones: true
+    });
+    iniciarQuiz("I-lectura", generar(), generar);
+  }
   return renderQuiz();
 }
 
@@ -5276,6 +5292,11 @@ function bindUnidad() {
   });
   document.querySelectorAll("[data-flujo-chip]").forEach(chip => {
     chip.onpointerdown = e => iniciarDragFlujo(chip, e, chip.dataset.flujoChip);
+  });
+  document.querySelectorAll(".flujo-zona.elegible").forEach(z => {
+    z.onclick = () => {
+      if (state.flujo && state.flujo.sel) colocarFlujo(state.flujo.sel, z.dataset.zona);
+    };
   });
   document.querySelectorAll("[data-valor-si]").forEach(b => {
     b.onclick = () => {

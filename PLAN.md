@@ -193,21 +193,21 @@ Términos (unos 80):
 
 Los bancos ahora están en `contenido/preguntas/*.json`: las explicaciones faltantes se escriben ahí (o desde el panel); la mezcla se resuelve en el código.
 
-- [ ] **Gasparini y Fanelli se resuelven eligiendo la B:** la correcta es la segunda opción en 6 de 8 (`U1_GASPARINI`) y 5 de 8 (`U1_FANELLI`), sin mezclar. Usar `preparar(..., { opciones: true })` (también en Buchanan).
-- [ ] **Bancos que nunca se mezclan:** `U1_REPASO`, `U1_LECTURA`, `U2_FRASES`, `U3_ELASTICIDAD`, `U4_BRECHAS` y los V/F de I a IV. Envolver en `preparar(..., { orden: true, opciones: true })`; en V/F alcanza `{ orden: true }`.
-- [ ] **`U1_POSNORM` no tiene ninguna `explicacion`:** escribir una por afirmación (los adjetivos de valor escondidos).
-- [ ] **`U4_BRECHAS`: preguntas 4 y 5 sin explicación.**
-- [ ] **El arrastre del flujo circular se traba en el celular:** falta manejar `pointercancel`; la tarjeta queda flotando con la clase `arrastrando`. Escucharlo y limpiar como en `soltar`, sin evaluar zona.
-- [ ] **Ultimátum predecible:** umbrales fijos `[25, 45, 15]`; sortearlos por partida (10 a 45).
-- [ ] **Frase confusa en el cierre del ultimátum:** "ofrecer casi todo para vos" → "quedarte con casi todo".
-- [ ] **Accesibilidad del flujo circular:** sumar tocar tarjeta y después zona, como en "uní con flechas".
+- [x] **Gasparini y Fanelli se resuelven eligiendo la B:** la correcta es la segunda opción en 6 de 8 (`U1_GASPARINI`) y 5 de 8 (`U1_FANELLI`), sin mezclar. Usar `preparar(..., { opciones: true })` (también en Buchanan).
+- [x] **Bancos que nunca se mezclan:** `U1_REPASO`, `U1_LECTURA`, `U2_FRASES`, `U3_ELASTICIDAD`, `U4_BRECHAS` y los V/F de I a IV. Envolver en `preparar(..., { orden: true, opciones: true })`; en V/F alcanza `{ orden: true }`.
+- [x] **`U1_POSNORM` no tiene ninguna `explicacion`:** escribir una por afirmación (los adjetivos de valor escondidos).
+- [x] **`U4_BRECHAS`: preguntas 4 y 5 sin explicación.**
+- [x] **El arrastre del flujo circular se traba en el celular:** falta manejar `pointercancel`; la tarjeta queda flotando con la clase `arrastrando`. Escucharlo y limpiar como en `soltar`, sin evaluar zona.
+- [x] **Ultimátum predecible:** umbrales fijos `[25, 45, 15]`; sortearlos por partida (10 a 45).
+- [x] **Frase confusa en el cierre del ultimátum:** "ofrecer casi todo para vos" → "quedarte con casi todo".
+- [x] **Accesibilidad del flujo circular:** sumar tocar tarjeta y después zona, como en "uní con flechas".
 
 ### Limpieza de código
 
-- [ ] `bancoActivo()` no hace nada: reemplazar por el banco directo.
-- [ ] `comoOpcionMultiple.directo` no se usa.
+- [x] `bancoActivo()` no hace nada: reemplazar por el banco directo.
+- [x] `comoOpcionMultiple.directo` no se usa.
 - [x] Comentarios vacíos u huérfanos y el de "en construcción": resuelto al quitar todos los comentarios del `index.html` (las respuestas no deben quedar explicadas en el código).
-- [ ] CSS sin uso: `.tile`, `.googlebtn`, `.userbar`, `.admin-row`, `.grid-comisiones`, `.ccard*`, `.live`, `.video-wrap`, `.valor-fila`, `.badge-soon`, `.disclaimer`, `.btn.gold`, `.checks`, `label.check`, `.footlink`, y el comentario "Barra de progreso".
+- [x] CSS sin uso: `.tile`, `.googlebtn`, `.userbar`, `.admin-row`, `.grid-comisiones`, `.ccard*`, `.live`, `.video-wrap`, `.valor-fila`, `.badge-soon`, `.disclaimer`, `.btn.gold`, `.checks`, `label.check`, `.footlink`, y el comentario "Barra de progreso".
 
 ---
 
