@@ -596,6 +596,23 @@ content:
             label: Preguntas
             component: pregunta
             list: { collapsible: { collapsed: true, summary: "{index}. {fields.texto}" } }
+      - name: eph-fichas
+        label: "Sos encuestador de la EPH: fichas"
+        type: file
+        path: contenido/eph-fichas.json
+        format: json
+        fields:
+          - name: fichas
+            label: Fichas
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{fields.nombre}, {fields.edad}" } }
+            fields:
+              - { name: nombre, label: Nombre, type: string, required: true }
+              - { name: edad, label: Edad, type: number }
+              - { name: dice, label: Lo que cuenta, type: text, required: true }
+              - { name: estado, label: Respuesta correcta, type: select, required: true, options: { values: [ocupado, desocupado, inactivo] } }
+              - { name: subocupado, label: "Es subocupado (solo si está ocupado)", type: boolean }
+              - { name: explicacion, label: Explicación, type: text }
       - name: misiones-4
         label: "Misiones: tomá la decisión"
         type: file

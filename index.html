@@ -311,12 +311,14 @@ const DESDE_OPCION = {
 
 const NOMBRES_BANCOS = [ "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U3_REGULADOR", "U3_EXTERNALIDADES", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
 
-const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
+const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
   actividades: []
 }), leerJSON("contenido/glosario.json", {
   terminos: []
 }), leerJSON("contenido/unir-fallas.json", {
   fallas: []
+}), leerJSON("contenido/eph-fichas.json", {
+  fichas: []
 }), ...[ 1, 2, 3, 4 ].map(u => leerJSON(`contenido/misiones/U${u}.json`, {
   misiones: []
 })), ...NOMBRES_BANCOS.map(n => leerJSON(`contenido/preguntas/${n}.json`, {
@@ -1136,6 +1138,84 @@ const U3_ELASTICIDAD = BANCOS.U3_ELASTICIDAD;
 const U3_MISIONES = MISIONES.U3;
 
 const U4_MISIONES = MISIONES.U4;
+
+
+const EPH_ESTADOS = [ [ "ocupado", "Ocupado" ], [ "desocupado", "Desocupado" ], [ "inactivo", "Inactivo" ] ];
+
+const EPH_FICHAS = ((EPH_DATOS && EPH_DATOS.fichas) || []).filter(f => lleno(f.nombre) && EPH_ESTADOS.some(([k]) => k === f.estado));
+
+const INTRO_EPH = `
+    <ul class="lista-teoria">
+      <li><strong>Ocupado:</strong> trabajó al menos una hora en la semana de referencia.</li>
+      <li><strong>Desocupado:</strong> no trabajó, buscó trabajo en las últimas cuatro semanas y está disponible para empezar.</li>
+      <li><strong>Inactivo:</strong> ni trabaja ni busca (o busca pero no está disponible).</li>
+      <li><strong>Subocupado:</strong> ocupado que trabaja menos de 35 horas por semana y quiere trabajar más.</li>
+    </ul>
+    <p class="nota-chica" style="margin:8px 0 0;">Población económicamente activa (PEA) = ocupados + desocupados. Tasa de actividad = PEA / población. Tasa de empleo = ocupados / población. Tasa de desocupación = desocupados / PEA. Tasa de subocupación = subocupados / PEA.</p>`;
+
+function tasasEPH(lista) {
+  const n = lista.length, oc = lista.filter(x => x.estado === "ocupado").length, de = lista.filter(x => x.estado === "desocupado").length;
+  const sub = lista.filter(x => x.estado === "ocupado" && x.sub).length, pea = oc + de;
+  const pct = (a, b) => b ? fmt(a / b * 100, 1) + "%" : "—";
+  return { actividad: pct(pea, n), empleo: pct(oc, n), desocupacion: pct(de, pea), subocupacion: pct(sub, pea) };
+}
+
+const SIM_DESALENTADOS = {
+  id: "desalentados",
+  intro: `<p class="sub" style="margin:0;"><strong>La paradoja del desalentado.</strong> Un barrio de 100 personas: 42 ocupadas, 8 desocupadas y 50 inactivas. Algunos desocupados se cansan de buscar. Nadie consigue trabajo… y mirá qué pasa con la desocupación.</p>`,
+  inicial: { k: 0 },
+  sliders: [ { k: "k", label: "Desocupados que dejan de buscar", min: 0, max: 5 } ],
+  dibujar(v) {
+    const oc = 42, de = 8 - v.k, pea = oc + de;
+    const g = grafico({
+      xmax: 4, ymax: 100, ylabel: "%", yticks: [ 0, 50, 100 ], xticks: [],
+      barras: [ { x: 1, y: pea, ancho: .6, color: "var(--blue)", abajo: "Actividad" }, { x: 2, y: oc, ancho: .6, color: "var(--verde)", abajo: "Empleo" }, { x: 3, y: de / pea * 100, ancho: .6, color: "var(--rojo)", abajo: "Desocupación" } ]
+    });
+    return g + datos([ [ "Ocupados", oc ], [ "Desocupados", de ], [ "Tasa de actividad", fmt(pea, 1) + "%" ], [ "Tasa de desocupación", fmt(de / pea * 100, 1) + "%", "malo" ] ]) + `<div class="feedback ${v.k ? "bad" : "ok"}">${v.k ? `La desocupación bajó de 16% a ${fmt(de / pea * 100, 1)}% sin que nadie consiguiera trabajo: ${v.k} persona${v.k > 1 ? "s" : ""} pasaron de desocupadas a inactivas. Por eso hay que mirar la desocupación junto con la tasa de actividad, que cayó.` : "Mové el control: ¿qué pasa con la tasa de desocupación si algunos dejan de buscar?"}</div>`;
+  }
+};
+
+function renderEPHU4() {
+  const s = state.eph || (state.eph = { resp: {}, corregido: false });
+  if (!EPH_FICHAS.length) return `<div class="card"><p class="sub" style="margin:0;">Esta actividad no tiene fichas cargadas.</p></div>`;
+  const intro = `<div class="card"><p style="margin-top:0;">Sos encuestador de la <strong>Encuesta Permanente de Hogares</strong> del INDEC. Clasificá a cada persona según lo que te contó.</p><details class="plegable" ${s.corregido ? "" : "open"}><summary>Las definiciones</summary><div class="plegable-cuerpo">${INTRO_EPH}</div></details></div>`;
+  const fichas = EPH_FICHAS.map((f, i) => {
+    const r = s.resp[i] || {};
+    const bien = r.estado === f.estado && (f.estado !== "ocupado" || !!r.sub === !!f.subocupado);
+    const chips = EPH_ESTADOS.map(([k, l]) => `<button class="chip-btn ${r.estado === k ? "activo" : ""}" data-eph="${i}" data-eph-estado="${k}" ${s.corregido ? "disabled" : ""}>${l}</button>`).join("");
+    const subChips = r.estado === "ocupado" ? `<div class="chips-fila" style="margin:6px 0 0;"><span class="sub" style="margin:0;align-self:center;">¿Subocupado?</span><button class="chip-btn ${r.sub === true ? "activo" : ""}" data-eph="${i}" data-eph-sub="1" ${s.corregido ? "disabled" : ""}>Sí</button><button class="chip-btn ${r.sub === false ? "activo" : ""}" data-eph="${i}" data-eph-sub="0" ${s.corregido ? "disabled" : ""}>No</button></div>` : "";
+    const corr = s.corregido ? `<div class="feedback ${bien ? "ok" : "bad"}"><strong>${bien ? "Bien." : "Era: " + EPH_ESTADOS.find(([k]) => k === f.estado)[1].toLowerCase() + (f.subocupado ? " y subocupado" : "") + "."}</strong> ${f.explicacion || ""}</div>` : "";
+    return `<div class="card"><p style="margin:0 0 8px;"><strong>${f.nombre}${f.edad ? ", " + f.edad : ""}.</strong> <em>“${f.dice}”</em></p><div class="chips-fila" style="margin-bottom:0;">${chips}</div>${subChips}${corr}</div>`;
+  }).join("");
+  const completas = EPH_FICHAS.every((f, i) => s.resp[i] && s.resp[i].estado && (s.resp[i].estado !== "ocupado" || s.resp[i].sub !== undefined));
+  if (!s.corregido) return intro + fichas + `<button class="btn block" data-eph-corregir="1" ${completas ? "" : "disabled"}>${completas ? "Corregir y calcular las tasas" : "Clasificá a todas las personas"}</button>`;
+  const tuyas = tasasEPH(EPH_FICHAS.map((f, i) => s.resp[i])), buenas = tasasEPH(EPH_FICHAS.map(f => ({ estado: f.estado, sub: f.subocupado })));
+  const aciertos = EPH_FICHAS.filter((f, i) => s.resp[i].estado === f.estado && (f.estado !== "ocupado" || !!s.resp[i].sub === !!f.subocupado)).length;
+  const tabla = `<div class="card"><h3 style="font-size:15px;margin-bottom:8px;">Las tasas de tu encuesta</h3><p class="sub" style="margin:0 0 8px;">Acertaste ${aciertos} de ${EPH_FICHAS.length}.</p><table class="matriz"><tr><th>Tasa</th><th>Con tus respuestas</th><th>Correctas</th></tr>${[ [ "Actividad", "actividad" ], [ "Empleo", "empleo" ], [ "Desocupación", "desocupacion" ], [ "Subocupación", "subocupacion" ] ].map(([l, k]) => `<tr><td>${l}</td><td>${tuyas[k]}</td><td>${buenas[k]}</td></tr>`).join("")}</table></div>`;
+  const cierre = `<div class="card"><p class="nota-chica" style="margin:0;">La EPH la hace el INDEC todos los trimestres en 31 aglomerados urbanos. No cubre la población rural, así que lo que pasa con el empleo en el campo no aparece en estas tasas.</p></div>`;
+  return intro + tabla + fichas + renderSim(SIM_DESALENTADOS) + cierre + `<button class="btn secondary block" data-eph-reiniciar="1" style="margin-top:10px;">Hacer la encuesta de nuevo</button>`;
+}
+
+function bindEPHU4() {
+  document.querySelectorAll("[data-eph-estado]").forEach(b => {
+    b.onclick = () => {
+      const r = state.eph.resp[b.dataset.eph] || (state.eph.resp[b.dataset.eph] = {});
+      r.estado = b.dataset.ephEstado;
+      if (r.estado !== "ocupado") delete r.sub;
+      refreshUnidad();
+    };
+  });
+  document.querySelectorAll("[data-eph-sub]").forEach(b => {
+    b.onclick = () => {
+      state.eph.resp[b.dataset.eph].sub = b.dataset.ephSub === "1";
+      refreshUnidad();
+    };
+  });
+  const c = document.querySelector("[data-eph-corregir]");
+  if (c) c.onclick = () => { state.eph.corregido = true; refreshUnidad(); irAlDetalle(); };
+  const r = document.querySelector("[data-eph-reiniciar]");
+  if (r) r.onclick = () => { state.eph = null; if (state.sims) delete state.sims.desalentados; refreshUnidad(); irAlDetalle(); };
+}
 
 const U4_VF = BANCOS.U4_VF;
 
@@ -5311,6 +5391,11 @@ const CONTENIDO_UNIDAD = {
       desc: "Salario flexible o rígido: qué pasa con el desempleo",
       render: () => renderSim(SIM_TRABAJO)
     }, {
+      id: "eph",
+      titulo: "Sos encuestador de la EPH",
+      desc: "Ocupados, desocupados, inactivos y la paradoja del desalentado",
+      render: renderEPHU4
+    }, {
       id: "inflacion",
       titulo: "La inflación según cada escuela",
       desc: "Más dinero: ¿más precios o más producción?",
@@ -5731,6 +5816,7 @@ function bindUnidad() {
   bindMonopolioU3();
   bindExternalidadesU3();
   bindPlazaU3();
+  bindEPHU4();
   bindEquilibrioU3();
   bindUnirU3();
   bindViajeU2();

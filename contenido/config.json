@@ -385,6 +385,12 @@
           "visible": true
         },
         {
+          "id": "eph",
+          "titulo": "Sos encuestador de la EPH",
+          "descripcion": "Ocupados, desocupados, inactivos y la paradoja del desalentado",
+          "visible": true
+        },
+        {
           "id": "inflacion",
           "titulo": "La inflación según cada escuela",
           "descripcion": "Más dinero: ¿más precios o más producción?",

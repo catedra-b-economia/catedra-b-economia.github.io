@@ -1,0 +1,100 @@
+{
+  "fichas": [
+    {
+      "nombre": "María",
+      "edad": 34,
+      "dice": "Esta semana hice changas, dos horas en total. Quiero conseguir algo fijo.",
+      "estado": "ocupado",
+      "subocupado": true,
+      "explicacion": "Trabajó al menos una hora en la semana, así que está ocupada. Trabaja menos de 35 horas y quiere trabajar más: además es subocupada."
+    },
+    {
+      "nombre": "Juan",
+      "edad": 50,
+      "dice": "Dejé de buscar trabajo, total no hay nada.",
+      "estado": "inactivo",
+      "subocupado": false,
+      "explicacion": "No trabaja y no busca: es inactivo, aunque quiera trabajar. Es un desalentado: no figura entre los desocupados porque dejó de buscar."
+    },
+    {
+      "nombre": "Lucía",
+      "edad": 20,
+      "dice": "Estudio en la facultad y no busco trabajo.",
+      "estado": "inactivo",
+      "subocupado": false,
+      "explicacion": "Ni trabaja ni busca: inactiva."
+    },
+    {
+      "nombre": "Carlos",
+      "edad": 41,
+      "dice": "Trabajo en negro en una obra, unas 45 horas por semana.",
+      "estado": "ocupado",
+      "subocupado": false,
+      "explicacion": "Para la EPH, trabajar en negro es trabajar: está ocupado. La informalidad se mide aparte, no lo saca de los ocupados."
+    },
+    {
+      "nombre": "Ana",
+      "edad": 29,
+      "dice": "Me echaron hace un mes y estoy mandando currículums.",
+      "estado": "desocupado",
+      "subocupado": false,
+      "explicacion": "No trabaja, busca activamente y está disponible: desocupada."
+    },
+    {
+      "nombre": "Rosa",
+      "edad": 67,
+      "dice": "Estoy jubilada.",
+      "estado": "inactivo",
+      "subocupado": false,
+      "explicacion": "Ni trabaja ni busca: inactiva."
+    },
+    {
+      "nombre": "Marta",
+      "edad": 38,
+      "dice": "Cuido a mis hijos y me ocupo de la casa.",
+      "estado": "inactivo",
+      "subocupado": false,
+      "explicacion": "El trabajo doméstico no remunerado no cuenta como ocupación en la EPH: es inactiva. Es la discusión de la Unidad II sobre qué trabajo se mide y cuál no."
+    },
+    {
+      "nombre": "Diego",
+      "edad": 25,
+      "dice": "Cobro un plan social y a cambio trabajo en una cooperativa del barrio.",
+      "estado": "ocupado",
+      "subocupado": false,
+      "explicacion": "Hace una tarea a cambio del plan (contraprestación), por eso la EPH lo cuenta como ocupado."
+    },
+    {
+      "nombre": "Pablo",
+      "edad": 33,
+      "dice": "No estoy trabajando, pero empiezo en un trabajo nuevo la semana que viene.",
+      "estado": "desocupado",
+      "subocupado": false,
+      "explicacion": "No trabajó en la semana y ya consiguió un empleo que empieza pronto: la EPH lo cuenta como desocupado, aunque ya no esté buscando."
+    },
+    {
+      "nombre": "Sofía",
+      "edad": 45,
+      "dice": "Tengo un kiosco y estoy unas 60 horas por semana.",
+      "estado": "ocupado",
+      "subocupado": false,
+      "explicacion": "Trabajar por cuenta propia también es estar ocupado."
+    },
+    {
+      "nombre": "Tomás",
+      "edad": 22,
+      "dice": "Busco trabajo, pero no puedo arrancar hasta marzo.",
+      "estado": "inactivo",
+      "subocupado": false,
+      "explicacion": "Busca, pero no está disponible para empezar ahora: no cumple las condiciones para ser desocupado, así que es inactivo."
+    },
+    {
+      "nombre": "Elena",
+      "edad": 31,
+      "dice": "Trabajo 20 horas por semana y no quiero trabajar más.",
+      "estado": "ocupado",
+      "subocupado": false,
+      "explicacion": "Trabaja menos de 35 horas, pero no quiere trabajar más: está ocupada y no es subocupada."
+    }
+  ]
+}
