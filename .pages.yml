@@ -87,6 +87,21 @@ content:
           - { name: definicion, label: Definición, type: text, required: true }
           - { name: unidad, label: Unidad, type: select, options: { values: [I, II, III, IV, V] } }
           - { name: actividad, label: Código de la actividad para practicar, type: string }
+  - name: dudas
+    label: "💬 Preguntas de la comisión"
+    type: file
+    path: contenido/dudas.json
+    format: json
+    description: "Dudas respondidas. Aparecen al final de la lista de actividades de su unidad."
+    fields:
+      - name: dudas
+        label: Dudas
+        type: object
+        list: { collapsible: { collapsed: true, summary: "Unidad {fields.unidad} · {fields.pregunta}" } }
+        fields:
+          - { name: unidad, label: Unidad, type: select, required: true, options: { values: [I, II, III, IV, V] } }
+          - { name: pregunta, label: Pregunta, type: text, required: true }
+          - { name: respuesta, label: Respuesta, type: text, required: true }
   - name: unidad-1
     label: "Unidad I · La Economía"
     type: group

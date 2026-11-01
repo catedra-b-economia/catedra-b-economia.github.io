@@ -106,6 +106,7 @@
   .chip-btn{ border:1px solid var(--rule); background:#fff; color:var(--ink); border-radius:99px; padding:7px 14px; font-size:13px; font-weight:700; }
   .chip-btn:hover{ border-color:var(--blue); color:var(--blue); }
   .chip-btn.activo{ background:var(--blue); border-color:var(--blue); color:#fff; }
+  details.duda{ margin:0 0 8px; }
   .glos-item{ border-bottom:1px solid var(--rule); padding:12px 2px; }
   .glos-item:last-child{ border-bottom:none; }
   .glos-term{ font-weight:900; color:var(--blue); font-size:15px; }
@@ -209,6 +210,7 @@
 <body>
 <div id="file-warning" style="display:none; position:sticky; top:0; z-index:99; background:#B7791F; color:#fff; font-family:'Lato', sans-serif; font-size:12.5px; padding:10px 16px; text-align:center;"></div>
 <main id="app"></main>
+<form name="consultas" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="tipo"><input name="nombre"><input name="unidad"><input name="actividad"><textarea name="mensaje"></textarea></form>
 
 <script type="module">
 document.addEventListener("keydown", e => {
@@ -311,7 +313,7 @@ const DESDE_OPCION = {
 
 const NOMBRES_BANCOS = [ "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U3_REGULADOR", "U3_EXTERNALIDADES", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
 
-const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
+const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, DUDAS_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
   actividades: []
 }), leerJSON("contenido/glosario.json", {
   terminos: []
@@ -319,6 +321,8 @@ const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, ...resto] = await 
   fallas: []
 }), leerJSON("contenido/eph-fichas.json", {
   fichas: []
+}), leerJSON("contenido/dudas.json", {
+  dudas: []
 }), ...[ 1, 2, 3, 4 ].map(u => leerJSON(`contenido/misiones/U${u}.json`, {
   misiones: []
 })), ...NOMBRES_BANCOS.map(n => leerJSON(`contenido/preguntas/${n}.json`, {
@@ -5558,13 +5562,79 @@ const CONTENIDO_UNIDAD = {
   });
 })();
 
+const DUDAS = ((DUDAS_DATOS && DUDAS_DATOS.dudas) || []).filter(d => lleno(d.pregunta) && lleno(d.respuesta));
+
+const escaparHTML = t => String(t || "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+
+function viewDudasUnidad(unidadId) {
+  const lista = DUDAS.filter(d => d.unidad === unidadId);
+  if (!lista.length) return "";
+  return `<div class="card"><h3 style="font-size:15px;margin-bottom:6px;">Preguntas de la comisión</h3>${lista.map(d => `<details class="plegable duda"><summary>${d.pregunta}</summary><div class="plegable-cuerpo">${d.respuesta}</div></details>`).join("")}</div>`;
+}
+
+function viewFormulario(tipo, unidadId, seccion) {
+  const f = state.form;
+  const abierto = f && f.tipo === tipo && f.unidad === unidadId && (f.actividad || "") === (seccion ? seccion.id : "");
+  const etiqueta = tipo === "duda" ? `¿Te quedó una duda de la Unidad ${unidadId}?` : "Reportar un error en esta actividad";
+  if (!abierto) return `<button class="btn secondary block" data-form-abrir="${tipo}" style="margin-top:10px;">${etiqueta}</button>`;
+  if (f.enviado) return `<div class="feedback ok" style="margin-top:10px;">${tipo === "duda" ? "¡Gracias! Tu duda le llegó a la cátedra." : "¡Gracias por avisar! Lo vamos a revisar."}</div>`;
+  const consigna = tipo === "duda" ? "Escribí tu duda sobre la unidad. Le llega a la cátedra; las que se repiten se responden en esta misma página." : `Contanos qué está mal en <strong>${seccion ? seccion.titulo : ""}</strong>: qué pregunta, qué esperabas y qué te mostró.`;
+  return `<div class="card" style="margin-top:10px;"><h3 style="font-size:15px;margin-bottom:6px;">${etiqueta}</h3><p class="sub" style="margin:0 0 10px;">${consigna}</p><input type="text" id="form-nombre" placeholder="Tu nombre y apellido" value="${escaparHTML(f.nombre ?? state.nombreAlumno)}" autocomplete="name"><textarea id="form-mensaje" rows="4" placeholder="${tipo === "duda" ? "Tu duda" : "Qué está mal"}">${escaparHTML(f.mensaje)}</textarea>${f.error ? `<div class="feedback bad">${f.error}</div>` : ""}<div class="chips-fila" style="margin:4px 0 0;"><button class="btn" data-form-enviar="1" ${f.enviando ? "disabled" : ""}>${f.enviando ? "Enviando…" : "Enviar"}</button><button class="btn secondary" data-form-cerrar="1">Cancelar</button></div></div>`;
+}
+
+async function enviarFormulario() {
+  const f = state.form;
+  f.nombre = document.getElementById("form-nombre").value.trim();
+  f.mensaje = document.getElementById("form-mensaje").value.trim();
+  if (f.nombre.length < 3) { f.error = "Poné tu nombre y apellido."; return refreshUnidad(); }
+  if (f.mensaje.length < 5) { f.error = "Escribí un poco más."; return refreshUnidad(); }
+  state.nombreAlumno = f.nombre;
+  f.error = ""; f.enviando = true; refreshUnidad();
+  const def = CONTENIDO_UNIDAD[f.unidad], sec = def && def.secciones.find(s => s.id === f.actividad);
+  const cuerpo = new URLSearchParams({
+    "form-name": "consultas",
+    tipo: f.tipo === "duda" ? "Duda" : "Error reportado",
+    nombre: f.nombre,
+    unidad: `Unidad ${f.unidad}${def ? " · " + def.nombre : ""}`,
+    actividad: sec ? `${sec.titulo} (#${f.unidad}-${sec.id})` : "",
+    mensaje: f.mensaje
+  });
+  try {
+    const r = await fetch("/", { method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: cuerpo.toString() });
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    f.enviado = true;
+  } catch (e) {
+    f.error = "No se pudo enviar. Revisá la conexión y probá de nuevo.";
+  }
+  f.enviando = false;
+  if (state.form === f) refreshUnidad();
+}
+
+function bindFormulario() {
+  document.querySelectorAll("[data-form-abrir]").forEach(b => {
+    b.onclick = () => {
+      state.form = { tipo: b.dataset.formAbrir, unidad: state.unidadActiva, actividad: state.unidadActivaSeccion || "" };
+      refreshUnidad();
+      const n = document.getElementById("form-nombre");
+      if (n) { try { n.closest(".card").scrollIntoView({ block: "center" }); } catch (e) {} (n.value ? document.getElementById("form-mensaje") : n).focus(); }
+    };
+  });
+  const c = document.querySelector("[data-form-cerrar]");
+  if (c) c.onclick = () => { state.form = null; refreshUnidad(); };
+  const e = document.querySelector("[data-form-enviar]");
+  if (e) e.onclick = enviarFormulario;
+  const m = document.getElementById("form-mensaje"), n = document.getElementById("form-nombre");
+  if (m) m.oninput = () => { state.form.mensaje = m.value; };
+  if (n) n.oninput = () => { state.form.nombre = n.value; };
+}
+
 function viewUnidad(unidadId) {
   const u = state.unidadActivaSeccion;
   const def = CONTENIDO_UNIDAD[unidadId];
   const cerrar = `<button class="btn secondary block" data-cerrar-unidad="1" style="margin-top:18px;">Cerrar la unidad ${unidadId}</button>`;
   if (!u) {
     const items = def.secciones.map(s => `<button class="list-item" data-seccion="${s.id}"><div><div class="title">${s.titulo}</div><div class="desc">${s.desc}</div></div></button>`).join("");
-    return `\n        <div class="card">\n          <h3 style="font-size:15px; margin-bottom:2px;">Unidad ${unidadId} · ${def.nombre}</h3>\n        </div>${items}${cerrar}`;
+    return `\n        <div class="card">\n          <h3 style="font-size:15px; margin-bottom:2px;">Unidad ${unidadId} · ${def.nombre}</h3>\n        </div>${items}${viewDudasUnidad(unidadId)}${viewFormulario("duda", unidadId)}${cerrar}`;
   }
   const seccion = def.secciones.find(s => s.id === u);
   if (!seccion) return "";
@@ -5576,7 +5646,7 @@ function viewUnidad(unidadId) {
     if (!state.quiz || state.quiz.key !== `${unidadId}-${seccion.id}`) iniciarQuiz(`${unidadId}-${seccion.id}`, seccion.quiz(), seccion.quiz);
     inner += renderQuiz();
   }
-  return inner + nav + cerrar;
+  return inner + viewFormulario("error", unidadId, seccion) + nav + cerrar;
 }
 
 function etiquetaTecnologia(t) {
@@ -5837,6 +5907,7 @@ function bindUnidad() {
   bindExternalidadesU3();
   bindPlazaU3();
   bindEPHU4();
+  bindFormulario();
   bindEquilibrioU3();
   bindUnirU3();
   bindViajeU2();

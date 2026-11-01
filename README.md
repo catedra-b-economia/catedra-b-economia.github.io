@@ -28,6 +28,10 @@ Sobre las preguntas:
 - Se puede usar HTML simple en los textos (`<strong>`, `<em>`).
 - Si una pregunta queda mal cargada (sin texto, o con un número de respuesta que no existe), la página la saltea y muestra un aviso arriba con el detalle. El resto sigue funcionando.
 
+## Dudas y errores que mandan los alumnos
+
+Al final de cada unidad hay un botón "¿Te quedó una duda?" y en cada actividad uno para "Reportar un error". Los mensajes (con nombre, unidad y actividad) llegan por Netlify Forms: se ven en Netlify → el proyecto → **Forms** y por mail si se configuró la notificación. Las dudas que se repiten se responden en el panel, en **💬 Preguntas de la comisión**, y aparecen al final de la unidad.
+
 ## Respuestas cifradas
 
 En cada publicación, Netlify corre `publicar.js`, que arma la carpeta `dist/` con el contenido cifrado. Así, quien mire los archivos de la página no ve las respuestas. En este repositorio el contenido sigue en JSON normal, por eso conviene que el repositorio sea privado.
