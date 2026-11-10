@@ -19,6 +19,7 @@ function cifrar(texto) {
 fs.rmSync(DESTINO, { recursive: true, force: true });
 fs.mkdirSync(DESTINO);
 fs.copyFileSync("index.html", path.join(DESTINO, "index.html"));
+fs.cpSync("iconos", path.join(DESTINO, "iconos"), { recursive: true });
 
 let n = 0;
 (function recorrer(dir) {
