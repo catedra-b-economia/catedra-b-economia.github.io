@@ -30,6 +30,14 @@ content:
         fields:
           - { name: nombre, label: Nombre (título grande de la portada), type: string }
           - { name: docente, label: Docente (texto chico arriba del título), type: string }
+      - name: analitica
+        label: Datos de uso (con consentimiento)
+        type: object
+        description: "Solo se registra a quien acepta el aviso. Si los tres quedan vacíos, no se muestra el aviso."
+        fields:
+          - { name: resultados_prellenado, label: Vínculo prellenado del Form de resultados, type: string }
+          - { name: google_analytics, label: ID de Google Analytics (G-...), type: string }
+          - { name: clarity, label: Project ID de Microsoft Clarity, type: string }
       - name: asistente
         label: Asistente de la cátedra (Gemini)
         type: object

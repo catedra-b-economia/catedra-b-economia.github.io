@@ -509,5 +509,10 @@
     "url": "https://gemini.google.com/gem/17geENc-mxR0lxh2wyPoWAcWHP8r2Y3Hx?usp=sharing",
     "texto": "Preguntale al asistente de la cátedra",
     "aclaracion": "Responde solo con la bibliografía de la materia. Se abre en Gemini y necesitás tener iniciada una cuenta de Google."
+  },
+  "analitica": {
+    "resultados_prellenado": "https://docs.google.com/forms/d/e/1FAIpQLSd7b1g18n9BbvNXMmMKz_-IgVNvFcbYzaVqceqX7l8s800ePQ/viewform?usp=pp_url&entry.676702539=SESION&entry.312443439=UNIDAD&entry.421885917=ACTIVIDAD&entry.311289597=NOTA&entry.1087492549=CORRECTAS&entry.979447029=TOTAL&entry.1217937832=FALLADAS&entry.514523059=MINUTOS&entry.1576911957=DISPOSITIVOS",
+    "google_analytics": "",
+    "clarity": ""
   }
 }

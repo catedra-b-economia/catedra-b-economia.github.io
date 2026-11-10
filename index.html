@@ -107,6 +107,7 @@
   .chip-btn:hover{ border-color:var(--blue); color:var(--blue); }
   .chip-btn.activo{ background:var(--blue); border-color:var(--blue); color:#fff; }
   details.duda{ margin:0 0 8px; }
+  .aviso-consentimiento{ position:fixed; left:12px; right:12px; bottom:12px; max-width:620px; margin:0 auto; z-index:150; background:#fff; border:1px solid var(--rule); border-left:4px solid var(--blue); border-radius:var(--radius-lg); padding:14px 16px; font-size:13.5px; box-shadow:0 8px 28px rgba(0,0,0,0.16); }
   a.btn.asistente{ display:block; text-align:center; text-decoration:none; }
   .glos-item{ border-bottom:1px solid var(--rule); padding:12px 2px; }
   .glos-item:last-child{ border-bottom:none; }
@@ -478,6 +479,7 @@ function ponerHash(h) {
   try {
     history.replaceState(null, "", h ? "#" + h : location.pathname + location.search);
   } catch (e) {}
+  registrarVista();
 }
 
 function limpiarActividad() {
@@ -529,12 +531,12 @@ function botonesPortada() {
     url = /^https:\/\//.test(a.url) ? new URL(a.url).href : "";
   } catch (e) {}
   if (u || state.glosario || !url) return glos;
-  return glos + `<a class="btn block asistente" href="${escaparHTML(url)}" target="_blank" rel="noopener">${escaparHTML(a.texto || "Preguntale al asistente de la cátedra")} ↗</a>${lleno(a.aclaracion) ? `<p class="nota-chica" style="margin:6px 2px 14px;text-align:center;">${escaparHTML(a.aclaracion)}</p>` : ""}`;
+  return glos + `<a class="btn block asistente" data-asistente="1" href="${escaparHTML(url)}" target="_blank" rel="noopener">${escaparHTML(a.texto || "Preguntale al asistente de la cátedra")} ↗</a>${lleno(a.aclaracion) ? `<p class="nota-chica" style="margin:6px 2px 14px;text-align:center;">${escaparHTML(a.aclaracion)}</p>` : ""}`;
 }
 
 function viewUnidades() {
   const nodos = UNIDADES.map(u => u.habilitada ? `\n      <div class="node clickable" data-unidad="${u.id}">\n        <div class="dot unlocked">${u.id}</div>\n        <div class="node-cuerpo">\n          <div class="title">${u.nombre}</div>\n          <div class="status unlocked">${CONTENIDO_UNIDAD[u.id].secciones.length} actividades</div>\n        </div>\n      </div>` : `\n      <div class="node">\n        <div class="dot locked">${u.id}</div>\n        <div class="node-cuerpo">\n          <div class="title">${u.nombre}</div>\n          <div class="status locked">Próximamente</div>\n        </div>\n      </div>`).join("");
-  return `\n      <div class="aviso">Esto no reemplaza la bibliografía ni al AU24: <u>SON COMPLEMENTARIOS</u>.</div>\n      <div class="accent-bar"></div>\n      <div class="eyebrow eyebrow-crest">${CURSO.docente}</div>\n      <h1>${CURSO.nombre}</h1>\n      <div class="sub">Practicá los contenidos de la materia unidad por unidad. Elegí una y entrá.</div>\n      <div class="path">${nodos}</div>\n      ${botonesPortada()}\n      <div id="unidad-detalle">${renderUnidadDetalle()}</div>\n    `;
+  return `\n      <div class="aviso">Esto no reemplaza la bibliografía ni al AU24: <u>SON COMPLEMENTARIOS</u>.</div>\n      <div class="accent-bar"></div>\n      <div class="eyebrow eyebrow-crest">${CURSO.docente}</div>\n      <h1>${CURSO.nombre}</h1>\n      <div class="sub">Practicá los contenidos de la materia unidad por unidad. Elegí una y entrá.</div>\n      <div class="path">${nodos}</div>\n      ${botonesPortada()}\n      <div id="unidad-detalle">${renderUnidadDetalle()}</div>\n      ${pieConsentimiento()}\n    `;
 }
 
 function renderUnidadDetalle() {
@@ -555,7 +557,10 @@ function iniciarQuiz(key, items, regenerar) {
     index: 0,
     score: 0,
     resp: undefined,
-    regenerar: regenerar
+    regenerar: regenerar,
+    inicio: Date.now(),
+    falladas: [],
+    registrado: false
   };
 }
 
@@ -565,11 +570,18 @@ function reiniciarQuiz() {
   state.quiz.index = 0;
   state.quiz.score = 0;
   state.quiz.resp = undefined;
+  state.quiz.inicio = Date.now();
+  state.quiz.falladas = [];
+  state.quiz.registrado = false;
 }
 
 function renderQuiz() {
   const q = state.quiz;
   if (q.index >= q.items.length) {
+    if (!q.registrado) {
+      q.registrado = true;
+      registrarResultado({ clave: q.key, nota: Math.round(q.score / q.items.length * 100) / 10, correctas: q.score, total: q.items.length, falladas: q.falladas, inicio: q.inicio });
+    }
     return `\n        <div class="card">${q.score} de ${q.items.length} correctas.<br><strong class="mono" style="font-size:20px;">Nota: ${Math.round(q.score / q.items.length * 10)}/10</strong></div>\n        <button class="btn" data-quiz-restart="1">Jugar de nuevo</button>`;
   }
   const item = q.items[q.index];
@@ -589,7 +601,7 @@ function bindQuiz() {
       const q = state.quiz;
       const idx = +b.dataset.quizOpt;
       q.resp = idx;
-      if (idx === q.items[q.index].correcta) q.score++;
+      if (idx === q.items[q.index].correcta) q.score++; else (q.falladas || (q.falladas = [])).push(resumirPregunta(q.items[q.index].texto));
       refreshUnidad();
     };
   });
@@ -1228,7 +1240,7 @@ const SIM_DESALENTADOS = {
 };
 
 function renderEPHU4() {
-  const s = state.eph || (state.eph = { resp: {}, corregido: false });
+  const s = state.eph || (state.eph = { resp: {}, corregido: false, inicio: Date.now() });
   if (!EPH_FICHAS.length) return `<div class="card"><p class="sub" style="margin:0;">Esta actividad no tiene fichas cargadas.</p></div>`;
   const intro = `<div class="card"><p style="margin-top:0;">Sos encuestador de la <strong>Encuesta Permanente de Hogares</strong> del INDEC. Clasificá a cada persona según lo que te contó.</p><details class="plegable" ${s.corregido ? "" : "open"}><summary>Las definiciones</summary><div class="plegable-cuerpo">${INTRO_EPH}</div></details></div>`;
   const fichas = EPH_FICHAS.map((f, i) => {
@@ -1267,7 +1279,13 @@ function bindEPHU4() {
     };
   });
   const c = document.querySelector("[data-eph-corregir]");
-  if (c) c.onclick = () => { state.eph.corregido = true; refreshUnidad(); irAlDetalle(); };
+  if (c) c.onclick = () => {
+    state.eph.corregido = true;
+    const malas = EPH_FICHAS.filter((f, i) => { const r = state.eph.resp[i] || {}; return r.estado !== f.estado || (f.estado === "ocupado" && !!r.sub !== !!f.subocupado); });
+    registrarResultado({ clave: "IV-eph", nota: Math.round((EPH_FICHAS.length - malas.length) / EPH_FICHAS.length * 100) / 10, correctas: EPH_FICHAS.length - malas.length, total: EPH_FICHAS.length, falladas: malas.map(f => f.nombre), inicio: state.eph.inicio });
+    refreshUnidad();
+    irAlDetalle();
+  };
   const r = document.querySelector("[data-eph-reiniciar]");
   if (r) r.onclick = () => { state.eph = null; if (state.sims) delete state.sims.desalentados; refreshUnidad(); irAlDetalle(); };
 }
@@ -3584,7 +3602,8 @@ function nuevoUnir(clave) {
     elegido: Object.fromEntries(elegidos.map(f => [ f.id, f.casos[Math.floor(Math.random() * f.casos.length)] ])),
     pares: {},
     sel: null,
-    comprobado: false
+    comprobado: false,
+    inicio: Date.now()
   };
 }
 
@@ -3658,6 +3677,8 @@ function bindUnirU3() {
   const comp = document.querySelector("[data-unir-comprobar]");
   if (comp) comp.onclick = () => {
     u.comprobado = true;
+    const malas = u.grupos.filter(f => u.pares[f.id] !== f.id);
+    registrarResultado({ clave: `${state.unidadActiva}-${u.clave}`, nota: Math.round((u.grupos.length - malas.length) / u.grupos.length * 100) / 10, correctas: u.grupos.length - malas.length, total: u.grupos.length, falladas: malas.map(f => f.falla), inicio: u.inicio });
     refreshUnidad();
   };
   const borr = document.querySelector("[data-unir-borrar]");
@@ -5658,6 +5679,157 @@ const FORMULARIO = (() => {
   }
 })();
 
+const ANALITICA = (() => {
+  const a = CONFIG.analitica || {};
+  const ga = /^G-[A-Z0-9]{4,}$/i.test(String(a.google_analytics || "").trim()) ? String(a.google_analytics).trim() : "";
+  const clarity = /^[a-z0-9]{6,20}$/i.test(String(a.clarity || "").trim()) ? String(a.clarity).trim() : "";
+  let resultados = null;
+  try {
+    const u = new URL(a.resultados_prellenado);
+    const campos = {};
+    u.searchParams.forEach((v, k) => {
+      if (k.startsWith("entry.")) campos[v.trim().toUpperCase().replace(/S$/, "")] = k;
+    });
+    if (/docs\.google\.com$/.test(u.hostname) && campos.ACTIVIDAD) resultados = {
+      accion: u.origin + u.pathname.replace(/\/viewform$/, "/formResponse"),
+      campos: campos
+    };
+  } catch (e) {}
+  return { ga, clarity, resultados, activa: !!(ga || clarity || resultados) };
+})();
+
+const SESION = Math.random().toString(36).slice(2, 8).toUpperCase();
+
+const CLAVE_CONSENTIMIENTO = "catedraB-consentimiento";
+
+function leerConsentimiento() {
+  try {
+    return localStorage.getItem(CLAVE_CONSENTIMIENTO) || "";
+  } catch (e) {
+    return state.consentimiento || "";
+  }
+}
+
+function guardarConsentimiento(v) {
+  state.consentimiento = v;
+  try {
+    localStorage.setItem(CLAVE_CONSENTIMIENTO, v);
+  } catch (e) {}
+}
+
+const consintio = () => ANALITICA.activa && leerConsentimiento() === "si";
+
+let analiticaCargada = false;
+
+function cargarAnalitica() {
+  if (analiticaCargada || !consintio()) return;
+  analiticaCargada = true;
+  if (ANALITICA.ga) {
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(ANALITICA.ga);
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () {
+      dataLayer.push(arguments);
+    };
+    gtag("js", new Date());
+    gtag("config", ANALITICA.ga, { send_page_view: false });
+  }
+  if (ANALITICA.clarity) {
+    window.clarity = window.clarity || function () {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
+    const s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.clarity.ms/tag/" + encodeURIComponent(ANALITICA.clarity);
+    document.head.appendChild(s);
+    clarity("consent");
+  }
+  registrarVista();
+}
+
+function registrarVista() {
+  if (!analiticaCargada) return;
+  const ruta = location.hash ? location.hash.slice(1) : "portada";
+  if (window.gtag) gtag("event", "page_view", { page_title: ruta, page_location: location.href });
+  if (window.clarity) {
+    const [u, s] = ruta.split("-");
+    clarity("set", "unidad", u || "portada");
+    if (s) clarity("set", "actividad", ruta);
+  }
+}
+
+function evento(nombre, datos) {
+  if (!analiticaCargada) return;
+  if (window.gtag) gtag("event", nombre, datos || {});
+  if (window.clarity) clarity("event", nombre);
+}
+
+function tipoDispositivo() {
+  const ua = navigator.userAgent || "";
+  if (/iPad|Tablet/i.test(ua) || (/Android/i.test(ua) && !/Mobile/i.test(ua))) return "Tablet";
+  if (/Mobi|iPhone|Android/i.test(ua)) return "Celular";
+  return "Computadora";
+}
+
+function actividadActual() {
+  const def = CONTENIDO_UNIDAD[state.unidadActiva];
+  const s = def && def.secciones.find(x => x.id === state.unidadActivaSeccion);
+  return s ? s.titulo : state.unidadActivaSeccion || "";
+}
+
+function registrarResultado(r) {
+  evento("prueba_terminada", { unidad: state.unidadActiva || "", actividad: r.clave, nota: r.nota, correctas: r.correctas, total: r.total });
+  if (!consintio() || !ANALITICA.resultados) return;
+  const minutos = r.inicio ? Math.round((Date.now() - r.inicio) / 6e3) / 10 : "";
+  const valores = {
+    SESION: SESION,
+    UNIDAD: state.unidadActiva ? "Unidad " + state.unidadActiva : "",
+    ACTIVIDAD: `${actividadActual()} (#${r.clave})`,
+    NOTA: String(r.nota).replace(".", ","),
+    CORRECTA: String(r.correctas),
+    TOTAL: String(r.total),
+    FALLADA: (r.falladas || []).join(" | "),
+    MINUTO: String(minutos).replace(".", ","),
+    SEGUNDO: r.inicio ? String(Math.round((Date.now() - r.inicio) / 1e3)) : "",
+    DISPOSITIVO: tipoDispositivo()
+  };
+  const cuerpo = new URLSearchParams();
+  Object.entries(valores).forEach(([k, v]) => {
+    if (ANALITICA.resultados.campos[k]) cuerpo.append(ANALITICA.resultados.campos[k], v);
+  });
+  try {
+    fetch(ANALITICA.resultados.accion, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: cuerpo.toString() }).catch(() => {});
+  } catch (e) {}
+}
+
+const resumirPregunta = t => String(t || "").replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim().slice(0, 90);
+
+function mostrarAvisoConsentimiento() {
+  if (!ANALITICA.activa || leerConsentimiento()) return;
+  let d = document.getElementById("aviso-consentimiento");
+  if (d) return;
+  d = document.createElement("div");
+  d.id = "aviso-consentimiento";
+  d.className = "aviso-consentimiento";
+  d.innerHTML = `<p style="margin:0 0 10px;"><strong>¿Nos dejás registrar, de forma anónima, cómo usás la página?</strong> Lo usamos para mejorarla y para investigación docente: qué actividades usás, cuánto tiempo y cómo te va en las pruebas. No se registra tu nombre ni nada que te identifique. Podés cambiar de opinión cuando quieras, al pie de la página.</p><div class="chips-fila" style="margin:0;"><button class="btn" data-consentir="si">Acepto</button><button class="btn secondary" data-consentir="no">No, gracias</button></div>`;
+  document.body.appendChild(d);
+  d.querySelectorAll("[data-consentir]").forEach(b => {
+    b.onclick = () => {
+      guardarConsentimiento(b.dataset.consentir);
+      d.remove();
+      cargarAnalitica();
+      render();
+    };
+  });
+}
+
+function pieConsentimiento() {
+  if (!ANALITICA.activa || !leerConsentimiento()) return "";
+  return `<p class="nota-chica" style="text-align:center;margin:18px 0 0;">Registro anónimo de uso: ${leerConsentimiento() === "si" ? "activado" : "desactivado"} · <button class="glos-ir" data-cambiar-consentimiento="1" style="font-size:12px;">cambiar</button></p>`;
+}
+
 const escaparHTML = t => String(t || "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 
 function viewDudasUnidad(unidadId) {
@@ -5702,6 +5874,7 @@ async function enviarFormulario() {
   try {
     await fetch(FORMULARIO.accion, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: cuerpo.toString() });
     f.enviado = true;
+    evento(f.tipo === "duda" ? "duda_enviada" : "error_reportado", { unidad: f.unidad });
   } catch (e) {
     f.error = "No se pudo enviar. Revisá la conexión y probá de nuevo.";
   }
@@ -5836,7 +6009,21 @@ function bind() {
     };
   });
   const g = document.querySelector("[data-glosario]");
-  if (g) g.onclick = abrirGlosario;
+  if (g) g.onclick = () => {
+    evento("glosario_abierto");
+    abrirGlosario();
+  };
+  const as = document.querySelector("[data-asistente]");
+  if (as) as.onclick = () => evento("asistente_abierto");
+  const cc = document.querySelector("[data-cambiar-consentimiento]");
+  if (cc) cc.onclick = () => {
+    try {
+      localStorage.removeItem(CLAVE_CONSENTIMIENTO);
+    } catch (e) {}
+    state.consentimiento = "";
+    render();
+    mostrarAvisoConsentimiento();
+  };
   if (state.unidadActiva) bindUnidad();
   bindGlosario();
 }
@@ -6018,7 +6205,11 @@ function bindUnidad() {
 
 mostrarProblemas();
 
+cargarAnalitica();
+
 render();
+
+mostrarAvisoConsentimiento();
 
 leerHash();
 
