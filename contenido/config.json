@@ -82,6 +82,12 @@
           "visible": true
         },
         {
+          "id": "feynman",
+          "titulo": "Explicalo con tus palabras",
+          "descripcion": "Explicá un tema hablando o escribiendo, y mirá qué te faltó",
+          "visible": true
+        },
+        {
           "id": "lectura",
           "titulo": "Test de lectura: Buchanan (1964)",
           "descripcion": "\"¿Qué deberían hacer los economistas?\"",

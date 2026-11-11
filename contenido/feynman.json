@@ -1,0 +1,403 @@
+{
+  "temas": [
+    {
+      "unidad": "I",
+      "id": "costop",
+      "tema": "Costo de oportunidad",
+      "consigna": "Explicáselo a un compañero que faltó a clase. Si podés, usá un ejemplo.",
+      "ideas": [
+        {
+          "idea": "Es lo que se resigna al elegir",
+          "claves": [
+            "resign",
+            "renunci",
+            "dejas de",
+            "dejar de",
+            "deja de",
+            "perdes",
+            "perder",
+            "pierd",
+            "sacrific",
+            "a cambio",
+            "te quedas sin",
+            "quedarte sin",
+            "quedas sin",
+            "no haces",
+            "no podes hacer",
+            "lo que no elegis",
+            "lo que no elegiste",
+            "otra opcion",
+            "en vez de",
+            "en lugar de",
+            "costo de elegir"
+          ]
+        },
+        {
+          "idea": "Es la mejor alternativa resignada, no cualquiera",
+          "claves": [
+            "mejor alternativa",
+            "mejor opcion",
+            "siguiente mejor",
+            "segunda mejor",
+            "la mejor",
+            "mas valiosa",
+            "mejor uso",
+            "que mas te gust",
+            "mas te conviene",
+            "despues de esa",
+            "la siguiente",
+            "la otra mejor",
+            "mejor de las que",
+            "mejor que dejas",
+            "valor de la opcion"
+          ]
+        },
+        {
+          "idea": "Existe aunque algo sea gratis o no se pague con plata",
+          "claves": [
+            "gratis",
+            "sin pagar",
+            "no se paga",
+            "no cuesta plata",
+            "no es plata",
+            "no solo plata",
+            "tiempo",
+            "aunque no pagues",
+            "aunque no cueste",
+            "aunque sea gratis",
+            "no solo dinero",
+            "no siempre es plata",
+            "horas"
+          ]
+        },
+        {
+          "idea": "Aparece porque los recursos son escasos",
+          "claves": [
+            "escas",
+            "limitad",
+            "no alcanza",
+            "finit",
+            "no se puede tener todo",
+            "no podes hacer todo",
+            "no se puede hacer todo",
+            "no alcanza para todo",
+            "poco que",
+            "pocos recursos",
+            "priorizar",
+            "hay que elegir",
+            "tenemos que elegir"
+          ]
+        }
+      ],
+      "modelo": "El costo de oportunidad de una decisión es el valor de la mejor alternativa a la que renunciás al elegir. Si dedicás la tarde a estudiar, tu costo de oportunidad es lo mejor que hubieras hecho con ese tiempo, por ejemplo la plata que hubieras ganado trabajando. Existe aunque algo sea gratis, porque siempre se resigna otra cosa (tiempo u otros usos de los recursos), y aparece porque los recursos son escasos: no se puede tener todo a la vez."
+    },
+    {
+      "unidad": "I",
+      "id": "fpp",
+      "tema": "Frontera de posibilidades de producción",
+      "consigna": "Explicá qué muestra la curva y qué significa estar sobre ella, adentro o afuera.",
+      "ideas": [
+        {
+          "idea": "Muestra las combinaciones máximas de dos bienes",
+          "claves": [
+            "combinacion",
+            "maxim",
+            "lo maximo",
+            "dos bienes",
+            "lo mas que",
+            "todo lo que se puede producir",
+            "puntos posibles",
+            "cuanto se puede producir",
+            "produccion posible"
+          ]
+        },
+        {
+          "idea": "Depende de los recursos y la tecnología disponibles",
+          "claves": [
+            "recurso",
+            "tecnolog",
+            "factores"
+          ]
+        },
+        {
+          "idea": "Sobre la curva es eficiente; adentro hay recursos ociosos",
+          "claves": [
+            "eficien",
+            "ocios",
+            "desperdic",
+            "adentro",
+            "dentro",
+            "desemple",
+            "sin usar",
+            "todo bien usado",
+            "usando todo",
+            "pleno empleo",
+            "no se aprovech",
+            "se aprovech"
+          ]
+        },
+        {
+          "idea": "Afuera de la curva no se puede alcanzar",
+          "claves": [
+            "afuera",
+            "fuera de",
+            "inalcanzable",
+            "no se puede alcanzar",
+            "imposible",
+            "no se llega"
+          ]
+        },
+        {
+          "idea": "La pendiente es el costo de oportunidad",
+          "claves": [
+            "costo de oportunidad",
+            "pendiente",
+            "resign",
+            "renunci",
+            "producir menos",
+            "dejar de producir",
+            "para producir mas de uno",
+            "mas de un bien",
+            "menos del otro",
+            "a cambio de"
+          ]
+        },
+        {
+          "idea": "Se desplaza hacia afuera con más recursos o mejor tecnología",
+          "claves": [
+            "desplaz",
+            "hacia afuera",
+            "crecimiento",
+            "crece",
+            "se expande",
+            "expandi",
+            "mejora tecnolog",
+            "mas recursos"
+          ]
+        }
+      ],
+      "modelo": "La frontera de posibilidades de producción muestra las combinaciones máximas de dos bienes que una economía puede producir con sus recursos y su tecnología. Los puntos sobre la curva son eficientes: no se puede producir más de un bien sin producir menos del otro. Los puntos de adentro indican recursos ociosos o mal usados, y los de afuera no se pueden alcanzar con lo que hay. Su pendiente muestra el costo de oportunidad de un bien en términos del otro, y la curva se desplaza hacia afuera cuando aumentan los recursos o mejora la tecnología."
+    },
+    {
+      "unidad": "I",
+      "id": "efeq",
+      "tema": "Eficiencia y equidad",
+      "consigna": "Explicá qué es cada una y cómo se relacionan.",
+      "ideas": [
+        {
+          "idea": "Eficiencia: no se puede mejorar a alguien sin empeorar a otro",
+          "claves": [
+            "pareto",
+            "sin empeorar",
+            "mejorar a alguien",
+            "mejorar a uno",
+            "nadie empeor",
+            "desperdic",
+            "aprovech",
+            "sin perjudicar",
+            "no se puede mejorar",
+            "mejor uso",
+            "producir mas",
+            "no se pierde nada"
+          ]
+        },
+        {
+          "idea": "Equidad: si el reparto es justo",
+          "claves": [
+            "justo",
+            "justicia",
+            "reparto",
+            "reparte",
+            "distribu",
+            "equitativ",
+            "igualdad",
+            "desigualdad",
+            "como se divide",
+            "quien se queda",
+            "para quien"
+          ]
+        },
+        {
+          "idea": "La eficiencia se puede medir; la equidad requiere un juicio de valor",
+          "claves": [
+            "juicio",
+            "valor",
+            "opinion",
+            "normativ",
+            "subjetiv",
+            "se mide",
+            "medir",
+            "depende de lo que"
+          ]
+        },
+        {
+          "idea": "Puede haber un trade-off entre las dos",
+          "claves": [
+            "trade",
+            "disyuntiva",
+            "conflicto",
+            "a costa",
+            "sacrific",
+            "balde",
+            "okun",
+            "perder eficiencia",
+            "una u otra",
+            "choca",
+            "se contradic",
+            "tension",
+            "a veces no se puede",
+            "hay que elegir entre"
+          ]
+        }
+      ],
+      "modelo": "La eficiencia (en el sentido de Pareto) es una situación en la que no se puede mejorar a nadie sin empeorar a otro: no hay desperdicio. La equidad se pregunta si el reparto es justo, y eso requiere un juicio de valor: la eficiencia se puede chequear con un criterio técnico, la equidad se argumenta. Muchas veces hay un trade-off entre las dos, como en el balde agujereado de Okun: redistribuir para ganar equidad puede costar algo de eficiencia. Pero no siempre chocan: igualar oportunidades, por ejemplo con educación, puede mejorar las dos."
+    },
+    {
+      "unidad": "I",
+      "id": "posnorm",
+      "tema": "Economía positiva y normativa",
+      "consigna": "Explicá la diferencia y da un ejemplo de cada una.",
+      "ideas": [
+        {
+          "idea": "Positiva: describe cómo es la economía",
+          "claves": [
+            "como es",
+            "describe",
+            "describ",
+            "lo que es",
+            "hechos",
+            "lo que pasa",
+            "describe la realidad",
+            "como funciona",
+            "lo que ocurre",
+            "que pasa si"
+          ]
+        },
+        {
+          "idea": "Se puede contrastar con datos",
+          "claves": [
+            "datos",
+            "evidencia",
+            "contrastar",
+            "comprobar",
+            "verificar",
+            "refutar",
+            "medir"
+          ]
+        },
+        {
+          "idea": "Normativa: dice cómo debería ser",
+          "claves": [
+            "deberia",
+            "debe ser",
+            "debe hacer",
+            "recomend",
+            "conviene",
+            "tendria que",
+            "habria que",
+            "lo ideal"
+          ]
+        },
+        {
+          "idea": "Incluye juicios de valor",
+          "claves": [
+            "juicio",
+            "valor",
+            "opinion",
+            "subjetiv",
+            "justo",
+            "bueno o malo",
+            "valoracion",
+            "punto de vista",
+            "ideologia",
+            "creencia"
+          ]
+        },
+        {
+          "idea": "Una afirmación positiva puede ser falsa",
+          "claves": [
+            "falsa",
+            "falso",
+            "equivocad",
+            "incorrect",
+            "verdadera o falsa",
+            "cierta o no",
+            "no significa que sea"
+          ]
+        }
+      ],
+      "modelo": "La economía positiva describe cómo es la economía: sus afirmaciones se pueden contrastar con datos, por ejemplo \"si sube el precio, baja la cantidad demandada\". La economía normativa dice cómo debería ser: incluye juicios de valor, por ejemplo \"el Estado debería reducir la desigualdad\". Una afirmación positiva puede ser falsa; lo que la hace positiva es que se puede poner a prueba con la evidencia, no que sea verdadera."
+    },
+    {
+      "unidad": "I",
+      "id": "ventajas",
+      "tema": "Ventaja absoluta y ventaja comparativa",
+      "consigna": "Explicá la diferencia y por qué conviene especializarse y comerciar.",
+      "ideas": [
+        {
+          "idea": "Ventaja absoluta: producir usando menos recursos",
+          "claves": [
+            "absoluta",
+            "menos recursos",
+            "menos horas",
+            "menos tiempo",
+            "mas productiv",
+            "producir mas con"
+          ]
+        },
+        {
+          "idea": "Ventaja comparativa: menor costo de oportunidad",
+          "claves": [
+            "comparativa",
+            "menor costo de oportunidad",
+            "costo de oportunidad",
+            "resigna menos",
+            "renuncia menos",
+            "menos te cuesta",
+            "le cuesta menos",
+            "sacrifica menos",
+            "pierde menos"
+          ]
+        },
+        {
+          "idea": "Conviene especializarse según la ventaja comparativa",
+          "claves": [
+            "especializ",
+            "dedicarse a",
+            "concentrarse en"
+          ]
+        },
+        {
+          "idea": "Comerciar beneficia a las dos partes",
+          "claves": [
+            "comerci",
+            "intercambi",
+            "los dos ganan",
+            "ambos ganan",
+            "ambos se benefic",
+            "benefici",
+            "les conviene a los dos",
+            "ganan ambos",
+            "sale ganando",
+            "mejoran los dos"
+          ]
+        },
+        {
+          "idea": "Aun el que es peor en todo puede ganar comerciando",
+          "claves": [
+            "peor en todo",
+            "aunque sea peor",
+            "aunque tenga desventaja",
+            "aunque no tenga ventaja absoluta",
+            "menos productivo",
+            "aun asi",
+            "aunque sea menos eficiente",
+            "aunque produzca peor",
+            "en todo es peor"
+          ]
+        }
+      ],
+      "modelo": "Tiene ventaja absoluta quien produce un bien usando menos recursos que otro. Tiene ventaja comparativa quien lo produce con menor costo de oportunidad, es decir, resignando menos de otras cosas. Lo que conviene es especializarse según la ventaja comparativa y comerciar: así se produce más en total y las dos partes pueden ganar, incluso si una de ellas es menos productiva en todo, porque siempre hay algo en lo que resigna menos."
+    }
+  ]
+}

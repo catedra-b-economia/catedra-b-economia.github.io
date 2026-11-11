@@ -107,6 +107,30 @@ content:
           - { name: definicion, label: Definición, type: text, required: true }
           - { name: unidad, label: Unidad, type: select, options: { values: [I, II, III, IV, V] } }
           - { name: actividad, label: Código de la actividad para practicar, type: string }
+  - name: feynman
+    label: "🗣 Explicalo con tus palabras"
+    type: file
+    path: contenido/feynman.json
+    format: json
+    description: "Temas para explicar. La página marca qué ideas clave mencionó el alumno buscando las palabras clave (sin tildes ni mayúsculas; sirve poner la raíz, por ejemplo 'escas' para escaso o escasez)."
+    fields:
+      - name: temas
+        label: Temas
+        type: object
+        list: { collapsible: { collapsed: true, summary: "Unidad {fields.unidad} · {fields.tema}" } }
+        fields:
+          - { name: unidad, label: Unidad, type: select, required: true, options: { values: [I, II, III, IV, V] } }
+          - { name: id, label: Código interno, type: string, readonly: true }
+          - { name: tema, label: Tema, type: string, required: true }
+          - { name: consigna, label: Consigna, type: text }
+          - name: ideas
+            label: Ideas clave
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{fields.idea}" } }
+            fields:
+              - { name: idea, label: Idea clave, type: string, required: true }
+              - { name: claves, label: Palabras que la detectan, type: string, list: true }
+          - { name: modelo, label: Explicación modelo, type: text }
   - name: bibliografia
     label: "📚 Bibliografía por unidad"
     type: file
