@@ -1,7 +1,20 @@
 {
   "curso": {
     "nombre": "Comisión 7",
-    "docente": "Lodola"
+    "docente": "Agustín Lodola"
+  },
+  "analitica": {
+    "resultados_prellenado": "https://docs.google.com/forms/d/e/1FAIpQLSd7b1g18n9BbvNXMmMKz_-IgVNvFcbYzaVqceqX7l8s800ePQ/viewform?usp=pp_url&entry.676702539=SESION&entry.312443439=UNIDAD&entry.421885917=ACTIVIDAD&entry.311289597=NOTA&entry.1087492549=CORRECTAS&entry.979447029=TOTAL&entry.1217937832=FALLADAS&entry.514523059=MINUTOS&entry.1576911957=DISPOSITIVOS",
+    "google_analytics": "G-YGJL1QRS2D",
+    "clarity": "zbneovlue6"
+  },
+  "asistente": {
+    "url": "https://gemini.google.com/gem/17geENc-mxR0lxh2wyPoWAcWHP8r2Y3Hx?usp=sharing",
+    "texto": "Preguntale al asistente de la cátedra",
+    "aclaracion": "Responde solo con la bibliografía de la materia. Se abre en Gemini y necesitás tener iniciada una cuenta de Google."
+  },
+  "formulario": {
+    "vinculo_prellenado": "https://docs.google.com/forms/d/e/1FAIpQLScF80nLTTmJzPxS7dZPFtGxRscXpfk-6F1eY8PMw53XtXo27A/viewform?usp=pp_url&entry.86695316=TIPO&entry.647077909=NOMBRE&entry.662263255=APELLIDO&entry.1339650400=UNIDAD&entry.1331955402=ACTIVIDAD&entry.1957351165=MENSAJE"
   },
   "unidades": [
     {
@@ -501,21 +514,5 @@
         }
       ]
     }
-  ],
-  "formulario": {
-    "vinculo_prellenado": "https://docs.google.com/forms/d/e/1FAIpQLScF80nLTTmJzPxS7dZPFtGxRscXpfk-6F1eY8PMw53XtXo27A/viewform?usp=pp_url&entry.86695316=TIPO&entry.647077909=NOMBRE&entry.662263255=APELLIDO&entry.1339650400=UNIDAD&entry.1331955402=ACTIVIDAD&entry.1957351165=MENSAJE"
-  },
-  "asistente": {
-    "url": "https://gemini.google.com/gem/17geENc-mxR0lxh2wyPoWAcWHP8r2Y3Hx?usp=sharing",
-    "texto": "Preguntale al asistente de la cátedra",
-    "aclaracion": "Responde solo con la bibliografía de la materia. Se abre en Gemini y necesitás tener iniciada una cuenta de Google."
-  },
-  "analitica": {
-    "resultados_prellenado": "https://docs.google.com/forms/d/e/1FAIpQLSd7b1g18n9BbvNXMmMKz_-IgVNvFcbYzaVqceqX7l8s800ePQ/viewform?usp=pp_url&entry.676702539=SESION&entry.312443439=UNIDAD&entry.421885917=ACTIVIDAD&entry.311289597=NOTA&entry.1087492549=CORRECTAS&entry.979447029=TOTAL&entry.1217937832=FALLADAS&entry.514523059=MINUTOS&entry.1576911957=DISPOSITIVOS",
-    "google_analytics": "G-YGJL1QRS2D",
-    "clarity": "zbneovlue6"
-  },
-  "encuesta": {
-    "vinculo_prellenado": "https://docs.google.com/forms/d/e/1FAIpQLSe3ZxWEuhgA317KbkQ40KdDjxe5uNMYg7woldf9KhxG7AqFUQ/viewform?usp=pp_url&entry.1530152921=UNIDAD&entry.745789802=CLARIDAD&entry.98709782=TEMA&entry.1883015081=UTILIDAD&entry.273566729=BIBLIOGRAFIA&entry.1048333738=COMENTARIO"
-  }
+  ]
 }
