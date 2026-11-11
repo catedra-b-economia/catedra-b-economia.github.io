@@ -126,10 +126,6 @@
   .biblio{ background:var(--blue-soft); border-color:rgba(50,114,185,0.25); border-left:4px solid var(--blue); }
   .biblio-cab{ font-weight:900; color:var(--blue-dark); font-size:16px; }
   .biblio-sub{ font-size:12.5px; color:var(--ink-soft); margin:2px 0 10px; }
-  .fey-mic{ width:64px; height:64px; border-radius:50%; border:1px solid var(--rule); background:var(--bg-elevated); color:var(--ink-soft); display:flex; align-items:center; justify-content:center; margin:0 auto; cursor:pointer; }
-  .fey-mic:hover{ border-color:var(--ink-soft); }
-  .fey-mic.activo{ background:var(--rojo-soft); border-color:var(--rojo); color:var(--rojo); animation:latir 1.2s ease-in-out infinite; }
-  @keyframes latir{ 0%,100%{ box-shadow:0 0 0 0 rgba(192,57,43,0.35); } 50%{ box-shadow:0 0 0 12px rgba(192,57,43,0); } }
   .fey-check{ font-size:14px; margin:5px 0; }
   .fey-si{ color:var(--verde); font-weight:900; }
   .fey-no{ color:var(--rojo); font-weight:900; }
@@ -5244,7 +5240,7 @@ const CONTENIDO_UNIDAD = {
     }, {
       id: "feynman",
       titulo: "Explicalo con tus palabras",
-      desc: "Explicá un tema hablando o escribiendo, y mirá qué te faltó",
+      desc: "Explicá un tema con tus palabras y mirá qué te faltó",
       render: () => renderFeynman("I")
     }, {
       id: "lectura",
@@ -5657,7 +5653,7 @@ Object.keys(CONTENIDO_UNIDAD).forEach(u => {
   if (u !== "I" && (FEYNMAN[u] || []).length && !CONTENIDO_UNIDAD[u].secciones.some(s => s.id === "feynman")) CONTENIDO_UNIDAD[u].secciones.push({
     id: "feynman",
     titulo: "Explicalo con tus palabras",
-    desc: "Explicá un tema hablando o escribiendo, y mirá qué te faltó",
+    desc: "Explicá un tema con tus palabras y mirá qué te faltó",
     render: () => renderFeynman(u)
   });
 });
@@ -6015,31 +6011,6 @@ function renderRepasoUnidad(unidadId) {
 }
 
 
-const DICTADO_ROTO = !!navigator.brave || /OPR\/|Opera|OPX\/|Vivaldi|YaBrowser|DuckDuckGo|SamsungBrowser/i.test(navigator.userAgent || "");
-
-const Reconocimiento = DICTADO_ROTO ? null : window.SpeechRecognition || window.webkitSpeechRecognition;
-
-function ayudaDictado() {
-  const ua = navigator.userAgent || "", plat = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || "";
-  if (/Android|iPhone|iPad|iPod|Mobi/i.test(ua)) return "Para dictar, tocá la caja de texto y usá el <strong>micrófono del teclado</strong> del celular.";
-  if (/Mac/i.test(plat) || /Macintosh/i.test(ua)) return "Para dictar, tocá la caja de texto y apretá <strong>dos veces la tecla Fn</strong> (o 🌐).";
-  if (/Win/i.test(plat) || /Windows/i.test(ua)) return "Para dictar, tocá la caja de texto y apretá <strong>Windows + H</strong>.";
-  return "Para dictar, usá el dictado de tu dispositivo, o abrí la página en Chrome, Edge o Safari.";
-}
-
-const ICONO_MIC = `<svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0"/><path d="M12 17.5V21"/><path d="M8.5 21h7"/></svg>`;
-
-let feyActivo = false;
-
-function detenerDictado() {
-  feyActivo = false;
-  if (feyEscucha) try {
-    feyEscucha.stop();
-  } catch (e) {}
-}
-
-let feyEscucha = null;
-
 function feyTema() {
   const f = state.fey;
   return f && (FEYNMAN[f.u] || []).find(t => t.id === f.tema);
@@ -6054,18 +6025,17 @@ function renderFeynman(u) {
   const f = state.fey && state.fey.u === u ? state.fey : (state.fey = { u: u, tema: null, texto: "", revision: null });
   const temas = FEYNMAN[u] || [];
   if (!f.tema) {
-    return `<div class="card"><p style="margin:0;font-size:14px;">Explicar un tema con tus palabras es una de las mejores formas de estudiar: ahí te das cuenta de qué entendiste y qué no. Elegí un tema, explicalo hablando o escribiendo, y la página te muestra qué ideas clave mencionaste y cuáles te faltaron.</p></div>${temas.map(t => `<button class="list-item" data-fey-tema="${t.id}"><div><div class="title">${t.tema}</div><div class="desc">${t.ideas.length} ideas clave</div></div></button>`).join("")}`;
+    return `<div class="card"><p style="margin:0;font-size:14px;">Explicar un tema con tus palabras es una de las mejores formas de estudiar: ahí te das cuenta de qué entendiste y qué no. Elegí un tema, escribí tu explicación, y la página te muestra qué ideas clave mencionaste y cuáles te faltaron.</p></div>${temas.map(t => `<button class="list-item" data-fey-tema="${t.id}"><div><div class="title">${t.tema}</div><div class="desc">${t.ideas.length} ideas clave</div></div></button>`).join("")}`;
   }
   const t = feyTema();
   if (!t) { f.tema = null; return renderFeynman(u); }
-  const mic = Reconocimiento ? `<button class="fey-mic ${feyActivo ? "activo" : ""}" data-fey-mic="1" aria-label="Hablar">${ICONO_MIC}</button><div class="sub" id="fey-estado" style="margin:4px 0 10px;text-align:center;">${feyActivo ? "Te estoy escuchando… tocá de nuevo para terminar" : "Tocá para hablar, o escribí abajo"}</div>` : `<p class="nota-chica fey-ayuda" style="margin:0 0 8px;">Hablá o escribí. ${ayudaDictado()}</p>`;
   let resultado = "";
   if (f.revision === "corta") resultado = `<div class="feedback bad">Escribí un poco más: dos o tres oraciones, como si se lo contaras a alguien.</div>`;
   else if (f.revision) {
     const bien = f.revision.filter(x => x.ok).length;
     resultado = `<div class="card"><h3 style="font-size:15px;margin-bottom:8px;">Tu explicación: ${bien} de ${f.revision.length} ideas clave</h3>${f.revision.map(x => `<div class="fey-check"><span class="${x.ok ? "fey-si" : "fey-no"}">${x.ok ? "✓" : "✗"}</span> ${x.idea}</div>`).join("")}<p class="nota-chica" style="margin:10px 0 0;">La revisión busca palabras clave: si dijiste una idea con otras palabras, puede que no la detecte. Comparala con la explicación modelo.</p><details class="plegable" style="margin-top:10px;"><summary>Ver la explicación modelo</summary><div class="plegable-cuerpo" style="font-size:14px;line-height:1.6;">${t.modelo || ""}</div></details>${CONFIG.asistente && /^https:\/\//.test(CONFIG.asistente.url || "") ? `<button class="btn block" data-fey-asistente="1" style="margin-top:12px;">Pedile una devolución al asistente ↗</button><div id="fey-copiado"></div>` : ""}</div>`;
   }
-  return `<button class="glos-ir" data-fey-volver="1" style="display:block;margin:2px 0 10px;">‹ Elegir otro tema</button><div class="card"><div class="eyebrow" style="margin:0 0 4px;">Explicalo con tus palabras</div><h3 style="font-size:17px;margin-bottom:6px;">${t.tema}</h3><p class="sub" style="margin:0;">${t.consigna || "Explicalo como si se lo contaras a un compañero que faltó a clase."}</p></div><div class="card">${mic}<textarea id="fey-texto" rows="6" placeholder="Tu explicación…">${escaparHTML(f.texto)}</textarea><button class="btn block" data-fey-revisar="1">Revisar mi explicación</button></div>${resultado}`;
+  return `<button class="glos-ir" data-fey-volver="1" style="display:block;margin:2px 0 10px;">‹ Elegir otro tema</button><div class="card"><div class="eyebrow" style="margin:0 0 4px;">Explicalo con tus palabras</div><h3 style="font-size:17px;margin-bottom:6px;">${t.tema}</h3><p class="sub" style="margin:0;">${t.consigna || "Explicalo como si se lo contaras a un compañero que faltó a clase."}</p></div><div class="card"><textarea id="fey-texto" rows="7" placeholder="Escribí tu explicación…">${escaparHTML(f.texto)}</textarea><button class="btn block" data-fey-revisar="1">Revisar mi explicación</button></div>${resultado}`;
 }
 
 function bindFeynman() {
@@ -6078,82 +6048,13 @@ function bindFeynman() {
   });
   const volver = document.querySelector("[data-fey-volver]");
   if (volver) volver.onclick = () => {
-    detenerDictado();
     state.fey.tema = null;
     refreshUnidad();
   };
   const area = document.getElementById("fey-texto");
   if (area) area.oninput = () => { state.fey.texto = area.value; };
-  const mic = document.querySelector("[data-fey-mic]");
-  if (mic) mic.onclick = () => {
-    const estado = t => { const s = document.getElementById("fey-estado"); if (s) s.textContent = t; };
-    const pintar = on => { const m = document.querySelector("[data-fey-mic]"); if (m) m.classList.toggle("activo", on); };
-    if (feyActivo) {
-      detenerDictado();
-      pintar(false);
-      estado("Tocá para hablar, o escribí abajo");
-      return;
-    }
-    const area = document.getElementById("fey-texto");
-    let base = (area ? area.value : state.fey.texto || "").trim();
-    let intentos = 0;
-    feyActivo = true;
-    pintar(true);
-    estado("Te estoy escuchando… tocá de nuevo para terminar");
-    const escuchar = () => {
-      const r = new Reconocimiento();
-      let finalSesion = "";
-      r.lang = "es-AR";
-      r.continuous = false;
-      r.interimResults = true;
-      r.maxAlternatives = 1;
-      r.onresult = e => {
-        let fin = "", parcial = "";
-        for (let k = 0; k < e.results.length; k++) {
-          if (e.results[k].isFinal) fin += e.results[k][0].transcript; else parcial += e.results[k][0].transcript;
-        }
-        finalSesion = fin.trim();
-        intentos = 0;
-        const a = document.getElementById("fey-texto");
-        if (a) a.value = [ base, finalSesion, parcial.trim() ].filter(Boolean).join(" ");
-      };
-      r.onerror = ev => {
-        const graves = { "not-allowed": "No hay permiso para usar el micrófono: habilitalo con el candado de la barra de direcciones.", "service-not-allowed": "Este navegador no permite el dictado.", "audio-capture": "No se encontró un micrófono.", "network": "El dictado de este navegador no está disponible." };
-        if (graves[ev.error]) {
-          feyActivo = false;
-          pintar(false);
-          const s = document.getElementById("fey-estado");
-          if (s) s.innerHTML = `${graves[ev.error]} ${ayudaDictado()}`;
-        }
-      };
-      r.onend = () => {
-        if (finalSesion) base = [ base, finalSesion ].filter(Boolean).join(" ");
-        state.fey.texto = base;
-        const a = document.getElementById("fey-texto");
-        if (a) a.value = base;
-        if (feyActivo && document.querySelector("[data-fey-mic]") && intentos++ < 8) {
-          setTimeout(() => { if (feyActivo) escuchar(); }, 150);
-        } else {
-          feyActivo = false;
-          feyEscucha = null;
-          pintar(false);
-          if (!document.getElementById("fey-estado") || /escuchando/.test(document.getElementById("fey-estado").textContent)) estado("Tocá para hablar, o escribí abajo");
-        }
-      };
-      try {
-        r.start();
-        feyEscucha = r;
-      } catch (e) {
-        feyActivo = false;
-        pintar(false);
-        estado("No se pudo usar el micrófono: podés escribir.");
-      }
-    };
-    escuchar();
-  };
   const rev = document.querySelector("[data-fey-revisar]");
   if (rev) rev.onclick = () => {
-    detenerDictado();
     const f = state.fey, t = feyTema();
     f.texto = document.getElementById("fey-texto").value.trim();
     if (f.texto.split(/\s+/).filter(Boolean).length < 12) { f.revision = "corta"; refreshUnidad(); return; }

@@ -84,7 +84,7 @@
         {
           "id": "feynman",
           "titulo": "Explicalo con tus palabras",
-          "descripcion": "Explicá un tema hablando o escribiendo, y mirá qué te faltó",
+          "descripcion": "Explicá un tema con tus palabras y mirá qué te faltó",
           "visible": true
         },
         {
