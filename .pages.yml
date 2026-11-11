@@ -107,6 +107,29 @@ content:
           - { name: definicion, label: Definición, type: text, required: true }
           - { name: unidad, label: Unidad, type: select, options: { values: [I, II, III, IV, V] } }
           - { name: actividad, label: Código de la actividad para practicar, type: string }
+  - name: bibliografia
+    label: "📚 Bibliografía por unidad"
+    type: file
+    path: contenido/bibliografia.json
+    format: json
+    description: "Aparece al final de la lista de actividades de cada unidad."
+    fields:
+      - name: unidades
+        label: Unidades
+        type: object
+        list: { collapsible: { collapsed: true, summary: "Unidad {fields.unidad}" } }
+        fields:
+          - { name: unidad, label: Unidad, type: select, required: true, options: { values: [I, II, III, IV, V] } }
+          - name: textos
+            label: Textos
+            type: object
+            list: { collapsible: { collapsed: true, summary: "{fields.autor} ({fields.anio})" } }
+            fields:
+              - { name: autor, label: Autor, type: string, required: true }
+              - { name: anio, label: Año, type: string }
+              - { name: titulo, label: Título, type: string, required: true }
+              - { name: detalle, label: "Capítulos / detalle", type: string }
+              - { name: enlace, label: "Link (opcional, por ejemplo al aula virtual)", type: string }
   - name: dudas
     label: "💬 Preguntas de la comisión"
     type: file

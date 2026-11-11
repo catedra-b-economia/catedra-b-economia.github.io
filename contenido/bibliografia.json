@@ -1,0 +1,113 @@
+{
+  "unidades": [
+    {
+      "unidad": "I",
+      "textos": [
+        {
+          "autor": "Fanelli, J. M.",
+          "anio": "2012",
+          "titulo": "La Argentina y el desarrollo económico en el siglo XXI",
+          "detalle": "Cap. 1"
+        },
+        {
+          "autor": "Mankiw, G.",
+          "anio": "2012",
+          "titulo": "Principios de economía",
+          "detalle": "Caps. 2, 3, 23 y 24"
+        },
+        {
+          "autor": "Samuelson, P. y Nordhaus, W.",
+          "anio": "2010",
+          "titulo": "Economía",
+          "detalle": "Cap. 1 (Los fundamentos de la economía), cap. 17 (eficiencia versus equidad) y cap. 20 (medición de la actividad económica)"
+        },
+        {
+          "autor": "Gasparini, L.",
+          "anio": "2018",
+          "titulo": "Desigualdades aceptables e inaceptables",
+          "detalle": "Capítulo 1 de DesIguales"
+        }
+      ]
+    },
+    {
+      "unidad": "II",
+      "textos": [
+        {
+          "autor": "Fanelli, J. M.",
+          "anio": "2012",
+          "titulo": "La Argentina y el desarrollo económico en el siglo XXI",
+          "detalle": "Caps. 1 y 2"
+        },
+        {
+          "autor": "Lajugie, J.",
+          "anio": "2015",
+          "titulo": "Los sistemas económicos",
+          "detalle": ""
+        },
+        {
+          "autor": "Mazzucato, M.",
+          "anio": "2019",
+          "titulo": "El valor de las cosas",
+          "detalle": "Introducción, caps. 1 y 2"
+        },
+        {
+          "autor": "Samuelson, P. y Nordhaus, W.",
+          "anio": "2010",
+          "titulo": "Economía",
+          "detalle": "Cap. 2 (La moderna economía mixta)"
+        },
+        {
+          "autor": "Zalduendo, E.",
+          "anio": "1994",
+          "titulo": "Breve historia del pensamiento económico",
+          "detalle": "Caps. I a V"
+        }
+      ]
+    },
+    {
+      "unidad": "III",
+      "textos": [
+        {
+          "autor": "Samuelson, P. y Nordhaus, W.",
+          "anio": "2010",
+          "titulo": "Economía",
+          "detalle": "Caps. 3, 4, 6, 7, 10 (parte B), 11 y 12"
+        },
+        {
+          "autor": "Mankiw, G.",
+          "anio": "2012",
+          "titulo": "Principios de economía",
+          "detalle": "Caps. 4, 5, 6 y 22"
+        }
+      ]
+    },
+    {
+      "unidad": "IV",
+      "textos": [
+        {
+          "autor": "Samuelson, P. y Nordhaus, W.",
+          "anio": "2010",
+          "titulo": "Economía",
+          "detalle": "Caps. 16, 19, 21, 22, 23, 25, 28, 29 y 31 (parte B)"
+        },
+        {
+          "autor": "Mankiw, G.",
+          "anio": "2012",
+          "titulo": "Principios de economía",
+          "detalle": "Cap. 35"
+        }
+      ]
+    },
+    {
+      "unidad": "V",
+      "textos": [
+        {
+          "autor": "Ferrer, A.",
+          "anio": "2008",
+          "titulo": "La economía argentina",
+          "detalle": ""
+        }
+      ]
+    }
+  ]
+}

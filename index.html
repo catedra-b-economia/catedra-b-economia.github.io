@@ -121,6 +121,12 @@
   .chip-btn:hover{ border-color:var(--blue); color:var(--blue); }
   .chip-btn.activo{ background:var(--blue); border-color:var(--blue); color:#fff; }
   details.duda{ margin:0 0 8px; }
+  .repaso-item{ border-left:3px solid var(--ocre); }
+  .repaso-n{ display:inline-block; min-width:20px; padding:1px 7px; margin-left:6px; border-radius:99px; background:var(--ocre); color:#fff; font-size:12px; font-weight:900; text-align:center; }
+  .biblio-item{ font-size:13.5px; line-height:1.5; padding:6px 0; border-top:1px solid var(--rule); }
+  .biblio-item:first-of-type{ border-top:none; padding-top:0; }
+  .biblio-det{ color:var(--ink-soft); }
+  .biblio-item a{ color:var(--blue); font-weight:700; text-decoration:none; }
   .aviso-consentimiento{ position:fixed; left:12px; right:12px; bottom:12px; max-width:620px; margin:0 auto; z-index:150; background:#fff; border:1px solid var(--rule); border-left:4px solid var(--blue); border-radius:var(--radius-lg); padding:14px 16px; font-size:13.5px; box-shadow:0 8px 28px rgba(0,0,0,0.16); }
   a.btn.asistente{ display:block; text-align:center; text-decoration:none; }
   .glos-item{ border-bottom:1px solid var(--rule); padding:12px 2px; }
@@ -332,7 +338,7 @@ const DESDE_OPCION = {
 
 const NOMBRES_BANCOS = [ "U1_EFEQ_CONCEPTOS", "U2_QUIEN_DECIDE", "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U3_REGULADOR", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
 
-const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, DUDAS_DATOS, UNIR_CONCEPTOS_DATOS, UNIR_AUTORES_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
+const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, DUDAS_DATOS, UNIR_CONCEPTOS_DATOS, UNIR_AUTORES_DATOS, BIBLIO_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
   actividades: []
 }), leerJSON("contenido/glosario.json", {
   terminos: []
@@ -346,6 +352,8 @@ const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, DUDAS_DATOS, UNIR_
   items: []
 }), leerJSON("contenido/unir-autores.json", {
   items: []
+}), leerJSON("contenido/bibliografia.json", {
+  unidades: []
 }), ...[ 1, 2, 3, 4 ].map(u => leerJSON(`contenido/misiones/U${u}.json`, {
   misiones: []
 })), ...NOMBRES_BANCOS.map(n => leerJSON(`contenido/preguntas/${n}.json`, {
@@ -431,7 +439,7 @@ const sinTildes = s => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]
 function existeActividad(u, s) {
   const unidad = UNIDADES.find(x => x.id === u);
   if (!unidad || !unidad.habilitada) return false;
-  return !s || CONTENIDO_UNIDAD[u].secciones.some(x => x.id === s);
+  return !s || CONTENIDO_UNIDAD[u].secciones.some(x => x.id === s) || (s === "errores" && repasoDeUnidad(u).length > 0);
 }
 
 const GLOSARIO = ((GLOSARIO_DATOS && GLOSARIO_DATOS.terminos) || []).filter(t => lleno(t.termino) && lleno(t.definicion)).map(t => ({
@@ -615,7 +623,9 @@ function bindQuiz() {
       const q = state.quiz;
       const idx = +b.dataset.quizOpt;
       q.resp = idx;
-      if (idx === q.items[q.index].correcta) q.score++; else (q.falladas || (q.falladas = [])).push(resumirPregunta(q.items[q.index].texto));
+      const bien = idx === q.items[q.index].correcta;
+      if (bien) q.score++; else (q.falladas || (q.falladas = [])).push(resumirPregunta(q.items[q.index].texto));
+      anotarRespuesta(q.items[q.index], bien);
       refreshUnidad();
     };
   });
@@ -5916,14 +5926,74 @@ function bindFormulario() {
   if (a) a.oninput = () => { state.form.apellido = a.value; };
 }
 
+const BIBLIOGRAFIA = ((BIBLIO_DATOS && BIBLIO_DATOS.unidades) || []).reduce((acc, u) => {
+  if (u && u.unidad) acc[u.unidad] = (u.textos || []).filter(t => lleno(t.autor) && lleno(t.titulo));
+  return acc;
+}, {});
+
+function viewBibliografia(unidadId) {
+  const lista = BIBLIOGRAFIA[unidadId] || [];
+  if (!lista.length) return "";
+  const enlace = t => /^https:\/\//.test(t.enlace || "") ? ` <a href="${escaparHTML(t.enlace)}" target="_blank" rel="noopener">abrir ↗</a>` : "";
+  return `<div class="card biblio"><h3 style="font-size:15px;margin-bottom:8px;">Bibliografía de la unidad</h3>${lista.map(t => `<div class="biblio-item"><strong>${escaparHTML(t.autor)}</strong>${t.anio ? ` (${escaparHTML(t.anio)})` : ""}. <em>${escaparHTML(t.titulo)}</em>.${lleno(t.detalle) ? ` <span class="biblio-det">${escaparHTML(t.detalle)}.</span>` : ""}${enlace(t)}</div>`).join("")}</div>`;
+}
+
+const CLAVE_REPASO = "catedraB-repaso";
+
+function leerRepaso() {
+  if (state.repaso) return state.repaso;
+  let r = {};
+  try {
+    r = JSON.parse(localStorage.getItem(CLAVE_REPASO) || "{}") || {};
+  } catch (e) {}
+  state.repaso = r;
+  return r;
+}
+
+function guardarRepaso() {
+  try {
+    localStorage.setItem(CLAVE_REPASO, JSON.stringify(state.repaso || {}));
+  } catch (e) {}
+}
+
+const idPregunta = it => resumirPregunta(it.texto) + "|" + resumirPregunta(it.opciones && it.opciones[it.correcta]);
+
+function repasoDeUnidad(u) {
+  return (leerRepaso()[u] || []).filter(it => it && Array.isArray(it.opciones) && it.opciones.length > 1);
+}
+
+function anotarRespuesta(item, bien) {
+  const u = state.unidadActiva;
+  if (!u || !item || !Array.isArray(item.opciones)) return;
+  const r = leerRepaso(), lista = r[u] || [], id = idPregunta(item);
+  const sinEsta = lista.filter(x => idPregunta(x) !== id);
+  r[u] = bien ? sinEsta : [ ...sinEsta, { texto: item.texto, opciones: item.opciones, correcta: item.correcta, explicacion: item.explicacion } ].slice(-60);
+  if (!r[u].length) delete r[u];
+  guardarRepaso();
+}
+
+function renderRepasoUnidad(unidadId) {
+  if (!state.quiz || state.quiz.key !== `${unidadId}-errores`) {
+    if (!repasoDeUnidad(unidadId).length) return `<div class="card"><p style="margin:0;">No tenés preguntas pendientes en esta unidad. Cuando falles alguna en un cuestionario, va a aparecer acá para repasarla.</p></div>`;
+    const generar = () => preparar(repasoDeUnidad(unidadId), { orden: true, opciones: true });
+    iniciarQuiz(`${unidadId}-errores`, generar(), generar);
+  }
+  const terminado = state.quiz.index >= state.quiz.items.length;
+  const quedan = repasoDeUnidad(unidadId).length;
+  return `<div class="card"><p style="margin:0;font-size:14px;">Las preguntas que fallaste en la Unidad ${unidadId}. Cuando contestás bien una, sale de la lista.</p></div>${renderQuiz()}${terminado ? `<p class="sub" style="margin:10px 0 0;">${quedan ? `Te quedan ${quedan} para repasar.` : "¡Repasaste todas! La lista quedó vacía."}</p>` : ""}${quedan ? `<button class="glos-ir" data-repaso-vaciar="1" style="margin-top:10px;">Vaciar la lista de esta unidad</button>` : ""}`;
+}
+
 function viewUnidad(unidadId) {
   const u = state.unidadActivaSeccion;
   const def = CONTENIDO_UNIDAD[unidadId];
   const cerrar = `<button class="btn secondary block" data-cerrar-unidad="1" style="margin-top:18px;">Cerrar la unidad ${unidadId}</button>`;
   if (!u) {
-    const items = def.secciones.map(s => `<button class="list-item" data-seccion="${s.id}"><div><div class="title">${s.titulo}</div><div class="desc">${s.desc}</div></div></button>`).join("");
-    return `\n        <div class="card">\n          <h3 style="font-size:15px; margin-bottom:2px;">Unidad ${unidadId} · ${def.nombre}</h3>\n        </div>${items}${viewDudasUnidad(unidadId)}${viewFormulario("duda", unidadId)}${cerrar}`;
+    const nRep = repasoDeUnidad(unidadId).length;
+    const repaso = nRep ? `<button class="list-item repaso-item" data-seccion="errores"><div><div class="title">Repasar mis errores <span class="repaso-n">${nRep}</span></div><div class="desc">Las preguntas que fallaste en esta unidad</div></div></button>` : "";
+    const items = repaso + def.secciones.map(s => `<button class="list-item" data-seccion="${s.id}"><div><div class="title">${s.titulo}</div><div class="desc">${s.desc}</div></div></button>`).join("");
+    return `\n        <div class="card">\n          <h3 style="font-size:15px; margin-bottom:2px;">Unidad ${unidadId} · ${def.nombre}</h3>\n        </div>${items}${viewBibliografia(unidadId)}${viewDudasUnidad(unidadId)}${viewFormulario("duda", unidadId)}${cerrar}`;
   }
+  if (u === "errores") return `<button class="backbtn" data-seccion-back="1">‹ Unidad ${unidadId}</button>${renderRepasoUnidad(unidadId)}<button class="btn secondary block" data-seccion-back="1" style="margin-top:18px;">Volver a la lista de actividades</button>${cerrar}`;
   const seccion = def.secciones.find(s => s.id === u);
   if (!seccion) return "";
   let inner = `<button class="backbtn" data-seccion-back="1">‹ Unidad ${unidadId}</button>`;
@@ -6209,6 +6279,17 @@ function bindUnidad() {
   bindPlazaU3();
   bindEPHU4();
   bindFormulario();
+  const vaciar = document.querySelector("[data-repaso-vaciar]");
+  if (vaciar) vaciar.onclick = () => {
+    if (!confirm("¿Vaciar la lista de preguntas para repasar de esta unidad?")) return;
+    const r = leerRepaso();
+    delete r[state.unidadActiva];
+    guardarRepaso();
+    state.quiz = null;
+    state.unidadActivaSeccion = null;
+    ponerHash(state.unidadActiva);
+    refreshUnidad();
+  };
   bindEquilibrioU3();
   bindUnirU3();
   bindViajeU2();
