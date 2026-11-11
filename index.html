@@ -126,9 +126,6 @@
   .biblio{ background:var(--blue-soft); border-color:rgba(50,114,185,0.25); border-left:4px solid var(--blue); }
   .biblio-cab{ font-weight:900; color:var(--blue-dark); font-size:16px; }
   .biblio-sub{ font-size:12.5px; color:var(--ink-soft); margin:2px 0 10px; }
-  .fey-check{ font-size:14px; margin:5px 0; }
-  .fey-si{ color:var(--verde); font-weight:900; }
-  .fey-no{ color:var(--rojo); font-weight:900; }
   .biblio-item{ font-size:13.5px; line-height:1.5; padding:6px 0; border-top:1px solid rgba(50,114,185,0.18); }
   .biblio-item:first-of-type{ border-top:none; padding-top:0; }
   .biblio-det{ color:var(--ink-soft); }
@@ -344,7 +341,7 @@ const DESDE_OPCION = {
 
 const NOMBRES_BANCOS = [ "U1_EFEQ_CONCEPTOS", "U2_QUIEN_DECIDE", "U1_REPASO", "U1_POSNORM", "U1_VF", "U1_LECTURA", "U1_GASPARINI", "U1_FANELLI", "U1_EFEQ", "U1_IGUALDAD", "U1_INDICES", "U1_COSTOP", "U2_FRASES", "U2_VF", "U2_SISTEMAS", "U2_ZALDUENDO", "U2_ESCUELAS", "U3_VF", "U3_ELASTICIDAD", "U3_MOVDESP", "U3_MUSGRAVE", "U3_RQUIZ", "U3_BIF", "U3_FALLAONO", "U3_RIESGO", "U3_REGULADOR", "U4_VF", "U4_BRECHAS", "U4_CICLOTEND", "U4_BRECHAS_REAL", "U4_CLASKEYN", "U4_FINANZAS", "U4_DINERO", "U4_DINERO_FINAL", "U5_REGIONES", "U5_SECTORES", "U5_ETAPAS", "U5_VF" ];
 
-const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, DUDAS_DATOS, UNIR_CONCEPTOS_DATOS, UNIR_AUTORES_DATOS, BIBLIO_DATOS, FEYNMAN_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
+const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, DUDAS_DATOS, UNIR_CONCEPTOS_DATOS, UNIR_AUTORES_DATOS, BIBLIO_DATOS, ...resto] = await Promise.all([ leerJSON("contenido/config.json", {}), leerJSON("contenido/actividades-nuevas.json", {
   actividades: []
 }), leerJSON("contenido/glosario.json", {
   terminos: []
@@ -360,8 +357,6 @@ const [CONFIG, NUEVAS, GLOSARIO_DATOS, UNIR_DATOS, EPH_DATOS, DUDAS_DATOS, UNIR_
   items: []
 }), leerJSON("contenido/bibliografia.json", {
   unidades: []
-}), leerJSON("contenido/feynman.json", {
-  temas: []
 }), ...[ 1, 2, 3, 4 ].map(u => leerJSON(`contenido/misiones/U${u}.json`, {
   misiones: []
 })), ...NOMBRES_BANCOS.map(n => leerJSON(`contenido/preguntas/${n}.json`, {
@@ -5238,11 +5233,6 @@ const CONTENIDO_UNIDAD = {
       desc: "Escasez, costo de oportunidad, FPP, ventajas y más",
       render: () => renderUnir("conceptos")
     }, {
-      id: "feynman",
-      titulo: "Explicalo con tus palabras",
-      desc: "Explicá un tema con tus palabras y mirá qué te faltó",
-      render: () => renderFeynman("I")
-    }, {
       id: "lectura",
       titulo: "Test de lectura: Buchanan (1964)",
       desc: '"¿Qué deberían hacer los economistas?"',
@@ -5644,20 +5634,6 @@ const CONTENIDO_UNIDAD = {
   }
 };
 
-const FEYNMAN = ((FEYNMAN_DATOS && FEYNMAN_DATOS.temas) || []).filter(t => lleno(t.unidad) && lleno(t.tema) && Array.isArray(t.ideas) && t.ideas.length).reduce((acc, t, i) => {
-  (acc[t.unidad] = acc[t.unidad] || []).push({ ...t, id: lleno(t.id) ? t.id : "t" + i, ideas: t.ideas.filter(x => lleno(x.idea)).map(x => ({ idea: x.idea, claves: (x.claves || []).filter(lleno).map(c => sinTildes(c)) })) });
-  return acc;
-}, {});
-
-Object.keys(CONTENIDO_UNIDAD).forEach(u => {
-  if (u !== "I" && (FEYNMAN[u] || []).length && !CONTENIDO_UNIDAD[u].secciones.some(s => s.id === "feynman")) CONTENIDO_UNIDAD[u].secciones.push({
-    id: "feynman",
-    titulo: "Explicalo con tus palabras",
-    desc: "Explicá un tema con tus palabras y mirá qué te faltó",
-    render: () => renderFeynman(u)
-  });
-});
-
 (function aplicarConfig() {
   for (const u of UNIDADES) {
     const def = CONTENIDO_UNIDAD[u.id];
@@ -6011,71 +5987,6 @@ function renderRepasoUnidad(unidadId) {
 }
 
 
-function feyTema() {
-  const f = state.fey;
-  return f && (FEYNMAN[f.u] || []).find(t => t.id === f.tema);
-}
-
-function revisarFeynman(tema, texto) {
-  const n = sinTildes(texto);
-  return tema.ideas.map(i => ({ idea: i.idea, ok: i.claves.some(c => n.includes(c)) }));
-}
-
-function renderFeynman(u) {
-  const f = state.fey && state.fey.u === u ? state.fey : (state.fey = { u: u, tema: null, texto: "", revision: null });
-  const temas = FEYNMAN[u] || [];
-  if (!f.tema) {
-    return `<div class="card"><p style="margin:0;font-size:14px;">Explicar un tema con tus palabras es una de las mejores formas de estudiar: ahí te das cuenta de qué entendiste y qué no. Elegí un tema, escribí tu explicación, y la página te muestra qué ideas clave mencionaste y cuáles te faltaron.</p></div>${temas.map(t => `<button class="list-item" data-fey-tema="${t.id}"><div><div class="title">${t.tema}</div><div class="desc">${t.ideas.length} ideas clave</div></div></button>`).join("")}`;
-  }
-  const t = feyTema();
-  if (!t) { f.tema = null; return renderFeynman(u); }
-  let resultado = "";
-  if (f.revision === "corta") resultado = `<div class="feedback bad">Escribí un poco más: dos o tres oraciones, como si se lo contaras a alguien.</div>`;
-  else if (f.revision) {
-    const bien = f.revision.filter(x => x.ok).length;
-    resultado = `<div class="card"><h3 style="font-size:15px;margin-bottom:8px;">Tu explicación: ${bien} de ${f.revision.length} ideas clave</h3>${f.revision.map(x => `<div class="fey-check"><span class="${x.ok ? "fey-si" : "fey-no"}">${x.ok ? "✓" : "✗"}</span> ${x.idea}</div>`).join("")}<p class="nota-chica" style="margin:10px 0 0;">La revisión busca palabras clave: si dijiste una idea con otras palabras, puede que no la detecte. Comparala con la explicación modelo.</p><details class="plegable" style="margin-top:10px;"><summary>Ver la explicación modelo</summary><div class="plegable-cuerpo" style="font-size:14px;line-height:1.6;">${t.modelo || ""}</div></details>${CONFIG.asistente && /^https:\/\//.test(CONFIG.asistente.url || "") ? `<button class="btn block" data-fey-asistente="1" style="margin-top:12px;">Pedile una devolución al asistente ↗</button><div id="fey-copiado"></div>` : ""}</div>`;
-  }
-  return `<button class="glos-ir" data-fey-volver="1" style="display:block;margin:2px 0 10px;">‹ Elegir otro tema</button><div class="card"><div class="eyebrow" style="margin:0 0 4px;">Explicalo con tus palabras</div><h3 style="font-size:17px;margin-bottom:6px;">${t.tema}</h3><p class="sub" style="margin:0;">${t.consigna || "Explicalo como si se lo contaras a un compañero que faltó a clase."}</p></div><div class="card"><textarea id="fey-texto" rows="7" placeholder="Escribí tu explicación…">${escaparHTML(f.texto)}</textarea><button class="btn block" data-fey-revisar="1">Revisar mi explicación</button></div>${resultado}`;
-}
-
-function bindFeynman() {
-  document.querySelectorAll("[data-fey-tema]").forEach(b => {
-    b.onclick = () => {
-      state.fey = { u: state.unidadActiva, tema: b.dataset.feyTema, texto: "", revision: null, inicio: Date.now() };
-      refreshUnidad();
-      irAlDetalle();
-    };
-  });
-  const volver = document.querySelector("[data-fey-volver]");
-  if (volver) volver.onclick = () => {
-    state.fey.tema = null;
-    refreshUnidad();
-  };
-  const area = document.getElementById("fey-texto");
-  if (area) area.oninput = () => { state.fey.texto = area.value; };
-  const rev = document.querySelector("[data-fey-revisar]");
-  if (rev) rev.onclick = () => {
-    const f = state.fey, t = feyTema();
-    f.texto = document.getElementById("fey-texto").value.trim();
-    if (f.texto.split(/\s+/).filter(Boolean).length < 12) { f.revision = "corta"; refreshUnidad(); return; }
-    f.revision = revisarFeynman(t, f.texto);
-    const bien = f.revision.filter(x => x.ok).length;
-    registrarResultado({ clave: `${f.u}-feynman-${t.id}`, nota: Math.round(bien / f.revision.length * 100) / 10, correctas: bien, total: f.revision.length, falladas: f.revision.filter(x => !x.ok).map(x => x.idea), inicio: f.inicio });
-    refreshUnidad();
-  };
-  const as = document.querySelector("[data-fey-asistente]");
-  if (as) as.onclick = async () => {
-    const f = state.fey, t = feyTema(), def = CONTENIDO_UNIDAD[f.u];
-    const pedido = `Te voy a explicar con mis palabras el tema "${t.tema}" de la Unidad ${f.u} (${def ? def.nombre : ""}) de Introducción a la Economía. Corregí mi explicación usando solo la bibliografía de la cátedra: decime qué está bien, qué está mal o incompleto, y cómo la mejorarías.\n\nMi explicación:\n"${f.texto}"`;
-    const caja = document.getElementById("fey-copiado");
-    let copiado = false;
-    try { await navigator.clipboard.writeText(pedido); copiado = true; } catch (e) {}
-    caja.innerHTML = copiado ? `<div class="feedback ok" style="margin-top:10px;">Copiamos tu explicación. En el asistente, pegala en el chat y enviala.</div>` : `<div class="feedback ok" style="margin-top:10px;">Copiá este texto y pegalo en el chat del asistente:</div><textarea rows="6" readonly>${escaparHTML(pedido)}</textarea>`;
-    evento("feynman_asistente", { tema: t.id });
-    window.open(CONFIG.asistente.url, "_blank", "noopener");
-  };
-}
-
 function viewUnidad(unidadId) {
   const u = state.unidadActivaSeccion;
   const def = CONTENIDO_UNIDAD[unidadId];
@@ -6371,7 +6282,6 @@ function bindUnidad() {
   bindExternalidadesU3();
   bindPlazaU3();
   bindEPHU4();
-  bindFeynman();
   bindFormulario();
   const vaciar = document.querySelector("[data-repaso-vaciar]");
   if (vaciar) vaciar.onclick = () => {
