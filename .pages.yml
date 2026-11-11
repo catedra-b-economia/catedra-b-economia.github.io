@@ -45,6 +45,11 @@ content:
           - { name: url, label: Link del Gem, type: string, description: "Si queda vacío, no se muestra el botón." }
           - { name: texto, label: Texto del botón, type: string }
           - { name: aclaracion, label: Aclaración debajo del botón, type: text }
+      - name: encuesta
+        label: Encuesta por unidad (Google Forms)
+        type: object
+        fields:
+          - { name: vinculo_prellenado, label: Vínculo prellenado, type: string, description: "Con UNIDAD, CLARIDAD, TEMA, UTILIDAD, BIBLIOGRAFIA y COMENTARIO. Si queda vacío, no se muestra la encuesta." }
       - name: formulario
         label: Formulario de dudas (Google Forms)
         type: object

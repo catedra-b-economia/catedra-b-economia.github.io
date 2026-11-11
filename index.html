@@ -126,6 +126,13 @@
   .biblio{ background:var(--blue-soft); border-color:rgba(50,114,185,0.25); border-left:4px solid var(--blue); }
   .biblio-cab{ font-weight:900; color:var(--blue-dark); font-size:16px; }
   .biblio-sub{ font-size:12.5px; color:var(--ink-soft); margin:2px 0 10px; }
+  .enc-preg{ font-weight:700; font-size:14px; margin:12px 0 6px; }
+  .enc-escala{ display:grid; grid-template-columns:repeat(5,1fr); gap:6px; }
+  .enc-op{ border:1px solid var(--rule); background:#fff; border-radius:var(--radius); padding:7px 2px; display:flex; flex-direction:column; align-items:center; gap:2px; color:var(--ink); }
+  .enc-op strong{ font-size:15px; }
+  .enc-op span{ font-size:10.5px; color:var(--ink-soft); line-height:1.2; text-align:center; }
+  .enc-op.activo{ background:var(--blue); border-color:var(--blue); color:#fff; }
+  .enc-op.activo span{ color:#fff; }
   .biblio-item{ font-size:13.5px; line-height:1.5; padding:6px 0; border-top:1px solid rgba(50,114,185,0.18); }
   .biblio-item:first-of-type{ border-top:none; padding-top:0; }
   .biblio-det{ color:var(--ink-soft); }
@@ -5987,6 +5994,116 @@ function renderRepasoUnidad(unidadId) {
 }
 
 
+const ENCUESTA = (() => {
+  try {
+    const u = new URL(CONFIG.encuesta && CONFIG.encuesta.vinculo_prellenado);
+    const campos = {};
+    u.searchParams.forEach((v, k) => {
+      if (k.startsWith("entry.")) campos[v.trim().toUpperCase()] = k;
+    });
+    if (!/docs\.google\.com$/.test(u.hostname) || !campos.UNIDAD) return null;
+    return { accion: u.origin + u.pathname.replace(/\/viewform$/, "/formResponse"), campos: campos };
+  } catch (e) {
+    return null;
+  }
+})();
+
+const CLAVE_ENCUESTAS = "catedraB-encuestas";
+
+function encuestasRespondidas() {
+  try {
+    return JSON.parse(localStorage.getItem(CLAVE_ENCUESTAS) || "{}") || {};
+  } catch (e) {
+    return state.encuestasHechas || {};
+  }
+}
+
+function marcarEncuesta(u) {
+  const r = encuestasRespondidas();
+  r[u] = new Date().toISOString().slice(0, 10);
+  state.encuestasHechas = r;
+  try {
+    localStorage.setItem(CLAVE_ENCUESTAS, JSON.stringify(r));
+  } catch (e) {}
+}
+
+const ESCALA_CLARIDAD = [ "Nada clara", "Poco", "Más o menos", "Bastante", "Muy clara" ];
+const ESCALA_UTILIDAD = [ "Nada", "Poco", "Algo", "Bastante", "Mucho" ];
+const OPCIONES_BIBLIO = [ "Sí, toda", "En parte", "Todavía no" ];
+
+function viewEncuesta(unidadId) {
+  if (!ENCUESTA) return "";
+  const e = state.encuesta && state.encuesta.unidad === unidadId ? state.encuesta : null;
+  if (!e) {
+    if (encuestasRespondidas()[unidadId]) return `<p class="nota-chica" style="text-align:center;margin:10px 0 0;">Gracias por responder la encuesta de esta unidad.</p>`;
+    return `<button class="btn secondary block" data-encuesta-abrir="1" style="margin-top:10px;">¿Cómo te fue con esta unidad? Contanos en 30 segundos</button>`;
+  }
+  if (e.enviado) return `<div class="feedback ok" style="margin-top:10px;">¡Gracias! Tu respuesta nos ayuda a mejorar la cursada.</div>`;
+  const escala = (k, et) => `<div class="enc-escala">${et.map((l, i) => `<button class="enc-op ${e[k] === i + 1 ? "activo" : ""}" data-enc="${k}" data-v="${i + 1}"><strong>${i + 1}</strong><span>${l}</span></button>`).join("")}</div>`;
+  return `<div class="card" style="margin-top:10px;"><h3 style="font-size:15px;margin-bottom:2px;">Encuesta de la Unidad ${unidadId}</h3><p class="sub" style="margin:0 0 12px;">Es anónima: no te pedimos nombre.</p>
+    <div class="enc-preg">¿Qué tan clara te quedó la unidad?</div>${escala("claridad", ESCALA_CLARIDAD)}
+    <div class="enc-preg">¿Qué tema te costó más?</div><input type="text" id="enc-tema" value="${escaparHTML(e.tema)}" placeholder="Por ejemplo: la frontera de posibilidades" maxlength="200">
+    <div class="enc-preg">¿Cuánto te sirvieron las actividades de la página para estudiar?</div>${escala("utilidad", ESCALA_UTILIDAD)}
+    <div class="enc-preg">¿Leíste la bibliografía de la unidad?</div><div class="chips-fila">${OPCIONES_BIBLIO.map(o => `<button class="chip-btn ${e.biblio === o ? "activo" : ""}" data-enc="biblio" data-v="${o}">${o}</button>`).join("")}</div>
+    <div class="enc-preg">Comentario o sugerencia <span style="font-weight:400;color:var(--ink-soft);">(opcional)</span></div><textarea id="enc-comentario" rows="3" maxlength="1000">${escaparHTML(e.comentario)}</textarea>
+    ${e.error ? `<div class="feedback bad">${e.error}</div>` : ""}
+    <div class="chips-fila" style="margin:4px 0 0;"><button class="btn" data-encuesta-enviar="1" ${e.enviando ? "disabled" : ""}>${e.enviando ? "Enviando…" : "Enviar"}</button><button class="btn secondary" data-encuesta-cerrar="1">Cancelar</button></div></div>`;
+}
+
+function bindEncuesta() {
+  const abrir = document.querySelector("[data-encuesta-abrir]");
+  if (abrir) abrir.onclick = () => {
+    state.encuesta = { unidad: state.unidadActiva, tema: "", comentario: "" };
+    refreshUnidad();
+    const c = document.querySelector(".enc-preg");
+    if (c) try { c.closest(".card").scrollIntoView({ block: "start", behavior: "smooth" }); } catch (err) {}
+  };
+  const guardarTextos = () => {
+    const t = document.getElementById("enc-tema"), c = document.getElementById("enc-comentario");
+    if (t) state.encuesta.tema = t.value;
+    if (c) state.encuesta.comentario = c.value;
+  };
+  document.querySelectorAll("[data-enc]").forEach(b => {
+    b.onclick = () => {
+      guardarTextos();
+      const k = b.dataset.enc;
+      state.encuesta[k] = k === "biblio" ? b.dataset.v : +b.dataset.v;
+      state.encuesta.error = "";
+      refreshUnidad();
+    };
+  });
+  const cerrar = document.querySelector("[data-encuesta-cerrar]");
+  if (cerrar) cerrar.onclick = () => { state.encuesta = null; refreshUnidad(); };
+  const enviar = document.querySelector("[data-encuesta-enviar]");
+  if (enviar) enviar.onclick = async () => {
+    guardarTextos();
+    const e = state.encuesta;
+    if (!e.claridad || !e.utilidad || !e.biblio) { e.error = "Respondé las preguntas de opciones (claridad, utilidad y bibliografía)."; refreshUnidad(); return; }
+    e.error = ""; e.enviando = true; refreshUnidad();
+    const def = CONTENIDO_UNIDAD[e.unidad];
+    const valores = {
+      UNIDAD: `Unidad ${e.unidad}${def ? " · " + def.nombre : ""}`,
+      CLARIDAD: String(e.claridad),
+      TEMA: (e.tema || "").trim(),
+      UTILIDAD: String(e.utilidad),
+      BIBLIOGRAFIA: e.biblio,
+      COMENTARIO: (e.comentario || "").trim()
+    };
+    const cuerpo = new URLSearchParams();
+    Object.entries(valores).forEach(([k, v]) => { if (ENCUESTA.campos[k]) cuerpo.append(ENCUESTA.campos[k], v); });
+    try {
+      await fetch(ENCUESTA.accion, { method: "POST", mode: "no-cors", headers: { "Content-Type": "application/x-www-form-urlencoded" }, body: cuerpo.toString() });
+      e.enviado = true;
+      marcarEncuesta(e.unidad);
+      evento("encuesta_enviada", { unidad: e.unidad });
+    } catch (err) {
+      e.error = "No se pudo enviar. Revisá la conexión y probá de nuevo.";
+    }
+    e.enviando = false;
+    if (state.encuesta === e) refreshUnidad();
+  };
+}
+
 function viewUnidad(unidadId) {
   const u = state.unidadActivaSeccion;
   const def = CONTENIDO_UNIDAD[unidadId];
@@ -5995,7 +6112,7 @@ function viewUnidad(unidadId) {
     const nRep = repasoDeUnidad(unidadId).length;
     const repaso = nRep ? `<button class="list-item repaso-item" data-seccion="errores"><div><div class="title">Repasar mis errores <span class="repaso-n">${nRep}</span></div><div class="desc">Las preguntas que fallaste en esta unidad</div></div></button>` : "";
     const items = repaso + def.secciones.map(s => `<button class="list-item" data-seccion="${s.id}"><div><div class="title">${s.titulo}</div><div class="desc">${s.desc}</div></div></button>`).join("");
-    return `\n        <div class="card">\n          <h3 style="font-size:15px; margin-bottom:2px;">Unidad ${unidadId} · ${def.nombre}</h3>\n        </div>${viewBibliografia(unidadId)}${items}${viewDudasUnidad(unidadId)}${viewFormulario("duda", unidadId)}${cerrar}`;
+    return `\n        <div class="card">\n          <h3 style="font-size:15px; margin-bottom:2px;">Unidad ${unidadId} · ${def.nombre}</h3>\n        </div>${viewBibliografia(unidadId)}${items}${viewEncuesta(unidadId)}${viewDudasUnidad(unidadId)}${viewFormulario("duda", unidadId)}${cerrar}`;
   }
   if (u === "errores") return `<button class="backbtn" data-seccion-back="1">‹ Unidad ${unidadId}</button>${renderRepasoUnidad(unidadId)}<button class="btn secondary block" data-seccion-back="1" style="margin-top:18px;">Volver a la lista de actividades</button>${cerrar}`;
   const seccion = def.secciones.find(s => s.id === u);
@@ -6283,6 +6400,7 @@ function bindUnidad() {
   bindPlazaU3();
   bindEPHU4();
   bindFormulario();
+  bindEncuesta();
   const vaciar = document.querySelector("[data-repaso-vaciar]");
   if (vaciar) vaciar.onclick = () => {
     if (!confirm("¿Vaciar la lista de preguntas para repasar de esta unidad?")) return;
