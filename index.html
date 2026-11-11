@@ -42,8 +42,9 @@
   main{ max-width:660px; margin:0 auto; padding:24px 20px 64px; }
   .accent-bar{ width:120px; height:3px; background:var(--blue-bright); margin-bottom:16px; }
   .eyebrow{ font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--blue); font-weight:700; margin-bottom:6px; }
-  .eyebrow-crest{ display:flex; align-items:center; gap:8px; }
-  .eyebrow-crest::before{ content:"B"; display:inline-flex; align-items:center; justify-content:center; width:18px; height:18px; background:var(--blue); color:#fff; font-weight:900; font-size:11px; border-radius:2px; flex-shrink:0; }
+  .marca{ display:flex; align-items:center; gap:14px; margin-bottom:14px; padding-top:14px; border-top:3px solid var(--blue-bright); }
+  .marca-logo{ width:64px; height:64px; flex-shrink:0; display:block; }
+  .marca-docente{ font-size:12px; letter-spacing:0.08em; text-transform:uppercase; color:var(--ink-soft); font-weight:700; }
   h1{ font-size:27px; margin-bottom:6px; line-height:1.25; }
   .sub{ font-size:14px; color:var(--ink-soft); margin-bottom:22px; }
   .path{ position:relative; }
@@ -549,7 +550,7 @@ function botonesPortada() {
 
 function viewUnidades() {
   const nodos = UNIDADES.map(u => u.habilitada ? `\n      <div class="node clickable" data-unidad="${u.id}">\n        <div class="dot unlocked">${u.id}</div>\n        <div class="node-cuerpo">\n          <div class="title">${u.nombre}</div>\n          <div class="status unlocked">${CONTENIDO_UNIDAD[u.id].secciones.length} actividades</div>\n        </div>\n      </div>` : `\n      <div class="node">\n        <div class="dot locked">${u.id}</div>\n        <div class="node-cuerpo">\n          <div class="title">${u.nombre}</div>\n          <div class="status locked">Próximamente</div>\n        </div>\n      </div>`).join("");
-  return `\n      <div class="aviso">Esto no reemplaza la bibliografía ni al AU24: <u>SON COMPLEMENTARIOS</u>.</div>\n      <div class="accent-bar"></div>\n      <div class="eyebrow eyebrow-crest">${CURSO.docente}</div>\n      <h1>${CURSO.nombre}</h1>\n      <div class="sub">Practicá los contenidos de la materia unidad por unidad. Elegí una y entrá.</div>\n      <div class="path">${nodos}</div>\n      ${botonesPortada()}\n      <div id="unidad-detalle">${renderUnidadDetalle()}</div>\n      ${pieConsentimiento()}\n    `;
+  return `\n      <div class="aviso">Esto no reemplaza la bibliografía ni al AU24: <u>SON COMPLEMENTARIOS</u>.</div>\n      <div class="marca">\n        <img class="marca-logo" src="iconos/icono-192.png" alt="" width="64" height="64">\n        <div>\n          <div class="eyebrow" style="margin-bottom:2px;">Introducción a la Economía <span style="white-space:nowrap;">· Cátedra&nbsp;B</span></div>\n          <h1 style="margin-bottom:2px;">${CURSO.nombre}</h1>\n          <div class="marca-docente">${CURSO.docente}</div>\n        </div>\n      </div>\n      <div class="sub">Practicá los contenidos de la materia unidad por unidad. Elegí una y entrá.</div>\n      <div class="path">${nodos}</div>\n      ${botonesPortada()}\n      <div id="unidad-detalle">${renderUnidadDetalle()}</div>\n      ${pieConsentimiento()}\n    `;
 }
 
 function renderUnidadDetalle() {
